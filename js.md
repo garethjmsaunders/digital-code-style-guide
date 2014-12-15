@@ -2,6 +2,7 @@
 
 We use JSLint as a standard specification for our code. That implies some decisions about style. This document highlights some of the more important ramifications of JSLint and any additional stylistic requirements we have. See the full documentation [JSLint](http://www.jslint.com/lint.html) for more information.
 
+TODO: Merge in style guide advice from Douglas Crockford (author of JSLint) http://javascript.crockford.com/code.html
 
 ### Naming conventions
 

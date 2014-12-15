@@ -26,7 +26,7 @@ For simplicity, we use the html5 doctype:
 
 * Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br>` tags.
 * Items in list form should always be in `<ul>`, `<ol>`, or `<dl>`. Never use a set of `<div>` or `<p>`.
-* Every form input that has text attached should utilize a <label> tag. Especially radio or checkbox elements.
+* Every form input that has text attached should utilize a `<label>` tag. Especially radio or checkbox elements.
 * Even though quotes around attributes is optional, always put quotes around attributes for readability.
 * <mark>Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.</mark>
 * Avoid trailing slashes in self-closing elements. For example, `<br>`, `<hr>`, `<img>`, and `<input>`.
@@ -46,7 +46,7 @@ Many attributes don't require a value to be set, like disabled or checked, so do
 <input type="checkbox" value="1" checked>
 
 <select>
-<option value="1" selected>1</option>
+    <option value="1" selected>1</option>
 </select>
 ```
 
@@ -59,7 +59,7 @@ Whenever possible, avoid superfluous parent elements when writing HTML. Many tim
 ```
 <!-- Not so great -->
 <span class="avatar">
-<img src="...">
+    <img src="...">
 </span>
 
 <!-- Better -->
@@ -107,7 +107,7 @@ A standard format for the `<title></title>` tag.
 <mark>Thoughts on using the dot `·` instead of `-`?</mark>
 
 ```
-PAGENAME · University of St Andrews
+Page name · University of St Andrews
 ```
 
 For example:
@@ -150,7 +150,7 @@ We use error pages for very specific purposes.
 * **422** — When Nginx can't figure out what to do with your request, you could get this.
 <mark>See Github [422](https://github.com/422.html). Don't need this.</mark>
 
-* **maintenance** — For the rare case we must take the website down to perform maintenance. <mark>See Github [maintenance](https://github.com/maintenance.html). Don't need this.</mark>
+* **maintenance** — For the rare case we must take the website down to perform maintenance. <mark>See Github [maintenance](https://github.com/maintenance.html). May need this for other systems, e.g. Pure.</mark>
 
 
 
