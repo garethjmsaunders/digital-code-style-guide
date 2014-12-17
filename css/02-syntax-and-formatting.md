@@ -1,21 +1,135 @@
-## Syntax and formatting
+CSS code style guide
 
-One of the simplest forms of a style guide is a set of rules regarding syntax and formatting. Having a standard way of writing CSS means that code will always look and feel familiar to all members of the team.
+# 2. Syntax and formatting
+
+One of the simplest forms of a style guide is a set of rules regarding syntax and formatting. Having a standard way of writing CSS means that code will always look and feel familiar to all members of the team; consistency is key.
+
 Further, code that looks clean feels clean. It is a much nicer environment to work in, and prompts other team members to maintain the standard of cleanliness that they found. Ugly code sets a bad precedent.
 
 
-### tl;dr
 
-At a very high-level, we want:
 
-*   four (4) space indents, no tabs;
-*   one true brace (1TBS) style indentation;
-*   multi-line CSS;
-*   80 character wide columns;
-*   meaningful use of whitespace.
 
-But, as with anything, the specifics are somewhat irrelevant—consistency is key.
+## In this section
+<!-- MarkdownTOC -->
 
+- [Anatomy of a ruleset](#anatomy-of-a-ruleset)
+- [80 characters wide](#80-characters-wide)
+- [Block style](#block-style)
+    - [Multi-line CSS](#multi-line-css)
+    - [Four (4) space indents, no tabs](#four-4-space-indents-no-tabs)
+        - [Indenting Sass](#indenting-sass)
+    - [Colons and semicolons, braces and spaces](#colons-and-semicolons-braces-and-spaces)
+    - [Order of declarations](#order-of-declarations)
+        - [Positioned elements](#positioned-elements)
+        - [Vendor prefixes](#vendor-prefixes)
+    - [Alignment](#alignment)
+- [Meaningful whitespace](#meaningful-whitespace)
+- [Syntax](#syntax)
+    - [Colours](#colours)
+        - [Colour keywords](#colour-keywords)
+        - [Prefer RGB over hex](#prefer-rgb-over-hex)
+        - [Alpha transparency](#alpha-transparency)
+        - [Hex codes](#hex-codes)
+    - [Quotation marks](#quotation-marks)
+        - [Font-family](#font-family)
+        - [URLs](#urls)
+    - [Shorthand properties](#shorthand-properties)
+        - [Background](#background)
+        - [Border](#border)
+        - [List-style](#list-style)
+        - [Margin and padding](#margin-and-padding)
+    - [Units](#units)
+    - [Zero](#zero)
+
+<!-- /MarkdownTOC -->
+
+
+
+
+
+
+## Anatomy of a ruleset
+
+Before we discuss how we write out our rulesets, let's first familiarise ourselves with the relevant terminology.
+
+Every CSS rule has two parts: 
+
+1.   a selector
+2.   a declaration block, containing one or more declarations.
+
+
+This is a RULE:
+
+```
+h1, h2,
+.foo, .foo-bar,
+#baz {
+    background-color: green;
+    color: red;
+    display: block;
+}
+```
+
+
+These are SELECTORS:
+
+```
+h1, h2,
+.foo, .foo-bar,
+#baz
+```
+
+
+This is a DECLARATION BLOCK:
+
+```
+{
+    background-color: green;
+    color: red;
+    display: block;
+}
+```
+
+
+This is a DECLARATION:
+
+```
+    background-color: green;
+```
+
+Each declaration is a pairing of a property name and a property value separated by a colon, and concluding with a semi-colon.
+
+Property-name     `background-color`
+Property-value    `green`
+
+
+
+
+
+## 80 characters wide
+
+Where possible, limit CSS files' width to 80 characters. Reasons for this include:
+
+*   the ability to have multiple files open side by side;
+*   viewing CSS on sites like GitHub, or in terminal windows;
+*   providing a comfortable line length for comments.
+
+```
+/**
+ * I am a long-form comment. I describe, in detail, the CSS that follows. I am
+ * such a long comment that I easily break the 80 character limit, so I am
+ * broken across several lines.
+ */
+```
+
+There will be unavoidable exceptions to this rule—such as URLs, or gradient syntax. These shouldn't be worried about.
+
+
+
+
+
+## Block style
 
 ### Multi-line CSS
 
@@ -49,27 +163,43 @@ These types of ruleset benefit from being single-lined because:
     thoroughly as other rulesets—there is more benefit in being able to scan their selectors, which are of more interest to us in these cases.
 
 
-### Indenting
+### Four (4) space indents, no tabs
+
+The purpose of indentation in CSS is to improve the legibility of the code and optionally to also understand the structure of the HTML documents being styled.
+
+The debates about tabs-vs-spaces and two-vs-four-spaces are much older than CSS development. What matters though are:
+
+*   Consistency in documents and across projects
+*   Code legibility
+
+With this in mind we recommend:
+
+*    Indent declarations with 4 spaces.
+*    Never mix tabs and spaces. Code indented with a mixture of tabs and 
+     spaces should be converted to using spaces only; if your coding editor allows, set the option to convert tabs to spaces.
+
 As well as intending individual declarations, you MAY indent entire related rulesets to signal their relation to one another, for example:
 
-TODO: Review this in light of advice given in 'Pro CSS for High Traffic Websites' book, p.42.
-
-
 ```
-.foo {}
+.foo {
+    // code
+}
 
-    .foo__bar {}
+    .foo__bar {
+        // code
+    }
 
-        .foo__baz {}
+        .foo__baz {
+            // code
+        }
 ```
 
-By doing this, a developer can see at a glance that `.foo__baz {}` lives inside `.foo__bar {}` lives inside `.foo {}`.
+By doing this, a developer can see at a glance that `.foo__baz {}` lives inside `.foo_bar {}` lives inside `.foo {}`.
 
 This quasi-replication of the DOM tells developers a lot about where classes are expected to be used without them having to refer to a snippet of HTML.
 
 
-### Indenting Sass
-
+#### Indenting Sass
 Sass provides nesting functionality. That is to say, by writing this:
 
 ```
@@ -95,172 +225,12 @@ When indenting Sass, we stick to the same four (4) spaces, and we also leave a b
 N.B. Nesting in Sass should be avoided wherever possible. See the Specificity section for more details.
 
 
-### 80 characters wide
+### Colons and semicolons, braces and spaces
 
-Where possible, limit CSS files' width to 80 characters. Reasons for this include:
-
-*   the ability to have multiple files open side by side;
-*   viewing CSS on sites like GitHub, or in terminal windows;
-*   providing a comfortable line length for comments.
+Taking this example rule:
 
 ```
-/**
- * I am a long-form comment. I describe, in detail, the CSS that follows. I am
- * such a long comment that I easily break the 80 character limit, so I am
- * broken across several lines.
- */
-```
-
-There will be unavoidable exceptions to this rule—such as URLs, or gradient syntax—which shouldn't be worried about.
-
-
-### File info
-
-All CSS files should begin with the following standard template to describe the file. This follows the CSSdoc conventions for commenting.
-
-See [CSS Automatic Documentation](https://github.com/Paratron/CSSdoc)
-
-At least the version number should be updated every time you make a change, especially once the file goes into production.
-
-TODO: This is currently a combination of docblock and CSSdoc -- is that okay?
-TODO: What information is required here?
-
-
-```
-/**
- * Stylesheet title
- * 
- * Long description about the file, what it is for, its scope, and
- * optionally when it may expire. The description should consist of
- * normal sentences with punctuation.
- *
- * @project     Project name
- * @version     1.0
- * @author      gjms1
- * @copyright   2014
- * @license     Apache 2.0
-*/
-```
-
-
-### Table of contents
-
-A table of contents is a fairly substantial maintenance overhead, but the benefits it brings far outweigh any costs. It takes a diligent developer to keep a table of contents up to date, but it is well worth sticking with. An up-to-date table of contents provides a team with a single, canonical catalogue of what is in a CSS project, what it does, and in what order.
-
-A simple table of contents will—in order, naturally—simply provide the name of the section and a brief summary of what it is and does, for example:
-
-```
-/**
- * CONTENTS
- *
- * SETTINGS
- * Global...............Globally-available variables and config.
- *
- * TOOLS
- * Mixins...............Useful mixins.
- *
- * GENERIC
- * Normalize.css........A level playing field.
- * Box-sizing...........Better default `box-sizing`.
- *
- * BASE
- * Headings.............Single element selectors, e.g. H1–H6 styles.
- *
- * LAYOUT
- * Page-head............The main page header.
- * Page-foot............The main page footer.
- *
- * MODULES
- * Patterns.............Reusable, modular parts of the design.
- * Buttons..............Button elements.
- *
- * STATE RULES
- * States...............Hidden or expanded, active or inactive.
- */
-```
-
-Each item maps to a section and/or include.
-
-Naturally, this section would be substantially larger on the majority of projects, but hopefully we can see how this section—in the master stylesheet—provides developers with a project-wide view of what is being used where, and why.
-
-
-### Section titles
-
-Begin every new major section of a CSS project with a title:
-
-
-This is Harry Roberts' style:
-
-```
-/*------------------------------------*\
-    SECTION-TITLE
-\*------------------------------------*/
-
-.selector {}
-```
-
-@TODO It might make sense to use the CSSdoc convention here, to keep things consistent, e.g.
-
-```
-*------------------------------------
-    Introducional area
-    This area is used right underneath the page head menu.
-    It increases the color contrast and font size of the child elements (h1, p).
-    The intro area is a bit darker than the rest of the page to make it pop out.
-
-    @TODO Add rounded corners - looks nicer.
-    @package content
-    @since 2
-*/
-```
-
-
-The title of the section is prefixed with a hash () symbol to allow us to perform more targeted searches (e.g. grep, etc.): instead of searching for just SECTION-TITLE—which may yield many results—a more scoped search of SECTION-TITLE should return only the section in question.
-
-Leave a carriage return between this title and the next line of code (be that a comment, some Sass, or some CSS).
-
-If you are working on a project where each section is its own file, this title should appear at the top of each one. If you are working on a project with multiple sections per file, each title should be preceded by five (5) carriage returns. This extra whitespace coupled with a title makes new sections much easier to spot when scrolling through large files:
-
-```
-/*------------------------------------*\
-    A-SECTION
-\*------------------------------------*/
-
-.selector {}
-
-
-
-
-
-/*------------------------------------*\
-    ANOTHER-SECTION
-\*------------------------------------*/
-
-/**
- * Comment
- */
-
-.another-selector {}
-```
-
-### Anatomy of a ruleset
-
-Before we discuss how we write out our rulesets, let's first familiarise ourselves with the relevant terminology.
-
-Every CSS rule has two parts: a selector and a declaration block which is wrapped in braces: {}.
-
-```
-[selector] {
-    [property]: [value];
-    [<--declaration--->]
-}
-```
-
-For example:
-
-
-```
-.foo, .foo--bar,
+.foo, .foo-bar,
 .baz {
     background-color: green;
     color: red;
@@ -268,39 +238,91 @@ For example:
 }
 ```
 
-Here you can see we have:
+here you can see we have:
 
-*   related selectors on the same line; unrelated selectors on new lines;
-*   a space before our opening brace ({);
-*   properties and values on the same line;
-*   a space after our property–value delimiting colon (:);
-*   each declaration on its own new line;
-*   the opening brace ({) on the same line as our last selector;
-*   our first declaration on a new line after our opening brace ({);
-*   our closing brace (}) on its own new line;
-*   each declaration indented by four (4) spaces;
-*   a trailing semi-colon (;) on our last declaration.
+*   Related selectors on the same line; unrelated selectors on new lines.
+*   The opening brace ({) on the same line as the last selector.
+*   A space before the opening brace ({).
+*   Each declaration on its own new line; the first declaration on a new line 
+    after the opening brace ({);
+*   Properties and values on the same line.
+*   No space between the property-name and colon (:).
+*   A space after the property–value delimiting colon (:).
+*   Each declaration indented by four (4) spaces;
+*   A trailing semi-colon (;) MUST be included after our last declaration; this
+    enables authors to add new declarations after it without the possibility of
+    missing colons introducing errors.
+*   The closing brace (}) must be on its own new line using the same level of 
+    indentation as its opening selectors.
 
-This format seems to be the largely universal standard (except for variations in number of spaces, with a lot of developers preferring two (2)).
+This format seems to be the largely universal standard, except for variations in number of spaces, many developers prefer two (2).
 
-As such, the following would be incorrect:
+
+
+
+
+### Order of declarations
+
+Multiple selectors should be listed in alphabetical order as this makes it much easier to find declaration blocks.
 
 ```
-.foo, .foo--bar, .baz
-{
-  display:block;
-  background-color:green;
-  color:red }
+.foo {
+    border-top: 1px solid rgb(224, 224, 224);
+    color: black;
+    display: block;
+    line-height: 22px;
+    margin: 0;
+    overflow: hidden;
+    text-decoration: none;
+    width: 180px;
+}
 ```
 
-Problems here include:
 
-*   tabs instead of spaces;
-*   unrelated selectors on the same line;
-*   the opening brace ({) on its own line;
-*   the closing brace (}) does not sit on its own line;
-*   the trailing (and, admittedly, optional) semi-colon (;) is missing;
-*   no spaces after colons (:).
+#### Positioned elements
+
+An exception is where elements are being positioned on the page. In this case it can help to group the `top`, `right`, `bottom`, and `left` declarations (in that order) immediately after `position`:
+
+```
+.foo {
+    border-top: 1px solid black;
+    color: black;
+    display: block;
+    line-height: 22px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+        top:    0;
+        right:  0;
+        bottom: 0;
+        left:   0;
+    text-decoration: none;
+    width: 180px;
+}
+```
+
+#### Vendor prefixes
+
+Another exception is prefixed vendor-specific property pairs which should appear directly before the generic property to which they refer. This allows newer browsers that support the W3C standards to use the final declaration.
+
+```
+.foo {
+    border: 1px solid black;
+    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+         -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    display: none;
+    float: left;
+}
+```
+
+It can greatly aid readability if the prefixes are ordered from longest to shortest: `-webkit-`, `-moz-`, `-ms-`, `-o-`.
+
+
+
+
 
 ### Alignment
 
@@ -328,7 +350,11 @@ Attempt to align common and related identical strings in declarations, for examp
 
 This makes life a little easier for developers whose text editors support column editing, allowing them to change several identical and aligned lines in one go.
 
-### Meaningful whitespace
+
+
+
+
+## Meaningful whitespace
 
 As well as indentation, we can provide a lot of information through liberal and judicious use of whitespace between rulesets. We use:
 
@@ -374,4 +400,214 @@ There should never be a scenario in which two rulesets do not have an empty line
 ```
 
 
+
+
+
+## Syntax
+
+
+### Colours
+
+
+#### Colour keywords
+
+The [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/#html4) specification defines 16 basic colour keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
+
+You may use `black` and `white`. Do not use the other values, except in debug files.
+
+
+#### Prefer RGB over hex
+
+Use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there MUST be a space after each comma.
+
+The reason for preferring RGB is three-fold:
+
+1.   Colours in RGB format are easier to guess.
+2.   It is quicker to add transparency if required (see alpha transparency)
+     below.
+3.   RGB format is more widely supported in graphic design applications.
+
+To expand on the first reason, while colours on the web have traditionally been specified using hex codes (e.g. St Andrews Blue is `#00539b`) it is not as easy to estimate the colour just by looking at the code, unless you can convert hex to decimal in your head. For example, at a glance `rgb(0, 83, 155)` has about 60% blue and 30% green so you may safely estimate that this is dark blue.
+
+
+#### Alpha transparency
+
+Specifying colours in `rgb(r, g, b)` format makes it much easier to add alpha transparency as you simply need to append an ‘a’ and a fourth value:
+
+```
+.black {
+    background-color: rgb(0, 0, 0);
+}
+
+.darkglass {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+```
+
+Alpha values below zero MUST always begin with a zero (`0.75` rather than `.75`); without a zero it can trigger errors in CSS pre-processors.
+
+If the alpha value is 1 then simply use `rgb(r, g, b)` rather than `rgba(r, g, b, 1);`.
+
+
+#### Hex codes
+
+If you must use hex codes: shorten values where possible (`#fff` instead of `#ffffff`) and use lowercase alphabetical values (`#fff` not `#FFF`).
+
+
+
+
+
+### Quotation marks
+
+Quotation marks are optional. DO NOT use them unless there is a compelling reason that aids clarity.
+
+Where quotes are used it is preferable to use single quotes for CSS and double-quotes for HTML so that you can easily drop CSS code into inline styles:
+
+```
+<div style="background-image: url('img.gif');"> [...] </div>
+```
+
+Not that you should be using inline CSS, you understand!
+
+
+#### Font-family
+
+Use single-quotes in a `font-family` declaration (or in the shorthand `font` declaration) when listing a font name that has spaces in it, or if the font name includes non-alphanumeric characters such as the symbols '#' or '$'.
+
+By consistently using single-quotes for this type of declaration you can use the same code in both external and in-line styles without needing to edit it.
+
+```
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2 {
+    font-family: '$dollarfont';
+}
+
+<h1 style="font-family: 'Times New Roman', Times, serif;">...
+```
+
+
+#### URLs
+
+```
+@embed url(http://www.st-andrews.ac.uk/code/framework.css);
+```
+
+There may be situations where the URL contains characters that would otherwise need to be escaped, such as parentheses, white space characters, single quotes (') or double quotes("). In these cases use the most appropriate quotation mark to aid clarity without needing to escape anything.
+
+
+
+
+
+### Shorthand properties
+
+Use of shorthand properties is generally discouraged as they are harder to read for non-experts; exceptions are noted below. Priority should be given to code readability and scanability.
+
+Compare the following for clarity:
+
+```
+.unclear {
+    font: 1em/1.1em bold italic small-caps Verdana, Arial, Helvetica, sans-serif;
+}
+
+.clearer {
+    font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-size:    1em;
+    font-style:   italic;
+    font-variant: small-caps;
+    font-weight:  bold;
+    line-height:  1.1em;
+}
+```
+
+The following exceptions may be made for using shorthand properties due to their wide-spread use.
+
+#### Background
+
+```
+selector {
+    background: bg-color bg-image bg-repeat bg-attachment bg-position;
+}
+
+div {
+    background: #fff url(img/bg.png) no-repeat fixed left bottom;
+}
+```
+
+
+#### Border
+
+```
+selector {
+    border-width border-style border-color;
+}
+
+div {
+    border: 1px solid #000;
+}
+```
+
+
+#### List-style
+
+```
+selector {
+    list-style: list-style-type list-style-image list-style-position;
+}
+
+div {
+    list-style: square url(img/bullet.png) outer;
+}
+
+```
+
+
+#### Margin and padding
+
+When specifying margin and padding you MUST use either
+
+*   Two values  (`[top/bottom] [left/right]`), or
+*   Four values (`[top], [right], [bottom], [left]`)
+
+```
+selector {
+    margin:  [top/bottom] [left/right];
+    padding: [top], [right], [bottom], [left];
+}
+
+div {
+    margin:  5px 10px;
+    padding: 1px 2px 3px 4px;
+}
+```
+
+NEVER use three values as it is not immediately obvious what this means; it is actually `[top], [right/left], [bottom]`.
+
+
+### Units
+
+Consider using `rem` (which sizes elements relative to the `body` element) instead of `px` when sizing fonts, line-heights, etc.
+
+Do not use units with `line-height`; a raw number assigns a scaling factor.
+
+```
+element {
+    line-height: 2;       /* Correct */
+    line-height: 24px;    /* Incorrect */
+}
+```
+
+
+### Zero
+
+When a length value is zero (0) do not use a unit designator. Zero is always zero regardless of how you measure it.
+
+```
+.example {
+    margin:  10px 0;     // Correct
+    padding: 10px 0px    // Incorrect
+}
+```
 

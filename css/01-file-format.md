@@ -1,4 +1,6 @@
-# File format
+CSS code style guide
+
+# 1. File format
 
 This section outlines standards for creating and saving CSS files to ensure that they are not affected by encoding or file system differences. There is also general information about linking to external CSS files.
 
@@ -6,26 +8,26 @@ This section outlines standards for creating and saving CSS files to ensure that
 
 
 
-## tl;dr
+## In this section
 <!-- MarkdownTOC depth=4 -->
 
-- Use multiple files, concatinate and minify
-- Character encoding
-    - @charset "UTF-8";
-    - Save as UTF-8 with BOM
-    - Further reading
-- Use LF (Unix) line endings
-    - Further reading
-- Filenames
-    - Meaningful and descriptive
-    - Lowercase, no spaces
-    - Use a hyphen (-) to separate words
-    - Underscores (_) for Sass files
-- Link to external CSS files
-    - Link
-    - @import for debug and Sass only
-    - Do not use inline CSS
-    - Do not use style elements
+- [Use multiple files, concatinate and minify](#use-multiple-files-concatinate-and-minify)
+- [Character encoding](#character-encoding)
+    - [@charset "UTF-8";](#charset-utf-8)
+    - [Save as UTF-8 with BOM](#save-as-utf-8-with-bom)
+    - [Further reading](#further-reading)
+- [Use LF (Unix) line endings](#use-lf-unix-line-endings)
+    - [Further reading](#further-reading-1)
+- [Filenames](#filenames)
+    - [Meaningful and descriptive](#meaningful-and-descriptive)
+    - [Lowercase, no spaces](#lowercase-no-spaces)
+    - [Use a hyphen (-) to separate words](#use-a-hyphen---to-separate-words)
+    - [Underscores (_) for Sass files](#underscores-_-for-sass-files)
+- [Link to external CSS files](#link-to-external-css-files)
+    - [Link](#link)
+    - [@import for debug and Sass only](#import-for-debug-and-sass-only)
+    - [Do not use inline CSS](#do-not-use-inline-css)
+    - [Do not use style elements](#do-not-use-style-elements)
 
 <!-- /MarkdownTOC -->
 

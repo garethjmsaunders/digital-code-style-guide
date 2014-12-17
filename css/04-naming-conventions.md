@@ -1,5 +1,12 @@
 ## Naming Conventions - WE NEED TO CUSTOMISE THS FOR OURSELVES
 
+
+## Accepted characters
+
+Pro CSS book p.58
+
+
+
 Naming conventions in CSS are hugely useful in making your code more strict, more transparent, and more informative.
 
 A good naming convention will tell you and your team:

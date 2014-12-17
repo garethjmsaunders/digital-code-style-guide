@@ -1,5 +1,161 @@
 ## Comments
 
+TODO: If using Sass then make distinction between '/* compiled comments */' and '// multiline comments that are removed on compilation'. See http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments
+
+
+<!-- MarkdownTOC depth=4 -->
+
+- File info
+- Table of contents
+- Section titles
+    - High-level
+    - Object–extension pointers
+    - Low-level
+    - Preprocessor comments
+    - Removing comments
+    - General comments on comments
+
+<!-- /MarkdownTOC -->
+
+
+
+## File info
+
+All CSS files should begin with the following standard template to describe the file. This follows the CSSdoc conventions for commenting.
+
+See [CSS Automatic Documentation](https://github.com/Paratron/CSSdoc)
+
+At least the version number should be updated every time you make a change, especially once the file goes into production.
+
+TODO: This is currently a combination of docblock and CSSdoc -- is that okay?
+TODO: What information is required here?
+
+
+```
+/**
+ * Stylesheet title
+ * 
+ * Long description about the file, what it is for, its scope, and
+ * optionally when it may expire. The description should consist of
+ * normal sentences with punctuation.
+ *
+ * @project     Project name
+ * @version     1.0
+ * @author      gjms1
+ * @copyright   2014
+ * @license     Apache 2.0
+*/
+```
+
+
+
+
+
+## Table of contents
+
+A table of contents is a fairly substantial maintenance overhead, but the benefits it brings far outweigh any costs. It takes a diligent developer to keep a table of contents up to date, but it is well worth sticking with. An up-to-date table of contents provides a team with a single, canonical catalogue of what is in a CSS project, what it does, and in what order.
+
+A simple table of contents will—in order, naturally—simply provide the name of the section and a brief summary of what it is and does, for example:
+
+```
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Global...............Globally-available variables and config.
+ *
+ * TOOLS
+ * Mixins...............Useful mixins.
+ *
+ * GENERIC
+ * Normalize.css........A level playing field.
+ * Box-sizing...........Better default `box-sizing`.
+ *
+ * BASE
+ * Headings.............Single element selectors, e.g. H1–H6 styles.
+ *
+ * LAYOUT
+ * Page-head............The main page header.
+ * Page-foot............The main page footer.
+ *
+ * MODULES
+ * Patterns.............Reusable, modular parts of the design.
+ * Buttons..............Button elements.
+ *
+ * STATE RULES
+ * States...............Hidden or expanded, active or inactive.
+ */
+```
+
+Each item maps to a section and/or include.
+
+Naturally, this section would be substantially larger on the majority of projects, but hopefully we can see how this section—in the master stylesheet—provides developers with a project-wide view of what is being used where, and why.
+
+
+
+
+
+## Section titles
+
+Begin every new major section of a CSS project with a title:
+
+
+This is Harry Roberts' style:
+
+```
+/*------------------------------------*\
+    SECTION-TITLE
+\*------------------------------------*/
+
+.selector {}
+```
+
+@TODO It might make sense to use the CSSdoc convention here, to keep things consistent, e.g.
+
+```
+*------------------------------------
+    Introducional area
+    This area is used right underneath the page head menu.
+    It increases the color contrast and font size of the child elements (h1, p).
+    The intro area is a bit darker than the rest of the page to make it pop out.
+
+    @TODO Add rounded corners - looks nicer.
+    @package content
+    @since 2
+*/
+```
+
+
+The title of the section is prefixed with a hash () symbol to allow us to perform more targeted searches (e.g. grep, etc.): instead of searching for just SECTION-TITLE—which may yield many results—a more scoped search of SECTION-TITLE should return only the section in question.
+
+Leave a carriage return between this title and the next line of code (be that a comment, some Sass, or some CSS).
+
+If you are working on a project where each section is its own file, this title should appear at the top of each one. If you are working on a project with multiple sections per file, each title should be preceded by five (5) carriage returns. This extra whitespace coupled with a title makes new sections much easier to spot when scrolling through large files:
+
+```
+/*------------------------------------*\
+    A-SECTION
+\*------------------------------------*/
+
+.selector {}
+
+
+
+
+
+/*------------------------------------*\
+    ANOTHER-SECTION
+\*------------------------------------*/
+
+/**
+ * Comment
+ */
+
+.another-selector {}
+```
+
+
+
 The cognitive overhead of working with CSS is huge. With so much to be aware of, and so many project-specific nuances to remember, the worst situation most developers find themselves in is being the-person-who-didn't-write-this-code. Remembering your own classes, rules, objects, and helpers is manageable to an extent, but anyone inheriting CSS barely stands a chance.
 
 **CSS needs more comments.**
