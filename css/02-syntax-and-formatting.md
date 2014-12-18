@@ -610,4 +610,3 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
     padding: 10px 0px    // Incorrect
 }
 ```
-

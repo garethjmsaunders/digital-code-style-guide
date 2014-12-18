@@ -3,21 +3,49 @@
 TODO: If using Sass then make distinction between '/* compiled comments */' and '// multiline comments that are removed on compilation'. See http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments
 
 
+
+
+
+## In this section
 <!-- MarkdownTOC depth=4 -->
 
-- File info
-- Table of contents
-- Section titles
-    - High-level
-    - Object–extension pointers
-    - Low-level
-    - Preprocessor comments
-    - Removing comments
-    - General comments on comments
+- [CSS needs more comments](#css-needs-more-comments)
+- [File info](#file-info)
+- [Table of contents](#table-of-contents)
+- [Section titles](#section-titles)
+- [High-level](#high-level)
+- [Object–extension pointers](#object–extension-pointers)
+- [Low-level](#low-level)
+- [Preprocessor comments](#preprocessor-comments)
+- [Removing comments](#removing-comments)
+- [General comments on comments](#general-comments-on-comments)
 
 <!-- /MarkdownTOC -->
 
 
+
+
+
+## CSS needs more comments
+
+The cognitive overhead of working with CSS is huge. With so much to be aware of, and so many project-specific nuances to remember, the worst situation most developers find themselves in is being the-person-who-didn't-write-this-code. Remembering your own classes, rules, objects, and helpers is manageable to an extent, but anyone inheriting CSS barely stands a chance.
+
+**CSS needs more comments.**
+
+As CSS is something of a declarative language that doesn't really leave much of a paper-trail, it is often hard to discern—from looking at the CSS alone:
+
+*   whether some CSS relies on other code elsewhere;
+*   what effect changing some code will have elsewhere;
+*   where else some CSS might be used;
+*   what styles something might inherit (intentionally or otherwise);
+*   what styles something might pass on (intentionally or otherwise);
+*   where the author intended a piece of CSS to be used.
+
+This doesn't even take into account some of CSS's many quirks—such as various sates of `overflow` triggering block formatting context, or certain transform properties triggering hardware acceleration—that make it even more baffling to developers inheriting projects.
+
+As a result of CSS not telling its own story very well, it is a language that really does benefit from being heavily commented.
+
+As a rule, you should comment anything that isn't immediately obvious from the code alone. That is to say, there is no need to tell someone that color: red; will make something red, but if you're using overflow: hidden; to clear floats—as opposed to clipping an element's overflow—this is probably something worth documenting.
 
 ## File info
 
@@ -156,27 +184,10 @@ If you are working on a project where each section is its own file, this title s
 
 
 
-The cognitive overhead of working with CSS is huge. With so much to be aware of, and so many project-specific nuances to remember, the worst situation most developers find themselves in is being the-person-who-didn't-write-this-code. Remembering your own classes, rules, objects, and helpers is manageable to an extent, but anyone inheriting CSS barely stands a chance.
-
-**CSS needs more comments.**
-
-As CSS is something of a declarative language that doesn't really leave much of a paper-trail, it is often hard to discern—from looking at the CSS alone:
-
-*   whether some CSS relies on other code elsewhere;
-*   what effect changing some code will have elsewhere;
-*   where else some CSS might be used;
-*   what styles something might inherit (intentionally or otherwise);
-*   what styles something might pass on (intentionally or otherwise);
-*   where the author intended a piece of CSS to be used.
-
-This doesn't even take into account some of CSS's many quirks—such as various sates of `overflow` triggering block formatting context, or certain transform properties triggering hardware acceleration—that make it even more baffling to developers inheriting projects.
-
-As a result of CSS not telling its own story very well, it is a language that really does benefit from being heavily commented.
-
-As a rule, you should comment anything that isn't immediately obvious from the code alone. That is to say, there is no need to tell someone that color: red; will make something red, but if you're using overflow: hidden; to clear floats—as opposed to clipping an element's overflow—this is probably something worth documenting.
 
 
-### High-level
+
+## High-level
 
 For large comments that document entire sections or components, we use a DocBlock-esque multi-line comment which adheres to our 80 column width.
 Here is a real-life example from the CSS which styles the page header on [CSS Wizardry] (http://csswizardry.com): 
@@ -200,7 +211,7 @@ Here is a real-life example from the CSS which styles the page header on [CSS Wi
 This level of detail should be the norm for all non-trivial code—descriptions of states, permutations, conditions, and treatments.
 
 
-### Object–extension pointers
+## Object–extension pointers
 When working across multiple partials, or in an OOCSS manner, you will often find that rulesets that can work in conjunction with each other are not always in the same file or location. For example, you may have a generic button object—which provides purely structural styles—which is to be extended in a component-level partial which will add cosmetics. We document this relationship across files with simple object–extension pointers. In the object file:
 
 ```
@@ -224,7 +235,7 @@ And in your theme file:
 This simple, low effort commenting can make a lot of difference to developers who are unaware of relationships across projects, or who are wanting to know how, why, and where other styles might be being inherited from.
 
 
-### Low-level
+## Low-level
 
 Oftentimes we want to comment on specific declarations (i.e. lines) in a ruleset. To do this we use a kind of reverse footnote. Here is a more complex comment detailing the larger site headers mentioned above:
 
@@ -281,7 +292,7 @@ Oftentimes we want to comment on specific declarations (i.e. lines) in a ruleset
 These types of comment allow us to keep all of our documentation in one place whilst referring to the parts of the ruleset to which they belong.
 
 
-### Preprocessor comments
+## Preprocessor comments
 
 With most—if not all—preprocessors, we have the option to write comments that will not get compiled out into our resulting CSS file. As a rule, use these comments to document code that would not get written out to that CSS file either. If you are documenting code which will get compiled, use comments that will compile also. For example, this is correct:
 
@@ -305,12 +316,12 @@ $sprite-height: 212px;
 We have documented variables—code which will not get compiled into our CSS file—with preprocessor comments, whereas our CSS—code which will get compiled into our CSS file—is documented using CSS comments. This means that we have only the correct and relevant information available to us when debugging our compiled stylesheets.
 
 
-### Removing comments
+## Removing comments
 
 It should go without saying that no comments should make their way into production environments—all CSS should be minified, resulting in loss of comments, before being deployed.
 
 
-### General comments on comments
+## General comments on comments
 
 Write comments as complete, grammatical sentences with an initial capital (    unless it refers to an ID/class identifier—never change the case of identifiers) and a full-stop at the end.
 
