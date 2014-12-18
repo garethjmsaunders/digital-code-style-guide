@@ -287,3 +287,34 @@ Focussing on these points will keep your selectors a lot more sane and easy to w
 * [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 * [Naming UI components in OOCSS](http://csswizardry.com/2014/03/naming-ui-components-in-oocss/)
 * [Writing efficient CSS selectors](http://csswizardry.com/2011/09/writing-efficient-css-selectors/)
+
+
+
+
+
+## Writing efficient CSS selectors
+
+In Steve Souders’ book _Even Faster Websites_ (O'Reilly, 2009) he quotes David Hyatt’s article [Writing Efficient CSS for use in the Mozilla UI](https://developer.mozilla.org/en/Writing_Efficient_CSS) which discusses how CSS can be optimised to take advantage of how browsers interpret CSS code.
+
+Taking the following rule as an example:
+
+```
+#toc > li {
+    color: #444;
+}
+```
+
+one might assume, particularly by someone who reads from left-to-right, that the browsers would locate the element with an  ID of toc and then apply the style to its children who are li elements.
+
+In reality though, browsers match from right-to-left. So the browser iterates over every li element on the page and determine whether its parent is toc.
+We can use this knowledge to write more efficient CSS selectors. The following are David Hyatt and Steve Souders’ guidelines:
+
+1.  Avoid universal rules: use ID, class and tag selectors exclusively.
+2.  Don’t qualify ID selectors.
+3.  Don’t qualify class selectors.
+4.  Make rules as specific as possible.
+5.  Avoid descendant selectors.
+6.  Avoid tag-child selectors.
+7.  Question all usages of the child selector.
+8.  Rely on inheritance.
+
