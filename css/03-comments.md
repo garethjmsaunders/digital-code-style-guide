@@ -1,24 +1,35 @@
-## Comments
+CSS code style guide
 
-TODO: If using Sass then make distinction between '/* compiled comments */' and '// multiline comments that are removed on compilation'. See http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments
+# Comments
+
+As Harry Roberts points out in his [CSS Guidelines](http://cssguidelin.es/) document: "CSS needs more comments". TODO: Explain what this section covers.
 
 
 
 
 
 ## In this section
-<!-- MarkdownTOC depth=4 -->
+<!-- MarkdownTOC -->
 
 - [CSS needs more comments](#css-needs-more-comments)
-- [File info](#file-info)
-- [Table of contents](#table-of-contents)
-- [Section titles](#section-titles)
+- [General advice](#general-advice)
+- [Sass comments](#sass-comments)
+- [Every CSS file must have...](#every-css-file-must-have)
+    - [File info](#file-info)
+        - [author](#author)
+        - [version](#version)
+        - [since](#since)
+        - [deprecated](#deprecated)
+        - [example](#example)
+        - [TODO](#todo)
+        - [license](#license)
+        - [copyright](#copyright)
+    - [Table of contents](#table-of-contents)
+    - [Section titles](#section-titles)
 - [High-level](#high-level)
 - [Object–extension pointers](#object–extension-pointers)
 - [Low-level](#low-level)
 - [Preprocessor comments](#preprocessor-comments)
-- [Removing comments](#removing-comments)
-- [General comments on comments](#general-comments-on-comments)
 
 <!-- /MarkdownTOC -->
 
@@ -45,9 +56,50 @@ This doesn't even take into account some of CSS's many quirks—such as various 
 
 As a result of CSS not telling its own story very well, it is a language that really does benefit from being heavily commented.
 
+
+
+
+
+## General advice
+
+Write comments as complete, grammatical sentences with an initial capital (    unless it refers to an ID/class identifier—never change the case of identifiers) and a full-stop at the end.
+
 As a rule, you should comment anything that isn't immediately obvious from the code alone. That is to say, there is no need to tell someone that color: red; will make something red, but if you're using overflow: hidden; to clear floats—as opposed to clipping an element's overflow—this is probably something worth documenting.
 
-## File info
+It should go without saying, keep comments up-to-date when code changes.
+
+No comments should make their way into production environments. All CSS should be minified, resulting in loss of comments, before being deployed.
+
+
+
+
+
+## Sass comments
+
+If you are using [Sass](http://sass-lang.com/) please take note of the following distinction between the two type of comments used within Sass:
+
+1.   Standard, multi-line CSS comments (`/* comment */`) remain visible after 
+     the code has been compiled.
+2.   Single-line comments (`// comment`) are removed from production code 
+     after the script has been executy.
+
+Further reading
+[Comments: /* */ and //](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments)
+
+
+
+
+
+## Every CSS file must have...
+
+Every CSS file MUST have the following comment blocks:
+
+*   File information at the top of the file.
+*   Table of contents.
+*   Section titles.
+
+
+### File info
 
 All CSS files should begin with the following standard template to describe the file. This follows the CSSdoc conventions for commenting.
 
@@ -72,14 +124,78 @@ TODO: What information is required here?
  * @author      gjms1
  * @copyright   2014
  * @license     Apache 2.0
+
+TODO: Add release date?
+
+
 */
 ```
 
 
+####@author
+Use this tag to define an author for an element.
+It can either be only the authors' name, or append a connection in <> brackets.
+Example:
+
+    @author Christian Engel <hello@wearekiss.com>
+
+The following connections are recognized: URL (http://example.com), email (hello@example.com), Twitter handle (@example) 
+The tag can be used multiple times.
+
+####@version
+Can be used on modules and elements to show the revision they are currently in.    
+Example:
+
+    @version 12
+
+You may as well append a date after the version number.
+
+    @version: 12 2011-10-26
+
+####@since
+Can be used on modules and elements to show in which revision they have been implemented.    
+Example:
+
+    @since 3
+
+####@deprecated
+This indicates that the following element is, or will be deprecated in the future. Define a upcoming version number to indicate that the element will be deprecated then.    
+Example:
+
+    @deprecated 18
+
+Alternatively any string can be placed as well:
+
+    @deprecated Will be used no more since 2011-11-13
+
+####@example
+Can be used on the project, modules and elements to link to a real world example where the styles are used.    
+Example:
+
+    @example http://example.com/contact.html
+
+####@TODO
+The TODO marker indicates if something has to be done on either projects, modules or elements.     
+Example:
+
+    @TODO Make layout responsive
+
+####@license
+This displays a hyperlink to a url for a license. Can be used in the project definition block. Its made of two parts - the URL and a title, separated by comma.    
+Example:
+
+    @license http://opensource.org/licenses/gpl-license.php GNU Public License
+
+####@copyright
+This tag is used to apply copyright information to the CSS document.    
+It can be used on the project definition block.    
+Example:
+
+    @copyright Copyright (c) 2012, Kiss
 
 
 
-## Table of contents
+### Table of contents
 
 A table of contents is a fairly substantial maintenance overhead, but the benefits it brings far outweigh any costs. It takes a diligent developer to keep a table of contents up to date, but it is well worth sticking with. An up-to-date table of contents provides a team with a single, canonical catalogue of what is in a CSS project, what it does, and in what order.
 
@@ -121,9 +237,48 @@ Naturally, this section would be substantially larger on the majority of project
 
 
 
+TODO: How about this, adapted from https://sublime.wbond.net/packages/CSS%20Comments
 
 
-## Section titles
+/* ==========================================================================
+   Section comment block
+   ========================================================================== */
+
+
+/* Sub-section comment block
+   --------------------------------------------------------------------------
+   */
+
+
+
+/* ==========================================================================
+   MODULES
+   ========================================================================== */
+
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
+
+/* Accordion pattern
+   --------------------------------------------------------------------------
+   This area is used right underneath the page head menu.
+   It increases the color contrast and font size of the child elements (h1, p).
+   The intro area is a bit darker than the rest of the page to make it pop out.
+
+   @TODO Add rounded corners - looks nicer.
+   @package content
+   @since 2   
+   */
+
+
+
+
+
+
+
+### Section titles
 
 Begin every new major section of a CSS project with a title:
 
@@ -137,6 +292,11 @@ This is Harry Roberts' style:
 
 .selector {}
 ```
+
+```
+c-
+```
+
 
 @TODO It might make sense to use the CSSdoc convention here, to keep things consistent, e.g.
 
@@ -237,6 +397,8 @@ This simple, low effort commenting can make a lot of difference to developers wh
 
 ## Low-level
 
+NOTE: I quite like this approach.
+
 Oftentimes we want to comment on specific declarations (i.e. lines) in a ruleset. To do this we use a kind of reverse footnote. Here is a more complex comment detailing the larger site headers mentioned above:
 
 ```
@@ -252,15 +414,15 @@ Oftentimes we want to comment on specific declarations (i.e. lines) in a ruleset
  *    are positioned.
  * 3. The wrapper needs positioning context for us to lay our nav and masthead
  *    text in.
- * 4. Faux-fluid-height technique: simply create the illusion of fluid height by
- *    creating space via a percentage padding, and then position everything over
- *    the top of that. This percentage gives us a 16:9 ratio.
- * 5. When the viewport is at 758px wide, our 16:9 ratio means that the masthead
- *    is currently rendered at 480px high. Let's…
+ * 4. Faux-fluid-height technique: simply create the illusion of fluid height
+      by creating space via a percentage padding, and then position everything 
+      over the top of that. This percentage gives us a 16:9 ratio.
+ * 5. When the viewport is at 758px wide, our 16:9 ratio means that the 
+      masthead is currently rendered at 480px high. Let's…
  * 6. …seamlessly snip off the fluid feature at this height, and…
- * 7. …fix the height at 480px. This means that we should see no jumps in height
- *    as the masthead moves from fluid to fixed. This actual value takes into
- *    account the padding and the top border on the header itself.
+ * 7. …fix the height at 480px. This means that we should see no jumps in
+      height as the masthead moves from fluid to fixed. This actual value 
+      takes into account the padding and the top border on the header itself.
  */
 .page-head--masthead {
     margin-bottom: 0;
@@ -314,20 +476,3 @@ $sprite-height: 212px;
 ```
 
 We have documented variables—code which will not get compiled into our CSS file—with preprocessor comments, whereas our CSS—code which will get compiled into our CSS file—is documented using CSS comments. This means that we have only the correct and relevant information available to us when debugging our compiled stylesheets.
-
-
-## Removing comments
-
-It should go without saying that no comments should make their way into production environments—all CSS should be minified, resulting in loss of comments, before being deployed.
-
-
-## General comments on comments
-
-Write comments as complete, grammatical sentences with an initial capital (    unless it refers to an ID/class identifier—never change the case of identifiers) and a full-stop at the end.
-
-Do not use comments that state the obvious.
-
-```
-
-```
-
