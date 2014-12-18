@@ -41,6 +41,7 @@ Further, code that looks clean feels clean. It is a much nicer environment to wo
         - [Margin and padding](#margin-and-padding)
     - [Units](#units)
     - [Zero](#zero)
+- [Hacks](#hacks)
 
 <!-- /MarkdownTOC -->
 
@@ -610,3 +611,11 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
     padding: 10px 0px    // Incorrect
 }
 ```
+
+
+
+
+
+## Hacks
+
+Do not use Microsoft filters, e.g. `-ms-filter : "progid:DXImageTransform.Microsoft.Alpha(opacity=50)";` as these can have a serious negative impact on a website's performance.
