@@ -1,11 +1,6 @@
-## Naming Conventions - WE NEED TO CUSTOMISE THS FOR OURSELVES
+CSS code style guide
 
-
-## Accepted characters
-
-Pro CSS book p.58
-
-
+# Naming conventions
 
 Naming conventions in CSS are hugely useful in making your code more strict, more transparent, and more informative.
 
@@ -20,7 +15,59 @@ The naming convention I follow is very simple: hyphen (-) delimited strings, wit
 It's worth noting that a naming convention is not normally useful CSS-side of development; they really come into their own when viewed in HTML.
 
 
-### Hyphen delimited
+
+
+
+## In this section
+<!-- MarkdownTOC -->
+
+- [Accepted characters in class and ID names](#accepted-characters-in-class-and-id-names)
+    - [Characters to avoid](#characters-to-avoid)
+- [Hyphen delimited](#hyphen-delimited)
+- [BEM-like naming](#bem-like-naming)
+    - [Starting context](#starting-context)
+- [Modifying elements](#modifying-elements)
+- [Naming conventions in HTML](#naming-conventions-in-html)
+- [JavaScript hooks](#javascript-hooks)
+    - [HTML5 data-* attributes](#html5-data--attributes)
+
+<!-- /MarkdownTOC -->
+
+
+
+
+
+## Accepted characters in class and ID names
+
+In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR/CSS21/grammar.html#scanner) a class name or ID must follow these rules:
+
+**First two characters**
+
+*   letters
+*   underscores
+*   hyphens
+
+**Thereafter, any number of**
+
+*   underscores
+*   hyphens
+*   letters
+*   numbers
+
+**Do not start with...**
+
+
+
+### Characters to avoid
+
+*   Asterisks (*) are universal selectors: they will apply styling to every 
+    element in the document. Do not use them in class or ID names.
+*   Forward slashes (/) and backward slashes (\) are not accepted.
+
+
+
+
+## Hyphen delimited
 
 All strings in classes are delimited with a hyphen (-), like so:
 
@@ -37,7 +84,10 @@ Camel case and underscores are not used for regular classes; the following are i
 ```
 
 
-### BEM-like naming
+
+
+
+## BEM-like naming
 
 For larger, more interrelated pieces of UI that require a number of classes, we use a BEM-like naming convention.
 
@@ -118,7 +168,10 @@ More layers
 If we were to add another Element—called, let's say, .person__eye {}—to this .person {} component, we would not need to step through every layer of the DOM. That is to say, the correct notation would be .person__eye {}, and not .person__head__eye {}. Your classes do not reflect the full paper-trail of the DOM.
 
 
-### Modifying elements
+
+
+
+## Modifying elements
 
 You can have variants of Elements, and these can be denoted in a number of ways depending on how and why they are being modified. Carrying on with our person example, a blue eye might look like this:
 
@@ -159,7 +212,10 @@ If using Sass, we would likely write this like so:
 Note that we do not nest a new instance of `.person__face {}` inside of `.person--handsome {};` instead, we make use of Sass' parent selectors to prepend `.person--handsome` onto the existing `.person__face {}` selector. This means that all of our `.person__face {}`-related rules exist in once place, and aren't spread throughout the file. This is general good practice when dealing with nested code: keep all of your context (e.g. all `.person__face {}` code) encapsulated in one location.
 
 
-### Naming conventions in HTML
+
+
+
+## Naming conventions in HTML
 
 As I previously hinted at, naming conventions aren't necessarily all that useful in your CSS. Where naming conventions' power really lies is in your markup. Take the following, non-naming-conventioned HTML:
 
@@ -190,7 +246,10 @@ From that markup alone, it is very hard to answer any of those questions. Using 
 Now we can clearly see which classes are and are not related to each other, and how; we know what classes we can't use outside of the scope of this component; and we know which classes we may be free to reuse elsewhere.
 
 
-### JavaScript hooks
+
+
+
+## JavaScript hooks
 
 As a rule, it is unwise to bind your CSS and your JS onto the same class in your HTML. This is because doing so means you can't have (or remove) one without (removing) the other. It is much cleaner, much more transparent, and much more maintainable to bind your JS onto specific classes.
 
@@ -205,6 +264,6 @@ Typically, these are classes that are prepended with js-, for example:
 This means that we can have an element elsewhere which can carry with style of `.btn {}`, but without the behaviour of `.js-btn`.
 
 
-### data-* attributes
+### HTML5 data-* attributes
 
 A common practice is to use `data-*` attributes as JS hooks, but this is incorrect. `data-*` attributes, as per the spec, are used to store custom data private to the page or application (emphasis mine). `data-*` attributes are designed to store data, not be bound to.
