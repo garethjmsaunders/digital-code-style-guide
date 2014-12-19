@@ -1,4 +1,20 @@
-## Specificity
+CSS code style guide
+
+# Specificity
+
+TODO: Write introduction...
+
+## In this section
+<!-- MarkdownTOC -->
+
+- [Keep it low at all times](#keep-it-low-at-all-times)
+    - [IDs in CSS](#ids-in-css)
+    - [Nesting](#nesting)
+- [Scope](#scope)
+- [!important](#important)
+- [Hacking specificity](#hacking-specificity)
+
+<!-- /MarkdownTOC -->
 
 As we've seen, CSS isn't the most friendly of languages: globally operating, very leaky, dependent on location, hard to encapsulate, based on inheritance… But! None of that even comes close to the horrors of specificity.
 
@@ -7,13 +23,13 @@ No matter how well considered your naming, regardless of how perfect your source
 The problem with specificity is that it sets precedents and trumps that cannot simply be undone. If we take a real example that I was responsible for some years ago:
 
 ```
-content table {}
+#content table {}
 ```
 
-Not only does this exhibit poor Selector Intent—I didn't actually want every table in the content area, I wanted a specific type of table that just happened to live there—it is a hugely over-specific selector. This became apparent a number of weeks later, when I needed a second type of table:
+Not only does this exhibit poor Selector Intent — I didn't actually want every table in the content area, I wanted a specific type of table that just happened to live there — it is a hugely over-specific selector. This became apparent a number of weeks later, when I needed a second type of table:
 
 ```
-content table {}
+#content table {}
 
 /**
  * Uh oh! My styles get overwritten by `content table {}`.
@@ -29,9 +45,9 @@ The first selector was trumping the specificity of the one defined after it, wor
 Unfortunately, refactoring would have taken a long time; it was a mature product and the knock-on effects of removing this ID would have been a more substantial business cost than the second option: just write a more specific selector.
 
 ```
-content table {}
+#content table {}
 
-content .my-new-table {}
+#content .my-new-table {}
 ```
 
 Now I have a selector that is even more specific still! And if I ever want to override this one, I will need another selector of at least the same specificity defined after it. I've started on a downward spiral.
@@ -44,15 +60,18 @@ Specificity can, among other things:
 * prevent things from working as expected when moved into different
   environments;
 * lead to serious developer frustration.
-* 
+
 All of these issues are greatly magnified when working on a larger project with a number of developers contributing code.
 
 
-### Keep it low at all times
 
-The problem with specificity isn't necessarily that it's high or low; it's the fact it is so variant and that it cannot be opted out of: the only way to deal with it is to get progressively more specific—the notorious specificity wars we looked at above.
 
-One of the single, simplest tips for an easier life when writing CSS—particularly at any reasonable scale—is to keep always try and keep specificity as low as possible at all times. Try to make sure there isn't a lot of variance between selectors in your codebase, and that all selectors strive for as low a specificity as possible.
+
+## Keep it low at all times
+
+The problem with specificity isn't necessarily that it's high or low; it's the fact it is so variant and that it cannot be opted out of: the only way to deal with it is to get progressively more specific — the notorious specificity wars we looked at above.
+
+One of the single, simplest tips for an easier life when writing CSS—particularly at any reasonable scale — is to always try and keep specificity as low as possible at all times. Try to make sure there isn't a lot of variance between selectors in your codebase, and that all selectors strive for as low a specificity as possible.
 
 Doing so will instantly help you tame and manage your project, meaning that no overly-specific selectors are likely to impact or affect anything of a lower specificity elsewhere. It also means you're less likely to need to fight your way out of specificity corners, and you'll probably also be writing much smaller stylesheets.
 
@@ -156,7 +175,10 @@ Not only is this entirely avoidable—we caused this problem ourselves—we have
 As a rule, if a selector will work without it being nested then do not nest it.
 
 
-### Scope
+
+
+
+## Scope
 
 One possible advantage of nesting—which, unfortunately, does not outweigh the disadvantages of increased specificity—is that it provides us with a namespace of sorts. A selector like .widget .title scopes the styling of .title to an element that only exists inside of an element carrying a class of .widget.
 
@@ -169,7 +191,10 @@ Further reading
 * ['Scope' in CSS](http://csswizardry.com/2013/05/scope-in-css/)
 
 
-### !important
+
+
+
+## !important
 
 The word `!important` sends shivers down the spines of almost all front-end developers. `!important` is a direct manifestation of problems with specificity; it is a way of cheating your way out of specificity wars, but usually comes at a heavy price. It is often viewed as a last resort—a desperate, defeated stab at patching over the symptoms of a much bigger problem with your code.
 
@@ -226,7 +251,10 @@ In these situations, it is preferable that you investigate and refactor any offe
 Only use `!important` proactively, not reactively.
 
 
-### Hacking specificity
+
+
+
+## Hacking specificity
 
 With all that said on the topic of specificity, and keeping it low, it is inevitable that we will encounter problems. No matter how hard we try, and how conscientious we are, there will always be times that we need to hack and wrangle specificity.
 
