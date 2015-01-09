@@ -1,18 +1,18 @@
 
 <!-- MarkdownTOC depth=3 -->
 
-- Sam's document
-    - General
-    - Spacing
-    - Formatting
-    - Misc
-    - Examples
-    - File organization
-    - Pixels vs. ems vs. rems vs. %
-    - Class naming conventions
-    - CSS Specificity guidelines
-    - References
-- Gareth's notes
+- [Sam's document](#sams-document)
+    - [General](#general)
+    - [Spacing](#spacing)
+    - [Formatting](#formatting)
+    - [Misc](#misc)
+    - [Examples](#examples)
+    - [File organization](#file-organization)
+    - [Pixels vs. ems vs. rems vs. %](#pixels-vs-ems-vs-rems-vs-%)
+    - [Class naming conventions](#class-naming-conventions)
+    - [CSS Specificity guidelines](#css-specificity-guidelines)
+    - [References](#references)
+- [Gareth's notes](#gareths-notes)
 
 <!-- /MarkdownTOC -->
 
@@ -152,3 +152,112 @@ TODO: Concatination and minification (Pro CSS, 2.8, p.362)
 TODO: CSS sprites (Pro CSS, 2.9, p.362)
 TODO: Don't use CSS behaviours (HTC files) (Pro CSS, 2.11, p.362)
 TODO: SHOULD never used data URIs (except for Error pages) (Pro CSS, 2.12, p.362)
+TODO: The one "rule"ish thing thing I really believe in: keep your selector specificities fairly low and flat across your whole project. [Harry's specificity graph](http://csswizardry.com/2014/10/the-specificity-graph/) is a nice way to think about this. Specificity will trend upward, so never start high, as the ceiling can easily become problematic. Mostly: .class {}. http://css-tricks.com/just-try-and-do-a-good-job
+
+
+http://csswizardry.com/2012/11/code-smells-in-css/
+"Rulesets should only ever inherit and add to previous ones, never undo. [...] If you find you are having to undo styling as you go down your document the chances are you jumped the gun and started adding too much too soon."
+
+
+http://csswizardry.com/2012/11/code-smells-in-css/
+Never every use magic numbers. "Avoid magic numbers like the plague."
+
+"A magic number is a value that is used ‘because it just works’." If you absolutely must use a magic number then you must comment it to explain why: what does this relate to, e.g. 
+
+```
+/**
+We've used 37px here because the li elements inside .site-nav happen to be 37px tall, and the .dropdown flyout menu needs to appear at the bottom of it.
+*/
+```
+
+
+http://csswizardry.com/2012/11/code-smells-in-css/
+Similarly, avoid brute-forcing, e.g.
+
+```
+foo {
+    margin-left: -3px;
+    position: relative;
+    z-index: 99999;
+    height: 59px;
+    float: left;
+}
+```
+"All of these declarations are heavy-handed, brute-forced, layout-affecting declarations which are clearly only used to force something to render as and where it’s wanted."
+
+
+http://csswizardry.com/2012/11/code-smells-in-css/
+Avoid qualified selectors, e.g.
+
+```
+ul.nav {}
+a.button {}
+div.header {}
+```
+
+* They prevent reusability on another element.
+* They increase specificity.
+* They increase browser workload (decreasing performance).
+
+These selectors would be much better:
+
+```
+.nav {}
+.button {}
+.header {}
+```
+
+More extreme examples might be:
+
+```
+ul.nav li.active a {}
+div.header a.logo img {}
+.content ul.features a.button {}
+```
+
+All of these selectors can be trimmed down massively, or totally rewritten, to:
+
+```
+.nav .active a {}
+.logo > img  {}
+.features-button {}
+```
+
+
+http://csswizardry.com/2012/11/code-smells-in-css/
+Line heights should always be set relatively, so rather than
+
+```
+h1 {
+    font-size: 24px;
+    line-height: 32px;
+}
+```
+
+use
+
+```
+h1 {
+    font-size: 24px;
+    line-height: 1.333;
+}
+```
+
+
+http://csswizardry.com/2012/11/code-smells-in-css/
+"!important should only ever be used proactively, not reactively. For example, you know that you will always want errors to be red, so this rule is totally fine:""
+
+```
+.error-text {
+    color: #c00 !important;
+}
+```
+
+NEED TO MAKE NOTE ABOUT space before !important
+
+
+http://csswizardry.com/2012/11/code-smells-in-css/
+Don't use "loose class names"
+Be specific about class names, e.g. `.card` isn't specific enough. Does this mean a Trello or Google idea of cards? Or is it a credit card.
+
+Also they could more easily be reused and could unwittingly be overwritten elsewhere in the code.

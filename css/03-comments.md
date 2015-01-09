@@ -15,20 +15,21 @@ As Harry Roberts points out in his [CSS Guidelines](http://cssguidelin.es/) docu
 - [General advice](#general-advice)
 - [Sass comments](#sass-comments)
 - [Every CSS file must have...](#every-css-file-must-have)
-    - [File info](#file-info)
-        - [author](#author)
-        - [version](#version)
-        - [since](#since)
-        - [deprecated](#deprecated)
-        - [example](#example)
-        - [TODO](#todo)
-        - [license](#license)
-        - [copyright](#copyright)
-    - [Table of contents](#table-of-contents)
-    - [Section titles](#section-titles)
+  - [File information](#file-information)
+    - [author](#author)
+    - [version](#version)
+    - [since](#since)
+    - [deprecated](#deprecated)
+    - [example](#example)
+    - [TODO](#todo)
+    - [license](#license)
+    - [copyright](#copyright)
+  - [Table of contents](#table-of-contents)
+  - [Section titles](#section-titles)
+- [Magic numbers](#magic-numbers)
 - [High-level](#high-level)
 - [Object–extension pointers](#object–extension-pointers)
-- [Low-level](#low-level)
+- [Reverse footnote comments](#reverse-footnote-comments)
 - [Preprocessor comments](#preprocessor-comments)
 
 <!-- /MarkdownTOC -->
@@ -64,7 +65,16 @@ As a result of CSS not telling its own story very well, it is a language that re
 
 Write comments as complete, grammatical sentences with an initial capital (    unless it refers to an ID/class identifier—never change the case of identifiers) and a full-stop at the end.
 
-As a rule, you should comment anything that isn't immediately obvious from the code alone. That is to say, there is no need to tell someone that color: red; will make something red, but if you're using overflow: hidden; to clear floats—as opposed to clipping an element's overflow—this is probably something worth documenting.
+As a rule, you should comment anything that isn't immediately obvious from the code alone. These could be explaining:
+
+* the structure and/or role of a file;
+* the goal of a ruleset;
+* the idea behind a magic number;
+* the reason for a CSS declaration;
+* the order of CSS declarations;
+* the thought process behind a way of doing things.
+
+That is to say, there is no need to tell someone that color: red; will make something red, but if you're using overflow: hidden; to clear floats—as opposed to clipping an element's overflow—this is probably something worth documenting.
 
 It should go without saying, keep comments up-to-date when code changes.
 
@@ -84,7 +94,8 @@ If you are using [Sass](http://sass-lang.com/) please take note of the following
      after the script has been executy.
 
 Further reading
-[Comments: /* */ and //](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments)
+* [Comments: /* */ and //](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments)
+* [Commenting on Sass Guidelines](http://sass-guidelin.es/#commenting)
 
 
 
@@ -99,7 +110,7 @@ Every CSS file MUST have the following comment blocks:
 *   Section titles.
 
 
-### File info
+### File information
 
 All CSS files should begin with the following standard template to describe the file. This follows the CSSdoc conventions for commenting.
 
@@ -109,7 +120,7 @@ At least the version number should be updated every time you make a change, espe
 
 TODO: This is currently a combination of docblock and CSSdoc -- is that okay?
 TODO: What information is required here?
-
+TODO: Add release date?
 
 ```
 /**
@@ -124,10 +135,6 @@ TODO: What information is required here?
  * @author      gjms1
  * @copyright   2014
  * @license     Apache 2.0
-
-TODO: Add release date?
-
-
 */
 ```
 
@@ -238,6 +245,7 @@ Naturally, this section would be substantially larger on the majority of project
 
 
 TODO: How about this, adapted from https://sublime.wbond.net/packages/CSS%20Comments
+TODO: What about prefixing the names with a character, e.g. $ from http://csswizardry.com/2012/04/my-html-css-coding-style/ or =, e.g. `$MODULES` or `=MODULES`.
 
 
 /* ==========================================================================
@@ -347,6 +355,26 @@ If you are working on a project where each section is its own file, this title s
 
 
 
+## Magic numbers
+
+"Magic number" is an old school programming term for unnamed numerical constant. Basically, it’s just a random number that happens to just work™ yet is not tied to any logical explanation.
+
+Needless to say magic numbers are a plague and should be avoided at all costs. When you cannot manage to find a reasonable explanation for why a number works, add an extensive comment explaining how you got there and why you think it works. Admitting you don’t know why something works is still more helpful to the next developer than them having to figure out what’s going on from scratch.
+
+/**
+ * 1. Magic number. This value is the lowest I could find to align the top of
+ * `.foo` with its parent. Ideally, we should fix it properly.
+ */
+.foo {
+  top: 0.327em; /* 1 */
+}
+
+See also
+
+* [Sass styleguide CSS ] (http://sass-guidelin.es/#magic-numbers)
+* [Magic numbers in CSS] (http://css-tricks.com/magic-numbers-in-css/)
+
+
 ## High-level
 
 For large comments that document entire sections or components, we use a DocBlock-esque multi-line comment which adheres to our 80 column width.
@@ -395,7 +423,7 @@ And in your theme file:
 This simple, low effort commenting can make a lot of difference to developers who are unaware of relationships across projects, or who are wanting to know how, why, and where other styles might be being inherited from.
 
 
-## Low-level
+## Reverse footnote comments
 
 NOTE: I quite like this approach.
 
@@ -453,6 +481,9 @@ Oftentimes we want to comment on specific declarations (i.e. lines) in a ruleset
 
 These types of comment allow us to keep all of our documentation in one place whilst referring to the parts of the ruleset to which they belong.
 
+TODO:
+From Trello: If you find an answer online (read: on Stack Overflow) then add the link to a comment so future people know what’s up.
+
 
 ## Preprocessor comments
 
@@ -476,3 +507,25 @@ $sprite-height: 212px;
 ```
 
 We have documented variables—code which will not get compiled into our CSS file—with preprocessor comments, whereas our CSS—code which will get compiled into our CSS file—is documented using CSS comments. This means that we have only the correct and relevant information available to us when debugging our compiled stylesheets.
+
+
+
+TODO: HTML in CSS
+http://csswizardry.com/2012/04/my-html-css-coding-style/
+
+In situations where it would be useful for a developer to know exactly how a chunk of CSS applies to some HTML, I often include a snippet of HTML in a CSS comment, for example:
+
+```
+/*------------------------------------*\
+    $TOOLTIPS
+\*------------------------------------*/
+/*
+<small class=tooltip><span>Lorem ipsum dolor</span></small>
+*/
+.tooltip{
+    [styles]
+}
+    .tooltip > span{
+        [styles]
+    }
+```    

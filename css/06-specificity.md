@@ -13,6 +13,8 @@ TODO: Write introduction...
 - [Scope](#scope)
 - [!important](#important)
 - [Hacking specificity](#hacking-specificity)
+- [Consider these:](#consider-these)
+    - [IDEA: Avoid body classes](#idea-avoid-body-classes)
 
 <!-- /MarkdownTOC -->
 
@@ -294,4 +296,11 @@ Do keep in mind that these are hacks, and should not be used unless you have no 
 
 Further reading
 [Hacks for dealing with specificity](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/)
+
+
+
+## Consider these:
+
+### IDEA: Avoid body classes
+It can be used as a hack. "It leads to more descendant selectors, poor browser performance, and it’s a bad replacement for componentizing your stuff." Source: http://blog.trello.com/refining-the-way-we-structure-our-css-at-trello/
 

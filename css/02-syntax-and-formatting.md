@@ -20,13 +20,14 @@ Further, code that looks clean feels clean. It is a much nicer environment to wo
     - [Four (4) space indents, no tabs](#four-4-space-indents-no-tabs)
         - [Indenting Sass](#indenting-sass)
     - [Colons and semicolons, braces and spaces](#colons-and-semicolons-braces-and-spaces)
-    - [Order of declarations](#order-of-declarations)
+    - [List declarations in alphabetical order](#list-declarations-in-alphabetical-order)
         - [Positioned elements](#positioned-elements)
         - [Vendor prefixes](#vendor-prefixes)
     - [Alignment](#alignment)
 - [Meaningful whitespace](#meaningful-whitespace)
 - [Syntax](#syntax)
     - [Colours](#colours)
+        - [Use the approved St Andrews palette of colours](#use-the-approved-st-andrews-palette-of-colours)
         - [Colour keywords](#colour-keywords)
         - [Prefer RGB over hex](#prefer-rgb-over-hex)
         - [Alpha transparency](#alpha-transparency)
@@ -65,7 +66,7 @@ This is a RULE:
 ```
 h1, h2,
 .foo, .foo-bar,
-#baz {
+# baz {
     background-color: green;
     color: red;
     display: block;
@@ -262,7 +263,7 @@ This format seems to be the largely universal standard, except for variations in
 
 
 
-### Order of declarations
+### List declarations in alphabetical order
 
 Multiple selectors should be listed in alphabetical order as this makes it much easier to find declaration blocks.
 
@@ -410,6 +411,11 @@ There should never be a scenario in which two rulesets do not have an empty line
 ### Colours
 
 
+#### Use the approved St Andrews palette of colours
+
+Unless you have a very good reason not to, you must use the approved pallete of St Andrews colours. One exception may be black; see [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor.
+
+
 #### Colour keywords
 
 The [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/#html4) specification defines 16 basic colour keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
@@ -429,6 +435,8 @@ The reason for preferring RGB is three-fold:
 3.   RGB format is more widely supported in graphic design applications.
 
 To expand on the first reason, while colours on the web have traditionally been specified using hex codes (e.g. St Andrews Blue is `#00539b`) it is not as easy to estimate the colour just by looking at the code, unless you can convert hex to decimal in your head. For example, at a glance `rgb(0, 83, 155)` has about 60% blue and 30% green so you may safely estimate that this is dark blue.
+
+There is a current trend to prefer HSL as it allows you quickly make things lighter or darker
 
 
 #### Alpha transparency
@@ -460,9 +468,9 @@ If you must use hex codes: shorten values where possible (`#fff` instead of `#ff
 
 ### Quotation marks
 
-Quotation marks are optional. DO NOT use them unless there is a compelling reason that aids clarity.
+In CSS quotation marks are optional, however, languages that do not require strings to be quoted are a minority so **always use single quotes** unless there is a compelling reason to not use them that aids clarity.
 
-Where quotes are used it is preferable to use single quotes for CSS and double-quotes for HTML so that you can easily drop CSS code into inline styles:
+It is preferable to use single quotes for CSS and double-quotes for HTML so that you can easily drop CSS code into inline styles:
 
 ```
 <div style="background-image: url('img.gif');"> [...] </div>
@@ -533,7 +541,7 @@ selector {
 }
 
 div {
-    background: #fff url(img/bg.png) no-repeat fixed left bottom;
+    background: rgb(0, 83, 155) url(img/bg.png) no-repeat fixed left bottom;
 }
 ```
 
@@ -587,6 +595,9 @@ div {
 NEVER use three values as it is not immediately obvious what this means; it is actually `[top], [right/left], [bottom]`.
 
 
+
+
+
 ### Units
 
 Consider using `rem` (which sizes elements relative to the `body` element) instead of `px` when sizing fonts, line-heights, etc.
@@ -599,6 +610,9 @@ element {
     line-height: 24px;    /* Incorrect */
 }
 ```
+
+
+
 
 
 ### Zero
