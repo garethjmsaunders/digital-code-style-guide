@@ -261,3 +261,7 @@ Don't use "loose class names"
 Be specific about class names, e.g. `.card` isn't specific enough. Does this mean a Trello or Google idea of cards? Or is it a credit card.
 
 Also they could more easily be reused and could unwittingly be overwritten elsewhere in the code.
+
+TODO: What is the minimum guide that could be created to add value NOW? What would that look like and could I create it from the text here?
+
+TODO: What from Harry Roberts' work do I need to unpick?
