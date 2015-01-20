@@ -23,6 +23,8 @@ These CSS guidelines are application to all websites and web applications create
 
 ## The importance of a style guide
 
+As Harry Roberts writes in [CSS Guidelines](http://cssguidelin.es/#introduction):
+
 CSS is not a pretty language. While it is simple to learn and get started with, it soon becomes problematic at any reasonable scale. There isn't much we can do to change how CSS works, but we can make changes to the way we author and structure it.
 
 In working on large, long-running projects, with dozens of developers of differing specialities and abilities, it is important that we all work in a unified way in order to, among other things:
@@ -71,7 +73,7 @@ Readability is preferential to strict adherence to rules.
 
 ## Write valid CSS
 
-All CSS code should validate to the latest CSS specification for which it is written.
+Ideally, all CSS code should validate to the latest CSS specification for which it is written.
 
 The [W3C CSS validation service](http://jigsaw.w3.org/css-validator/) is a useful resource. You may also find CSS validators that integrate with your code editor of choice, or your browser.
 
@@ -96,3 +98,5 @@ As Andy Clarke says in _Hardboiled Web Design_ (2010):
 This style guide draws heavily on the work of Harry Roberts’ work at [CSS guidelines: High-level advice and guidelines for writing sane, manageable, scalable CSS](http://cssguidelin.es/).
 
 As Roberts says, "These guidelines are opinionated, but they have been repeatedly tried, tested, stressed, refined, broken, reworked, and revisited over a number of years on projects of all sizes."
+
+This has been used with his permission: "There isn’t an actual license in place for CSS Guidelines (if there was I suppose it would be Apache 2) but take this in writing as permission to slice and dice it to for your needs, provided there is reasonable attribution :)"

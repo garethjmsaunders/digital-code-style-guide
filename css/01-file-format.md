@@ -37,8 +37,7 @@ This section outlines standards for creating and saving CSS files to ensure that
 
 ## Use multiple files, concatinate and minify
 
-With the meteoric rise of pre-processors (such as Sass and Less) of late, more often is the case that developers are splitting CSS across multiple files.
-Even if not using a pre-processor, it is a good idea to split discrete chunks of code into their own files, which can then be concatenated and minified during a build process.
+With the meteoric rise of pre-processors (such as Sass and Less) of late, more often is the case that developers are splitting CSS across multiple files. Even if not using a pre-processor, it is a good idea to split discrete chunks of code into their own files, which can then be concatenated and minified during a build process. \[[HR](http://cssguidelin.es/#multiple-files)\]
 
 
 
@@ -106,7 +105,7 @@ This is more of an issue for developers who work in Windows, but in any case ens
 For example, in Sublime Text you can add the following to your user settings: 
 
 ```
-"default_line_ending": "LF",
+    "default_line_ending": "LF",
 ```
 
 ### Further reading
@@ -139,7 +138,7 @@ Use a hyphen (-) to separate words, e.g. `external-stylesheet.css`. This makes f
 
 ### Underscores (_) for Sass files
 
-Underscores (_) MUST be used only for naming Sass partial files.
+Underscores (_) may be used only for naming Sass partial files.
 
 
 
