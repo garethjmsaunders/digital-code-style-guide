@@ -1,6 +1,6 @@
 CSS code style guide
 
-# Introduction
+# 0. Introduction
 
 These CSS guidelines are application to all websites and web applications created and managed by the University of St Andrews digital communications team and under the st-andrews.ac.uk domain.
 
