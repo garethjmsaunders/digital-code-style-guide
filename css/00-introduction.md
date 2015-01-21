@@ -29,9 +29,9 @@ As Harry Roberts writes in [CSS Guidelines](http://cssguidelin.es/#introduction)
 
 "In working on large, long-running projects, with dozens of developers of differing specialities and abilities, it is important that we all work in a unified way in order to, among other things:
 
-*   keep stylesheets maintainable;
-*   keep code transparent, sane, and readable;
-*   keep stylesheets scalable.
+*   **keep stylesheets maintainable**;
+*   **keep code transparent, sane, and readable**;
+*   **keep stylesheets scalable**.
 
 "There are a variety of techniques we must employ in order to satisfy these goals."
 
@@ -50,14 +50,14 @@ Roberts continues, "a coding style guide (note, not a visual style guide) is a v
 
 "A good style guide, when well followed, will:
 
-*   set the standard for code quality across a codebase;
-*   promote consistency across codebases;
-*   give developers a feeling of familiarity across codebases;
-*   increase productivity.
+*   **set the standard for code quality across a codebase**;
+*   **promote consistency across codebases**;
+*   **give developers a feeling of familiarity across codebases**;
+*   **increase productivity**.
 
 "Style guides should be learned, understood, and implemented at all times on a project which is governed by one, and any deviation must be fully justified."
 
-[Source](http://cssguidelin.es/#the-importance-of-a-styleguide)
+Source: [CSS Styleguide](http://cssguidelin.es/#the-importance-of-a-styleguide "Harry Roberts")
 
 
 
@@ -67,9 +67,9 @@ Roberts continues, "a coding style guide (note, not a visual style guide) is a v
 
 While consistency is important, equally important is knowing when to be inconsistent—sometimes the style guide just doesn’t apply.
 
-The ground rule is simple: ask yourself if applying the rule would make the code less readable, even for someone who is used to reading code that follows the rules. When in doubt use your best judgment, look at other examples, and decide what looks best.
+Ask yourself if applying the rule would make the code less readable, even for someone who is used to reading code that follows the rules. When in doubt use your best judgment, look at other examples, and decide what looks best.
 
-Readability is preferential to strict adherence to rules.
+The ground rule is simple: **readability is preferential to strict adherence to rules**.
 
 
 
