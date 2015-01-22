@@ -2,9 +2,11 @@ CSS code style guide
 
 # 2. Syntax and formatting
 
-One of the simplest forms of a style guide is a set of rules regarding syntax and formatting. Having a standard way of writing CSS means that code will always look and feel familiar to all members of the team; consistency is key.
+One of the simplest forms of a style guide is a set of rules regarding syntax and formatting. Having a standard way of writing CSS means that code will always look and feel familiar to all members of the team: consistency is key.
 
 Further, code that looks clean feels clean. It is a much nicer environment to work in, and prompts other team members to maintain the standard of cleanliness that they found. Ugly code sets a bad precedent.
+
+Source: [CSS guidelines](http://cssguidelin.es/#syntax-and-formatting "Harry Roberts")
 
 
 
@@ -17,8 +19,8 @@ Further, code that looks clean feels clean. It is a much nicer environment to wo
 - [80 characters wide](#80-characters-wide)
 - [Block style](#block-style)
     - [Multi-line CSS](#multi-line-css)
-    - [Four (4) space indents, no tabs](#four-4-space-indents-no-tabs)
-        - [Indenting Sass](#indenting-sass)
+    - [Indent with four (4) spaces, no tabs](#indent-with-four-4-spaces-no-tabs)
+        - [Indenting Sass (SHOULD WE HAVE A SEPARATE Sass guide?)](#indenting-sass-should-we-have-a-separate-sass-guide)
     - [Colons and semicolons, braces and spaces](#colons-and-semicolons-braces-and-spaces)
     - [List declarations in alphabetical order](#list-declarations-in-alphabetical-order)
         - [Positioned elements](#positioned-elements)
@@ -111,10 +113,10 @@ Property-value    `green`
 
 ## 80 characters wide
 
-Where possible, limit CSS files' width to 80 characters. Reasons for this include:
+Where possible, **limit CSS files' width to 80 characters**. Reasons for this include:
 
 *   the ability to have multiple files open side by side;
-*   viewing CSS on sites like GitHub, or in terminal windows;
+*   viewing CSS on sites like GitHub, or in a terminal window;
 *   providing a comfortable line length for comments.
 
 ```
@@ -125,7 +127,7 @@ Where possible, limit CSS files' width to 80 characters. Reasons for this includ
  */
 ```
 
-There will be unavoidable exceptions to this rule—such as URLs, or gradient syntax. These shouldn't be worried about.
+Do not worry about unavoidable exceptions to this rule, such as URLs, or gradient syntax.
 
 
 
@@ -135,7 +137,7 @@ There will be unavoidable exceptions to this rule—such as URLs, or gradient sy
 
 ### Multi-line CSS
 
-CSS should be written across multiple lines, except in very specific circumstances. There are a number of benefits to this:
+**CSS should be written across multiple lines**, except in very specific circumstances. There are a number of benefits to this:
 
 *   A reduced chance of merge conflicts, because each piece of functionality
     exists on its own line.
@@ -164,10 +166,12 @@ These types of ruleset benefit from being single-lined because:
 *   they share enough similarities that they don't need to be read as
     thoroughly as other rulesets—there is more benefit in being able to scan their selectors, which are of more interest to us in these cases.
 
+Source: [CSS guidelines](http://cssguidelin.es/#multi-line-css "Harry Roberts")
 
-### Four (4) space indents, no tabs
 
-The purpose of indentation in CSS is to improve the legibility of the code and optionally to also understand the structure of the HTML documents being styled.
+### Indent with four (4) spaces, no tabs
+
+**The purpose of indentation is to improve the legibility of the code** and optionally to also understand the structure of the HTML documents being styled.
 
 The debates about tabs-vs-spaces and two-vs-four-spaces are much older than CSS development. What matters though are:
 
@@ -176,11 +180,11 @@ The debates about tabs-vs-spaces and two-vs-four-spaces are much older than CSS 
 
 With this in mind we recommend:
 
-*    Indent declarations with 4 spaces.
-*    Never mix tabs and spaces. Code indented with a mixture of tabs and 
+*    **Indent declarations with four (4) spaces**.
+*    **Never mix tabs and spaces**. Code indented with a mixture of tabs and 
      spaces should be converted to using spaces only; if your coding editor allows, set the option to convert tabs to spaces.
 
-As well as intending individual declarations, you MAY indent entire related rulesets to signal their relation to one another, for example:
+As well as intending individual declarations, **you may indent entire related rulesets to signal their relation to one another**, for example:
 
 ```
 .foo {
@@ -201,7 +205,7 @@ By doing this, a developer can see at a glance that `.foo__baz {}` lives inside 
 This quasi-replication of the DOM tells developers a lot about where classes are expected to be used without them having to refer to a snippet of HTML.
 
 
-#### Indenting Sass
+#### Indenting Sass (SHOULD WE HAVE A SEPARATE Sass guide?)
 Sass provides nesting functionality. That is to say, by writing this:
 
 ```
@@ -229,7 +233,7 @@ N.B. Nesting in Sass should be avoided wherever possible. See the Specificity se
 
 ### Colons and semicolons, braces and spaces
 
-Taking this example rule:
+Consider this example rule:
 
 ```
 .foo, .foo-bar,
@@ -240,7 +244,7 @@ Taking this example rule:
 }
 ```
 
-here you can see we have:
+Here you can see we have:
 
 *   Related selectors on the same line; unrelated selectors on new lines.
 *   The opening brace ({) on the same line as the last selector.
