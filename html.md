@@ -160,3 +160,7 @@ We use error pages for very specific purposes.
 #### References
 
 The initial version of this style guide was based on [Github's HTML style guide](https://github.com/styleguide/templates).
+
+
+TODO: Avoid <address> element.
+TODO: Microformats? This should be in the CSS guide.
