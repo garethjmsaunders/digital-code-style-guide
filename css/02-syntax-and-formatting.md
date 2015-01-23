@@ -263,6 +263,8 @@ Here you can see we have:
 
 This format seems to be the largely universal standard, except for variations in number of spaces, many developers prefer two (2).
 
+Reference: [CSS Guidelines "Harry Roberts"](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
+
 
 
 
@@ -270,6 +272,8 @@ This format seems to be the largely universal standard, except for variations in
 ### List declarations in alphabetical order
 
 Multiple selectors should be listed in alphabetical order as this makes it much easier to find declaration blocks.
+
+For example:
 
 ```
 .foo {
@@ -356,6 +360,8 @@ Attempt to align common and related identical strings in declarations, for examp
 
 This makes life a little easier for developers whose text editors support column editing, allowing them to change several identical and aligned lines in one go.
 
+Source: [CSS Guidelines](http://cssguidelin.es/#alignment "Harry Roberts")
+
 
 
 
@@ -405,6 +411,8 @@ There should never be a scenario in which two rulesets do not have an empty line
 .foo--baz {}
 ```
 
+Source: [CSS Guidelines](http://cssguidelin.es/#meaningful-whitespace)
+
 
 
 
@@ -417,19 +425,19 @@ There should never be a scenario in which two rulesets do not have an empty line
 
 #### Use the approved St Andrews palette of colours
 
-Unless you have a very good reason not to, you must use the approved pallete of St Andrews colours. One exception may be black; see [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor.
+Unless you have a very good reason not to, you must use the approved pallete of St Andrews colours.
 
 
 #### Colour keywords
 
 The [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/#html4) specification defines 16 basic colour keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
 
-You may use `black` and `white`. Do not use the other values, except in debug files.
+You may use only `black` and `white`; although consider this article [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor. Do not use the other values, except in debug files.
 
 
 #### Prefer RGB over hex
 
-Use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there MUST be a space after each comma.
+Use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there must be a space after each comma.
 
 The reason for preferring RGB is three-fold:
 
@@ -438,9 +446,9 @@ The reason for preferring RGB is three-fold:
      below.
 3.   RGB format is more widely supported in graphic design applications.
 
-To expand on the first reason, while colours on the web have traditionally been specified using hex codes (e.g. St Andrews Blue is `#00539b`) it is not as easy to estimate the colour just by looking at the code, unless you can convert hex to decimal in your head. For example, at a glance `rgb(0, 83, 155)` has about 60% blue and 30% green so you may safely estimate that this is dark blue.
+To expand on the first point, while colours on the web have traditionally been specified using hex codes (e.g. St Andrews Blue is `#00539b`) it is not as easy to estimate the colour just by looking at the code, unless you can convert hex to decimal in your head. For example, at a glance `rgb(0, 83, 155)` has about 60% blue and 30% green so you may safely estimate that this is dark blue.
 
-There is a current trend to prefer HSL as it allows you quickly make things lighter or darker
+There is a current trend to prefer HSL over RGB as it allows you to adjust colours to make them lighter or darker more easily. With a fixed 
 
 
 #### Alpha transparency
