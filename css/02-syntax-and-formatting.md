@@ -44,7 +44,11 @@ Source: [CSS guidelines](http://cssguidelin.es/#syntax-and-formatting "Harry Rob
         - [Margin and padding](#margin-and-padding)
     - [Units](#units)
     - [Zero](#zero)
-- [Hacks](#hacks)
+- [Don't use IE hacks](#dont-use-ie-hacks)
+    - [Filters](#filters)
+    - [IE hacks](#ie-hacks)
+        - [More information](#more-information)
+    - [shame.css](#shamecss)
 
 <!-- /MarkdownTOC -->
 
@@ -448,7 +452,7 @@ The reason for preferring RGB is three-fold:
 
 To expand on the first point, while colours on the web have traditionally been specified using hex codes (e.g. St Andrews Blue is `#00539b`) it is not as easy to estimate the colour just by looking at the code, unless you can convert hex to decimal in your head. For example, at a glance `rgb(0, 83, 155)` has about 60% blue and 30% green so you may safely estimate that this is dark blue.
 
-There is a current trend to prefer HSL over RGB as it allows you to adjust colours to make them lighter or darker more easily. With a fixed 
+There is a current trend to prefer HSL over RGB as it allows you to more easily make them lighter or darker. With a fixed pallette, such as ours, we don't need this.
 
 
 #### Alpha transparency
@@ -480,9 +484,9 @@ If you must use hex codes: shorten values where possible (`#fff` instead of `#ff
 
 ### Quotation marks
 
-In CSS quotation marks are optional, however, languages that do not require strings to be quoted are a minority so **always use single quotes** unless there is a compelling reason to not use them that aids clarity.
+In CSS quotation marks are optional, however, languages that do not require strings to be quoted are a minority. **Always use single quotes** unless there is a compelling reason to not use, for example to greatly aid clarity.
 
-It is preferable to use single quotes for CSS and double-quotes for HTML so that you can easily drop CSS code into inline styles:
+It is preferable to use single quotes for CSS and double-quotes for HTML so that you may easily drop CSS code into inline styles:
 
 ```
 <div style="background-image: url('img.gif');"> [...] </div>
@@ -512,11 +516,15 @@ h2 {
 
 #### URLs
 
+**Do not use quotations marks in URL values.**
+
 ```
 @embed url(http://www.st-andrews.ac.uk/code/framework.css);
 ```
 
-There may be situations where the URL contains characters that would otherwise need to be escaped, such as parentheses, white space characters, single quotes (') or double quotes("). In these cases use the most appropriate quotation mark to aid clarity without needing to escape anything.
+There may be situations where the URL contains characters that would otherwise need to be escaped, such as parentheses, white space characters, single quotes (') or double quotes(").
+
+In these cases use the most appropriate quotation mark to aid clarity without needing to escape anything; if in doubt, use single quotes.
 
 
 
@@ -553,7 +561,7 @@ selector {
 }
 
 div {
-    background: rgb(0, 83, 155) url(img/bg.png) no-repeat fixed left bottom;
+    background: rgb(0, 83, 155) url('img/bg.png') no-repeat fixed left bottom;
 }
 ```
 
@@ -642,6 +650,41 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
 
 
 
-## Hacks
+## Don't use IE hacks
 
-Do not use Microsoft filters, e.g. `-ms-filter : "progid:DXImageTransform.Microsoft.Alpha(opacity=50)";` as these can have a serious negative impact on a website's performance.
+
+### Filters
+
+Do not use Microsoft Internet Explorer filters, e.g. 
+
+```
+-ms-filter : "progid:DXImageTransform.Microsoft.Alpha(opacity=50)";
+```
+
+as these can have a serious negative impact on a website's performance.
+
+
+### IE hacks
+
+Try to not use other [browser-specific hacks](http://browserhacks.com/ "Browser hacks") for Internet Explorer. But if you must then these must be served from a separate style sheet, targetted using an IE conditional, e.g.
+
+```
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="ie.css">
+<![endif]-->
+```
+
+#### More information
+* [Microsoft Developer Network](https://msdn.microsoft.com/en-us/library/ms537512%28v=vs.85%29.aspx)
+* [Quirksmode](http://www.quirksmode.org/css/condcom.html)
+
+
+### shame.css
+
+Consider Harry Roberts, Chris Coyier, and Dave Rupert's idea of a [shame.css](http://csswizardry.com/2013/04/shame-css/ "Article from 17 April 2013") file that groups all "bodges, hacks and quick-fixes in their own file". Their reasons are:
+
+1. You make them stick out like a sore thumb.
+2. You keep your 'main' codebase clean.
+3. You make developers aware that their hacks are made very visible.
+4. You make them easier to isolate and fix.
+5. `$ git blame shame.css`.

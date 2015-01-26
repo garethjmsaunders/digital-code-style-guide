@@ -2,7 +2,7 @@ CSS code style guide
 
 # Comments
 
-As Harry Roberts points out in his [CSS Guidelines](http://cssguidelin.es/) document: "CSS needs more comments". TODO: Explain what this section covers.
+As Harry Roberts points out in his [CSS Guidelines](http://cssguidelin.es/) document: "CSS needs more comments".
 
 
 
