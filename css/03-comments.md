@@ -16,14 +16,15 @@ As Harry Roberts points out in his [CSS Guidelines](http://cssguidelin.es/) docu
 - [Sass comments](#sass-comments)
 - [Every CSS file must have...](#every-css-file-must-have)
   - [File information](#file-information)
-    - [author](#author)
+    - [project](#project)
     - [version](#version)
+    - [author](#author)
+    - [copyright](#copyright)
+    - [license](#license)
     - [since](#since)
     - [deprecated](#deprecated)
     - [example](#example)
     - [TODO](#todo)
-    - [license](#license)
-    - [copyright](#copyright)
   - [Table of contents](#table-of-contents)
   - [Section titles](#section-titles)
 - [Magic numbers](#magic-numbers)
@@ -57,28 +58,30 @@ This doesn't even take into account some of CSS's many quirks—such as various 
 
 As a result of CSS not telling its own story very well, it is a language that really does benefit from being heavily commented.
 
+Source: [CSS Guidelines](http://cssguidelin.es/#commenting "Harry Roberts")
+
 
 
 
 
 ## General advice
 
-Write comments as complete, grammatical sentences with an initial capital (    unless it refers to an ID/class identifier—never change the case of identifiers) and a full-stop at the end.
+Write comments as complete, grammatical sentences with an initial capital and a full-stop at the end. (The only exception to initial capital is class and ID identifiers.)
 
 As a rule, you should comment anything that isn't immediately obvious from the code alone. These could be explaining:
 
 * the structure and/or role of a file;
 * the goal of a ruleset;
-* the idea behind a magic number;
+* the idea behind a 'magic number';
 * the reason for a CSS declaration;
 * the order of CSS declarations;
 * the thought process behind a way of doing things.
 
-That is to say, there is no need to tell someone that color: red; will make something red, but if you're using overflow: hidden; to clear floats—as opposed to clipping an element's overflow—this is probably something worth documenting.
+That is to say, there is no need to tell someone that `color: red;` will make something red, but if you're using `overflow: hidden;` to clear floats—as opposed to clipping an element's overflow—this is probably something worth documenting.
 
-It should go without saying, keep comments up-to-date when code changes.
+It should go without saying, **keep comments up-to-date when code changes**.
 
-No comments should make their way into production environments. All CSS should be minified, resulting in loss of comments, before being deployed.
+**No comments should make their way into production environments**. All CSS should be minified, resulting in loss of comments, before being deployed.
 
 
 
@@ -94,6 +97,7 @@ If you are using [Sass](http://sass-lang.com/) please take note of the following
      after the script has been executy.
 
 Further reading
+
 * [Comments: /* */ and //](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments)
 * [Commenting on Sass Guidelines](http://sass-guidelin.es/#commenting)
 
@@ -139,15 +143,9 @@ TODO: Add release date?
 ```
 
 
-####@author
-Use this tag to define an author for an element.
-It can either be only the authors' name, or append a connection in <> brackets.
-Example:
+####@project
+Use this tag to describe the name of the project; in other words, what this CSS file is being used for.
 
-    @author Christian Engel <hello@wearekiss.com>
-
-The following connections are recognized: URL (http://example.com), email (hello@example.com), Twitter handle (@example) 
-The tag can be used multiple times.
 
 ####@version
 Can be used on modules and elements to show the revision they are currently in.    
@@ -159,27 +157,50 @@ You may as well append a date after the version number.
 
     @version: 12 2011-10-26
 
-####@since
-Can be used on modules and elements to show in which revision they have been implemented.    
-Example:
 
-    @since 3
+####@author
+Use this tag to define an author for an element. It can either be only the authors' name, or append a connection in <> brackets. Example:
+
+    @author Gareth J M Saunders <gjms1@st-andrews.ac.uk>
+
+The following connections are recognized: URL (http://example.com), email (hello@example.com), Twitter handle (@example) 
+The tag can be used multiple times.
+
+
+####@copyright
+This tag is used to apply copyright information to the CSS document.    
+It can be used on the project definition block. Example:
+
+    @copyright Copyright (c) 2015 University of St Andrews
+
+
+####@license
+This displays a hyperlink to a url for a license. Can be used in the project definition block. It is made of two parts: the URL and a title, separated by comma. Example:
+
+    @license http://opensource.org/licenses/gpl-license.php, GNU Public License
+
+
+####@since
+Can be used on modules and elements to show in which revision they have been implemented. Example:
+
+    @since 3.0
+
 
 ####@deprecated
-This indicates that the following element is, or will be deprecated in the future. Define a upcoming version number to indicate that the element will be deprecated then.    
-Example:
+This indicates that the following element is, or will be deprecated in the future. Define a upcoming version number to indicate that the element will be deprecated then. Example:
 
-    @deprecated 18
+    @deprecated 18.0
 
 Alternatively any string can be placed as well:
 
     @deprecated Will be used no more since 2011-11-13
 
+
 ####@example
-Can be used on the project, modules and elements to link to a real world example where the styles are used.    
-Example:
+Can be used on the project, modules and elements to link to a real world example where the styles are used. Example:
 
     @example http://example.com/contact.html
+
 
 ####@TODO
 The TODO marker indicates if something has to be done on either projects, modules or elements.     
@@ -187,18 +208,7 @@ Example:
 
     @TODO Make layout responsive
 
-####@license
-This displays a hyperlink to a url for a license. Can be used in the project definition block. Its made of two parts - the URL and a title, separated by comma.    
-Example:
 
-    @license http://opensource.org/licenses/gpl-license.php GNU Public License
-
-####@copyright
-This tag is used to apply copyright information to the CSS document.    
-It can be used on the project definition block.    
-Example:
-
-    @copyright Copyright (c) 2012, Kiss
 
 
 
@@ -371,14 +381,14 @@ Needless to say magic numbers are a plague and should be avoided at all costs. W
 
 See also
 
-* [Sass styleguide CSS ] (http://sass-guidelin.es/#magic-numbers)
-* [Magic numbers in CSS] (http://css-tricks.com/magic-numbers-in-css/)
+* [Sass styleguide CSS ](http://sass-guidelin.es/#magic-numbers)
+* [Magic numbers in CSS](http://css-tricks.com/magic-numbers-in-css/)
 
 
 ## High-level
 
 For large comments that document entire sections or components, we use a DocBlock-esque multi-line comment which adheres to our 80 column width.
-Here is a real-life example from the CSS which styles the page header on [CSS Wizardry] (http://csswizardry.com): 
+Here is a real-life example from the CSS which styles the page header on [CSS Wizardry](http://csswizardry.com): 
 
 "Front-end architecture and performance engineering by Harry Roberts"
 
