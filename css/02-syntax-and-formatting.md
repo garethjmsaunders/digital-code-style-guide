@@ -47,7 +47,6 @@ Source: [CSS guidelines](http://cssguidelin.es/#syntax-and-formatting "Harry Rob
 - [Don't use IE hacks](#dont-use-ie-hacks)
     - [Filters](#filters)
     - [IE hacks](#ie-hacks)
-        - [More information](#more-information)
     - [shame.css](#shamecss)
 
 <!-- /MarkdownTOC -->
@@ -674,7 +673,8 @@ Try to not use other [browser-specific hacks](http://browserhacks.com/ "Browser 
 <![endif]-->
 ```
 
-#### More information
+Further reading
+
 * [Microsoft Developer Network](https://msdn.microsoft.com/en-us/library/ms537512%28v=vs.85%29.aspx)
 * [Quirksmode](http://www.quirksmode.org/css/condcom.html)
 
