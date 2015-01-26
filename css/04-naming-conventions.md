@@ -16,6 +16,8 @@ It's worth noting that a naming convention is not normally useful CSS-side of de
 
 
 
+TODO: This whole section needs to be reviewed and decisions made about it.
+
 
 
 ## In this section
