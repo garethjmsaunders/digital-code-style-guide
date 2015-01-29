@@ -72,7 +72,7 @@ Base rules set the default styling for how any 'vanilla' element should look in 
 
 These are more often than not simple element selectors (e.g. `a`, `h1`, `p`) but could also include, for example, attribute selectors (e.g. `input[type="submit"]`), pseudo-class selectors (e.g. `a:hover`, `p:first-child`) or sibling selectors (e.g. `h1 + p`).
 
-* Base rules set default text sizes and font styles, headings, links, and body backgrounds.
+* Base rules set default text sizes and font styles, headings, links, and body background colours (it's always a good practice to define these).
 * Base rules do not include any classes or IDs.
 * There should be no need to use `!important` in base styles.
 
@@ -125,8 +125,8 @@ If you need to include frameworks (whole or in part) within your stylesheet — 
 
 ### Further reading
 
-* [SMACSS: Categorizing CSS rules](https://smacss.com/book/categorizing "SMACSS: Categorizing CSS rules")
-* [SMACSS: Base rules](https://smacss.com/book/type-base "SMACSS: Base rules")
+* [SMACSS: Categorizing CSS rules](https://smacss.com/book/categorizing "Scalable and Modular Architecture for CSS by Jonathan Snook")
+* [SMACSS: Base rules](https://smacss.com/book/type-base "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
 
@@ -139,7 +139,7 @@ Layout rules define the major layout components of a page, such as header, foote
 
 ### Further reading
 
-* [SMACSS: Layout rules](https://smacss.com/book/type-layout "SMACSS: Layout rules")
+* [SMACSS: Layout rules](https://smacss.com/book/type-layout "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
 
@@ -157,7 +157,7 @@ Modules are the reusable, modular components of our design. These are usually de
 
 ### Further reading
 
-* [SMACSS: Module rules](https://smacss.com/book/type-module "SMACSS: Module rules")
+* [SMACSS: Module rules](https://smacss.com/book/type-module "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
 
@@ -165,7 +165,7 @@ Modules are the reusable, modular components of our design. These are usually de
 
 ## 4. State
 
-"A state is something that augments and overrides all other styles. For example, an accordion section may be in a collapsed or expanded state. A message may be in a success or error state." [Source](https://smacss.com/book/type-state "SMACSS: State rules")
+"A state is something that augments and overrides all other styles. For example, an accordion section may be in a collapsed or expanded state. A message may be in a success or error state." [Source](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 State rules describe how our layouts or modules will look when in a particular state such as visible or hidden, collapsed or expanded, active or inactive, error or success.
 
@@ -197,7 +197,7 @@ The answer to this question is worth quoting in full:
 
 "For example, clicking on a tab will activate that tab. Therefore, an is-active or is-tab-active class is appropriate. Clicking on a dialog close button will hide the dialog. Therefore, an is-hidden class is appropriate."
 
-[Source](https://smacss.com/book/type-state "SMACSS: State rules")
+[Source](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
 ### Using !important
@@ -209,8 +209,8 @@ Use of `!important` is allowed if required, but hang back from applying it unles
 
 ### Further reading
 
-* [SMACSS: State rules](https://smacss.com/book/type-state "SMACSS: State rules")
-* [SMACSS: Changing state](https://smacss.com/book/state "SMACSS: Changing state")
+* [SMACSS: State rules](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
+* [SMACSS: Changing state](https://smacss.com/book/state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
 
@@ -220,39 +220,38 @@ Use of `!important` is allowed if required, but hang back from applying it unles
 
 Theme rules define the colours and images of your web application or site.
 
-Separating out theme rules allows you to very easily reuse layouts and modules across a site but apply different 'skins' to each. For example, undergraduates, postgraduates and staff pages might have the same basic layout and functionality but use different colour schemes.
+Separating out theme rules allows you to very easily reuse layouts and modules across a site but apply different 'skins' to each. For example, undergraduates, postgraduates and staff pages might have the same basic layout and functionality but use different colour palettes.
 
-It is probably self-evident that not all colour and image information needs to sit within a theme section. You may prefer to define default styling for a layout or module within their respective sections and then use theme CSS to override these later, e.g.
+It is probably self-evident that not all colour and image information needs to sit within a theme section. It can be helpful to define default colour scheme for a layout or module within their respective sections and then use theme CSS to override these later, e.g.
 
 ```
 // in module-name.css
-.mod {
+.module {
     border: 1px solid black;
 }
 
 
 // in theme.css
-.mod {
+.module {
     border-colour: rgb(0, 83, 155);
 }
 ```
 
-or you may prefer to separate these out completely. 
+or you may prefer to separate these out completely. The context should determine which approach is used.
 
 ```
 // in module-name.css
-.mod {
+.module {
     border: 1px solid;
 }
 
 
 // in theme.css
-.mod {
+.module {
     border-colour: rgb(0, 83, 155);
 }
 ```
 
-
 ### Further reading
 
-* [SMACSS: Theme rules](https://smacss.com/book/type-theme "Theme rules")
+* [SMACSS: Theme rules](https://smacss.com/book/type-theme "Scalable and Modular Architecture for CSS by Jonathan Snook")
