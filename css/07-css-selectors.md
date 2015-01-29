@@ -36,7 +36,7 @@ It is important when writing CSS that we scope our selectors correctly, and that
 header ul {}
 ```
 
-This selector's intent is to style any ul inside any header element, whereas our intent was to style the site's main navigation. This is poor selector intent: you can have any number of header elements on a page, and they in turn can house any number of uls, so a selector like this runs the risk of applying very specific styling to a very wide number of elements. This will result in having to write more CSS to undo the greedy nature of such a selector.
+This selector's intent is to style any `ul` inside any header element, whereas our intent was to style the site's main navigation. This is poor selector intent: you can have any number of header elements on a page, and they in turn can house any number of `ul`s, so a selector like this runs the risk of applying very specific styling to a very wide number of elements. This will result in having to write more CSS to undo the greedy nature of such a selector.
 
 A better approach would be a selector like:
 

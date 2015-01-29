@@ -47,6 +47,7 @@ Source: [CSS guidelines](http://cssguidelin.es/#syntax-and-formatting "Harry Rob
 - [Don't use IE hacks](#dont-use-ie-hacks)
     - [Filters](#filters)
     - [IE hacks](#ie-hacks)
+    - [Further reading](#further-reading)
     - [shame.css](#shamecss)
 
 <!-- /MarkdownTOC -->
@@ -266,7 +267,7 @@ Here you can see we have:
 
 This format seems to be the largely universal standard, except for variations in number of spaces, many developers prefer two (2).
 
-Reference: [CSS Guidelines "Harry Roberts"](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
+Source: [CSS Guidelines "Harry Roberts"](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
 
 
 
@@ -673,7 +674,7 @@ Try to not use other [browser-specific hacks](http://browserhacks.com/ "Browser 
 <![endif]-->
 ```
 
-Further reading
+### Further reading
 
 * [Microsoft Developer Network](https://msdn.microsoft.com/en-us/library/ms537512%28v=vs.85%29.aspx)
 * [Quirksmode](http://www.quirksmode.org/css/condcom.html)

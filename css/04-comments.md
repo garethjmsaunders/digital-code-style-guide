@@ -14,6 +14,7 @@ As Harry Roberts points out in his [CSS Guidelines](http://cssguidelin.es/) docu
 - [CSS needs more comments](#css-needs-more-comments)
 - [General advice](#general-advice)
 - [Sass comments](#sass-comments)
+  - [Further reading](#further-reading)
 - [Every CSS file must have...](#every-css-file-must-have)
   - [File information](#file-information)
     - [project](#project)
@@ -96,7 +97,8 @@ If you are using [Sass](http://sass-lang.com/) please take note of the following
 2.   Single-line comments (`// comment`) are removed from production code 
      after the script has been executy.
 
-Further reading
+
+### Further reading
 
 * [Comments: /* */ and //](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments)
 * [Commenting on Sass Guidelines](http://sass-guidelin.es/#commenting)

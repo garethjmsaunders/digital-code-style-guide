@@ -1,4 +1,6 @@
-## Architectural principles
+
+
+# Architectural principles
 
 You would be forgiven for thinking that an architecture for CSS is a somewhat grandiose and unnecessary concept: why would something so simple, so straightforward, need something as complex or considered as an architecture?!
 
@@ -13,7 +15,7 @@ Most architectures are usually based around existing design patterns and paradig
 In this section, we'll take a look at some of these design patterns and paradigms, and how we can use them to reduce code—and increase code reuse—in our CSS projects.
 
 
-### High-level overview
+## High-level overview
 
 At a very high-level, your architecture should help you:
 
@@ -26,7 +28,7 @@ At a very high-level, your architecture should help you:
 Typically, this will mean a class-based and componentised architecture, split up into manageable modules, probably using a preprocessor. Of course, there is far more to an architecture than that, so let's look at some principles…
 
 
-### Object-orientation
+## Object-orientation
 
 Object-orientation is a programming paradigm that breaks larger programs up into smaller, in(ter)dependent objects that all have their own roles and responsibilities. From Wikipedia:
 
@@ -88,14 +90,15 @@ Favour the multiple-class approach over using something like `@extend:` using mu
 
 Whenever you are building a UI component, try and see if you can break it into two parts: one for structural styles (paddings, layout, etc.) and another for skin (colours, typefaces, etc.).
 
-#### Further reading
+
+### Further reading
 
 * [The media object saves hundreds of lines of code](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/)
 * [The flag object](http://csswizardry.com/2013/05/the-flag-object/)
 * [Naming UI components in OOCSS](http://csswizardry.com/2014/03/naming-ui-components-in-oocss/)
 
 
-### The single responsibility principle
+## The single responsibility principle
 
 The _single responsibility principle_ is a paradigm that, very loosely, states that all pieces of code (in our case, classes) should focus on doing one thing and one thing only. More formally:
 
@@ -162,12 +165,16 @@ Now we have a general abstraction for boxes which can live, and be used, complet
 
 By focussing on single responsibilities, we can give our code much more flexibility, and extending components' functions becomes very simple when sticking to the open/closed principle, which we're going to look at next.
 
-#### Further reading
+
+### Further reading
 
 * The single responsibility principle applied to CSS
 
 
-### The open/closed principle
+
+
+
+## The open/closed principle
 
 The open/closed principle, in my opinion, is rather poorly named. It is poorly named because 50% of the vital information is omitted from its title. The open/closed principle states that
 
@@ -223,12 +230,16 @@ When working in a team environment, be sure to write API-like CSS; always ensure
 
 Exceptions may present themselves when it transpires that a root object does need a rewrite or refactor, but it is only in these specific cases that you should modify code. Remember: **open for extension; closed for modification**.
 
-#### Further reading
+
+### Further reading
 
 * [The open/closed principle applied to CSS](http://csswizardry.com/2012/06/the-open-closed-principle-applied-to-css/)
 
 
-### DRY
+
+
+
+## DRY
 
 DRY, which stands for _Don't repeat yourself_, is a micro-principle used in software development which aims to keep the repetition of key information to a minimum. Its formal definition is that
 
@@ -333,12 +344,15 @@ Now the two declarations only exist once, meaning we're not repeating ourselves.
 
 In short, only DRY code that is actually, thematically related. Do not try to reduce purely coincidental repetition: **duplication is better than the wrong abstraction**.
 
-#### Further reading
+### Further reading
 
 * [Writing DRYer vanilla CSS](http://csswizardry.com/2013/07/writing-dryer-vanilla-css/)
 
 
-### Composition over inheritance
+
+
+
+## Composition over inheritance
 
 Now that we're used to spotting abstractions and creating single responsibilities, we should be in a great position to start composing more complex composites from a series of much smaller component parts. Nicole Sullivan likens this to using Lego; tiny, single responsibility pieces which can be combined in a number of different quantities and permutations to create a multitude of very different looking results.
 
@@ -347,7 +361,10 @@ This idea of building through composition is not a new one, and is often referre
 Composition is a very valuable principle for an architecture to make use of, particularly considering the move toward component-based UIs. It will mean you can more easily recycle and reuse functionality, as well rapidly construct larger parts of UI from a known set of composable objects. Think back to our error message example in the single responsibility principle section; we created a complete UI component by composing a number of much smaller and unrelated objects.
 
 
-### The separation of concerns
+
+
+
+## The separation of concerns
 
 The separation of concerns is a principle which, at first, sounds a lot like the single responsibility principle. The separation of concerns states that code should be broken up
 
@@ -417,7 +434,11 @@ The separation of concerns allows you to keep code self-sufficient, ignorant, an
 The separation of concerns increases reusability and confidence whilst reducing dependency.
 
 
-### Misconceptions
+
+
+
+## Misconceptions
+
 There are, I feel, a number of unfortunate misconceptions surrounding the separation of concerns when applied to HTML and CSS. They all seem to revolve around some format of:
 
 > Using classes for CSS in your markup breaks the separation of concerns.

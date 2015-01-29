@@ -11,8 +11,10 @@ TODO: Write introduction...
     - [IDs in CSS](#ids-in-css)
     - [Nesting](#nesting)
 - [Scope](#scope)
+    - [Further reading](#further-reading)
 - [!important](#important)
 - [Hacking specificity](#hacking-specificity)
+    - [Further reading](#further-reading-1)
 - [Consider these:](#consider-these)
     - [IDEA: Avoid body classes](#idea-avoid-body-classes)
 
@@ -188,7 +190,8 @@ This goes some way to providing our CSS with scope and encapsulation, but does s
 
 Now we have better scoped CSS with minimal specificity—the best of both worlds.
 
-Further reading
+
+### Further reading
 
 * ['Scope' in CSS](http://csswizardry.com/2013/05/scope-in-css/)
 
@@ -294,7 +297,8 @@ Here we are selecting based on an attribute rather than an ID, and attribute sel
 
 Do keep in mind that these are hacks, and should not be used unless you have no better alternative.
 
-Further reading
+
+### Further reading
 [Hacks for dealing with specificity](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/)
 
 
