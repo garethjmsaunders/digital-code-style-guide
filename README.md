@@ -160,8 +160,10 @@ Documentation for each language in scope, delivered in HTML format.
 
 ## Meta
 
-Version 1.2
-Thursday 12 February 2015
+Updated
+* Version 1.2
+* Thursday 12 February 2015
 
-Gareth J M Saunders
-Samuel J Parsons
+Authors
+* Gareth J M Saunders
+* Samuel J Parsons
