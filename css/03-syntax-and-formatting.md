@@ -1,4 +1,4 @@
-CSS code style guide
+CSS code standards guide
 
 # 2. Syntax and formatting
 

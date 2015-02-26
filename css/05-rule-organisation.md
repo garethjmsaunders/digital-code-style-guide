@@ -1,4 +1,4 @@
-CSS code style guide
+CSS code standards guide
 
 # Rule organisation
 

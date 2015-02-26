@@ -1,8 +1,9 @@
-CSS code style guide
+CSS code standards guide
 
 # 0. Introduction
 
 These CSS guidelines are applicable to all websites and web applications created and managed by and for the University of St Andrews under the st-andrews.ac.uk domain.
+
 
 
 
@@ -17,6 +18,7 @@ These CSS guidelines are applicable to all websites and web applications created
 - [Acknowledgements](#acknowledgements)
 
 <!-- /MarkdownTOC -->
+
 
 
 
