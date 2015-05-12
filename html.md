@@ -9,7 +9,7 @@ Table of Contents
 
 
 
-## 1. Doctype <a name="doctype"></a>
+## 1. Doctype
 
 A proper doctype which triggers standards mode in your browser should always be used. Quirks mode should always be avoided.
 
@@ -19,7 +19,22 @@ For simplicity, we use the html5 doctype:
 <!DOCTYPE html>
 ```
 
-## 2. Coding style <a name="codingstyle"></a>
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+```
+
+
+## 2. Coding style
 
 ### General formatting
 
@@ -116,7 +131,7 @@ For example:
 Summer schools and programmes - University of St Andrews
 ```
 
-## 4. Error Pages <a name="errorpages"></a>
+## 4. Error Pages
 
 Error pages should be built such that they require zero scripting, zero JavaScript, and zero dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
 
