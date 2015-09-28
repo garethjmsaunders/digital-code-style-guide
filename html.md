@@ -2,18 +2,32 @@
 
 Table of Contents
 
-1. [Doctype](#doctype)
+1. [Syntax](#syntax)
+2. [HTML5 doctype](#doctype)
 2. [Coding style](#codingstyle)
 3. [Page titles](#pagetitles)
 4. [Error pages](#errorpages)
 
 
 
-## 1. Doctype
 
-A proper doctype which triggers standards mode in your browser should always be used. Quirks mode should always be avoided.
+<a name="syntax"></a>
+## 1. Syntax 
 
-For simplicity, we use the html5 doctype:
+* Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
+* Nested elements should be indented once (four spaces).
+* Always use double quotes ("), never single quotes ('), on attributes.
+* Do not include a trailing slash on self-closing elements. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
+
+
+
+
+<a name="doctype"></a>
+## 2. HTML5 doctype 
+
+Use a proper doctype that triggers standards mode in your browser should always be used. Quirks mode should always be avoided.
+
+For simplicity, we use the HTML5 doctype:
 
 ```
 <!DOCTYPE html>
