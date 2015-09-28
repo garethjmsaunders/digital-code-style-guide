@@ -260,6 +260,14 @@ The following are banned from every error page:
 
 We use error pages for very specific purposes.
 
+* **403** — Access denied/forbidden.
+Requests that require authentication may return 404 Not Found, instead of 403 Forbidden, in some places. This is to prevent the accidental leakage of private information to unauthorized users.
+
+* **404** — Not found.
+See Github [404](https://github.com/404.html) and [404-pages](https://github.com/404-pages.html)
+
+* **410** — Feature gone.
+See Github [410](https://github.com/410.html). Not sure we need this one.
 
 * **500** — An exception occurred and we couldn't recover.
 See Github [500](https://github.com/500.html)
@@ -269,15 +277,6 @@ See Github [502](https://github.com/502.html)
 
 * **503** — We are having a bad problem and the app server will not talk to us.
 See Github [503](https://github.com/503.html)
-
-* **404** — Not found.
-See Github [404](https://github.com/404.html) and [404-pages](https://github.com/404-pages.html)
-
-* **410** — Feature gone.
-See Github [410](https://github.com/410.html). Not sure we need this one.
-
-* **422** — When Nginx can't figure out what to do with your request, you could get this.
-See Github [422](https://github.com/422.html). Don't need this.
 
 * **maintenance** — For the rare case we must take the website down to perform maintenance. See Github [maintenance](https://github.com/maintenance.html). May need this for other systems, e.g. Pure.
 
@@ -290,6 +289,5 @@ See Github [422](https://github.com/422.html). Don't need this.
 
 The initial version of this style guide was based on [Github's HTML style guide](https://github.com/styleguide/templates).
 
-
-TODO: Avoid <address> element.
+TODO: Avoid `<address>` element.
 TODO: Microformats? This should be in the CSS guide.
