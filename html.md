@@ -2,68 +2,44 @@
 
 Table of Contents
 
-1. [Syntax](#syntax)
-2. [HTML5 doctype](#doctype)
-2. [Coding style](#codingstyle)
-3. [Page titles](#pagetitles)
-4. [Error pages](#errorpages)
+<!-- MarkdownTOC -->
+
+- [1. Syntax](#1-syntax)
+    - [General formatting](#general-formatting)
+    - [Accessibility](#accessibility)
+    - [Boolean attributes](#boolean-attributes)
+    - [Comments](#comments)
+    - [Forms](#forms)
+    - [Lean markup](#lean-markup)
+    - [Lists](#lists)
+    - [Tables](#tables)
+- [2. HTML5 doctype](#2-html5-doctype)
+- [3. Language attribute](#3-language-attribute)
+- [2. Coding style](#2-coding-style)
+- [3. Page Titles](#3-page-titles)
+- [4. Error Pages](#4-error-pages)
+    - [Error templates](#error-templates)
+        - [References](#references)
+
+<!-- /MarkdownTOC -->
 
 
 
 
-<a name="syntax"></a>
 ## 1. Syntax 
-
-* Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
-* Nested elements should be indented once (four spaces).
-* Always use double quotes ("), never single quotes ('), on attributes.
-* Do not include a trailing slash on self-closing elements. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
-
-
-
-
-<a name="doctype"></a>
-## 2. HTML5 doctype 
-
-Use a doctype that triggers standards mode in your browser; this ensures more consistent rendering in browsers. Quirks mode should always be avoided.
-
-For simplicity, we use the HTML5 doctype:
-
-```
-<!DOCTYPE html>
-```
-
-
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-```
-
-
-## 2. Coding style
 
 ### General formatting
 
+* Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
+* Nested elements should be indented once (four spaces).
+* Always use double quotes ("), never single quotes ('), on attributes. While optional, include quotes to improve code readability.
+* Do not include a trailing slash on self-closing elements. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
 
+
+### Accessibility
+* Do not set `tabindex` manually; rely on the browser to set the order.
 * Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br>` tags.
-* Items in list form should always be in `<ul>`, `<ol>`, or `<dl>`. Never use a set of `<div>` or `<p>`.
-* Every form input that has text attached should utilize a `<label>` tag. Especially radio or checkbox elements.
-* Even though quotes around attributes is optional, always put quotes around attributes for readability.
-* <mark>Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.</mark>
-* Avoid trailing slashes in self-closing elements. For example, `<br>`, `<hr>`, `<img>`, and `<input>`.
-* Don't set tabindex manually—rely on the browser to set the order.
 
-```
-<p class="line-note" data-attribute="106">This is my paragraph of special text.</p>
-```
 
 ### Boolean attributes
 
@@ -81,6 +57,20 @@ Many attributes don't require a value to be set, like disabled or checked, so do
 
 For more information, read the WhatWG section.
 
+
+### Comments
+
+Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.
+
+
+### Forms
+
+* Lean towards radio or checkbox lists instead of select menus.
+* Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here: the wrapping automatically associates the two.
+* Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
+* The primary form button must come first in the DOM, especially for forms with multiple submit buttons.
+
+
 ### Lean markup
 
 Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. For example:
@@ -95,39 +85,74 @@ Whenever possible, avoid superfluous parent elements when writing HTML. Many tim
 <img class="avatar" src="...">
 ```
 
-### Forms
 
-* <mark>Lean towards radio or checkbox lists instead of select menus.</mark>
-* Wrap radio and checkbox inputs and their text in `<label>`s. No need for for attributes here—the wrapping automatically associates the two.
-* Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
-* The primary form button must come first in the DOM, especially for forms with multiple submit buttons. The visual order should be preserved with `float: right;` on each button.
+### Lists
+
+List items should always be within `<ul>`, `<ol>`, or `<dl>` elements. Never use a set of `<div>` or `<p>` tags.
+
 
 ### Tables
 
 Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and scope attribute) when appropriate. (Note: `<tfoot>` goes above `<tbody>` for speed reasons. You want the browser to load the footer before a table full of data.)
 
 ```
-<table summary="This is a chart of invoices for 2011.">
-<thead>
-<tr>
-<th scope="col">Table header 1</th>
-<th scope="col">Table header 2</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td>Table footer 1</td>
-<td>Table footer 2</td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td>Table data 1</td>
-<td>Table data 2</td>
-</tr>
-</tbody>
+<table summary="This is a chart of invoices for 2015.">
+    <thead>
+        <tr>
+            <th scope="col">Table header 1</th>
+            <th scope="col">Table header 2</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td>Table footer 1</td>
+            <td>Table footer 2</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td>Table data 1</td>
+            <td>Table data 2</td>
+        </tr>
+    </tbody>
 </table>
 ```
+
+
+
+
+## 2. HTML5 doctype 
+
+Use a doctype that triggers standards mode in your browser; this ensures more consistent rendering in browsers. Quirks mode should always be avoided.
+
+For simplicity, use the HTML5 doctype:
+
+```
+<!DOCTYPE html>
+```
+
+
+
+
+## 3. Language attribute
+
+The HTML5 recommends specifying a language attribute on the root HTML element. This aids speech synthesis tools to determine what pronounciation to use, translation tools what rules to use, etc.
+
+Read more abount the `lang` attribute in the latest [HTML5 spec](http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element).
+
+Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web-foundations/iso-2-letter-language-codes/).
+
+
+```
+<html lang="en">
+    <!-- ... -->
+</html>
+```
+
+
+## 2. Coding style
+
+
 
 ## 3. Page Titles <a name="pagetitles"></a>
 
