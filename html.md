@@ -16,10 +16,10 @@ Table of Contents
 - [2. HTML5 doctype](#2-html5-doctype)
 - [3. Language attribute](#3-language-attribute)
 - [4. Character encoding](#4-character-encoding)
-- [3. Page Titles](#3-page-titles)
-- [4. Error Pages](#4-error-pages)
+- [5. Page title](#5-page-title)
+- [Error Pages](#error-pages)
     - [Error templates](#error-templates)
-        - [References](#references)
+- [References](#references)
 
 <!-- /MarkdownTOC -->
 
@@ -155,31 +155,32 @@ Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web
 
 Ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document (generally UTF-8).
 
+The character encoding should be the first element within `head` as this affects the character set for the entire document, including the `title`.
+
 ```
 <head>
     <meta charset="UTF-8">
+    <title> ... </title>
 </head>
 ```
 
 
 
-## 3. Page Titles <a name="pagetitles"></a>
 
-A standard format for the `<title></title>` tag.
+## 5. Page title
 
-<mark>Thoughts on using the dot `·` instead of `-`?</mark>
-
-```
-Page name · University of St Andrews
-```
-
-For example:
+The standard format for the `<title> ... </title>` tag uses a pipe (`|`) character to separate the page name from the University name:
 
 ```
-Summer schools and programmes - University of St Andrews
+Page name | University of St Andrews
 ```
 
-## 4. Error Pages
+
+
+
+---
+
+## Error Pages
 
 Error pages should be built such that they require zero scripting, zero JavaScript, and zero dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
 
@@ -220,7 +221,7 @@ We use error pages for very specific purposes.
 
 ---
 
-#### References
+## References
 
 The initial version of this style guide was based on [Github's HTML style guide](https://github.com/styleguide/templates).
 
