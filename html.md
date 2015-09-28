@@ -25,7 +25,7 @@ Table of Contents
 <a name="doctype"></a>
 ## 2. HTML5 doctype 
 
-Use a proper doctype that triggers standards mode in your browser should always be used. Quirks mode should always be avoided.
+Use a doctype that triggers standards mode in your browser; this ensures more consistent rendering in browsers. Quirks mode should always be avoided.
 
 For simplicity, we use the HTML5 doctype:
 
