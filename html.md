@@ -43,7 +43,7 @@ Table of Contents
 
 ### Boolean attributes
 
-Many attributes don't require a value to be set, like disabled or checked, so don't set them.
+Many attributes don't require a value to be set, like `disabled` or `checked`, so don't set them.
 
 ```
 <input type="text" disabled>
@@ -55,7 +55,7 @@ Many attributes don't require a value to be set, like disabled or checked, so do
 </select>
 ```
 
-For more information, read the WhatWG section.
+For more information, read the latest [HTML5 specification](http://www.w3.org/html/wg/drafts/html/master/infrastructure.html#boolean-attributes).
 
 
 ### Comments
