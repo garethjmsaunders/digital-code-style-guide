@@ -1,12 +1,11 @@
-# HTML Style Guide
-
-Table of Contents
+# HTML style guide
 
 <!-- MarkdownTOC -->
 
 - [1. Syntax](#1-syntax)
     - [General formatting](#general-formatting)
     - [Accessibility](#accessibility)
+    - [Attribute order](#attribute-order)
     - [Boolean attributes](#boolean-attributes)
     - [Comments](#comments)
     - [Forms](#forms)
@@ -17,7 +16,10 @@ Table of Contents
 - [3. Language attribute](#3-language-attribute)
 - [4. Character encoding](#4-character-encoding)
 - [5. Page title](#5-page-title)
-- [Error Pages](#error-pages)
+- [6. IE compatibility](#6-ie-compatibility)
+- [7. Including CSS and JavaScript](#7-including-css-and-javascript)
+- [8. Avoid JavaScript generated mark-up](#8-avoid-javascript-generated-mark-up)
+- [9. Error pages](#9-error-pages)
     - [Error templates](#error-templates)
 - [References](#references)
 
@@ -30,6 +32,8 @@ Table of Contents
 
 ### General formatting
 
+As [@mdo](http://mdo.github.io/code-guide/) says in his code guide, "Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible."
+
 * Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
 * Nested elements should be indented once (four spaces).
 * Always use double quotes ("), never single quotes ('), on attributes. While optional, include quotes to improve code readability.
@@ -41,9 +45,23 @@ Table of Contents
 * Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br>` tags.
 
 
+### Attribute order
+
+HTML attributes should come in this particular order for easier reading of code.
+
+* `class`
+* `id`, `name`
+* `data-*`
+* `src`, `for`, `type`, `href`, `value`
+* `title`, `alt`
+* `role`, `aria-*`
+
+Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks or JavaScript hooks), so they come second.
+
+
 ### Boolean attributes
 
-Many attributes don't require a value to be set, like `disabled` or `checked`, so don't set them.
+Unlike in XHTML, in HTML5 many attributes don't require a value to be set, like `disabled` or `checked`, so do not set them.
 
 ```
 <input type="text" disabled>
@@ -54,6 +72,10 @@ Many attributes don't require a value to be set, like `disabled` or `checked`, s
     <option value="1" selected>1</option>
 </select>
 ```
+
+If you _must_ include the attribute's value then follow the [WhatWG guideline](https://html.spec.whatwg.org/multipage/infrastructure.html#boolean-attributes):
+
+> If the attribute is present, its value must either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.
 
 For more information, read the latest [HTML5 specification](http://www.w3.org/html/wg/drafts/html/master/infrastructure.html#boolean-attributes).
 
@@ -178,18 +200,61 @@ Page name | University of St Andrews
 
 
 
----
+## 6. IE compatibility
 
-## Error Pages
+Internet Explorer 8 and newer supports the use of a document compatibility `<meta>` tag to specify what version of IE the page should be rendered as.
 
-Error pages should be built such that they require zero scripting, zero JavaScript, and zero dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
+Unless you have a very specific use-case, it is most helpful to instruct IE to use the latest version of IE using edge mode.
+
+For more information, read this comprehensive [Stack Overflow article](http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e).
+
+```
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+```
+
+
+
+
+## 7. Including CSS and JavaScript
+
+In line with the HTML5 specification, there is no need to specify a `type` when including CSS and JavaScript files, as `text/css` and `text/javascript` are their respective defaults.
+
+```
+<!-- Do this -->
+<link rel="stylesheet" href="screen.css">
+<script src="file.js"></script>
+
+<!-- Not this -->
+<link rel="stylesheet" type="text/css" href="screen.css">
+<script type="text/javascript" src="file.js"></script>
+```
+
+
+
+
+## 8. Avoid JavaScript generated mark-up
+
+Unless you are using a JavaScript templating engine such as [Handlebars]](http://handlebarsjs.com/), do not 'hide' markup in JavaScript files. It makes content harder to find, harder to edit and diminishes performance.
+
+If you must, in the document into which you are injecting code prefix the section ID with `js-`, e.g.
+
+```
+<div id="js-generated-message"></div>
+```
+
+
+
+
+## 9. Error pages
+
+Error pages should be built such that they require no external dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
 
 The following are banned from every error page:
 
-* All `<script>` tags with an src attribute.
+* All `<script>` tags with a `src` attribute.
 * All JavaScript that loads external data.
 * All `<link>` tags.
-* All `<img>` tags with an src pointing to a URL.
+* All `<img>` tags with a `src` pointing to a URL.
 
 ### Error templates
 
@@ -197,24 +262,24 @@ We use error pages for very specific purposes.
 
 
 * **500** — An exception occurred and we couldn't recover.
-<mark>See Github [500](https://github.com/500.html)</mark>
+See Github [500](https://github.com/500.html)
 
 * **502** — The page likely timed out.
-<mark>See Github [502](https://github.com/502.html)</mark>
+See Github [502](https://github.com/502.html)
 
 * **503** — We are having a bad problem and the app server will not talk to us.
-<mark>See Github [503](https://github.com/503.html)</mark>
+See Github [503](https://github.com/503.html)
 
 * **404** — Not found.
-<mark>See Github [404](https://github.com/404.html) and [404-pages](https://github.com/404-pages.html)</mark>
+See Github [404](https://github.com/404.html) and [404-pages](https://github.com/404-pages.html)
 
 * **410** — Feature gone.
-<mark>See Github [410](https://github.com/410.html). Not sure we need this one.</mark>
+See Github [410](https://github.com/410.html). Not sure we need this one.
 
 * **422** — When Nginx can't figure out what to do with your request, you could get this.
-<mark>See Github [422](https://github.com/422.html). Don't need this.</mark>
+See Github [422](https://github.com/422.html). Don't need this.
 
-* **maintenance** — For the rare case we must take the website down to perform maintenance. <mark>See Github [maintenance](https://github.com/maintenance.html). May need this for other systems, e.g. Pure.</mark>
+* **maintenance** — For the rare case we must take the website down to perform maintenance. See Github [maintenance](https://github.com/maintenance.html). May need this for other systems, e.g. Pure.
 
 
 
