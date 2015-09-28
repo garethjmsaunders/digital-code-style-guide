@@ -15,7 +15,7 @@ Table of Contents
     - [Tables](#tables)
 - [2. HTML5 doctype](#2-html5-doctype)
 - [3. Language attribute](#3-language-attribute)
-- [2. Coding style](#2-coding-style)
+- [4. Character encoding](#4-character-encoding)
 - [3. Page Titles](#3-page-titles)
 - [4. Error Pages](#4-error-pages)
     - [Error templates](#error-templates)
@@ -142,7 +142,6 @@ Read more abount the `lang` attribute in the latest [HTML5 spec](http://www.w3.o
 
 Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web-foundations/iso-2-letter-language-codes/).
 
-
 ```
 <html lang="en">
     <!-- ... -->
@@ -150,7 +149,17 @@ Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web
 ```
 
 
-## 2. Coding style
+
+
+## 4. Character encoding
+
+Ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document (generally UTF-8).
+
+```
+<head>
+    <meta charset="UTF-8">
+</head>
+```
 
 
 
