@@ -42,7 +42,7 @@ As [@mdo](http://mdo.github.io/code-guide/) says in his code guide, "Strive to m
 
 * Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
 * Nested elements should be indented once (four spaces).
-* Always use double quotes ("), never single quotes ('), on attributes. While optional, include quotes to improve code readability.
+* Always use double quotes (`"`), never single quotes (`'`), on attributes. While optional, include quotes to improve code readability.
 * Do not include a trailing slash on self-closing elements. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
 
 
