@@ -5,7 +5,6 @@ Last updated: Tuesday 29 September 2015
 
 TODO: Tag formats
 TODO: Version numbers
-TODO: Sections to be: Subject line, Description, References
 
 
 <!-- MarkdownTOC -->
@@ -16,8 +15,8 @@ TODO: Sections to be: Subject line, Description, References
         - [i. TYPE](#i-type)
         - [ii. Component](#ii-component)
         - [iii. Brief summary](#iii-brief-summary)
-    - [Multi-line description (optional)](#multi-line-description-optional)
-    - [Footer (optional)](#footer-optional)
+    - [Description (optional)](#description-optional)
+    - [Reference(s) (optional)](#references-optional)
 - [4. Examples](#4-examples)
 - [References](#references)
 
@@ -52,9 +51,9 @@ Good commit messages serve each of these audiences well. They describe the what 
 
 Each commit message should include:
 
-* A single subject line (with TYPE, Component, and a Brief summary).
-* An optional multi-line description (always preceded by a blank line)
-* An optional footer (always preceded by a blank line)
+* A single **Subject line** (with TYPE, Component, and a Brief summary).
+* An optional multi-line **Description** (always preceded by a blank line)
+* An optional **Reference** (always preceded by a blank line)
 
 So it looks like this:
 
@@ -154,9 +153,9 @@ The high visibility of the summary makes it critical to craft something that is 
 
 
 
-### Multi-line description (optional)
+### Description (optional)
 
-The longer description is optional, but if you wish to include it always separate it from the Subject line by a blank line. In other words, the second line in your commit message should always be blank if you are making a multi-line commit.
+The longer, multi-line description is optional, but if you wish to include it always separate it from the Subject line by a blank line. In other words, the second line in your commit message should always be blank if you are making a multi-line commit.
 
 The longer description is a chance to elaborate on the change you made. Focus on the motivation and extra considerations for the change rather than detailing what you changed. The details of what changed can be seen in the file diff. But extra considerations such as side effects or migration hints are less obvious from the code, and could be helpful to detail here.
 
@@ -168,7 +167,7 @@ The longer description is a chance to elaborate on the change you made. Focus on
 
 
 
-### Footer (optional)
+### Reference(s) (optional)
 
 The footer is where you should reference issues or ticket numbers that the change pertains to. The format of each footer line should be specific and understood by all team members. For example:
 
@@ -181,7 +180,6 @@ Implements #543
 * Ticket references should be on their own line.
 * Multiple tickets should be separated by a comma + space.
 * If referencing both fixed and related tickets, begin with "Fixes" and end each set with a full-stop, e.g. `Fixes #123, #456. See #765.`.
-
 
 
 
