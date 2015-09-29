@@ -267,7 +267,7 @@ The following are banned from every error page:
 We use error pages for very specific purposes.
 
 * **403** — Access denied/forbidden.
-Requests that require authentication may return 404 Not Found, instead of 403 Forbidden, in some places. This is to prevent the accidental leakage of private information to unauthorized users.
+Requests that require authentication may return 404 Not Found, instead of 403 Forbidden, in some places. This is to prevent the accidental leakage of private information to unauthorized users. See GitHub [API Authentication](https://developer.github.com/v3/#authentication).
 
 * **404** — Not found.
 See Github [404](https://github.com/404.html) and [404-pages](https://github.com/404-pages.html)
@@ -294,3 +294,5 @@ See Github [503](https://github.com/503.html)
 ## References
 
 The initial version of this style guide was based on [Github's HTML style guide](https://github.com/styleguide/templates), with inspiration too from [MDO's code guide](http://mdo.github.io/code-guide/).
+
+Boolean attributes, Lean markup, Forms and Tables taken from [PrimerCSS](http://primercss.io/guidelines/)
