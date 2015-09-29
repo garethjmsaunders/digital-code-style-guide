@@ -26,8 +26,6 @@ TODO: Version numbers
 ---
 
 
-
-
 ## 1. Introduction
 
 <sub>Based on [WordPress][wordpress]</sub>
@@ -198,7 +196,7 @@ FEAT (Scrollspy): Add Scrollspy into long-form-content module.
 Based on:
 
 * [Bluejava Git commit message format guide][bluejava]
-* Make WordPress core handbook: [Commit messages]
+* [Make WordPress core handbook: Commit messages][wordpress]
  
 [bluejavacommit]: https://github.com/bluejava/git-commit-guide "Bluejava Git commit message format guide"
 [wordpress]: https://make.wordpress.org/core/handbook/best-practices/commit-messages/ "Make WordPress Core commit messages"
