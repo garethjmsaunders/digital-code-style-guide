@@ -3,6 +3,9 @@
 Version 0.2
 Last updated: Tuesday 29 September 2015
 
+TODO: Avoid `<address>` element.
+TODO: Microformats? This should be in the CSS guide.
+
 <!-- MarkdownTOC -->
 
 - [1. Syntax](#1-syntax)
@@ -290,7 +293,4 @@ See Github [503](https://github.com/503.html)
 
 ## References
 
-The initial version of this style guide was based on [Github's HTML style guide](https://github.com/styleguide/templates).
-
-TODO: Avoid `<address>` element.
-TODO: Microformats? This should be in the CSS guide.
+The initial version of this style guide was based on [Github's HTML style guide](https://github.com/styleguide/templates), with inspiration too from [MDO's code guide](http://mdo.github.io/code-guide/).
