@@ -5,6 +5,8 @@ Last updated: Tuesday 29 September 2015
 
 TODO: Tag formats
 TODO: Version numbers
+TODO: Sections to be: Subject line, Description, References
+
 
 <!-- MarkdownTOC -->
 
