@@ -262,6 +262,7 @@ The following are banned from every error page:
 * All `<link>` tags.
 * All `<img>` tags with a `src` pointing to a URL.
 
+
 ### Error templates
 
 We use error pages for very specific purposes.
