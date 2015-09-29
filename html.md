@@ -1,5 +1,8 @@
 # HTML style guide
 
+Version 0.2
+Last updated: Tuesday 29 September 2015
+
 <!-- MarkdownTOC -->
 
 - [1. Syntax](#1-syntax)
@@ -18,7 +21,7 @@
 - [5. Page title](#5-page-title)
 - [6. IE compatibility](#6-ie-compatibility)
 - [7. Including CSS and JavaScript](#7-including-css-and-javascript)
-- [8. Avoid JavaScript generated mark-up](#8-avoid-javascript-generated-mark-up)
+- [8. Avoid JavaScript generated markup](#8-avoid-javascript-generated-markup)
 - [9. Error pages](#9-error-pages)
     - [Error templates](#error-templates)
 - [References](#references)
@@ -99,12 +102,12 @@ Whenever possible, avoid superfluous parent elements when writing HTML. Many tim
 
 ```
 <!-- Not so great -->
-<span class="avatar">
+<span class="user-photo">
     <img src="...">
 </span>
 
 <!-- Better -->
-<img class="avatar" src="...">
+<img class="user-photo" src="...">
 ```
 
 
@@ -232,7 +235,7 @@ In line with the HTML5 specification, there is no need to specify a `type` when 
 
 
 
-## 8. Avoid JavaScript generated mark-up
+## 8. Avoid JavaScript generated markup
 
 Unless you are using a JavaScript templating engine such as [Handlebars]](http://handlebarsjs.com/), do not 'hide' markup in JavaScript files. It makes content harder to find, harder to edit and diminishes performance.
 
