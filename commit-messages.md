@@ -56,7 +56,7 @@ Each commit message should include:
 A well-formed commit message might look something like this:
 
 ```
-TYPE (Component): Brief summary.
+TYPE (Component): Brief summary
 
 Longer description with more details, such as a `code` being introduced
 within the context of a `function`.
@@ -74,7 +74,7 @@ Closes #123
 Only the top line is required, so a minimal commit message might look like
 
 ```
-TYPE (Component): Brief summary.
+TYPE (Component): Brief summary
 ```
 
 
@@ -86,7 +86,7 @@ The subject line comprises three elements:
 
 * `TYPE`
 * `(Component):`
-* `Brief summary.`
+* `Brief summary`
 
 
 #### i. Type
@@ -139,9 +139,10 @@ Briefly describe the component, feature or module being developed.
 
 Consistency is important. Make sure you have a definitive list of the various components being developed somewhere in your project notes so that all code contributors are aware of them. Adding a new component should be a considered decision, not just a whim when making your commit.
 
-* Must be enclosed in parentheses.
+* Must be separated from the TYPE with a single space.
+* Must be enclosed in parentheses/round brackets, i.e. `()`.
 * Must end with a colon.
-* Must be consistently named. For example, don't name it `(Long form)` in one commit but `(long-form)` in another.
+* Must be consistently named throughout a project. For example, don't name it `(Long form)` in one commit but `(long-form)` in another.
 
 
 
@@ -154,10 +155,11 @@ The brief summary is used for email subject lines, changelogs, and features prom
 
 The high visibility of the summary makes it critical to craft something that is as descriptive as possible within space limits.
 
-* Must be one line; no line breaks. End with a full-stop.
-* Aim for **around 50 characters or less, stopping at 70**. This is important because log-viewing tools nearly all expect the first line of commit messages to fit within these limits. This difficult restriction may force you to think critically about the essence of your commit; if you can’t describe the change in a short sentence, the commit may not be atomic enough. Note that the TYPE counts toward the 50/70 character count.
-* Use the [imperative mood][wikipedia-imperative] when possible: "Relax term ID comparisons…" instead of "Relaxes term ID comparisons…"
-
+* Must be one line; no line breaks.
+* Begin with a capital.
+* No dot (full stop/period) at the end.
+* Use the [imperative mood][wikipedia-imperative] when possible, e.g. "change" not "changed" nor "changes".
+* Aim for **around 50 characters or fewer, stopping at 70**. This is important because log-viewing tools nearly all expect the first line of commit messages to fit within these limits. This difficult restriction may force you to think critically about the essence of your commit; if you can’t describe the change in a short sentence, the commit may not be atomic enough. Note that the TYPE counts toward the 50/70 character count.
 
 
 
