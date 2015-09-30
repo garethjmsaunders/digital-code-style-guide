@@ -1,6 +1,9 @@
-CSS code standards guide
+# CSS code standards guide
+Version 0.2
+Last updated: Tuesday 29 September 2015
 
-# 1. File format
+
+# 2. File format
 
 This section outlines standards for creating and saving CSS files to ensure that they are not affected by encoding or file system differences. There is also general information about linking to external CSS files.
 
@@ -11,19 +14,19 @@ This section outlines standards for creating and saving CSS files to ensure that
 ## In this section
 <!-- MarkdownTOC depth=4 -->
 
-- [Use multiple files, concatinate and minify](#use-multiple-files-concatinate-and-minify)
-- [Character encoding](#character-encoding)
+- [2.1 Use multiple files, concatinate and minify](#21-use-multiple-files-concatinate-and-minify)
+- [2.2 Character encoding](#22-character-encoding)
     - [@charset "UTF-8";](#charset-utf-8)
     - [Save as UTF-8 with BOM](#save-as-utf-8-with-bom)
     - [Further reading](#further-reading)
-- [Use LF (Unix) line endings](#use-lf-unix-line-endings)
+- [2.3 Use LF (Unix) line endings](#23-use-lf-unix-line-endings)
     - [Further reading](#further-reading-1)
-- [Filenames](#filenames)
+- [2.4 Filenames](#24-filenames)
     - [Meaningful and descriptive](#meaningful-and-descriptive)
     - [Lowercase, no spaces](#lowercase-no-spaces)
     - [Use a hyphen (-) to separate words](#use-a-hyphen---to-separate-words)
     - [Underscores (_) for Sass files](#underscores-_-for-sass-files)
-- [Link to external CSS files](#link-to-external-css-files)
+- [2.5 Link to external CSS files](#25-link-to-external-css-files)
     - [Link](#link)
     - [@import for debug and Sass only](#import-for-debug-and-sass-only)
     - [Do not use inline CSS](#do-not-use-inline-css)
@@ -35,7 +38,7 @@ This section outlines standards for creating and saving CSS files to ensure that
 
 
 
-## Use multiple files, concatinate and minify
+## 2.1 Use multiple files, concatinate and minify
 
 With the meteoric rise of pre-processors (such as Sass and Less) of late, more often is the case that developers are splitting CSS across multiple files. Even if not using a pre-processor, it is a good idea to split discrete chunks of code into their own files, which can then be concatenated and minified during a build process. \[[HR](http://cssguidelin.es/#multiple-files)\]
 
@@ -43,7 +46,7 @@ With the meteoric rise of pre-processors (such as Sass and Less) of late, more o
 
 
 
-## Character encoding
+## 2.2 Character encoding
 
 Although rare, it is worth bearing in mind that character encoding can affect CSS files. According to the [W3C](http://www.w3.org/International/questions/qa-css-charset):
 
@@ -97,7 +100,7 @@ If given the option, use Unicode normalization form C (also known as 'NFC'). The
 
 
 
-## Use LF (Unix) line endings
+## 2.3 Use LF (Unix) line endings
 
 Line feed (LF) Unix style line endings (sometimes called line breaks) should be used.
 
@@ -117,7 +120,7 @@ For example, in Sublime Text you can add the following to your user settings:
 
 
 
-## Filenames
+## 2.4 Filenames
 
 ### Meaningful and descriptive
 
@@ -133,18 +136,18 @@ Filenames MUST be all lowercase, with no spaces. This makes them easier to read 
 
 ### Use a hyphen (-) to separate words
 
-Use a hyphen (-) to separate words, e.g. `external-stylesheet.css`. This makes filenames easier to read than `externalstylsheetalloneword.css`.
+Use a hyphen (`-`) to separate words, e.g. `external-stylesheet.css`. This makes filenames easier to read than `externalstylsheetalloneword.css`.
 
 
 ### Underscores (_) for Sass files
 
-Underscores (_) may be used only for naming Sass partial files.
+Underscores (`_`) may be used only for naming Sass or Less partial files.
 
 
 
 
 
-## Link to external CSS files
+## 2.5 Link to external CSS files
 
 All CSS files SHOULD be referenced externally because it enables caching control and makes the HTML smaller.
 

@@ -1,6 +1,8 @@
-CSS code standards guide
+# CSS code standards guide
+Version 0.2
+Last updated: Tuesday 29 September 2015
 
-# 0. Introduction
+# 1. Introduction
 
 These CSS guidelines are applicable to all websites and web applications created and managed by and for the University of St Andrews under the st-andrews.ac.uk domain.
 
