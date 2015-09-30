@@ -12,9 +12,9 @@ TODO: Version numbers
 - [1. Introduction](#1-introduction)
 - [2. Commit message](#2-commit-message)
     - [Subject line](#subject-line)
-        - [i. TYPE](#i-type)
+        - [i. Type](#i-type)
         - [ii. Component](#ii-component)
-        - [iii. Brief summary](#iii-brief-summary)
+        - [iii. Brief summary.](#iii-brief-summary)
     - [Description (optional)](#description-optional)
     - [Reference(s) (optional)](#references-optional)
 - [4. Examples](#4-examples)
@@ -28,7 +28,7 @@ TODO: Version numbers
 
 ## 1. Introduction
 
-<sub>Based on [WordPress][wordpress]</sub>
+<sub>Based on [WordPress][wordpresscommit]</sub>
 
 This guide outlines how messages should be formatted when committing code to any version control system, such as Git or Subversion (SVN).
 
@@ -36,7 +36,7 @@ Commit messages are an integral part of each project's history, along with the c
 
 * Colleagues (developers on the same project)
 * Future contributors
-* Computers.
+* Computers
  
 Good commit messages serve each of these audiences well. They describe the what and the why of the changeset; the how is described by the diff itself.
 
@@ -49,11 +49,11 @@ Good commit messages serve each of these audiences well. They describe the what 
 
 Each commit message should include:
 
-* A single **Subject line** (with TYPE, Component, and a Brief summary).
-* An optional multi-line **Description** (always preceded by a blank line)
-* An optional **Reference** (always preceded by a blank line)
+* **Subject line** — with TYPE, Component, and a Brief summary.
+* **Description** (optional) — always preceded by a blank line.
+* **Reference** (optional) — always preceded by a blank line.
 
-So it looks like this:
+A well-formed commit message might look something like this:
 
 ```
 TYPE (Component): Brief summary.
@@ -71,19 +71,25 @@ Bulleted lists:
 Closes #123
 ```
 
-Only the top line is required, so a minimal commit message may look like `TYPE (Component): Brief summary`.
-
-
-### Subject line
-
-The subject line comprises of three elements:
+Only the top line is required, so a minimal commit message might look like
 
 ```
 TYPE (Component): Brief summary.
 ```
 
 
-#### i. TYPE
+
+
+### Subject line
+
+The subject line comprises three elements:
+
+* `TYPE`
+* `(Component):`
+* `Brief summary.`
+
+
+#### i. Type
 
 Every commit subject line starts with a TYPE in all CAPS and no spaces or other characters preceding it. The recognised types are:
 
@@ -104,7 +110,7 @@ Every commit subject line starts with a TYPE in all CAPS and no spaces or other 
             <td>Changes to the documentation (readme, API docs, etc.).</td>
         </tr>        
         <tr>
-            <td><code>NEW</code></td>
+            <td><code>FEAT</code></td>
             <td>New feature in production code.</td>
         </tr>
         <tr>
@@ -129,14 +135,18 @@ Every commit subject line starts with a TYPE in all CAPS and no spaces or other 
 
 #### ii. Component
 
-Briefly describe the component being developed.
+Briefly describe the component, feature or module being developed.
 
 Consistency is important. Make sure you have a definitive list of the various components being developed somewhere in your project notes so that all code contributors are aware of them. Adding a new component should be a considered decision, not just a whim when making your commit.
 
+* Must be enclosed in parentheses.
+* Must end with a colon.
+* Must be consistently named. For example, don't name it `(Long form)` in one commit but `(long-form)` in another.
 
 
 
-#### iii. Brief summary
+
+#### iii. Brief summary.
 
 The first line of a commit message is a brief summary of the changeset. 
 
@@ -196,7 +206,7 @@ FEAT (Scrollspy): Add Scrollspy into long-form-content module.
 Based on:
 
 * [Bluejava Git commit message format guide][bluejava]
-* [Make WordPress core handbook: Commit messages][wordpress]
+* [Make WordPress core handbook: Commit messages][wordpresscommit]
  
 [bluejavacommit]: https://github.com/bluejava/git-commit-guide "Bluejava Git commit message format guide"
-[wordpress]: https://make.wordpress.org/core/handbook/best-practices/commit-messages/ "Make WordPress Core commit messages"
+[wordpresscommit]: https://make.wordpress.org/core/handbook/best-practices/commit-messages/ "Make WordPress Core commit messages"
