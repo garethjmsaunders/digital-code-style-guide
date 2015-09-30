@@ -17,6 +17,16 @@
 <!-- /MarkdownTOC -->
 
 
+TODO: What is the minimum guide that could be created to add value NOW? What would that look like and could I create it from the text here?
+TODO: What from Harry Roberts' work do I need to unpick?
+TODO: Order of rules, e.g. A-Z, or block first, etc.
+TODO: Order of box model: top, right, bottom, left
+TODO: Concatination and minification (Pro CSS, 2.8, p.362)
+TODO: CSS sprites (Pro CSS, 2.9, p.362)
+TODO: Don't use CSS behaviours (HTC files) (Pro CSS, 2.11, p.362)
+TODO: SHOULD never use data URIs (except for Error pages) (Pro CSS, 2.12, p.362)
+TODO: The one "rule"ish thing thing I really believe in: keep your selector specificities fairly low and flat across your whole project. [Harry's specificity graph](http://csswizardry.com/2014/10/the-specificity-graph/) is a nice way to think about this. Specificity will trend upward, so never start high, as the ceiling can easily become problematic. Mostly: .class {}. http://css-tricks.com/just-try-and-do-a-good-job
+
 ## Sam's document
 
 Note that this document gives the overview of how CSS should be formatted here at the University of St Andrews. You will want to consider patterns for examples of how to structure HTML based on our core CSS and JS.
@@ -146,15 +156,6 @@ The initial version of this style guide was based on [Github's HTML style guide]
 
 ## Gareth's notes
 
-TODO: Order of rules, e.g. A-Z, or block first, etc.
-TODO: Order of box model: top, right, bottom, left
-TODO: Concatination and minification (Pro CSS, 2.8, p.362)
-TODO: CSS sprites (Pro CSS, 2.9, p.362)
-TODO: Don't use CSS behaviours (HTC files) (Pro CSS, 2.11, p.362)
-TODO: SHOULD never used data URIs (except for Error pages) (Pro CSS, 2.12, p.362)
-TODO: The one "rule"ish thing thing I really believe in: keep your selector specificities fairly low and flat across your whole project. [Harry's specificity graph](http://csswizardry.com/2014/10/the-specificity-graph/) is a nice way to think about this. Specificity will trend upward, so never start high, as the ceiling can easily become problematic. Mostly: .class {}. http://css-tricks.com/just-try-and-do-a-good-job
-
-
 http://csswizardry.com/2012/11/code-smells-in-css/
 "Rulesets should only ever inherit and add to previous ones, never undo. [...] If you find you are having to undo styling as you go down your document the chances are you jumped the gun and started adding too much too soon."
 
@@ -262,6 +263,3 @@ Be specific about class names, e.g. `.card` isn't specific enough. Does this mea
 
 Also they could more easily be reused and could unwittingly be overwritten elsewhere in the code.
 
-TODO: What is the minimum guide that could be created to add value NOW? What would that look like and could I create it from the text here?
-
-TODO: What from Harry Roberts' work do I need to unpick?
