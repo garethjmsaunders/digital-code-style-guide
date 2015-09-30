@@ -165,12 +165,13 @@ The high visibility of the summary makes it critical to craft something that is 
 
 ### Description (optional)
 
-The longer, multi-line description is optional, but if you wish to include it always separate it from the Subject line by a blank line. In other words, the second line in your commit message should always be blank if you are making a multi-line commit.
+The longer, multi-line description is optional, but if you wish to include it always separate it from the subject line by a blank line. In other words, the second line in your commit message should always be blank if you are making a multi-line commit.
 
-The longer description is a chance to elaborate on the change you made. Focus on the motivation and extra considerations for the change rather than detailing what you changed. The details of what changed can be seen in the file diff. But extra considerations such as side effects or migration hints are less obvious from the code, and could be helpful to detail here.
+The longer description is a chance to elaborate on the change you made. **Focus on the motivation and extra considerations for the change rather than detailing what you changed**. The details of what changed can be seen in the file diff. But extra considerations such as side effects or migration hints are less obvious from the code, and could be helpful to detail here.
 
+* Describe the _what_ and the _why_ of the changeset, rather than the _how_.
 * Must be separated from the subject line by a blank line.
-* Use the [imperative mood][[wikipedia-imperative]], as you did in the subject line.
+* Use the [imperative mood][wikipedia-imperative].
 * Can be multiple paragraphs if required, separated by blank lines for clarity.
 * Can include bulleted lists (using asterisks).
 
