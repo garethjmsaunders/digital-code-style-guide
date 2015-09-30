@@ -199,25 +199,35 @@ Implements #543
 
 ```
 FEAT (Scrollspy): Add Scrollspy into long-form-content module
+
+Scrollspy was previously removed to reduce file size but is
+now required for a number of projects. This has been added
+back in, including full documentation.
+
+Fixes #155 (Trello DPL board)
 ```
 
 ```
 DOCS (Commit messages): Textual clarifications to subject line rules
 
-* I changed my mind about insisting on a full stop after the brief summary as it takes up one of the 50/70 character limit, it looks more like a heading this way, and it is less fussy.
-* I teased out rules about how to style a component, to remove any ambiguity.
-
+* I changed my mind about insisting on a full stop after the brief 
+  summary as it takes up one of the 50/70 character limit, it looks
+  more like a heading this way, and it is less fussy.
+* I teased out rules about how to style a component, to remove 
+  any ambiguity.
 ```
 
 
 
 ## References
 
-Based on:
+Inspired by and based heavily on:
 
 * [Bluejava Git commit message format guide][bluejava]
 * [Make WordPress core handbook: Commit messages][wordpresscommit]
- 
+* [AngularJS Git commit message conventions][angularjs]
+
 [bluejavacommit]: https://github.com/bluejava/git-commit-guide "Bluejava Git commit message format guide"
 [wordpresscommit]: https://make.wordpress.org/core/handbook/best-practices/commit-messages/ "Make WordPress Core commit messages"
 [wikipedia-imperative]: https://en.wikipedia.org/wiki/Imperative_mood "The imperative is a grammatical mood that forms commands or requests, including the giving of prohibition or permission, or any other kind of advice or exhortation."
+[angularjs]: https://gist.github.com/stephenparish/9941e89d80e2bc58a153 "Commit Message Conventions by Stephen Parish"
