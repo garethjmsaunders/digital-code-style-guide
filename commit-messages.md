@@ -180,16 +180,16 @@ The longer description is a chance to elaborate on the change you made. **Focus 
 
 ### Reference(s) (optional)
 
-The footer is where you should reference issues or ticket numbers that the change pertains to. The format of each footer line should be specific and understood by all team members. For example:
+The footer of your commit message is where you should reference issues or ticket numbers to which the change pertains. The format of each footer line should be specific and understood by all team members. For example:
 
 ```
-Closes #123, #456
+Closes #123, #456 (in Trello)
 Implements #543
 ```
 
 * Must be separated from the description (if present) or subject line by a blank line.
-* Ticket references should be on their own line.
-* Multiple tickets should be separated by a comma + space.
+* Ticket references should be on their own line. Include (in parentheses) the name of the ticketing system if this clarifies things.
+* Multiple ticket references should be separated by a comma and space.
 * If referencing both fixed and related tickets, begin with "Fixes" and end each set with a full-stop, e.g. `Fixes #123, #456. See #765.`.
 
 
@@ -198,9 +198,16 @@ Implements #543
 ## 4. Examples
 
 ```
-FEAT (Scrollspy): Add Scrollspy into long-form-content module.
+FEAT (Scrollspy): Add Scrollspy into long-form-content module
 ```
 
+```
+DOCS (Commit messages): Textual clarifications to subject line rules
+
+* I changed my mind about insisting on a full stop after the brief summary as it takes up one of the 50/70 character limit, it looks more like a heading this way, and it is less fussy.
+* I teased out rules about how to style a component, to remove any ambiguity.
+
+```
 
 
 
