@@ -150,7 +150,7 @@ Consistency is important. Make sure you have a definitive list of the various co
 
 The first line of a commit message is a brief summary of the changeset. 
 
-The brief summary is used for email subject lines, changelogs, and features prominently in most VCS log formats such as `git log --format=oneline`.
+The brief summary is used for email subject lines, changelogs, and features prominently in most version control system log formats such as `git log --format=oneline`.
 
 The high visibility of the summary makes it critical to craft something that is as descriptive as possible within space limits.
 
