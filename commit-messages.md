@@ -14,7 +14,7 @@ TODO: Version numbers
     - [Subject line](#subject-line)
         - [i. Type](#i-type)
         - [ii. Component](#ii-component)
-        - [iii. Brief summary.](#iii-brief-summary)
+        - [iii. Brief summary](#iii-brief-summary)
     - [Description (optional)](#description-optional)
     - [Reference(s) (optional)](#references-optional)
 - [4. Examples](#4-examples)
@@ -146,7 +146,7 @@ Consistency is important. Make sure you have a definitive list of the various co
 
 
 
-#### iii. Brief summary.
+#### iii. Brief summary
 
 The first line of a commit message is a brief summary of the changeset. 
 
