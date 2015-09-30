@@ -156,7 +156,7 @@ The high visibility of the summary makes it critical to craft something that is 
 
 * Must be one line; no line breaks. End with a full-stop.
 * Aim for **around 50 characters or less, stopping at 70**. This is important because log-viewing tools nearly all expect the first line of commit messages to fit within these limits. This difficult restriction may force you to think critically about the essence of your commit; if you can’t describe the change in a short sentence, the commit may not be atomic enough. Note that the TYPE counts toward the 50/70 character count.
-* Use the imperative mood when possible: "Relax term ID comparisons…" instead of "Relaxes term ID comparisons…"
+* Use the [imperative mood][wikipedia-imperative] when possible: "Relax term ID comparisons…" instead of "Relaxes term ID comparisons…"
 
 
 
@@ -168,7 +168,7 @@ The longer, multi-line description is optional, but if you wish to include it al
 The longer description is a chance to elaborate on the change you made. Focus on the motivation and extra considerations for the change rather than detailing what you changed. The details of what changed can be seen in the file diff. But extra considerations such as side effects or migration hints are less obvious from the code, and could be helpful to detail here.
 
 * Must be separated from the subject line by a blank line.
-* Use the imperative mood, as you did in the subject line.
+* Use the [imperative mood][[wikipedia-imperative]], as you did in the subject line.
 * Can be multiple paragraphs if required, separated by blank lines for clarity.
 * Can include bulleted lists (using asterisks).
 
@@ -210,3 +210,4 @@ Based on:
  
 [bluejavacommit]: https://github.com/bluejava/git-commit-guide "Bluejava Git commit message format guide"
 [wordpresscommit]: https://make.wordpress.org/core/handbook/best-practices/commit-messages/ "Make WordPress Core commit messages"
+[wikipedia-imperative]: https://en.wikipedia.org/wiki/Imperative_mood "The imperative is a grammatical mood that forms commands or requests, including the giving of prohibition or permission, or any other kind of advice or exhortation."
