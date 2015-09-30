@@ -429,7 +429,7 @@ Source: [CSS Guidelines](http://cssguidelin.es/#meaningful-whitespace)
 
 #### Use the approved St Andrews palette of colours
 
-Unless you have a very good reason not to, you must use the approved pallete of St Andrews colours.
+Unless you have a very good reason not to, you must use the approved palette of St Andrews colours.
 
 
 #### Colour keywords
@@ -457,7 +457,7 @@ There is a current trend to prefer HSL over RGB as it allows you to more easily 
 
 #### Alpha transparency
 
-Specifying colours in `rgb(r, g, b)` format makes it much easier to add alpha transparency as you simply need to append an ‘a’ and a fourth value:
+Specifying colours in `rgb(r, g, b)` format also makes it much easier to add alpha transparency later, as you simply need to append an ‘a’ and a fourth value:
 
 ```
 .black {
