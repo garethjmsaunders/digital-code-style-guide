@@ -55,9 +55,11 @@ These standards and style guides apply to all new websites and applications for 
 
 * HTML
 * Cascading Stylesheets (CSS), including pre-processors such as Sass.
-* JavaScript, including frameworks such as sjQuery.
+* JavaScript, including frameworks such as jQuery.
 * PHP
 * XML, including RSS and XSLT.
+* Commit messages for version control software, e.g. Git.
+* Sublime Text packages (standard packages for developing the DPL).
 
 These standards and style guides will also apply to existing code in the digital pattern library; these patterns will need to be refactored to comply with these guidelines.
 
@@ -161,8 +163,8 @@ Documentation for each language in scope, delivered in HTML format.
 ## Meta
 
 Updated
-* Version 1.2
-* Thursday 12 February 2015
+* Version 1.3
+* Tuesday 13 October 2015
 
 Authors
 * Gareth J M Saunders
