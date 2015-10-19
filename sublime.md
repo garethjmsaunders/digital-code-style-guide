@@ -7,6 +7,7 @@
 	- [Batch install packages](#batch-install-packages)
 	- [Package Control.sublime-settings file](#package-controlsublime-settings-file)
 	- [Package descriptions](#package-descriptions)
+- [3. User Preferences](#3-user-preferences)
 
 <!-- /MarkdownTOC -->
 
@@ -116,3 +117,53 @@ Simply copy and paste it into your `Package Control.sublime-settings` file, remo
 * [WordPress](https://packagecontrol.io/packages/WordPress) - Sublime Text WordPress Package is a collection of WordPress snippets and autocompletions for Sublime Text.
 * [WordPress Developer Resources](https://packagecontrol.io/packages/WordPress%20Developer%20Resources) - Sublime Text 2/3 Plugin to search the new Wordpress Developer Resources (developer.wordpress.org).
 * [WordPress Generate Salts](https://packagecontrol.io/packages/WordPress%20Generate%20Salts) - A Sublime Text 3 Plugin for generating new WordPress salt keys.
+
+
+
+
+## 3. User Preferences
+
+The following user preferences settings, found at `Preferences > Settings — User`, offers a very usable coding environment:
+
+```
+{
+	"always_show_minimap_viewport": true,
+	"bold_folder_labels": true,
+	"caret_extra_bottom": 1,
+	"caret_extra_top": 1,
+	"caret_extra_width": 1,
+	"caret_style": "phase",
+	"default_encoding": "UTF-8",
+	"default_line_ending": "LF",
+	"dictionary": "Packages/Language - English/en_GB.dic",
+	"draw_white_space": "selection",
+	"fade_fold_buttons": false,
+	"font_size": 20,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"hot_exit": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"remember_open_files": true,
+	"rulers":
+	[
+		80
+	],
+	"save_on_focus_lost": true,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"wordwrap": true
+}
+```
