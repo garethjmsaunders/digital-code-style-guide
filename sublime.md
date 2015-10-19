@@ -2,27 +2,27 @@
 
 <!-- MarkdownTOC -->
 
-- [1. General](#1-general)
-	- [Version](#version)
-	- [Package Control](#package-control)
-- [2. Batch install packages](#2-batch-install-packages)
-	- [Package Control.sublime-settings](#package-controlsublime-settings)
-- [3. Package descriptions](#3-package-descriptions)
+- [1. Version](#1-version)
+- [2. Package Control](#2-package-control)
+	- [Batch install packages](#batch-install-packages)
+	- [Package Control.sublime-settings file](#package-controlsublime-settings-file)
+	- [Package descriptions](#package-descriptions)
 
 <!-- /MarkdownTOC -->
 
 
 
 
-## 1. General
+## 1. Version
+
+We recommend using **Sublime Text 3 beta**.
+
+All the plugins work with Sublime Text 2 so it's up to user preference.
 
 
-### Version
-
-We recommend using Sublime Text 3, but all the plugins work with Sublime Text 2 so it's up to user preference.
 
 
-### Package Control
+## 2. Package Control
 
 Plugins for Sublime Text are called 'packages'.
 
@@ -33,9 +33,7 @@ Install via the console (`Ctrl + '` or `View > Show Console`). Copy and paste th
 Packages can be searched via `Preferences > Browse Packages...`.
 
 
-
-
-## 2. Batch install packages
+### Batch install packages
 
 To speed up getting started, when you first install Sublime Text you can batch import all the plugins required.
 
@@ -51,7 +49,7 @@ First make sure that Package Control is installed, then create a JSON file calle
 Or you can access this file from Sublime Text in `Preferences > Package Settings > Package Control > Settings - User`.
 
 
-### Package Control.sublime-settings
+### Package Control.sublime-settings file
 
 You may use this curated JSON file of recommended Sublime Text plugins.
 
@@ -93,9 +91,7 @@ Simply copy and paste it into your `Package Control.sublime-settings` file, remo
 	}
 
 
-
-
-## 3. Package descriptions
+### Package descriptions
 
 * [Alignment](https://packagecontrol.io/packages/Alignment) - A key-binding for aligning multi-line and multiple selections.
 * [Autoprefixer](https://packagecontrol.io/packages/Autoprefixer) - This auto-add's Vendor prefixes.
