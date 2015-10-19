@@ -1,42 +1,61 @@
-# Sublime Style Guide
+# Sublime Text standards guide
 
 <!-- MarkdownTOC -->
 
 - [1. General](#1-general)
 	- [Version](#version)
-	- [Plugins](#plugins)
-- [2. Initializing Your Install](#2-initializing-your-install)
-	- [The Packages](#the-packages)
-	- [WINDOWS](#windows)
-	- [MAC OSX](#mac-osx)
-- [3. Module Overview](#3-module-overview)
+	- [Package Control](#package-control)
+- [2. Batch install packages](#2-batch-install-packages)
+	- [Package Control.sublime-settings](#package-controlsublime-settings)
+- [3. Package descriptions](#3-package-descriptions)
 
 <!-- /MarkdownTOC -->
 
 
-# 1. General
-
-## Version
-
-We are all currently using Sublime Text 3 Beta, but all the plugins work with Sublime Text 2 so it's up to user preference
-
-## Plugins
-
-* Perhaps the most important plugin that we use is Package Control. It allows the seamless installation and usage of plugins. Get it here at [Packagecontrol.io](https://packagecontrol.io/)
-* Choose install Now and copy the whole text of the install script for your version. You'll need to paste this into the Console. This is in: 
-	* View > Show Console.
 
 
-
-# 2. Initializing Your Install
-
-For a new install and to speed up getting started developing the DPL and other projects you can have Sublime import a list of plugins. After you have installed the Package Control then you only need to drop in a JSON and restart Sublime for it to install the modules. 
+## 1. General
 
 
-## The Packages
+### Version
 
-If you already have an established install of Sublime feel free to just copy in the modules that you want. Also look below to read a brief description of each module.
+We recommend using Sublime Text 3, but all the plugins work with Sublime Text 2 so it's up to user preference.
 
+
+### Package Control
+
+Plugins for Sublime Text are called 'packages'.
+
+Perhaps the most useful plugin we use is [Package Control](https://packagecontrol.io/). This makes it very simple to find, install and keep packages (plugins) up to date.
+
+Install via the console (`Ctrl + '` or `View > Show Console`). Copy and paste the appropriate [install script](https://packagecontrol.io/installation) then press Enter.
+
+Packages can be searched via `Preferences > Browse Packages...`.
+
+
+
+
+## 2. Batch install packages
+
+To speed up getting started, when you first install Sublime Text you can batch import all the plugins required.
+
+First make sure that Package Control is installed, then create a JSON file called `Package Control.sublime-settings` and save it to the following location:
+
+**Windows**
+`C:\Users\[YOUR_USERNAME\]\AppData\Roaming\Sublime Text 3\Packages\User`
+
+
+**Mac OS X**
+`PATH`
+
+Or you can access this file from Sublime Text in `Preferences > Package Settings > Package Control > Settings - User`.
+
+
+### Package Control.sublime-settings
+
+You may use this curated JSON file of recommended Sublime Text plugins.
+
+Simply copy and paste it into your `Package Control.sublime-settings` file, remove any that look redundant (e.g. if you don't do any WordPress development), save it to the correct location, then restart Sublime Text.
 
 	{
 		"bootstrapped": true,
@@ -70,24 +89,13 @@ If you already have an established install of Sublime feel free to just copy in 
 			"WordPress",
 			"WordPress Developer Resources",
 			"WordPress Generate Salts",
-			"Zeal"
 		]
 	}
 
 
 
-## WINDOWS
 
-* Location: C:\Users\\[YOUR_USERNAME\]\AppData\Roaming\Sublime Text 3\Packages\User 
-
-
-## MAC OSX
-
-* Or you can access this file from Sublime in Preferences > Package Settings > Package Control > Settings - User 
-
-
-
-# 3. Module Overview
+## 3. Package descriptions
 
 * [Alignment](https://packagecontrol.io/packages/Alignment) - A key-binding for aligning multi-line and multiple selections.
 * [Autoprefixer](https://packagecontrol.io/packages/Autoprefixer) - This auto-add's Vendor prefixes.
@@ -112,4 +120,3 @@ If you already have an established install of Sublime feel free to just copy in 
 * [WordPress](https://packagecontrol.io/packages/WordPress) - Sublime Text WordPress Package is a collection of WordPress snippets and autocompletions for Sublime Text.
 * [WordPress Developer Resources](https://packagecontrol.io/packages/WordPress%20Developer%20Resources) - Sublime Text 2/3 Plugin to search the new Wordpress Developer Resources (developer.wordpress.org).
 * [WordPress Generate Salts](https://packagecontrol.io/packages/WordPress%20Generate%20Salts) - A Sublime Text 3 Plugin for generating new WordPress salt keys.
-* [Zeal](https://packagecontrol.io/packages/Zeal) - Zeal package for Sublime Text using Zeal documentation browser which is similar with Dash.
