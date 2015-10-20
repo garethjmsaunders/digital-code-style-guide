@@ -3,11 +3,10 @@
 <!-- MarkdownTOC -->
 
 - [1. Version](#1-version)
-- [2. Package Control](#2-package-control)
+- [2. Package control](#2-package-control)
 	- [Batch install packages](#batch-install-packages)
-	- [Package Control.sublime-settings file](#package-controlsublime-settings-file)
 	- [Package descriptions](#package-descriptions)
-- [3. User Preferences](#3-user-preferences)
+- [3. User preferences](#3-user-preferences)
 
 <!-- /MarkdownTOC -->
 
@@ -23,38 +22,32 @@ All the plugins work with Sublime Text 2 so it's up to user preference.
 
 
 
-## 2. Package Control
+## 2. Package control
 
 Plugins for Sublime Text are called 'packages'.
 
 Perhaps the most useful plugin we use is [Package Control](https://packagecontrol.io/). This makes it very simple to find, install and keep packages (plugins) up to date.
 
-Install via the console (`Ctrl + '` or `View > Show Console`). Copy and paste the appropriate [install script](https://packagecontrol.io/installation) then press Enter.
+Install via the console (`Ctrl + '` or `View > Show Console`). Copy and paste the appropriate [install script](https://packagecontrol.io/installation) then press Enter. You may need to restart Sublime Text, but follow onscreen instructions.
 
-Packages can be searched via `Preferences > Browse Packages...`.
+Packages can then be searched via `Preferences > Browse Packages...`.
 
 
 ### Batch install packages
 
-To speed up getting started, when you first install Sublime Text you can batch import all the plugins required.
+To speed up getting started, when you first install Sublime Text you can batch import packages (plugins).
 
-First make sure that Package Control is installed, then create a JSON file called `Package Control.sublime-settings` and save it to the following location:
+First make sure that Package Control is installed, then go to `Preferences > Package Settings > Package Control > Settings - User`. This will open a JSON file called `Package Control.sublime-settings`.
+
+These are stored in the following locations:
 
 **Windows**
-`C:\Users\[YOUR_USERNAME\]\AppData\Roaming\Sublime Text 3\Packages\User`
-
+`C:\Users\{USER_NAME}\AppData\Roaming\Sublime Text 3\Packages\User`
 
 **Mac OS X**
-`PATH`
+`/Users/{USER_NAME}/Library/Application Support/Sublime Text 3/Packages/User`
 
-Or you can access this file from Sublime Text in `Preferences > Package Settings > Package Control > Settings - User`.
-
-
-### Package Control.sublime-settings file
-
-You may use this curated JSON file of recommended Sublime Text plugins.
-
-Simply copy and paste it into your `Package Control.sublime-settings` file, remove any that look redundant (e.g. if you don't do any WordPress development), save it to the correct location, then restart Sublime Text.
+Simply copy and paste the following code into your `Package Control.sublime-settings` file, remove any that look redundant (e.g. if you don't do any WordPress development then remove the WordPress-related packages), save the file, then restart Sublime Text.
 
 	{
 		"bootstrapped": true,
@@ -94,34 +87,34 @@ Simply copy and paste it into your `Package Control.sublime-settings` file, remo
 
 ### Package descriptions
 
-* [Alignment](https://packagecontrol.io/packages/Alignment) - A key-binding for aligning multi-line and multiple selections.
-* [Autoprefixer](https://packagecontrol.io/packages/Autoprefixer) - This auto-add's Vendor prefixes.
-* [Bootstrap 3 Snippets](https://packagecontrol.io/packages/Bootstrap%203%20Snippets) - Able to autocomplete bootstrap 3 plugins.
-* [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter) - Highlights the content between [ ], ( ), { }, " ", ' '
-* [CSScomb](https://packagecontrol.io/packages/CSScomb) - Coding style formatter for CSS.
-* [DevDocs](https://packagecontrol.io/packages/DevDocs) - allowing you to easily search the DevDocs documentation.
-* [Emmet](https://packagecontrol.io/packages/Emmet) - Emmet has many options for autocompleting code or programmatically generating code.
-* [GitGutter](https://packagecontrol.io/packages/GitGutter) - A plugin to show an icon in the gutter area indicating whether a line has been inserted, modified or deleted.
-* [jQuery](https://packagecontrol.io/packages/jQuery) - This is a Sublime Text bundle to help with jQuery functions. It has syntax highlighting and almost all of the jquery methods as snippets.
-* [JSHint Gutter](https://packagecontrol.io/packages/JSHint%20Gutter) - A plugin allowing you to check your JavaScript code for nasty errors, coding conventions and other goodies.
-* [Markdown Preview](https://packagecontrol.io/packages/Markdown%20Preview) - Preview and build your markdown files quickly in your web browser from sublime text 2/3.
-* [MarkdownEditing](https://packagecontrol.io/packages/MarkdownEditing) - Markdown plugin for Sublime Text. Provides a decent Markdown color scheme, with syntax highlighting.
-* [MarkdownTOC](https://packagecontrol.io/packages/MarkdownTOC) - This plugin search headings in document and insert TOC (Table Of Contents) to it.
-* [Placeholders](https://packagecontrol.io/packages/Placeholders) - This package contains basic HTML placeholder content for Sublime Text e.g. lorem ipsum text, forms, images etc.
-* [Sass](https://packagecontrol.io/packages/Sass) - This add-on adds syntax highlighting and tab/code completion for Sass and SCSS files.
-* [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements) - Provides enhancements to the operations on Sidebar of Files and Folders for Sublime Text.
-* [SyncedSideBar](https://packagecontrol.io/packages/SyncedSideBar) - Plugin to sync project sidebar (folder view) with currently active file.
-* [TodoReview](https://packagecontrol.io/packages/TodoReview) - A SublimeText plugin for reviewing todo (and other) comments within your code.
-* [Tomorrow Color Schemes](https://packagecontrol.io/packages/Tomorrow%20Color%20Schemes) - Tomorrow Color Schemes for SublimeText.
+* [Alignment](https://packagecontrol.io/packages/Alignment) - Key-binding to align multi-line and multiple selections.
+* [Autoprefixer](https://packagecontrol.io/packages/Autoprefixer) - Auto-add vendor prefixes.
+* [Bootstrap 3 Snippets](https://packagecontrol.io/packages/Bootstrap%203%20Snippets) - Autocomplete Bootstrap 3 code.
+* [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter) - Highlight content between `[ ]`, `( )`, `{ }`, `" "`, `' '`.
+* [CSScomb](https://packagecontrol.io/packages/CSScomb) - Code style formatter for CSS.
+* [DevDocs](https://packagecontrol.io/packages/DevDocs) - Easily search [DevDocs](http://devdocs.io/) (repository of documentation for multiple APIs).
+* [Emmet](https://packagecontrol.io/packages/Emmet) - Autocomplete or programmatically generating code.
+* [GitGutter](https://packagecontrol.io/packages/GitGutter) - Show icon in the gutter area indicating differences compared with the previous Git commit.
+* [jQuery](https://packagecontrol.io/packages/jQuery) - Syntax highlighting and snippets for almost all jQuery methods.
+* [JSHint Gutter](https://packagecontrol.io/packages/JSHint%20Gutter) - Check JavaScript code for errors, coding conventions, etc.
+* [Markdown Preview](https://packagecontrol.io/packages/Markdown%20Preview) - Preview and build your markdown files quickly in your web browser.
+* [MarkdownEditing](https://packagecontrol.io/packages/MarkdownEditing) - Colour scheme with syntax highlighting for markdown files.
+* [MarkdownTOC](https://packagecontrol.io/packages/MarkdownTOC) - Search headings in markdown documents and insert table of contents (TOC).
+* [Placeholders](https://packagecontrol.io/packages/Placeholders) - Basic HTML placeholder content, e.g. lorem ipsum text, forms, images etc.
+* [Sass](https://packagecontrol.io/packages/Sass) - Syntax highlighting and tab/code completion for Sass and SCSS files.
+* [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements) - Enhancements to sidebar for files and folders.
+* [SyncedSideBar](https://packagecontrol.io/packages/SyncedSideBar) - Sync project sidebar (folder view) with currently active file.
+* [TodoReview](https://packagecontrol.io/packages/TodoReview) - Search your code for `TODO:`, `FIXME:`, `NOTE:` comments within your project.
+* [Tomorrow Color Schemes](https://packagecontrol.io/packages/Tomorrow%20Color%20Schemes) - Tomorrow (dark) colour scheme.
 * [View In Browser](https://packagecontrol.io/packages/View%20In%20Browser) - Open the contents of your current view/tab in a web browser.
-* [WordPress](https://packagecontrol.io/packages/WordPress) - Sublime Text WordPress Package is a collection of WordPress snippets and autocompletions for Sublime Text.
-* [WordPress Developer Resources](https://packagecontrol.io/packages/WordPress%20Developer%20Resources) - Sublime Text 2/3 Plugin to search the new Wordpress Developer Resources (developer.wordpress.org).
-* [WordPress Generate Salts](https://packagecontrol.io/packages/WordPress%20Generate%20Salts) - A Sublime Text 3 Plugin for generating new WordPress salt keys.
+* [WordPress](https://packagecontrol.io/packages/WordPress) - Collection of WordPress snippets and autocompletions.
+* [WordPress Developer Resources](https://packagecontrol.io/packages/WordPress%20Developer%20Resources) - Search Wordpress Developer Resources (developer.wordpress.org) from within your code.
+* [WordPress Generate Salts](https://packagecontrol.io/packages/WordPress%20Generate%20Salts) - Generating new WordPress salt keys (for installing WordPress).
 
 
 
 
-## 3. User Preferences
+## 3. User preferences
 
 The following user preferences settings, found at `Preferences > Settings — User`, offers a very usable coding environment:
 
@@ -167,3 +160,4 @@ The following user preferences settings, found at `Preferences > Settings — Us
 	"wordwrap": true
 }
 ```
+
