@@ -1,7 +1,7 @@
 # Commit message style guide
 
-Version 0.1
-Last updated: Tuesday 29 September 2015
+Version 0.2
+Last updated: Monday 30 November 2015
 
 TODO: Tag formats
 TODO: Version numbers
@@ -56,7 +56,7 @@ Each commit message should include:
 A well-formed commit message might look something like this:
 
 ```
-TYPE (Component): Brief summary
+TYPE (Component) Brief summary
 
 Longer description with more details, such as a `code` being introduced
 within the context of a `function`.
@@ -74,7 +74,7 @@ Closes #123
 Only the top line is required, so a minimal commit message might look like
 
 ```
-TYPE (Component): Brief summary
+TYPE (Component) Brief summary
 ```
 
 
@@ -85,7 +85,7 @@ TYPE (Component): Brief summary
 The subject line comprises three elements:
 
 * `TYPE`
-* `(Component):`
+* `(Component)`
 * `Brief summary`
 
 
@@ -141,8 +141,7 @@ Consistency is important. Make sure you have a definitive list of the various co
 
 * Must be separated from the TYPE with a single space.
 * Must be enclosed in parentheses/round brackets, i.e. `()`.
-* Must end with a colon.
-* Must be consistently named throughout a project. For example, don't name it `(Long form)` in one commit but `(long-form)` in another.
+* Must be consistently named throughout a project. For example, don't name it `(Long-form content)` in one commit but `(long form)` in another.
 
 
 
@@ -183,7 +182,7 @@ The longer description is a chance to elaborate on the change you made. **Focus 
 The footer of your commit message is where you should reference issues or ticket numbers to which the change pertains. The format of each footer line should be specific and understood by all team members. For example:
 
 ```
-Closes #123, #456 (in Trello)
+Closes GitHub issue #123, #456
 Implements #543
 ```
 
@@ -198,7 +197,7 @@ Implements #543
 ## 4. Examples
 
 ```
-FEAT (Scrollspy): Add Scrollspy into long-form-content module
+FEAT (Scrollspy) Add Scrollspy into long-form-content module
 
 Scrollspy was previously removed to reduce file size but is
 now required for a number of projects. This has been added
@@ -208,7 +207,7 @@ Fixes #155 (Trello DPL board)
 ```
 
 ```
-DOCS (Commit messages): Textual clarifications to subject line rules
+DOCS (Commit messages) Textual clarifications to subject line rules
 
 * I changed my mind about insisting on a full stop after the brief 
   summary as it takes up one of the 50/70 character limit, it looks
