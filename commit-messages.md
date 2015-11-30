@@ -222,7 +222,7 @@ DOCS (Commit messages) Textual clarifications to subject line rules
 
 Inspired by and based heavily on:
 
-* [Bluejava Git commit message format guide][bluejava]
+* [Bluejava Git commit message format guide][bluejavacommit]
 * [Make WordPress core handbook: Commit messages][wordpresscommit]
 * [AngularJS Git commit message conventions][angularjs]
 
