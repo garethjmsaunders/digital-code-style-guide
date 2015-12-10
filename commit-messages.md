@@ -126,6 +126,10 @@ Every commit subject line starts with a TYPE in all CAPS and no spaces or other 
             <td>Updating dev-related maintenance files ("non-production code" files)./td>
         </tr>
         <tr>
+            <td><code>PULL</code></td>
+            <td>Pull request to merge branch into another branch or master./td>
+        </tr>
+        <tr>
             <td><code>TEST</code></td>
             <td>Adding missing tests or editing tests.</td>
         </tr>        
