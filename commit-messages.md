@@ -123,11 +123,11 @@ Every commit subject line starts with a TYPE in all CAPS and no spaces or other 
         </tr>
         <tr>
             <td><code>MAINT</code></td>
-            <td>Updating dev-related maintenance files ("non-production code" files)./td>
+            <td>Updating dev-related maintenance files ("non-production code" files).</td>
         </tr>
         <tr>
             <td><code>PULL</code></td>
-            <td>Pull request to merge branch into another branch or master./td>
+            <td>Pull request to merge branch into another branch or master.</td>
         </tr>
         <tr>
             <td><code>TEST</code></td>
@@ -207,7 +207,7 @@ Scrollspy was previously removed to reduce file size but is
 now required for a number of projects. This has been added
 back in, including full documentation.
 
-Fixes #155 (Trello DPL board)
+Fixes GitHub issue #15
 ```
 
 ```
@@ -220,6 +220,21 @@ DOCS (Commit messages) Textual clarifications to subject line rules
   any ambiguity.
 ```
 
+```
+PULL (Sticky-nav) Merge into master
+
+* Sticky-nav feature is completed and tested.
+* Final testing is required before merging into master for release v0.5.2
+
+Acceptance criteria
+* Code complies with style guide.
+* Compile in Grunt without error.
+* Examples work without error.
+
+Fixes GitHub issue #45
+Fixes GitHub issue #47
+Fixes GitHub issue #51
+```
 
 
 ## References
