@@ -223,8 +223,8 @@ DOCS (Commit messages) Textual clarifications to subject line rules
 ```
 PULL (Sticky-nav) Merge into master
 
-* Sticky-nav feature is completed and tested.
-* Final testing is required before merging into master for release v0.5.2
+Sticky-nav feature is completed and tested. Final testing is required before 
+merging into master for release v0.5.2
 
 Acceptance criteria
 * Code complies with style guide.
