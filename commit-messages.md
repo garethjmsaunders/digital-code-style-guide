@@ -1,10 +1,9 @@
 # Commit message style guide
 
-Version 0.3
-Last updated: Thursday 14 January 2016
+Version 0.4 | Thursday 14 January 2016
 
-TODO: Tag formats
-TODO: Version numbers
+* TODO: Tag formats
+* TODO: Version numbers
 
 
 <!-- MarkdownTOC -->
@@ -130,7 +129,7 @@ Every commit subject line starts with a TYPE in all CAPS and no spaces or other 
             <td>Updating dev-related maintenance files ("non-production code" files).</td>
         </tr>
         <tr>
-            <td><code>PULL</code></td>
+            <td><code>MERGE</code></td>
             <td>Pull request to merge branch into another branch or master.</td>
         </tr>
         <tr>
@@ -145,7 +144,7 @@ Every commit subject line starts with a TYPE in all CAPS and no spaces or other 
 
 #### ii. Component
 
-Briefly describe the component, feature or module being developed.
+Briefly describe the component, feature or module being developed; in the case of a pull request MERGE simply add the branch name.
 
 Consistency is important. Make sure you have a definitive list of the various components being developed somewhere in your project notes so that all code contributors are aware of them. Adding a new component should be a considered decision, not just a whim when making your commit.
 
