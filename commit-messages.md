@@ -1,7 +1,7 @@
 # Commit message style guide
 
-Version 0.2
-Last updated: Monday 30 November 2015
+Version 0.3
+Last updated: Thursday 14 January 2016
 
 TODO: Tag formats
 TODO: Version numbers
@@ -82,11 +82,15 @@ TYPE (Component) Brief summary
 
 ### Subject line
 
-The subject line comprises three elements:
+Generally, the subject line comprises three elements:
 
 * `TYPE`
 * `(Component)`
 * `Brief summary`
+
+The only **exception** is when populating a **new repository**. All that is required is a subject line of `Initial commit`.
+
+
 
 
 #### i. Type
@@ -135,6 +139,8 @@ Every commit subject line starts with a TYPE in all CAPS and no spaces or other 
         </tr>        
     </tbody>
 </table>
+
+
 
 
 #### ii. Component
