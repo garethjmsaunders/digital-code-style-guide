@@ -1,7 +1,7 @@
 # Markdown style guide
 
-Version 0.1
-Last updated: Tuesday 01 March 2016
+Version 0.2
+Last updated: Thursday 03 March 2016
 
 TODO: 
 
@@ -87,7 +87,7 @@ TODO: Add outstanding items here.
 TODO: You can have as many or few as you like.
 
 <!-- MarkdownTOC -->
-
+    ...
 <!-- /MarkdownTOC -->
 ```
 
@@ -98,14 +98,31 @@ If you are using Sublime Text then use the [MarkdownTOC](https://packagecontrol.
 
 Consistent spacing (blank lines between sections) can help aid the readability of the document, and aid the document reader and writer understand which sections belong together.
 
-The general rule is:
+The general rules are:
 
-* Four blank lines before heading 2 sections, including after the table of contents.
-* Two blank lines before heading 3, 4, 5 or 6 sections
-* Single blank lines between everything else, including paragraphs and lists.
+* **Heading 1** No blank lines before, one blank line after.
+* **Heading 2** Four blank lines before, one blank line after.
+* **Heading 3, 4, 5 or 6** Two blank lines before, one blank line after.
+* **Everything else** One blank line before, one blank line after.
+* **End of document** Leave a single blank line at the end of the document.
 
 ```
+# Document title (in sentence case)
+
+Version 0.1
+Last updated: Thursday 03 March 2016
+
+TODO: Add outstanding items here.
+TODO: You can have as many or few as you like.
+
+<!-- MarkdownTOC -->
+
+- [1. Heading 2](#heading-2)
+    - [Heading 3](#heading-3)
+        - [Heading 4](#heading-4)
+
 <!-- /MarkdownTOC -->
+
 
 
 
@@ -122,6 +139,26 @@ consequat.
 
 
 ### Heading 3
+
+Duis fringilla tortor vel ipsum mattis, a sagittis sem interdum. 
+Pellentesque venenatis ante a leo mollis auctor ac vel elit. 
+Aenean semper sollicitudin  nulla ut auctor.
+
+
+#### Heading 4
+
+Etiam id metus purus. Vivamus suscipit id nibh et eleifend. Cras 
+non nibh consequat, ultrices est sit amet, volutpat dui. [...]
+
+
+
+
+---
+
+## References
+
+* [Useful resource](http://www.example.com/ "")
+* [Another source](http://www.example.com/ "")
 
 ```
 
