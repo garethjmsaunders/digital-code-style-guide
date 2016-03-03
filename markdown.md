@@ -7,10 +7,12 @@ TODO:
 
 <!-- MarkdownTOC -->
 
-- [1. File layout](#1-file-layout)
+- [1. Documents](#1-documents)
     - [Filenames](#filenames)
-    - [Spacing](#spacing)
+    - [Document layout](#document-layout)
         - [Intro block](#intro-block)
+        - [Spacing](#spacing)
+        - [Footer](#footer)
 - [2. Block Elements](#2-block-elements)
     - [Paragraphs and line breaks](#paragraphs-and-line-breaks)
     - [Headings](#headings)
@@ -39,19 +41,114 @@ TODO:
 
 
 
-## 1. File layout
-
-dddd
-
+## 1. Documents
 
 ### Filenames
 
+Filenames should be all lowercase, including the `.md` file suffix.
 
-### Spacing
+```
+\\ Correct
+
+css.md
+html.md
+markdown.md
+
+
+\\ Wrong
+
+css.MD
+HTML.MD
+MarkDown.md
+```
+
+
+### Document layout
 
 #### Intro block
 
-Use
+The standard layout for the beginning of a Markdown-formatted document is:
+
+* Document title
+* Version number
+* Last updated date (written in full)
+* TODO items
+* Table of contents
+
+Each section should be separated by a blank line. It should look something like this:
+
+```
+# Document title (in sentence case)
+
+Version 0.1
+Last updated: Thursday 03 March 2016
+
+TODO: Add outstanding items here.
+TODO: You can have as many or few as you like.
+
+<!-- MarkdownTOC -->
+
+<!-- /MarkdownTOC -->
+```
+
+If you are using Sublime Text then use the [MarkdownTOC](https://packagecontrol.io/packages/MarkdownTOC) package to automatically build the table of contents.
+
+
+#### Spacing
+
+Consistent spacing (blank lines between sections) can help aid the readability of the document, and aid the document reader and writer understand which sections belong together.
+
+The general rule is:
+
+* Four blank lines before heading 2 sections, including after the table of contents.
+* Two blank lines before heading 3, 4, 5 or 6 sections
+* Single blank lines between everything else, including paragraphs and lists.
+
+```
+<!-- /MarkdownTOC -->
+
+
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. 
+
+* Duis aute irure dolor in reprehenderit.
+* In voluptate velit esse cillum dolore.
+* Fugiat nulla pariatur. Excepteur sint occaecat.
+
+
+### Heading 3
+
+```
+
+
+#### Footer
+
+The footer of a Markdown document can be used to list useful resources, references, etc.
+
+It should begin with a blank line, a horizontal rule (three dashes, `---`) and another blank line. Then a heading at level 2 (`##`).
+
+
+```
+\\ Example footer
+
+---
+
+## References
+
+The initial version of this style guide was based on [Github's HTML 
+style guide](https://github.com/styleguide/templates), with 
+inspiration too from [MDO's code guide](http://mdo.github.io/code-guide/).
+
+Boolean attributes, Lean markup, Forms and Tables taken from
+[PrimerCSS](http://primercss.io/guidelines/)
+```
+
+
 
 
 ## 2. Block Elements

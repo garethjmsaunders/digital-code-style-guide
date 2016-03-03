@@ -6,18 +6,18 @@ Last updated: Tuesday 29 September 2015
 <!-- MarkdownTOC -->
 
 - [Introduction](#introduction)
-    - [Naming conventions](#naming-conventions)
-    - [Semicolon](#semicolon)
-    - [Scope](#scope)
-    - [Spaces vs. Tabs](#spaces-vs-tabs)
-    - [Blocks](#blocks)
-    - [Line length](#line-length)
-    - [Don't use `eval`.](#dont-use-eval)
-    - [Multiline Function arguments](#multiline-function-arguments)
-    - [Binary and Ternary Operators](#binary-and-ternary-operators)
-    - [Quoting strings](#quoting-strings)
+- [Naming conventions](#naming-conventions)
+- [Semicolon](#semicolon)
+- [Scope](#scope)
+- [Spaces vs Tabs](#spaces-vs-tabs)
+- [Blocks](#blocks)
+- [Line length](#line-length)
+- [Don't use `eval`.](#dont-use-eval)
+- [Multiline Function arguments](#multiline-function-arguments)
+- [Binary and Ternary Operators](#binary-and-ternary-operators)
+- [Quoting strings](#quoting-strings)
 - [JSLint Configuration](#jslint-configuration)
-    - [References](#references)
+- [References](#references)
 
 <!-- /MarkdownTOC -->
 
@@ -28,7 +28,7 @@ We use JSLint as a standard specification for our code. That implies some decisi
 
 TODO: Merge in style guide advice from Douglas Crockford (author of JSLint) http://javascript.crockford.com/code.html
 
-### Naming conventions
+## Naming conventions
 
 <sub>Based on [Google JS Style Guide][googlestyle].</sub>
 
@@ -67,21 +67,21 @@ TODO: Merge in style guide advice from Douglas Crockford (author of JSLint) http
     </tr>
 </table>
 
-### Semicolon
+## Semicolon
 
 <sub>From [JSLint][].</sub>
 
 Every statement should be followed by a semicolon except for `for`, `function`, `if`, `switch`, `try`, and `while`.
 
 
-### Scope
+## Scope
 
 <sub>From [JSLint][].</sub>
 
 Declare all variables at the top of the function with one `var` statement.
 
 
-### Spaces vs. Tabs
+## Spaces vs Tabs
 
 <sub>From [JSLint][].</sub>
 
@@ -89,7 +89,7 @@ Use only spaces, and indent 2 spaces at a time.
 
 We use spaces for indentation. Do not use tabs in your code. You should set your editor to emit spaces when you hit the tab key.
 
-### Blocks
+## Blocks
 
 <sub>Based on requirements from [JSLint][].</sub>
 
@@ -120,7 +120,7 @@ if (condition) {
 
 ```
 
-### Line length
+## Line length
 
 <sub>Based on [Google JS Style Guide][googlestyle].</sub>
 
@@ -135,11 +135,11 @@ Each line of text in your code should be at most 80 characters long.
 
 * Statements with a long URL may exceed 80 characters.
 
-### Don't use `eval`.
+## Don't use `eval`.
 
 <sub>From [JSLint][].</sub>
 
-### Multiline Function arguments
+## Multiline Function arguments
 
 <sub>From [Google JS Style Guide][googlestyle].</sub>
 
@@ -181,7 +181,7 @@ artichokeDescriptorAdapterIterator) {
 }
 ```
 
-### Binary and Ternary Operators
+## Binary and Ternary Operators
 
 <sub>From [Google JS Style Guide][googlestyle].</sub>
 
@@ -208,7 +208,7 @@ doSomething().
 doSomethingElse();
 ```
 
-### Quoting strings
+## Quoting strings
 
 <sub>From [Google JS Style Guide][googlestyle].</sub>
 
@@ -226,7 +226,7 @@ The pattern library provides a JSLint config file that implements many of these 
 
 ---
 
-### References
+## References
 
 For more in depth treatment, see the following.
 
