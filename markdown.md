@@ -45,6 +45,8 @@ TODO:
 
 ### Filenames
 
+Use `.md` rather than `.markdown`.
+
 Filenames should be all lowercase, including the `.md` file suffix.
 
 ```
@@ -75,7 +77,9 @@ The standard layout for the beginning of a Markdown-formatted document is:
 * TODO items
 * Table of contents
 
-Each section should be separated by a blank line. It should look something like this:
+Each section should be separated by a blank line, except version number and last update date which should be grouped together with a line-break.
+
+It should look something like this:
 
 ```
 # Document title (in sentence case)
