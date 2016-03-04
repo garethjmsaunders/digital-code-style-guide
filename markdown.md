@@ -283,13 +283,23 @@ Try to avoid nesting blockquotes.
 
 #### Unordered lists
 
-Use **asterisks** (`*`) for unordered lists.
+Use **asterisks** (`*`) for unordered lists. Do not indent first-level lists.
 
 ```
+// Correct
+
 * Apples
 * Bananas
 * Oranges
 * Pears
+
+
+// Wrong
+
+    * Apples
+    * Bananas
+    * Oranges
+    * Pears
 ```
 
 #### Ordered lists
@@ -494,3 +504,37 @@ Markdown provides backslash escapes for the following characters:
 []  square brackets
 _   underscore
 ```
+
+
+
+
+## 5. Sublime Text packages
+
+There are a few Sublime Text packages that make working with Markdown documents easier.
+
+
+### Markdown​Editing
+
+A powerful Markdown package for Sublime Text with more robust syntax highlighting and better colour schemes (light and dark). This supports 
+    
+* Standard Markdown
+* GitHub-style Markdown
+* MultiMarkdown
+
+<https://packagecontrol.io/packages/MarkdownEditing>
+
+
+### Markdown Preview
+
+Preview in your browser the Markdown file you are currently editing. Supports both standard and GitHub-style Markdown.
+
+(If you choose GitHub-style then your code will be sent through https to the GitHub API for live conversion. You are limited to 60 calls a day unless you add your GitHub API key to your Sublime Text settings.)
+
+https://packagecontrol.io/packages/Markdown%20Preview
+
+
+### MarkdownTOC
+
+This package searches headings within a Markdown document and inserts a hierarchical table of contents (TOC).
+
+<https://packagecontrol.io/packages/MarkdownTOC>
