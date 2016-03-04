@@ -481,16 +481,16 @@ Markdown allows you to use backslash escapes to generate literal characters that
 Markdown provides backslash escapes for the following characters:
 
 ```
+*   asterisk
 \   backslash
 `   backtick
-*   asterisk
-_   underscore
 {}  curly braces
-[]  square brackets
-()  parentheses
-#   hash mark
-+   plus sign
--   minus sign (hyphen)
 .   dot
 !   exclamation mark
+#   hash mark
+-   minus sign (hyphen)
+()  parentheses
++   plus sign
+[]  square brackets
+_   underscore
 ```
