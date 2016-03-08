@@ -1,7 +1,7 @@
 # Markdown style guide
 
-Version 0.2
-Last updated: Thursday 03 March 2016
+Version 0.3
+Last updated: Tuesday 08 March 2016
 
 TODO: 
 
@@ -35,6 +35,10 @@ TODO:
     - [Images](#images)
 - [4. Miscellaneous](#4-miscellaneous)
     - [Backslash escapes](#backslash-escapes)
+- [5. Sublime Text packages](#5-sublime-text-packages)
+    - [Markdown​Editing](#markdown​editing)
+    - [Markdown Preview](#markdown-preview)
+    - [MarkdownTOC](#markdowntoc)
 
 <!-- /MarkdownTOC -->
 
@@ -45,9 +49,11 @@ TODO:
 
 ### Filenames
 
-Use `.md` rather than `.markdown`.
+Use `.md` suffix rather than `.markdown`.
 
-Filenames should be all lowercase, including the `.md` file suffix.
+If the Markdown file is a **product deliverable** (such as these style guide files) then the filename should be all lowercase, including the `.md` file suffix.
+
+If the Markdown file is a **supporting document** with instructions, set up guides, changelogs, etc. (such as CHANGELOG.md, CONTRIBUTING.md, README.md, SETUP.md)  then the filename should be uppercase
 
 ```
 \\ Correct
@@ -55,13 +61,20 @@ Filenames should be all lowercase, including the `.md` file suffix.
 css.md
 html.md
 markdown.md
-
+CHANGELOG.md
+CONTRIBUTING.md
+README.md
+SETUP.md
 
 \\ Wrong
 
 css.MD
 HTML.MD
 MarkDown.md
+changelog.md
+CONTRIBUTING.MD
+ReadMe.md
+Setup.markdown
 ```
 
 
@@ -302,16 +315,36 @@ Use **asterisks** (`*`) for unordered lists. Do not indent first-level lists.
     * Pears
 ```
 
+
 #### Ordered lists
 
-Use the **number one followed by a full-stop** (`1.`) for ordered lists. The markdown interpreter will automatically number the list correctly, but by using `1.` for each list item you can easily reorder lists without having to labouriously renumber everything.
+Use a **number followed by a full-stop** (`1.`) for ordered lists. 
+
+For short lists use sequential numbers, e.g.
+
+```
+1. Apples
+2. Bananas
+3. Oranges
+4. Pears
+```
+
+For longer lists, reuse the number one (`1.`) before each item. The Markdown interpreter will automatically number the list correctly, but by using the same number for each list item you can easily reorder lists without having to labouriously renumber everything.
 
 ```
 1. Apples
 1. Bananas
+1. Blackberries
+1. Blueberries
+1. Gooseberries
+1. Grapefruit
+1. Melons
 1. Oranges
 1. Pears
+1. Pineapples
+1. Strawberries
 ```
+
 
 #### Formatting lists
 
