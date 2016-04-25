@@ -1,13 +1,14 @@
 # HTML style guide
 
-Version 0.3
-Last updated: Tuesday 19 April 2016
+Version 0.4
+Last updated: Monday 25 April 2016
 
 TODO: Avoid `<address>` element.
 TODO: Microformats? This should be in the CSS guide.
 TODO: Add more information about comments -- what and why to comment
 TODO: Remove IE compatibility as we now support only IE10+.
 TODO: 'Avoid JavaScript generated markup' clarify more.
+TODO: Merge in elements from https://github.com/joshbuchea/
 
 <!-- MarkdownTOC -->
 
