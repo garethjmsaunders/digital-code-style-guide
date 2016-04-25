@@ -1,10 +1,13 @@
 # HTML style guide
 
-Version 0.2
-Last updated: Tuesday 29 September 2015
+Version 0.3
+Last updated: Tuesday 19 April 2016
 
 TODO: Avoid `<address>` element.
 TODO: Microformats? This should be in the CSS guide.
+TODO: Add more information about comments -- what and why to comment
+TODO: Remove IE compatibility as we now support only IE10+.
+TODO: 'Avoid JavaScript generated markup' clarify more.
 
 <!-- MarkdownTOC -->
 
@@ -43,7 +46,7 @@ As [@mdo](http://mdo.github.io/code-guide/) says in his code guide, "Strive to m
 * Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
 * Nested elements should be indented once (four spaces).
 * Always use double quotes (`"`), never single quotes (`'`), on attributes. While optional, include quotes to improve code readability.
-* Do not include a trailing slash on self-closing elements. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
+* Do not include a trailing slash on self-closing elements, such as `<br>`, `<hr>` and `<img>`. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
 
 
 ### Accessibility
@@ -62,7 +65,7 @@ HTML attributes should come in this particular order for easier reading of code.
 * `title`, `alt`
 * `role`, `aria-*`
 
-Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks or JavaScript hooks), so they come second.
+Classes make for great reusable components, so they come first; ids are more specific and should be used sparingly (e.g., for in-page bookmarks or JavaScript hooks), so they come second.
 
 
 ### Boolean attributes
@@ -79,7 +82,7 @@ Unlike in XHTML, in HTML5 many attributes don't require a value to be set, like 
 </select>
 ```
 
-If you _must_ include the attribute's value then follow the [WhatWG guideline](https://html.spec.whatwg.org/multipage/infrastructure.html#boolean-attributes):
+If you _must_ include the attribute's value (if you are using XHTML5, for instance) then follow the [WhatWG guideline](https://html.spec.whatwg.org/multipage/infrastructure.html#boolean-attributes):
 
 > If the attribute is present, its value must either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.
 
@@ -93,7 +96,7 @@ Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to
 
 ### Forms
 
-* Lean towards radio or checkbox lists instead of select menus.
+* Lean towards radio or checkbox lists instead of select menus; the former are more accessible.
 * Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here: the wrapping automatically associates the two.
 * Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
 * The primary form button must come first in the DOM, especially for forms with multiple submit buttons.
@@ -121,7 +124,7 @@ List items should always be within `<ul>`, `<ol>`, or `<dl>` elements. Never use
 
 ### Tables
 
-Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and scope attribute) when appropriate. (Note: `<tfoot>` goes above `<tbody>` for speed reasons. You want the browser to load the footer before a table full of data.)
+Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attribute) when appropriate. (Note: `<tfoot>` goes above `<tbody>` for speed reasons. You want the browser to load the footer before a table full of data.)
 
 ```
 <table summary="This is a chart of invoices for 2015.">
@@ -166,12 +169,12 @@ For simplicity, use the HTML5 doctype:
 
 The HTML5 specification recommends specifying a language attribute on the root HTML element. This aids speech synthesis tools to determine what pronounciation to use, translation tools what rules to use, etc.
 
-Read more abount the `lang` attribute in the latest [HTML5 spec](http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element).
+Read more about the `lang` attribute in the latest [HTML5 spec](http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element).
 
-Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web-foundations/iso-2-letter-language-codes/).
+Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web-foundations/iso-2-letter-language-codes/). W3C Internationalization site discusses [Language tags in HTML and XML](https://www.w3.org/International/articles/language-tags/).
 
 ```
-<html lang="en">
+<html lang="en-GB">
     <!-- ... -->
 </html>
 ```
@@ -181,7 +184,7 @@ Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web
 
 ## 4. Character encoding
 
-Ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document (generally UTF-8).
+Ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document, generally UTF-8 ([Unicode](http://unicode.org/)).
 
 The character encoding should be the first element within `head` as this affects the character set for the entire document, including the `title`.
 
@@ -296,4 +299,4 @@ See Github [503](https://github.com/503.html)
 
 The initial version of this style guide was based on [Github's HTML style guide](https://github.com/styleguide/templates), with inspiration too from [MDO's code guide](http://mdo.github.io/code-guide/).
 
-Boolean attributes, Lean markup, Forms and Tables taken from [PrimerCSS](http://primercss.io/guidelines/)
+Boolean attributes, Lean markup, Forms and Tables taken from [PrimerCSS](http://primercss.io/guidelines/).
