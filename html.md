@@ -168,6 +168,8 @@ The standard format for the `<title> ... </title>` tag uses a pipe (`|`) charact
 Page name | University of St Andrews
 ```
 
+Including the page name first makes it easier to create meaningful bookmarks, and improved SEO.
+
 
 
 
