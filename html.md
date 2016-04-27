@@ -1,12 +1,11 @@
 # HTML style guide
 
-Version 0.4
-Last updated: Monday 25 April 2016
+Version 0.5
+Last updated: Wednesday 27 April 2016
 
 TODO: Avoid `<address>` element.
 TODO: Microformats? This should be in the CSS guide.
 TODO: Add more information about comments -- what and why to comment
-TODO: Remove IE compatibility as we now support only IE10+.
 TODO: 'Avoid JavaScript generated markup' clarify more.
 TODO: Merge in elements from https://github.com/joshbuchea/
 
@@ -26,10 +25,9 @@ TODO: Merge in elements from https://github.com/joshbuchea/
 - [3. Language attribute](#3-language-attribute)
 - [4. Character encoding](#4-character-encoding)
 - [5. Page title](#5-page-title)
-- [6. IE compatibility](#6-ie-compatibility)
-- [7. Including CSS and JavaScript](#7-including-css-and-javascript)
-- [8. Avoid JavaScript generated markup](#8-avoid-javascript-generated-markup)
-- [9. Error pages](#9-error-pages)
+- [6. Including CSS and JavaScript](#6-including-css-and-javascript)
+- [7. Avoid JavaScript generated markup](#7-avoid-javascript-generated-markup)
+- [8. Error pages](#8-error-pages)
     - [Error templates](#error-templates)
 - [References](#references)
 
@@ -210,22 +208,7 @@ Page name | University of St Andrews
 
 
 
-## 6. IE compatibility
-
-Internet Explorer 8 and newer supports the use of a document compatibility `<meta>` tag to specify what version of IE the page should be rendered as.
-
-Unless you have a very specific use-case, it is most helpful to instruct IE to use the latest version of IE using edge mode.
-
-For more information, read this comprehensive [Stack Overflow article](http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e).
-
-```
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-```
-
-
-
-
-## 7. Including CSS and JavaScript
+## 6. Including CSS and JavaScript
 
 In line with the HTML5 specification, there is no need to specify a `type` when including CSS and JavaScript files, as `text/css` and `text/javascript` are their respective defaults.
 
@@ -242,7 +225,7 @@ In line with the HTML5 specification, there is no need to specify a `type` when 
 
 
 
-## 8. Avoid JavaScript generated markup
+## 7. Avoid JavaScript generated markup
 
 Unless you are using a JavaScript templating engine such as [Handlebars]](http://handlebarsjs.com/), do not 'hide' markup in JavaScript files. It makes content harder to find, harder to edit and diminishes performance.
 
@@ -255,7 +238,7 @@ If you must, in the document into which you are injecting code prefix the sectio
 
 
 
-## 9. Error pages
+## 8. Error pages
 
 Error pages should be built such that they require no external dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
 
