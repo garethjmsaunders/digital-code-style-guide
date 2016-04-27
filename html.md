@@ -1,9 +1,8 @@
 # HTML style guide
 
-Version 0.7
+Version 0.8
 Last updated: Wednesday 27 April 2016
 
-* TODO: Clarify the 'Avoid JavaScript generated markup' section.
 * TODO: Merge in elements from https://github.com/joshbuchea/.
 * TODO: Microformats.
 
@@ -290,7 +289,7 @@ Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attrib
 
 Unless you are using a JavaScript templating engine such as [Handlebars]](http://handlebarsjs.com/), do not 'hide' markup in JavaScript files. It makes content harder to find, harder to edit and diminishes performance.
 
-If you must, in the document into which you are injecting code prefix the section ID with `js-`, e.g.
+If you must, in the document into which you are injecting code prefix the section ID with `js-` so that it is clear that the content is generated via JavaScript, e.g.
 
 ```
 <div id="js-generated-message"></div>
