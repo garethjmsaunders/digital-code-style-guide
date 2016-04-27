@@ -208,6 +208,8 @@ Rather than causing confusion, simply do not use it.
 
 ### Comments
 
+Comments are your messages to other developers, as well as to yourself, if you come back to your code after several months working on something else.
+
 Write comments as complete, grammatical sentences with an initial capital and a full-stop at the end.
 
 As a rule, comment anything that isn't immediately obvious from the code alone. These could be explaining:
