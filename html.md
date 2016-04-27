@@ -1,9 +1,8 @@
 # HTML style guide
 
-Version 0.8
+Version 0.9
 Last updated: Wednesday 27 April 2016
 
-* TODO: Merge in elements from https://github.com/joshbuchea/.
 * TODO: Microformats.
 
 <!-- MarkdownTOC -->
@@ -16,7 +15,7 @@ Last updated: Wednesday 27 April 2016
     - [Lean markup](#lean-markup)
 - [2. HTML5 doctype](#2-html5-doctype)
 - [3. Language attribute](#3-language-attribute)
-- [4. Character encoding](#4-character-encoding)
+- [4. Character encoding and meta tags](#4-character-encoding-and-meta-tags)
 - [5. Page title](#5-page-title)
 - [6. Links to external CSS and JavaScript files](#6-links-to-external-css-and-javascript-files)
     - [Do not use `type`](#do-not-use-type)
@@ -136,18 +135,24 @@ Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web
 
 
 
-## 4. Character encoding
+## 4. Character encoding and meta tags
 
 Ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document, generally UTF-8 ([Unicode](http://unicode.org/)).
 
-The character encoding should be the first element within `head` as this affects the character set for the entire document, including the `title`.
+The character encoding **must** be the first element within `head` as this affects the character set for the entire document, including the `title`.
 
 ```
 <head>
     <meta charset="utf-8">
     <title> ... </title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 ```
+
+These three `<meta>` elements (if used) **must** come before any other `<meta>`elements.
+
+A comprehensive list of `<meta>`, `<link>`, social media, and browser and platform-specific elements can be found on Josh Buchea's [HEAD GitHub repository](https://github.com/joshbuchea/HEAD).
 
 
 
