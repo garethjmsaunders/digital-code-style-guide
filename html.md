@@ -1,6 +1,6 @@
 # HTML style guide
 
-Version 0.9
+Version 0.10
 Last updated: Wednesday 27 April 2016
 
 * TODO: Microformats.
