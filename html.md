@@ -1,12 +1,11 @@
 # HTML style guide
 
-Version 0.6
+Version 0.7
 Last updated: Wednesday 27 April 2016
 
-* TODO: Microformats.
-* TODO: Add more information about comments -- what and why to comment.
 * TODO: Clarify the 'Avoid JavaScript generated markup' section.
 * TODO: Merge in elements from https://github.com/joshbuchea/.
+* TODO: Microformats.
 
 <!-- MarkdownTOC -->
 
@@ -191,7 +190,7 @@ In line with the HTML5 specification, there is no need to specify a `type` when 
 
 ## 7. Element rules
 
-Specific guidelines about select HTML elements.
+Specific guidelines about certain HTML elements.
 
 
 ### Address
@@ -209,7 +208,19 @@ Rather than causing confusion, simply do not use it.
 
 ### Comments
 
-Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.
+Write comments as complete, grammatical sentences with an initial capital and a full-stop at the end.
+
+As a rule, comment anything that isn't immediately obvious from the code alone. These could be explaining:
+
+* the structure and/or role of a file;
+* the thought process behind a way of doing things;
+* the name of a digital pattern library pattern being used.
+
+Keep comments up-to-date when code changes.
+
+Comments may make their way into production environments.
+
+Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open/close tag highlighting.
 
 
 ### Forms
