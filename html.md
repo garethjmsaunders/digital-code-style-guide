@@ -17,16 +17,17 @@ Last updated: Wednesday 27 April 2016
 - [3. Language attribute](#3-language-attribute)
 - [4. Character encoding and meta tags](#4-character-encoding-and-meta-tags)
 - [5. Page title](#5-page-title)
-- [6. Links to external CSS and JavaScript files](#6-links-to-external-css-and-javascript-files)
+- [6. IE compatibility](#6-ie-compatibility)
+- [7. Links to external CSS and JavaScript files](#7-links-to-external-css-and-javascript-files)
     - [Do not use `type`](#do-not-use-type)
-- [7. Element rules](#7-element-rules)
+- [8. Element rules](#8-element-rules)
     - [Address](#address)
     - [Comments](#comments)
     - [Forms](#forms)
     - [Lists](#lists)
     - [Tables](#tables)
-- [8. Avoid JavaScript-generated markup](#8-avoid-javascript-generated-markup)
-- [9. Error pages](#9-error-pages)
+- [9. Avoid JavaScript-generated markup](#9-avoid-javascript-generated-markup)
+- [10. Error pages](#10-error-pages)
     - [Error templates](#error-templates)
 - [References](#references)
 
@@ -152,6 +153,8 @@ The character encoding **must** be the first element within `head` as this affec
 
 These three `<meta>` elements (if used) **must** come before any other `<meta>`elements.
 
+Remember, `<meta>` tags should not include a self-closing trailing slash.
+
 A comprehensive list of `<meta>`, `<link>`, social media, and browser and platform-specific elements can be found on Josh Buchea's [HEAD GitHub repository](https://github.com/joshbuchea/HEAD).
 
 
@@ -168,7 +171,27 @@ Page name | University of St Andrews
 
 
 
-## 6. Links to external CSS and JavaScript files
+## 6. IE compatibility
+
+Internet Explorer 8 and newer supports the use of a document compatibility <meta> tag to specify what version of IE the page should be rendered as.
+
+Unless you have a very specific use-case, it is most helpful to instruct IE to use the latest version of IE using edge mode:
+
+```
+<title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+```
+
+This element should immediately follow the `<title>` element.
+
+As [Microsoft has withdrawn support for older versions of Internet Explorer](https://www.microsoft.com/en-gb/WindowsForBusiness/End-of-IE-support) we now support only IE 11, which is standards-compliant. However, it is courteous to still include this tag for any users who have not yet upgraded.
+
+For more information, read this comprehensive [Stack Overflow article](http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e).
+
+
+
+
+## 7. Links to external CSS and JavaScript files
 
 Link to external CSS and JavaScript files so that the files may be cached by your browser, saving bandwidth.
 
@@ -192,7 +215,7 @@ In line with the HTML5 specification, there is no need to specify a `type` when 
 
 
 
-## 7. Element rules
+## 8. Element rules
 
 Specific guidelines about certain HTML elements.
 
@@ -290,7 +313,7 @@ Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attrib
 
 
 
-## 8. Avoid JavaScript-generated markup
+## 9. Avoid JavaScript-generated markup
 
 Unless you are using a JavaScript templating engine such as [Handlebars]](http://handlebarsjs.com/), do not 'hide' markup in JavaScript files. It makes content harder to find, harder to edit and diminishes performance.
 
@@ -303,7 +326,7 @@ If you must, in the document into which you are injecting code prefix the sectio
 
 
 
-## 9. Error pages
+## 10. Error pages
 
 Error pages should be built such that they require no external dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
 
