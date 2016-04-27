@@ -1,13 +1,12 @@
 # HTML style guide
 
-Version 0.5
+Version 0.6
 Last updated: Wednesday 27 April 2016
 
-TODO: Avoid `<address>` element.
-TODO: Microformats? This should be in the CSS guide.
-TODO: Add more information about comments -- what and why to comment
-TODO: 'Avoid JavaScript generated markup' clarify more.
-TODO: Merge in elements from https://github.com/joshbuchea/
+* TODO: Microformats.
+* TODO: Add more information about comments -- what and why to comment.
+* TODO: Clarify the 'Avoid JavaScript generated markup' section.
+* TODO: Merge in elements from https://github.com/joshbuchea/.
 
 <!-- MarkdownTOC -->
 
@@ -16,18 +15,21 @@ TODO: Merge in elements from https://github.com/joshbuchea/
     - [Accessibility](#accessibility)
     - [Attribute order](#attribute-order)
     - [Boolean attributes](#boolean-attributes)
-    - [Comments](#comments)
-    - [Forms](#forms)
     - [Lean markup](#lean-markup)
-    - [Lists](#lists)
-    - [Tables](#tables)
 - [2. HTML5 doctype](#2-html5-doctype)
 - [3. Language attribute](#3-language-attribute)
 - [4. Character encoding](#4-character-encoding)
 - [5. Page title](#5-page-title)
-- [6. Including CSS and JavaScript](#6-including-css-and-javascript)
-- [7. Avoid JavaScript generated markup](#7-avoid-javascript-generated-markup)
-- [8. Error pages](#8-error-pages)
+- [6. Links to external CSS and JavaScript files](#6-links-to-external-css-and-javascript-files)
+    - [Do not use `type`](#do-not-use-type)
+- [7. Element rules](#7-element-rules)
+    - [Address](#address)
+    - [Comments](#comments)
+    - [Forms](#forms)
+    - [Lists](#lists)
+    - [Tables](#tables)
+- [8. Avoid JavaScript-generated markup](#8-avoid-javascript-generated-markup)
+- [9. Error pages](#9-error-pages)
     - [Error templates](#error-templates)
 - [References](#references)
 
@@ -44,8 +46,9 @@ As [@mdo](http://mdo.github.io/code-guide/) says in his code guide, "Strive to m
 
 * Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
 * Nested elements should be indented once (four spaces).
+* Elements should always be written in lowercase.
 * Always use double quotes (`"`), never single quotes (`'`), on attributes. While optional, include quotes to improve code readability.
-* Do not include a trailing slash on self-closing elements, such as `<br>`, `<hr>` and `<img>`. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
+* Do not include a trailing slash on self-closing elements, such as `<br>`, `<hr>`, `<img>`, `<link>` and `<meta>`. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
 
 
 ### Accessibility
@@ -60,11 +63,11 @@ HTML attributes should come in this particular order for easier reading of code.
 * `class`
 * `id`, `name`
 * `data-*`
-* `src`, `for`, `type`, `href`, `value`
+* `src`, `for`, `type`, `href`, `value`, `rel`
 * `title`, `alt`
 * `role`, `aria-*`
 
-Classes make for great reusable components, so they come first; ids are more specific and should be used sparingly (e.g., for in-page bookmarks or JavaScript hooks), so they come second.
+Classes make for great reusable components, so they come first; `id`s are more specific and should be used sparingly (e.g., for in-page bookmarks or JavaScript hooks), so they come second.
 
 
 ### Boolean attributes
@@ -88,19 +91,6 @@ If you _must_ include the attribute's value (if you are using XHTML5, for instan
 For more information, read the latest [HTML5 specification](http://www.w3.org/html/wg/drafts/html/master/infrastructure.html#boolean-attributes).
 
 
-### Comments
-
-Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.
-
-
-### Forms
-
-* Lean towards radio or checkbox lists instead of select menus; the former are more accessible.
-* Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here: the wrapping automatically associates the two.
-* Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
-* The primary form button must come first in the DOM, especially for forms with multiple submit buttons.
-
-
 ### Lean markup
 
 Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. For example:
@@ -113,39 +103,6 @@ Whenever possible, avoid superfluous parent elements when writing HTML. Many tim
 
 <!-- Better -->
 <img class="user-photo" src="...">
-```
-
-
-### Lists
-
-List items should always be within `<ul>`, `<ol>`, or `<dl>` elements. Never use a set of `<div>` or `<p>` tags.
-
-
-### Tables
-
-Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attribute) when appropriate. (Note: `<tfoot>` goes above `<tbody>` for speed reasons. You want the browser to load the footer before a table full of data.)
-
-```
-<table summary="This is a chart of invoices for 2015.">
-    <thead>
-        <tr>
-            <th scope="col">Table header 1</th>
-            <th scope="col">Table header 2</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <td>Table footer 1</td>
-            <td>Table footer 2</td>
-        </tr>
-    </tfoot>
-    <tbody>
-        <tr>
-            <td>Table data 1</td>
-            <td>Table data 2</td>
-        </tr>
-    </tbody>
-</table>
 ```
 
 
@@ -189,7 +146,7 @@ The character encoding should be the first element within `head` as this affects
 
 ```
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title> ... </title>
 </head>
 ```
@@ -208,24 +165,115 @@ Page name | University of St Andrews
 
 
 
-## 6. Including CSS and JavaScript
+## 6. Links to external CSS and JavaScript files
+
+Link to external CSS and JavaScript files so that the files may be cached by your browser, saving bandwidth.
+
+Do not embed CSS or JavaScript code within files (unless absolutely necessary) using `<style>` or `<script>` elements.
+
+
+### Do not use `type`
 
 In line with the HTML5 specification, there is no need to specify a `type` when including CSS and JavaScript files, as `text/css` and `text/javascript` are their respective defaults.
 
 ```
 <!-- Do this -->
-<link rel="stylesheet" href="screen.css">
+<link href="screen.css" rel="stylesheet">
 <script src="file.js"></script>
 
 <!-- Not this -->
-<link rel="stylesheet" type="text/css" href="screen.css">
+<link type="text/css" rel="stylesheet" href="screen.css">
 <script type="text/javascript" src="file.js"></script>
 ```
 
 
 
 
-## 7. Avoid JavaScript generated markup
+## 7. Element rules
+
+Specific guidelines about select HTML elements.
+
+
+### Address
+
+Do not use the `<address>` element. Despite having been around since HTML3 in 1995, it is invariably used the wrong way.
+
+According to the [W3C HTML specification](http://w3c.github.io/html/sections.html#the-address-element):
+
+> The `address` element represents the contact information for its nearest `article` or `body` element ancestor. If that is the `body` element, then the contact information applies to the document as a whole.
+> 
+>The `address` element must not be used to represent arbitrary addresses (e.g., postal addresses), unless those addresses are in fact the relevant contact information. (The `p` element is the appropriate element for marking up postal addresses in general.)
+
+Rather than causing confusion, simply do not use it.
+
+
+### Comments
+
+Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.
+
+
+### Forms
+
+* Lean towards radio or checkbox lists instead of select menus; the former are more accessible.
+* Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here: the wrapping automatically associates the two.
+* Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
+* The primary form button must come first in the DOM, especially for forms with multiple submit buttons.
+
+
+### Lists
+
+List items should always be within `<ul>`, `<ol>`, or `<dl>` elements. Never use a set of `<div>` or `<p>` tags.
+
+Although in HTML5 you may omit closing tags from certain elements such as list items, always close list items:
+
+```
+<!-- Do this -->
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+<!-- Not this -->
+<ul>
+    <li>Item 1
+    <li>Item 2
+    <li>Item 3
+</ul>
+```
+
+
+### Tables
+
+Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attribute) when appropriate. (Note: `<tfoot>` goes above `<tbody>` for speed reasons. You want the browser to load the footer before a table full of data.)
+
+```
+<table summary="This is a chart of invoices for 2015.">
+    <thead>
+        <tr>
+            <th scope="col">Table header 1</th>
+            <th scope="col">Table header 2</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td>Table footer 1</td>
+            <td>Table footer 2</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td>Table data 1</td>
+            <td>Table data 2</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+
+
+
+## 8. Avoid JavaScript-generated markup
 
 Unless you are using a JavaScript templating engine such as [Handlebars]](http://handlebarsjs.com/), do not 'hide' markup in JavaScript files. It makes content harder to find, harder to edit and diminishes performance.
 
@@ -238,7 +286,7 @@ If you must, in the document into which you are injecting code prefix the sectio
 
 
 
-## 8. Error pages
+## 9. Error pages
 
 Error pages should be built such that they require no external dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
 
