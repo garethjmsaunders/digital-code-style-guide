@@ -1,9 +1,8 @@
 # HTML style guide
 
-Version 0.10
-Last updated: Wednesday 27 April 2016
+Version 0.11
+Last updated: Thursday 28 April 2016
 
-* TODO: Microformats.
 
 <!-- MarkdownTOC -->
 
@@ -26,8 +25,11 @@ Last updated: Wednesday 27 April 2016
     - [Forms](#forms)
     - [Lists](#lists)
     - [Tables](#tables)
-- [9. Avoid JavaScript-generated markup](#9-avoid-javascript-generated-markup)
-- [10. Error pages](#10-error-pages)
+- [9. Class and ID names](#9-class-and-id-names)
+    - [Standard class names](#standard-class-names)
+    - [Microformats](#microformats)
+- [10. Avoid JavaScript-generated markup](#10-avoid-javascript-generated-markup)
+- [11. Error pages](#11-error-pages)
     - [Error templates](#error-templates)
 - [References](#references)
 
@@ -315,7 +317,39 @@ Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attrib
 
 
 
-## 9. Avoid JavaScript-generated markup
+## 9. Class and ID names
+
+Guidance on class and ID names can be found in the CSS style guide. Here are a few basics:
+
+* First two characters must be either letters, underscores or hyphens; thereafter, any number of underscores, hyphens, letters or numbers.
+* Do not use asterisks (`*`) which are universal selectors; forward slashes (`/`) or backward slashes (`\`) are not accepted.
+* Use [BEM - Block Element Modifier](http://getbem.com/)-style class and ID names.
+* Class and ID names should be lowercase. Do not use camelCase.
+* Delimit words with a hyphen (`-`), e.g. `page-head`.
+* Separate multiple values in a class attribute with two spaces; this makes it much easier to read, e.g. `<button class="btn`  `btn-link">`.
+
+
+### Standard class names
+
+Where possible prefer to use standard class names, for example when using [Bootstrap](http://getbootstrap.com/) components.
+
+
+### Microformats
+
+"Designed for humans first and machines second, microformats are a set of simple, open data formats built upon existing and widely adopted standards. Instead of throwing away what works today, microformats intend to solve simpler problems first by adapting to current behaviors and usage patterns."
+
+For the following content types, consider using [Microformat 2](http://microformats.org/wiki/microformats2) class name standards, especially:
+
+* [h-adr](http://microformats.org/wiki/h-adr) is a simple, open format for publishing structured locations such as addresses, physical and/or postal.
+* [h-card](http://microformats.org/wiki/h-card) is a simple, open format for publishing people and organisations on the web.
+* [h-entry](http://microformats.org/wiki/h-entry) is a simple, open format for episodic or datestamped content on the web. h-entry is often used with content intended to be syndicated, e.g. blog posts. 
+* [h-event](http://microformats.org/wiki/h-event) is a simple, open format for publishing events on the web. 
+* [h-geo](http://microformats.org/wiki/h-geo) is a simple, open format for publishing [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System) geographic coordinates.
+
+
+
+
+## 10. Avoid JavaScript-generated markup
 
 Unless you are using a JavaScript templating engine such as [Handlebars]](http://handlebarsjs.com/), do not 'hide' markup in JavaScript files. It makes content harder to find, harder to edit and diminishes performance.
 
@@ -325,10 +359,11 @@ If you must, in the document into which you are injecting code prefix the sectio
 <div id="js-generated-message"></div>
 ```
 
+See CSS style guide for more on JavaScript hooks.
 
 
 
-## 10. Error pages
+## 11. Error pages
 
 Error pages should be built such that they require no external dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
 
