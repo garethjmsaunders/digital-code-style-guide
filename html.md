@@ -1,6 +1,6 @@
 # HTML style guide
 
-Version 0.11
+Version 0.12
 Last updated: Thursday 28 April 2016
 
 
@@ -21,10 +21,15 @@ Last updated: Thursday 28 April 2016
     - [Do not use `type`](#do-not-use-type)
 - [8. Element rules](#8-element-rules)
     - [Address](#address)
+    - [Bold and strong](#bold-and-strong)
     - [Comments](#comments)
     - [Forms](#forms)
+    - [Images](#images)
+        - [alt text](#alt-text)
+    - [Italics and emphasis](#italics-and-emphasis)
     - [Lists](#lists)
     - [Tables](#tables)
+    - [And the rest...](#and-the-rest)
 - [9. Class and ID names](#9-class-and-id-names)
     - [Standard class names](#standard-class-names)
     - [Microformats](#microformats)
@@ -199,7 +204,7 @@ For more information, read this comprehensive [Stack Overflow article](http://st
 
 Link to external CSS and JavaScript files so that the files may be cached by your browser, saving bandwidth.
 
-Do not embed CSS or JavaScript code within files (unless absolutely necessary) using `<style>` or `<script>` elements.
+Do not embed `<style>` CSS or use inline JavaScript or `<script>` code (unless absolutely necessary).
 
 
 ### Do not use `type`
@@ -237,6 +242,14 @@ According to the [W3C HTML specification](http://w3c.github.io/html/sections.htm
 Rather than causing confusion, simply do not use it.
 
 
+### Bold and strong
+
+Remember that markup should be semantic: the elements used should also convey a layer of meaning. In HTML5 
+
+* `<strong>` indicates strong importance, seriousness (a warning or cautionary notice), or urgency. ([WhatWG](https://html.spec.whatwg.org/multipage/semantics.html#the-strong-element))
+* `<b>` indicates "a span of text to which attention is being drawn for utilitarian purposes without conveying any extra importance and with no implication of an alternate voice or mood, such as keywords in a document abstract, product names in a review, actionable words in interactive text-driven software, or an article lede." ([WhatWG](https://html.spec.whatwg.org/multipage/semantics.html#the-b-element))
+
+
 ### Comments
 
 Comments are your messages to other developers, as well as to yourself, if you come back to your code after several months working on something else.
@@ -262,6 +275,32 @@ Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to
 * Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here: the wrapping automatically associates the two.
 * Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
 * The primary form button must come first in the DOM, especially for forms with multiple submit buttons.
+* Input field placeholders are generally bad for accessibility. Do not hide text that would be useful to the user in a placeholder as it will disappear as soon as the user starts typing. For more guidance see [Placeholders in form fields are harmful](https://www.nngroup.com/articles/form-design-placeholders/).
+
+
+### Images
+
+* All images used in `<img>` elements must be in either GIF, JPG, PNG or SVG formats.
+* You must specify height and width attributes when using an `<img>` element. This improves page rendering speed as it allows the browser to understand the page layout without having to wait for the images to download to learn their dimensions.
+
+
+#### alt text
+
+All images must have `alt` attributes defined to describe the image. The description should be:
+
+* Accurate;
+* Succinct: typically no more than a few words, although a short sentence or two may be appropriate;
+* Unique: do not provide the same information as the text within the context of the image.
+
+Do not use phases like "Image of..." or "Graphic of...". It should be clear from the context that this is an image.
+
+
+### Italics and emphasis
+
+Remember that markup should be semantic: the elements used should also convey a layer of meaning. In HTML5 
+
+* `<em>` indicates _emphatic stress_, that is something you would pronounce differently. ([WhatWG](https://html.spec.whatwg.org/multipage/semantics.html#the-em-element))
+* `<i>` indicates "a span of text in an alternate voice or mood, or otherwise offset from the normal prose in a manner indicating a different quality of text, such as a taxonomic designation, a technical term, an idiomatic phrase from another language, transliteration, a thought, or a ship name in Western texts." ([WhatWG](https://html.spec.whatwg.org/multipage/semantics.html#the-i-element))
 
 
 ### Lists
@@ -315,6 +354,11 @@ Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attrib
     </tbody>
 </table>
 ```
+
+
+### And the rest...
+
+If in doubt, check the HTML5 Doctor's [HTML5 Element Index](http://html5doctor.com/element-index/) for advice on the best use of HTML5 elements.
 
 
 
