@@ -289,6 +289,8 @@ Although in HTML5 you may omit closing tags from certain elements such as list i
 
 ### Tables
 
+Tables must only be used to present tabular data; they must never be used for presentation.
+
 Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attribute) when appropriate. (Note: `<tfoot>` goes above `<tbody>` for speed reasons. You want the browser to load the footer before a table full of data.)
 
 ```
