@@ -1,6 +1,6 @@
 # XML style guide
 
-Version 0.1
+Version 0.2
 Last updated: Thursday 28 April 2016
 
 
@@ -46,6 +46,8 @@ For consistency:
 
 
 ### Entity references
+
+@TODO: Make a list of acceptable entities.
 
 Entity references other than the XML standard entity references &amp;, &lt;, &gt;, &quot;, and &apos; MUST NOT be used.  Character references MAY be used, but actual characters are preferred, unless the character encoding is not UTF-8.  As usual, textual formats are exempt from this rule.
 
