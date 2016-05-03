@@ -47,9 +47,16 @@ For consistency:
 
 ### Entity references
 
-@TODO: Make a list of acceptable entities.
+Entity references other than the five XML standard entity references MUST NOT be used. The five acceptable XML standard entity references are:
 
-Entity references other than the XML standard entity references &amp;, &lt;, &gt;, &quot;, and &apos; MUST NOT be used.  Character references MAY be used, but actual characters are preferred, unless the character encoding is not UTF-8.  As usual, textual formats are exempt from this rule.
+* `&amp;` - ampersand (&)
+* `&apos;` - apostrophe (')
+* `&gt;` - greater than (>)
+* `&lt;` - less than (<)
+* `&quot;` - double quotation (")
+
+ 
+Character references MAY be used, but actual characters are preferred, unless the character encoding is not UTF-8.  As usual, textual formats are exempt from this rule.
 
 
 ### Empty tags
