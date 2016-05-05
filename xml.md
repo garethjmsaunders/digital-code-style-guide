@@ -11,6 +11,7 @@ Last updated: Thursday 28 April 2016
     - [Entity references](#entity-references)
     - [Empty tags](#empty-tags)
 - [2. Reuse existing XML formats](#2-reuse-existing-xml-formats)
+    - [Extending existing formats](#extending-existing-formats)
 - [3. XML prolog](#3-xml-prolog)
 - [4. Character encoding](#4-character-encoding)
 - [5. Schemas](#5-schemas)
@@ -55,32 +56,38 @@ Entity references other than the five XML standard entity references MUST NOT be
 * `&lt;` - less than (<)
 * `&quot;` - double quotation (")
 
- 
-Character references MAY be used, but actual characters are preferred, unless the character encoding is not UTF-8.  As usual, textual formats are exempt from this rule.
+Character references, e.g. `&#169;` (decimal) or `&#x00A9;` (hex) for the copyright symbol `©`, may be used, but actual characters are preferred as they are more-easily searchable, unless the character encoding is not UTF-8.
 
 
 ### Empty tags
 
-* Self-closing (empty) elements must include a trailing slash, e.g. `<empty />`
-* . OR Empty elements MAY be expressed as empty tags or a start-tag immediately followed by an end-tag. No distinction should be made between these two formats by any application.  [Rationale: They are not distinguished by XML parsers.]
+Self-closing (empty) elements may be written in one of two ways:
+
+1. As an empty element with a trailing slash, e.g. `<empty />`, or
+2. As a start tag immediately followed by an end tag, e.g. `<empty></empty>`.
+
+Either is acceptable as they are not distinguished by XML parsers.
 
 
 
 
 ## 2. Reuse existing XML formats
 
-"Attempt to reuse existing XML formats whenever possible, especially those which allow extensions.  Creating an entirely new format should be done only with care and consideration; read Tim Bray's warnings first.  Try to get wide review of your format, from outside your organization as well, if possible.  [Rationale: New document formats have a cost: they must be reviewed, documented, and learned by users.]
+Where possible reuse existing XML formats, particularly those that allow extensions. XML Cover Pages curates a list of nearly 600 established [XML Applications and Initiatives](http://xml.coverpages.org/xmlApplications.html).
 
-"If you are reusing or extending an existing format, make sensible use of the prescribed elements and attributes, especially any that are required.  Don't completely repurpose them, but do try to see how they might be used in creative ways if the vanilla semantics aren't suitable.  As a last resort when an element or attribute is required by the format but is not appropriate for your use case, use some fixed string as its value.  [Rationale:  Markup reuse is good, markup abuse is bad.]
+Creating a new XML format is hard work and should only be done with consideration. As Google advises, "try to get wide review of your format, from outside your organization as well, if possible [as] new document formats have a cost: they must be reviewed, documented, and learned by users". Consider Tim Bray's article first: [Don’t invent XML languages](https://www.tbray.org/ongoing/When/200x/2006/01/08/No-New-XML-Languages).
 
-"When extending formats, use the implicit style of the existing format, even if it contradicts this guide.  [Rationale: Consistency.]
+
+### Extending existing formats
+
+When reusing or extending existing formats follow their established conventions and implicit styles for elements and attributes, even if they contradict this guide. Internal file consistency is prefered over strict adherance to this guide.
 
 
 
 
 ## 3. XML prolog
 
-XML documents SHOULD begin with an XML prolog that contains:
+XML documents should begin with an XML prolog that contains:
 
     1. A declaration that specifies the version of XML being used;
     2. A document type declaration (DTD)
