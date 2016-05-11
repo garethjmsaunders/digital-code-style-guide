@@ -39,7 +39,7 @@ All XML documents MUST be 'well-formed' in accordance with the [latest XML speci
 
 For consistency:
 
-* Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
+* Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment. Four spaces offer more obvious indentation compared with two.
 * Nested elements should be indented once (four spaces).
 * Element names should be written in lower camel case, e.g. `lowerCamelCase`.
 * Attributes should be wrapped in double quotes (`"`) rather than single quotes (`'`), on attributes.
@@ -48,7 +48,7 @@ For consistency:
 
 ### Entity references
 
-Entity references other than the five XML standard entity references MUST NOT be used. The five acceptable XML standard entity references are:
+Entity references other than the five standard XML entity references MUST NOT be used. The five acceptable entity references are:
 
 * `&amp;` - ampersand (&)
 * `&apos;` - apostrophe (')
@@ -56,7 +56,9 @@ Entity references other than the five XML standard entity references MUST NOT be
 * `&lt;` - less than (<)
 * `&quot;` - double quotation (")
 
-Character references, e.g. `&#169;` (decimal) or `&#x00A9;` (hex) for the copyright symbol `©`, may be used, but actual characters are preferred as they are more-easily searchable, unless the character encoding is not UTF-8.
+Character references may be used, but actual characters are preferred as they are more-easily searchable. An exception to this rule is if the character set is not UTF-8.
+
+For example the copyright symbol `©` may be represented either in decimal (`&#169;`) or hexadecimal (`&#x00A9;`) but it is preferable to use `©` where possible.
 
 
 ### Empty tags
@@ -66,16 +68,18 @@ Self-closing (empty) elements may be written in one of two ways:
 1. As an empty element with a trailing slash, e.g. `<empty />`, or
 2. As a start tag immediately followed by an end tag, e.g. `<empty></empty>`.
 
-Either is acceptable as they are not distinguished by XML parsers.
+Either is acceptable as neither is preferred by XML parsers, but please try to be consistent in the use of one or the other throughout your document.
 
 
 
 
 ## 2. Reuse existing XML formats
 
-Where possible reuse existing XML formats, particularly those that allow extensions. XML Cover Pages curates a list of nearly 600 established [XML Applications and Initiatives](http://xml.coverpages.org/xmlApplications.html).
+Where possible reuse existing XML formats, particularly those that allow extensions. XML Cover Pages curates a list of nearly 600 established [XML applications and initiatives](http://xml.coverpages.org/xmlApplications.html).
 
-Creating a new XML format is hard work and should only be done with consideration. As Google advises, "try to get wide review of your format, from outside your organization as well, if possible [as] new document formats have a cost: they must be reviewed, documented, and learned by users". Consider Tim Bray's article first: [Don’t invent XML languages](https://www.tbray.org/ongoing/When/200x/2006/01/08/No-New-XML-Languages).
+Creating a new XML format is hard work and should only be done with consideration. As Google advises, "try to get wide review of your format, from outside your organization as well, if possible [as] new document formats have a cost: they must be reviewed, documented, and learned by users".
+
+Consider Tim Bray's article first: [Don’t invent XML languages](https://www.tbray.org/ongoing/When/200x/2006/01/08/No-New-XML-Languages).
 
 
 ### Extending existing formats
