@@ -96,10 +96,11 @@ XML documents should begin with an XML prolog that contains:
     1. A declaration that specifies the version of XML being used;
     2. A document type declaration (DTD)
 
+Depending on the schema used the DTD is optional, e.g. RSS 2.0.
+
 ```
-<?xml version="1.0" encoding="UTF-8"? standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE foo SYSTEM "foo.dtd">
-<!-- End of XML prolog -->
 ```
 
 * The XML prolog is optional. If it exists, it must come first in the document.
@@ -107,30 +108,36 @@ XML documents should begin with an XML prolog that contains:
 * To avoid errors, you should specify the encoding used, or save your XML files as UTF-8; UTF-8 is the default character encoding for XML documents.
 
 
+
+
 ## 4. Character encoding
 
-The character encoding used SHOULD be UTF-8.  Exceptions should require extremely compelling circumstances.  [Rationale: UTF-8 is universal and in common use.]
+The character encoding used should be UTF-8 as this is a universal and common standard.
+
+You will need to provide a very good argument for using a character encoding that is not UTF-8.
 
 
 
 
 ## 5. Schemas
 
-"Document formats SHOULD be expressed using a schema language.  [Rationale: Clarity and machine-checkability.]
+"Document formats should be expressed using a schema language.  [Rationale: Clarity and machine-checkability.]
 
-The schema language SHOULD be RELAX NG compact syntax.  Embedded Schematron rules MAY be added to the schema for additional fine control.  [Rationale: RELAX NG is the most flexible schema language, with very few arbitrary restrictions on designs.  The compact syntax is quite easy to read and learn, and can be converted one-to-one to and from the XML syntax when necessary.  Schematron handles arbitrary cross-element and cross-attribute constraints nicely.]
+The schema language should be [RELAX NG](http://www.relaxng.org/) compact syntax. This is offers a very flexible schema langauge with fewer restrictions on design.
 
-Schemas SHOULD use the "Salami Slice" style (one rule per element).  Schemas MAY use the "Russian Doll" style (schema resembles document) if they are short and simple.  The "Venetian Blind" style (one rule per element type) is unsuited to RELAX NG and SHOULD NOT be used.
+Schemas should use the "salami slice" style, that is: one rule per element.  
 
-Regular expressions SHOULD be provided to assist in validating complex values.
+Schemas may use the "Russian doll" style (schema resembles document) if they are short and simple.
 
-DTDs and/or W3C XML Schemas MAY be provided for compatibility with existing products, tools, or users.  [Rationale: We can't change the world all at once.]"
+Regular expressions should be provided to assist in validating complex values.
+
+DTDs and/or W3C XML Schemas may be provided for compatibility with existing products, tools, or users.
 
 
 
 ## 6. Namespaces
 
-Namespaces SHOULD be declared in the root element of a document wherever possible.  [Rationale: Clarity and consistency.]
+Namespaces should be declared in the root element of a document wherever possible.  [Rationale: Clarity and consistency.]
 
 Well-known prefixes such as html: (for XHTML), dc: (for Dublin Core metadata), and xs: (for XML Schema) should be used for standard namespaces.  [Rationale: Human readability.]
 
