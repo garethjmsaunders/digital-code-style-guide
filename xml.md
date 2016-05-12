@@ -9,7 +9,7 @@ Last updated: Thursday 28 April 2016
 - [1. Syntax](#1-syntax)
     - [General formatting](#general-formatting)
     - [Entity references](#entity-references)
-    - [Empty tags](#empty-tags)
+    - [Empty elements](#empty-elements)
 - [2. Reuse existing XML formats](#2-reuse-existing-xml-formats)
     - [Extending existing formats](#extending-existing-formats)
 - [3. XML prolog](#3-xml-prolog)
@@ -61,14 +61,18 @@ Character references may be used, but actual characters are preferred as they ar
 For example the copyright symbol `©` may be represented either in decimal (`&#169;`) or hexadecimal (`&#x00A9;`) but it is preferable to use `©` where possible.
 
 
-### Empty tags
+### Empty elements
 
-Self-closing (empty) elements may be written in one of two ways:
+Some elements do not have end tags because they do not contain anything, consider XHTML tags such as `<img />` and `<br />`.
 
-1. As an empty element with a trailing slash, e.g. `<empty />`, or
-2. As a start tag immediately followed by an end tag, e.g. `<empty></empty>`.
+These self-closing (or empty) elements may be written in one of two ways:
 
-Either is acceptable as neither is preferred by XML parsers, but please try to be consistent in the use of one or the other throughout your document.
+1. As a start tag immediately followed by an end tag, e.g. `<empty></empty>`.
+2. As an empty element with a trailing slash, e.g. `<empty />`.
+
+In the case of empty elements, include a space immediately before the closing slash.
+
+Either format is acceptable as neither is preferred by XML parsers. Whichever you choose, please be consistent throughout your document.
 
 
 
