@@ -17,15 +17,15 @@ Last updated: Thursday 28 April 2016
 - [3. XML prolog](#3-xml-prolog)
     - [Optional](#optional)
     - [Character encoding](#character-encoding)
-- [5. Schemas](#5-schemas)
-- [6. Namespaces](#6-namespaces)
-- [7. Names](#7-names)
-- [8. Elements](#8-elements)
-- [9. Attributes](#9-attributes)
-- [10. Key-value pairs](#10-key-value-pairs)
-- [11. Elements vs. Attributes](#11-elements-vs-attributes)
-- [12. CDATA](#12-cdata)
-- [13. Comments](#13-comments)
+- [4. Schemas](#4-schemas)
+- [5. Namespaces](#5-namespaces)
+- [6. Names](#6-names)
+- [7. Elements](#7-elements)
+- [8. Attributes](#8-attributes)
+- [9. Key-value pairs](#9-key-value-pairs)
+- [10. Elements vs. Attributes](#10-elements-vs-attributes)
+- [11. CDATA](#11-cdata)
+- [12. Comments](#12-comments)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -142,7 +142,7 @@ You will need to provide a very good argument for using a character encoding tha
 
 
 
-## 5. Schemas
+## 4. Schemas
 
 "Document formats should be expressed using a schema language.  [Rationale: Clarity and machine-checkability.]
 
@@ -158,7 +158,7 @@ DTDs and/or W3C XML Schemas may be provided for compatibility with existing prod
 
 
 
-## 6. Namespaces
+## 5. Namespaces
 
 Namespaces should be declared in the root element of a document wherever possible.  [Rationale: Clarity and consistency.]
 
@@ -178,7 +178,7 @@ Namespace prefixes SHOULD be short (but not so short that they are likely to be 
 
 
 
-## 7. Names
+## 6. Names
 
 "Note: "Names" refers to the names of elements, attributes, and enumerated values.
 
@@ -194,7 +194,7 @@ Published standard abbreviations, if sufficiently well-known, MAY be employed in
 
 
 
-## 8. Elements
+## 7. Elements
 
 "All elements MUST contain either nothing, character content, or child elements.  Mixed content MUST NOT be used.  [Rationale: Many XML data models don't handle mixed content properly, and its use makes the element order-dependent.  As always, textual formats are not covered by this rule.]
 
@@ -202,7 +202,7 @@ XML elements that merely wrap repeating child elements SHOULD NOT be used.  [Rat
 
 
 
-## 9. Attributes
+## 8. Attributes
 
 "Document formats MUST NOT depend on the order of attributes in a start-tag.  [Rationale: Few XML parsers report the order, and it is not part of the XML Infoset.]
 
@@ -218,14 +218,14 @@ Redundant whitespace in a tag SHOULD NOT be used.  Use one space before each att
 Attribute values MAY be surrounded with either quotation marks or apostrophes. Specifications MUST NOT require or forbid the use of either form.  &apos; and &quot; may be freely used to escape each type of quote.  [Rationale: No XML parsers report the distinction.]
 
 
-## 10. Key-value pairs
+## 9. Key-value pairs
 
 "Simple key-value pairs SHOULD be represented with an empty element whose name represents the key, with the value attribute containing the value. Elements that have a value attribute MAY also have a unit attribute to specify the unit of a measured value.  For physical measurements, the SI system SHOULD be used.  [Rationale: Simplicity and design consistency.  Keeping the value in an attribute hides it from the user, since displaying just the value without the key is not useful.]
 
 If the number of possible keys is very large or unbounded, key-value pairs MAY be represented by a single generic element with key, value, and optional unit and scheme attributes (which serve to discriminate keys from different domains).  In that case, also provide (not necessarily in the same document) a list of keys with human-readable explanations."
 
 
-## 11. Elements vs. Attributes
+## 10. Elements vs. Attributes
 
 Note:  There are no hard and fast rules for deciding when to use attributes and when to use elements.  Here are some of the considerations that designers should take into account; no rationales are given.
 12.1. General points:
@@ -278,7 +278,7 @@ If terseness is really the most important thing, use attributes, but consider gz
 
 
 
-## 12. CDATA
+## 11. CDATA
 
 CDATA sections MAY be used; they are equivalent to the use of &amp; and &lt;.  Specifications MUST NOT require or forbid the use of CDATA sections.  [Rationale: Few XML parsers report the distinction, and combinations of CDATA and text are often reported as single objects anyway.]
 
@@ -294,7 +294,7 @@ begin with `<![CDATA[`, which is followed by your content, and end with ``]]>`, 
 
 
 
-## 13. Comments
+## 12. Comments
 
 Comments are your messages to other developers, as well as to yourself, if you come back to your code after several months working on something else.
 
