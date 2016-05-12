@@ -95,12 +95,10 @@ When reusing or extending existing formats follow their established conventions 
 
 ## 3. XML prolog
 
-XML documents should begin with an XML prolog that contains:
+The XML prolog is the information that appears before the document's root element. XML documents should begin with an XML prolog that contains:
 
     1. A declaration that specifies the version of XML being used;
     2. A document type declaration (DTD)
-
-Depending on the schema used the DTD is optional, e.g. RSS 2.0.
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -108,8 +106,10 @@ Depending on the schema used the DTD is optional, e.g. RSS 2.0.
 ```
 
 * The XML prolog is optional. If it exists, it must come first in the document.
-* XML documents may contain international characters, like Norwegian `øæå` or French `êèé`.
 * To avoid errors, you should specify the encoding used, or save your XML files as UTF-8; UTF-8 is the default character encoding for XML documents.
+* Depending on the schema used, the DTD is optional.
+* The `standalone="yes"` attribute is optional. Valid values are `yes` and `no` (default value). The attribute is only relevant when a DTD is used; and irrelevant when used with a schema instead of a DTD.
+* XML documents may contain international characters, like Norwegian `øæå` or French `êèé`.
 
 
 
