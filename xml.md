@@ -9,11 +9,14 @@ Last updated: Thursday 28 April 2016
 - [1. Syntax](#1-syntax)
     - [General formatting](#general-formatting)
     - [Entity references](#entity-references)
+        - [Character references](#character-references)
+        - [International characters](#international-characters)
     - [Empty elements](#empty-elements)
 - [2. Reuse existing XML formats](#2-reuse-existing-xml-formats)
     - [Extending existing formats](#extending-existing-formats)
 - [3. XML prolog](#3-xml-prolog)
-- [4. Character encoding](#4-character-encoding)
+    - [Optional](#optional)
+    - [Character encoding](#character-encoding)
 - [5. Schemas](#5-schemas)
 - [6. Namespaces](#6-namespaces)
 - [7. Names](#7-names)
@@ -56,9 +59,19 @@ Entity references other than the five standard XML entity references MUST NOT be
 * `&lt;` - less than (<)
 * `&quot;` - double quotation (")
 
+
+#### Character references
+
 Character references may be used, but actual characters are preferred as they are more-easily searchable. An exception to this rule is if the character set is not UTF-8.
 
 For example the copyright symbol `©` may be represented either in decimal (`&#169;`) or hexadecimal (`&#x00A9;`) but it is preferable to use `©` where possible.
+
+
+#### International characters
+
+XML documents may contain international characters, like Scandanavian `ø`, `æ`, and `å` or French `ê`, `è` and `é`.
+
+Again, you may use character references (above) but prefer to use actual characters.
 
 
 ### Empty elements
@@ -95,28 +108,34 @@ When reusing or extending existing formats follow their established conventions 
 
 ## 3. XML prolog
 
-The XML prolog is the information that appears before the document's root element. XML documents should begin with an XML prolog that contains:
+The XML prolog is the information that appears before the document's root element. XML documents SHOULD begin with an XML prolog that contains:
 
-    1. A declaration that specifies the version of XML being used;
-    2. A document type declaration (DTD)
+1. A declaration that specifies the version of XML being used;
+2. A document type declaration (DTD)
 
 ```
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <!DOCTYPE foo SYSTEM "foo.dtd">
 ```
 
-* The XML prolog is optional. If it exists, it must come first in the document.
-* To avoid errors, you should specify the encoding used, or save your XML files as UTF-8; UTF-8 is the default character encoding for XML documents.
-* Depending on the schema used, the DTD is optional.
+
+### Optional
+
+* The XML prolog itself is optional.
+* If the XML prolog exists, it MUST come first in the document.
+* The DTD is optional, depending on the schema used.
 * The `standalone="yes"` attribute is optional. Valid values are `yes` and `no` (default value). The attribute is only relevant when a DTD is used; and irrelevant when used with a schema instead of a DTD.
-* XML documents may contain international characters, like Norwegian `øæå` or French `êèé`.
 
 
+### Character encoding
 
+To avoid errors, you should specify the encoding used, or save your XML files as UTF-8; UTF-8 is the default character encoding for XML documents.
 
-## 4. Character encoding
+The character encoding used should be UTF-8 (Unicode), which is a universal standard.
 
-The character encoding used should be UTF-8 as this is a universal and common standard.
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+```
 
 You will need to provide a very good argument for using a character encoding that is not UTF-8.
 
