@@ -1,7 +1,7 @@
 # XML style guide
 
-Version 0.2
-Last updated: Thursday 28 April 2016
+Version 0.3
+Last updated: Tuesday 17 May 2016
 
 
 <!-- MarkdownTOC -->
@@ -108,7 +108,7 @@ When reusing or extending existing formats follow their established conventions 
 
 ## 3. XML prolog
 
-The XML prolog is the information that appears before the document's root element. XML documents SHOULD begin with an XML prolog that contains:
+The XML prolog appears before the document's root element. XML documents SHOULD begin with an XML prolog that contains:
 
 1. A declaration that specifies the version of XML being used;
 2. A document type declaration (DTD)
