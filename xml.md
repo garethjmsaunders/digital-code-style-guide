@@ -196,7 +196,37 @@ Published standard abbreviations, if sufficiently well-known, MAY be employed in
 
 ## 7. Elements
 
-"All elements MUST contain either nothing, character content, or child elements.  Mixed content MUST NOT be used.  [Rationale: Many XML data models don't handle mixed content properly, and its use makes the element order-dependent.  As always, textual formats are not covered by this rule.]
+All elements MUST contain either:
+
+* Nothing
+* Character content, or
+* Child elements
+
+Do not use mixed content as many XML data models do not handle mixed content properly.
+
+```
+<!-- USE empty elements and child elements-->
+<letter>
+    <name></name>
+    <orderId></orderId>
+    <shipDate></shipDate>
+</letter>
+
+<!-- USE character content -->
+<letter>
+    <name>Agnes Blackadder</name>
+    <orderId>7000</orderId>
+    <shipDate>2012-10-15</shipDate>
+</letter>
+
+<!-- DO NOT USE : Mixed content -->
+<letter>
+  Dear Mr.<name>John Smith</name>.
+  Your order <orderId>1032</orderId>
+  will be shipped on <shipDate>2001-07-13</shipDate>.
+</letter>
+```
+
 
 XML elements that merely wrap repeating child elements SHOULD NOT be used.  [Rationale: They are not used in Atom and add nothing.]"
 
