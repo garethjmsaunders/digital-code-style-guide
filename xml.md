@@ -23,6 +23,7 @@ Last updated: Tuesday 17 May 2016
 - [7. Elements](#7-elements)
     - [Mixed content](#mixed-content)
 - [8. Attributes](#8-attributes)
+    - [Document formats](#document-formats)
 - [9. Key-value pairs](#9-key-value-pairs)
 - [10. Elements vs. Attributes](#10-elements-vs-attributes)
 - [11. CDATA](#11-cdata)
@@ -245,18 +246,19 @@ XML elements that merely wrap repeating child elements SHOULD NOT be used as the
 
 ## 8. Attributes
 
-"Document formats MUST NOT depend on the order of attributes in a start-tag.  [Rationale: Few XML parsers report the order, and it is not part of the XML Infoset.]
+* You may use either single (`'`) or double (`"`) quotation marks around attribute values; XML parsers make no distinction. However, be consistent in your use of one or the other. `&apos;` and `&quot;` may be freely used to escape each type of quote.
+* Use one space before each attribute in an element. If the line is too long then use a newline instead.`
+* Do not use too many attributes (fewer than 10 is a good guide). Consider using child elements if you need to convey that amount of information.
+* Attributes must not be used to hold values in which line breaks are important. Complient XML parsers will simply convert these line breaks to spaces.
 
-Elements SHOULD NOT be overloaded with too many attributes (no more than 10 as a rule of thumb).  Instead, use child elements to encapsulate closely related attributes.  [Rationale: This approach maintains the built-in extensibility that XML provides with elements, and is useful for providing forward compatibility as a specification evolves.]
+### Document formats
 
-Attributes MUST NOT be used to hold values in which line breaks are significant.  [Rationale: Such line breaks are converted to spaces by conformant XML parsers.]
+If creating your own document formats:
 
-Document formats MUST allow either single or double quotation marks around attribute values.  [Rationale:  XML parsers don't report the difference.]
-"
+* Document formats must not depend on the order of attributes in an element.
+* Document formats MUST allow either single (`'`) or double (`"`) quotation marks around attribute values; XML parsers make no distinction.
 
-Redundant whitespace in a tag SHOULD NOT be used.  Use one space before each attribute in a start-tag; if the start tag is too long, the space MAY be replaced by a newline.  [Rationale: Consistency and conciseness.]
 
-Attribute values MAY be surrounded with either quotation marks or apostrophes. Specifications MUST NOT require or forbid the use of either form.  &apos; and &quot; may be freely used to escape each type of quote.  [Rationale: No XML parsers report the distinction.]
 
 
 ## 9. Key-value pairs
