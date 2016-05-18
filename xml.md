@@ -246,7 +246,8 @@ XML elements that merely wrap repeating child elements SHOULD NOT be used as the
 
 ## 8. Attributes
 
-* You may use either single (`'`) or double (`"`) quotation marks around attribute values; XML parsers make no distinction. However, be consistent in your use of one or the other. `&apos;` and `&quot;` may be freely used to escape each type of quote.
+* You may use either single (`'`) or double (`"`) quotation marks around attribute values; XML parsers make no distinction. However, be consistent in your use of one or the other, and where possible prefer double quotation marks.
+* `&apos;` and `&quot;` may be freely used to escape each type of quote.
 * Use one space before each attribute in an element. If the line is too long then use a newline instead.`
 * Do not use too many attributes (fewer than 10 is a good guide). Consider using child elements if you need to convey that amount of information.
 * Attributes must not be used to hold values in which line breaks are important. Complient XML parsers will simply convert these line breaks to spaces.
