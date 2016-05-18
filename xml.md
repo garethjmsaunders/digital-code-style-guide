@@ -323,15 +323,16 @@ If terseness is really the most important thing, use attributes, but consider gz
 
 ## 11. CDATA
 
-CDATA sections MAY be used; they are equivalent to the use of &amp; and &lt;.  Specifications MUST NOT require or forbid the use of CDATA sections.  [Rationale: Few XML parsers report the distinction, and combinations of CDATA and text are often reported as single objects anyway.]
+CDATA sections may be used.
 
-CDATA sections allow the use of all valid Unicode characters in their literal forms. The CDATA
-contents bypass parsing so are great to use when trying to include content containing markup
-that should be taken in its literal form and not processed as part of the document. CDATA sections
-begin with `<![CDATA[`, which is followed by your content, and end with ``]]>`, like so:
+CDATA sections allow the use of all valid Unicode characters in their literal forms; in other words, characters that would otherwise be interpretted as markup.
+
+Specifications must not forbid the use of CDATA sections.
+
+CDATA sections begin with `<![CDATA[`, which is followed by your content, and end with ``]]>`, like so:
 
 ```
-<![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit.]]>
+<![CDATA[ TEXT HERE ]]>
 ```
 
 
