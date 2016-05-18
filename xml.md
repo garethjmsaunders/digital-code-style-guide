@@ -21,6 +21,7 @@ Last updated: Tuesday 17 May 2016
 - [5. Namespaces](#5-namespaces)
 - [6. Names](#6-names)
 - [7. Elements](#7-elements)
+    - [Mixed content](#mixed-content)
 - [8. Attributes](#8-attributes)
 - [9. Key-value pairs](#9-key-value-pairs)
 - [10. Elements vs. Attributes](#10-elements-vs-attributes)
@@ -198,37 +199,47 @@ Published standard abbreviations, if sufficiently well-known, MAY be employed in
 
 All elements MUST contain either:
 
-* Nothing
-* Character content, or
-* Child elements
-
-Do not use mixed content as many XML data models do not handle mixed content properly.
+Nothing (empty elements),
 
 ```
-<!-- USE empty elements and child elements-->
-<letter>
-    <name></name>
-    <orderId></orderId>
-    <shipDate></shipDate>
-</letter>
+<name surname="Blackadder" />
+<order orderId="7000" />
+<shipDate date="2012-10-15" />
+```
 
-<!-- USE character content -->
+Character content,
+
+```
+<name>Agnes Blackadder</name>
+<orderId>7000</orderId>
+<shipDate>2012-10-15</shipDate>
+```
+
+or Child elements
+
+```
 <letter>
     <name>Agnes Blackadder</name>
     <orderId>7000</orderId>
     <shipDate>2012-10-15</shipDate>
 </letter>
+```
 
-<!-- DO NOT USE : Mixed content -->
+### Mixed content
+
+DO NOT use mixed content as many XML data models do not handle mixed content properly.
+
+```
 <letter>
-  Dear Mr.<name>John Smith</name>.
-  Your order <orderId>1032</orderId>
-  will be shipped on <shipDate>2001-07-13</shipDate>.
+  Dear Dr <name>Agnes Blackadder</name>.
+  Your order <orderId>7000</orderId>
+  will be shipped on <shipDate>2012-10-15</shipDate>.
 </letter>
 ```
 
 
-XML elements that merely wrap repeating child elements SHOULD NOT be used.  [Rationale: They are not used in Atom and add nothing.]"
+XML elements that merely wrap repeating child elements SHOULD NOT be used as they add nothing to the document.
+
 
 
 
