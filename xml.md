@@ -264,9 +264,22 @@ If creating your own document formats:
 
 ## 9. Key-value pairs
 
-"Simple key-value pairs SHOULD be represented with an empty element whose name represents the key, with the value attribute containing the value. Elements that have a value attribute MAY also have a unit attribute to specify the unit of a measured value.  For physical measurements, the SI system SHOULD be used.  [Rationale: Simplicity and design consistency.  Keeping the value in an attribute hides it from the user, since displaying just the value without the key is not useful.]
+Simply key-value pairs should be represented with an empty element whose name represents the key, with the value attribute containing the value.
 
-If the number of possible keys is very large or unbounded, key-value pairs MAY be represented by a single generic element with key, value, and optional unit and scheme attributes (which serve to discriminate keys from different domains).  In that case, also provide (not necessarily in the same document) a list of keys with human-readable explanations."
+```
+<key valueID="value" />
+```
+
+It can be helpful to include a unit attribute to specify the unit of measurement. Physical measurements should be specified using the SI system.
+
+```
+<dimensions height="4" length="5" unit="metres" />
+```
+
+
+As Google point out: "keeping the value in an attribute hides it from the user, since displaying just the value without the key is not useful."
+
+
 
 
 ## 10. Elements vs. Attributes
