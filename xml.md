@@ -1,7 +1,9 @@
 # XML style guide
 
-Version 0.3
-Last updated: Tuesday 17 May 2016
+Version 0.4
+Last updated: Thursday 19 May 2016
+
+The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 
 <!-- MarkdownTOC -->
@@ -23,11 +25,13 @@ Last updated: Tuesday 17 May 2016
 - [7. Elements](#7-elements)
     - [Mixed content](#mixed-content)
 - [8. Attributes](#8-attributes)
-    - [Document formats](#document-formats)
 - [9. Key-value pairs](#9-key-value-pairs)
 - [10. Elements vs. Attributes](#10-elements-vs-attributes)
 - [11. CDATA](#11-cdata)
 - [12. Comments](#12-comments)
+    - [Formatting](#formatting)
+    - [General rules](#general-rules)
+    - [TODOs](#todos)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -208,7 +212,7 @@ Nothing (empty elements),
 <shipDate date="2012-10-15" />
 ```
 
-Character content,
+Character content, or
 
 ```
 <name>Agnes Blackadder</name>
@@ -216,7 +220,7 @@ Character content,
 <shipDate>2012-10-15</shipDate>
 ```
 
-or Child elements
+Child elements.
 
 ```
 <letter>
@@ -252,11 +256,9 @@ XML elements that merely wrap repeating child elements SHOULD NOT be used as the
 * Do not use too many attributes (fewer than 10 is a good guide). Consider using child elements if you need to convey that amount of information.
 * Attributes must not be used to hold values in which line breaks are important. Complient XML parsers will simply convert these line breaks to spaces.
 
-### Document formats
-
 If creating your own document formats:
 
-* Document formats must not depend on the order of attributes in an element.
+* Document formats MUST NOT depend on the order of attributes in an element.
 * Document formats MUST allow either single (`'`) or double (`"`) quotation marks around attribute values; XML parsers make no distinction.
 
 
@@ -264,13 +266,13 @@ If creating your own document formats:
 
 ## 9. Key-value pairs
 
-Simply key-value pairs should be represented with an empty element whose name represents the key, with the value attribute containing the value.
+Simple key-value pairs SHOULD be represented with an empty element whose name represents the key, with the value attribute containing the value.
 
 ```
 <key valueID="value" />
 ```
 
-It can be helpful to include a unit attribute to specify the unit of measurement. Physical measurements should be specified using the SI system.
+It can be helpful to include a unit attribute to specify the unit of measurement. Physical measurements should be specified using the SI system, e.g.
 
 ```
 <dimensions height="4" length="5" unit="metres" />
@@ -292,7 +294,7 @@ In a tree-style data model, elements are typically represented internally as nod
 
 When streaming, elements are processed one at a time (possibly even piece by piece, depending on the XML parser you are using), whereas all the attributes of an element and their values are reported at once, which costs memory, particularly if some attribute values are very long.
 
-Both element content and attribute values need to be escaped appropriately, so escaping should not be a consideration in the design.
+Both element content and attribute values need to be escaped appropriately, so escaping SHOULD NOT be a consideration in the design.
 
 In some programming languages and libraries, processing elements is easier; in others, processing attributes is easier.  Beware of using ease of processing as a criterion.  In particular, XSLT can handle either with equal facility.
 
@@ -337,44 +339,73 @@ If terseness is really the most important thing, use attributes, but consider gz
 
 ## 11. CDATA
 
-CDATA sections may be used.
-
 CDATA sections allow the use of all valid Unicode characters in their literal forms; in other words, characters that would otherwise be interpretted as markup.
 
+CDATA sections may be used, as follows:
+
+* Begin with `<![CDATA[`
+* Insert your content (with no spaced before or after)
+* End with `]]>`, like so:
+
+```
+<![CDATA[your content here]]>
+```
+
 Specifications must not forbid the use of CDATA sections.
-
-CDATA sections begin with `<![CDATA[`, which is followed by your content, and end with ``]]>`, like so:
-
-```
-<![CDATA[ TEXT HERE ]]>
-```
 
 
 
 
 ## 12. Comments
 
-Comments are your messages to other developers, as well as to yourself, if you come back to your code after several months working on something else.
+Comments allow you to leave messages for other developers (and for yourself, if you return to your code months later).
 
-Write comments as complete, grammatical sentences with an initial capital and a full-stop at the end.
+As a general rule, if it is not immediately obvious from the code alone then write a comment. For instance, you could explain
 
-As a rule, comment anything that isn't immediately obvious from the code alone. These could be explaining:
-
-* the structure and/or role of a file;
-* the thought process behind a way of doing things;
+* the structure or role of a file
+* the thought process behind a way of doing something
 * the name of a digital pattern library pattern being used.
 
-Keep comments up-to-date when code changes.
+Comments SHOULD appear only in the document prolog, or in elements that contain child elements.
 
-Comments may make their way into production environments.
 
-Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open/close tag highlighting.
+### Formatting
 
-Comments MUST NOT be used to carry real data.  Comments MAY be used to contain TODOs in hand-written XML.  Comments SHOULD NOT be used at all in publicly transmitted documents. [Rationale:  Comments are often discarded by parsers.]
+* Comments SHOULD be written as complete, grammatical sentences with an initial capital and a full-stop at the end.
+* Begin comments with `<!-- `, this includes a space after the dashes.
+* End comments with ` -->`, this incluedes a space before the dashes.
+* Comments SHOULD have whitespace before and after, to aid readability
 
-If comments are nevertheless used, they SHOULD appear only in the document prolog or in elements that contain child elements.  If pretty-printing is required, pretty-print comments like elements, but with line wrapping.  Comments SHOULD NOT appear in elements that contain character content.  [Rationale:  Whitespace in and around comments improves readability, but embedding a comment in character content can lead to confusion about what whitespace is or is not in the content.]
+```
+WRONG
+<!--not a complete sentence and harder to read-->
 
-Comments SHOULD have whitespace following <!-- and preceding -->.  [Rationale: Readability.]
+CORRECT
+<!-- With spaces it makes this sentence easier to read. -->
+```
+
+
+### General rules
+
+* Comments MUST be kept up-to-date when code changes.
+* Comments MUST NOT be used to carry real data.
+* Closing tag comments MUST NOT be written, e.g. `<!-- /element -->`. These simply add to code bloat, besides most code editors now have good indentation.
+* Comments SHOULD NOT make their way into production environments.
+* Comments SHOULD NOT appear in elements that contain character content.
+
+
+### TODOs
+
+Comments MAY be used to contain `TODO`s in hand-written XML documents. These should be written at the top of the document, in the prolog.
+
+Write each TODO as a new comment; this makes it easier to edit and remove.
+
+```
+<!-- TODO Remember the milk -->
+<!-- TODO Second thing to remember -->
+```
+
+
 
 ---
 
