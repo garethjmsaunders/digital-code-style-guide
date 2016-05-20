@@ -21,6 +21,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Character encoding](#character-encoding)
 - [4. Schemas](#4-schemas)
 - [5. Namespaces](#5-namespaces)
+    - [Prefixes](#prefixes)
+    - [Namespace names](#namespace-names)
+    - [Attribute names](#attribute-names)
 - [6. Names](#6-names)
 - [7. Elements](#7-elements)
     - [Mixed content](#mixed-content)
@@ -166,21 +169,59 @@ DTDs and/or W3C XML Schemas may be provided for compatibility with existing prod
 
 ## 5. Namespaces
 
-Namespaces should be declared in the root element of a document wherever possible.  [Rationale: Clarity and consistency.]
+"XML namespaces are used for providing uniquely named elements and attributes in an XML document. They are defined in a [W3C recommendation](https://www.w3.org/TR/xml-names/). An XML instance may contain element or attribute names from more than one XML vocabulary. If each vocabulary is given a namespace, the ambiguity between identically named elements or attributes can be resolved." (Wikipedia)
 
-Well-known prefixes such as html: (for XHTML), dc: (for Dublin Core metadata), and xs: (for XML Schema) should be used for standard namespaces.  [Rationale: Human readability.]
+Where possible, declare namespaces in the root element of a document.
+
+An XML namespace is declared using the reserved XML attribute `xmlns` or `xmlns:prefix`, the value of which must be a valid namespace name.
+
+* Element names MUST be in a namespace, except when extending pre-existing document types that do not use namespaces.
+* A default namespace SHOULD be used.
 
 
+### Prefixes
 
-"Element names MUST be in a namespace, except when extending pre-existing document types that do not use namespaces.  A default namespace SHOULD be used.  [Rationale: Namespace-free documents are obsolete; every set of names should be in some namespace.  Using a default namespace improves readability.]
+Well-known prefixes such as `xhtml` (for XHTML), `dc` (for Dublin Core metadata), and `xs` (for XML Schema) should be used for standard namespaces.
 
-Attribute names SHOULD NOT be in a namespace unless they are drawn from a foreign document type or are meant to be used in foreign document types.  [Rationale: Attribute names in a namespace must always have a prefix, which is annoying to type and hard to read.]
+St Andrews-specific prefixes SHOULD begin `sta`.
 
-Namespace names are HTTP URIs.  Namespace names SHOULD take the form https://example.com/whatever/year, where whatever is a unique value based on the name of the document type, and year is the year the namespace was created.  There may be additional URI-path parts before the year.  [Rationale: Existing convention.  Providing the year allows for the possible recycling of code names.]
+```
+<root xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xmlns:stahcard="http://www.st-andrews.ac.uk/xmlns/stahcard/2016">
+    ...
+</root>
+```
 
-Namespaces MUST NOT be changed unless the semantics of particular elements or attributes has changed in drastically incompatible ways.  [Rationale: Changing the namespace requires changing all client code.]
+* Namespace prefixes SHOULD be short, but not so short that they risk clashing with another namespaces.
+* Single-letter prefixes MUST NOT be used.
+* Prefixes SHOULD contain only lower-case ASCII letters.
 
-Namespace prefixes SHOULD be short (but not so short that they are likely to be conflict with another project).  Single-letter prefixes MUST NOT be used. Prefixes SHOULD contain only lower-case ASCII letters.  [Rationale: Ease of typing and absence of encoding compatibility problems.]"
+
+### Namespace names
+
+Namespace names are HTTP URIs; they SHOULD take the form
+
+```
+https://www.st-andrews.ac.uk/xmlns/{namespace}/{year}
+```
+
+The namespace should be defined in an HTML document at that URI.
+
+
+### Attribute names
+
+Attribute names SHOULD NOT be in a namespace.
+
+Attribute names in a namespace are harder to read as each attribute in the namespace must be prefixed.
+
+```
+HARDER TO READ
+<sta:dimensions sta:height="4" sta:length="5" sta:unit="metres" />
+
+EASIER TO READ
+<sta:dimensions height="4" length="5" unit="metres" />
+```
+
 
 
 
