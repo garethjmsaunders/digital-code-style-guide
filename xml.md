@@ -1,7 +1,7 @@
 # XML style guide
 
-Version 0.4
-Last updated: Thursday 19 May 2016
+Version 0.5
+Last updated: Friday 20 May 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -153,17 +153,14 @@ You will need to provide a very good argument for using a character encoding tha
 
 ## 4. Schemas
 
-"Document formats should be expressed using a schema language.  [Rationale: Clarity and machine-checkability.]
+Document formats SHOULD be expressed using a schema language. This improves clarity and ensures they can be checked programmatically.
 
-The schema language should be [RELAX NG](http://www.relaxng.org/) compact syntax. This is offers a very flexible schema langauge with fewer restrictions on design.
+An XML schema is a language for defining constraints about XML documents. There are a number of common schema languages; the more popular are Document Type Definitions (DTDs), RELAX NG, Schematron and W3C XSD (XML Schema Definitions).
 
-Schemas should use the "salami slice" style, that is: one rule per element.  
-
-Schemas may use the "Russian doll" style (schema resembles document) if they are short and simple.
-
-Regular expressions should be provided to assist in validating complex values.
+The schema language SHOULD be [RELAX NG compact syntax](http://www.relaxng.org/compact-tutorial-20030326.html) which is both simple and flexible.
 
 DTDs and/or W3C XML Schemas may be provided for compatibility with existing products, tools, or users.
+
 
 
 
@@ -181,7 +178,7 @@ An XML namespace is declared using the reserved XML attribute `xmlns` or `xmlns:
 
 ### Prefixes
 
-Well-known prefixes such as `xhtml` (for XHTML), `dc` (for Dublin Core metadata), and `xs` (for XML Schema) should be used for standard namespaces.
+Well-known prefixes such as `xhtml` (for XHTML), `dc` (for Dublin Core metadata), and `xs` (for XML Schema) SHOULD be used for standard namespaces.
 
 St Andrews-specific prefixes SHOULD begin `sta`.
 
