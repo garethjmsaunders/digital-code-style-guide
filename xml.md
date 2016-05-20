@@ -1,6 +1,6 @@
 # XML style guide
 
-Version 0.5
+Version 0.6
 Last updated: Friday 20 May 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -29,7 +29,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Mixed content](#mixed-content)
 - [8. Attributes](#8-attributes)
 - [9. Key-value pairs](#9-key-value-pairs)
-- [10. Elements vs. Attributes](#10-elements-vs-attributes)
+- [10. Elements vs attributes](#10-elements-vs-attributes)
+    - [Elements](#elements)
+    - [Attributes](#attributes)
 - [11. CDATA](#11-cdata)
 - [12. Comments](#12-comments)
     - [Formatting](#formatting)
@@ -153,7 +155,7 @@ You will need to provide a very good argument for using a character encoding tha
 
 ## 4. Schemas
 
-Document formats SHOULD be expressed using a schema language. This improves clarity and ensures they can be checked programmatically.
+Document formats SHOULD be expressed using a schema language. This improves clarity and ensures documents can be checked programmatically.
 
 An XML schema is a language for defining constraints about XML documents. There are a number of common schema languages; the more popular are Document Type Definitions (DTDs), RELAX NG, Schematron and W3C XSD (XML Schema Definitions).
 
@@ -318,55 +320,34 @@ As Google point out: "keeping the value in an attribute hides it from the user, 
 
 
 
-## 10. Elements vs. Attributes
+## 10. Elements vs attributes
 
-Note:  There are no hard and fast rules for deciding when to use attributes and when to use elements.  Here are some of the considerations that designers should take into account; no rationales are given.
-12.1. General points:
-Attributes are more restrictive than elements, and all designs have some elements, so an all-element design is simplest -- which is not the same as best.
+There are no strict rules for deciding when to use elements and when to use attributes. However, bear in mind that elements are generally less restrictive than attributes.
 
-In a tree-style data model, elements are typically represented internally as nodes, which use more memory than the strings used to represent attributes.  Sometimes the nodes are of different application-specific classes, which in many languages also takes up memory to represent the classes.
+* When streaming XML documents, elements are processed serially (one at a time) while attributes and their values are all reported at the same time (which also has an impact on memory).
+* Both element content and attribute values need to be escaped appropriately. Therefore, escaping cannot be used as a factor to determine which to use.
+* Similarly, depending on the language and parser one may be easier to process than the other. Schemas like RELAX NG regard elements and attributes equally.
 
-When streaming, elements are processed one at a time (possibly even piece by piece, depending on the XML parser you are using), whereas all the attributes of an element and their values are reported at once, which costs memory, particularly if some attribute values are very long.
+Needless to say, for the sake of continuity and document integrity, if you extend an existing schema follow its internal conventions.
 
-Both element content and attribute values need to be escaped appropriately, so escaping SHOULD NOT be a consideration in the design.
 
-In some programming languages and libraries, processing elements is easier; in others, processing attributes is easier.  Beware of using ease of processing as a criterion.  In particular, XSLT can handle either with equal facility.
+### Elements
 
-If a piece of data should usually be shown to the user, consider using an element; if not, consider using an attribute.  (This rule is often violated for one reason or another.)
+Bear in mind that elements generally use more memory than attributes.
 
-If you are extending an existing schema, do things by analogy to how things are done in that schema.
+Consider using an element if the data should normally be shown to the user, or if something may appear more than once in the data model.
 
-Sensible schema languages, meaning RELAX NG and Schematron, treat elements and attributes symmetrically.  Older and cruder schema languages such as DTDs and XML Schema, tend to have better support for elements.
-12.2 Using elements
-If something might appear more than once in a data model, use an element rather than introducing attributes with names like foo1, foo2, foo3 ....
 
-Use elements to represent a piece of information that can be considered an independent object and when the information is related via a parent/child relationship to another piece of information.
+### Attributes
 
-Use elements when data incorporates strict typing or relationship rules.
+Consider [Google's advice](https://google.github.io/styleguide/xmlstyle.html) about attributes:
 
-If order matters between two pieces of data, use elements for them: attributes are inherently unordered.
-
-If a piece of data has, or might have, its own substructure, use it in an element: getting substructure into an attribute is always messy.  Similarly, if the data is a constituent part of some larger piece of data, put it in an element.
-
-An exception to the previous rule: multiple whitespace-separated tokens can safely be put in an attribute.  In principle, the separator can be anything, but schema-language validators are currently only able to handle whitespace, so it's best to stick with that.
-
-If a piece of data extends across multiple lines, use an element: XML parsers will change newlines in attribute values into spaces. 
-
-If a piece of data is very large, use an element so that its content can be streamed.
-
-If a piece of data is in a natural language, put it in an element so you can use the xml:lang attribute to label the language being used.  Some kinds of natural-language text, like Japanese, often make use annotations that are conventionally represented using child elements; right-to-left languages like Hebrew and Arabic may similarly require child elements to manage bidirectionality properly.
-12.3 Using attributes
-If the data is a code from an enumeration, code list, or controlled vocabulary, put it in an attribute if possible.  For example, language tags, currency codes, medical diagnostic codes, etc. are best handled as attributes.
-
-If a piece of data is really metadata on some other piece of data (for example, representing a class or role that the main data serves,  or specifying a method of processing it), put it in an attribute if possible.
-
-In particular, if a piece of data is an ID for some other piece of data, or a reference to such an ID, put the identifying piece in an attribute.  When it's an ID, use the name xml:id for the attribute.
-
-Hypertext references are conventionally put in href attributes.
-
-If a piece of data is applicable to an element and any descendant elements unless it is overridden in some of them, it is conventional to put it in an attribute.  Well-known examples are xml:lang, xml:space, xml:base, and namespace declarations.
-
-If terseness is really the most important thing, use attributes, but consider gzip compression instead -- it works very well on documents with highly repetitive structures.
+> * If the data is a code from an enumeration, code list, or controlled vocabulary, put it in an attribute if possible.  For example, language tags, currency codes, medical diagnostic codes, etc. are best handled as attributes."
+> 
+> * If a piece of data is really metadata on some other piece of data (for example, representing a class or role that the main data serves,  or specifying a method of processing it), put it in an attribute if possible.
+> 
+> * In particular, if a piece of data is an ID for some other piece of data, or a reference to such an ID, put the identifying piece in an attribute.  When it's an ID, use the name xml:id for the attribute.
+> * If a piece of data is applicable to an element and any descendant elements unless it is overridden in some of them, it is conventional to put it in an attribute.  Well-known examples are xml:lang, xml:space, xml:base, and namespace declarations.
 
 
 
