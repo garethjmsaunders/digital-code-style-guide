@@ -227,16 +227,12 @@ EASIER TO READ
 
 ## 6. Names
 
-"Note: "Names" refers to the names of elements, attributes, and enumerated values.
+Names here refers to elements, attributes and enumerated values (controlled vocabularies).
 
-All names MUST use lowerCamelCase. That is, they start with an initial lower-case letter, then each new word within the name starts with an initial capital letter. [Rationale: Adopting a single style provides consistency, which helps when referring to names since the capitalization is known and so does not have to be remembered.  It matches Java style, and other languages can be dealt with using automated name conversion.]
-
-Names MUST contain only ASCII letters and digits.  [Rationale: Ease of typing and absence of encoding compatibility problems.]
-
-Names SHOULD NOT exceed 25 characters. Longer names SHOULD be avoided by devising concise and informative names.  If a name can only remain within this limit by becoming obscure, the limit SHOULD be ignored.  [Rationale: Longer names are awkward to use and require additional bandwidth.]
-
-Published standard abbreviations, if sufficiently well-known, MAY be employed in constructing names. Ad hoc abbreviations MUST NOT be used.  Acronyms MUST be treated as words for camel-casing purposes: informationUri, not informationURI. [Rationale:  An abbreviation that is well known to one community is often incomprehensible to others who need to use the same document format (and who do understand the full name); treating an acronym as a word makes it easier to see where the word boundaries are.] "
-
+* Names MUST use lowerCamelCase: they begin with an initial lower-case letter, then each new word begins with an initial capital letter.
+* Names MUST contain only ASCII letters and digits.
+* Names SHOULD NOT be longer than 25 characters.
+* Acronyms MUST be treated as words for camel-case purposes: `sourceUrl` not `sourceURL`.
 
 
 
