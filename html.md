@@ -1,8 +1,9 @@
 # HTML style guide
 
-Version 0.12
-Last updated: Thursday 28 April 2016
+Version 1.0
+Last updated: Wednesday 25 May 2016
 
+The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC -->
 
@@ -50,20 +51,20 @@ Last updated: Thursday 28 April 2016
 As [@mdo](http://mdo.github.io/code-guide/) says in his code guide, "Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible."
 
 * Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
-* Nested elements should be indented once (four spaces).
-* Elements should always be written in lowercase.
+* Nested elements SHOULD be indented once (four spaces).
+* Elements SHOULD always be written in lowercase.
 * Always use double quotes (`"`), never single quotes (`'`), on attributes. While optional, include quotes to improve code readability.
 * Do not include a trailing slash on self-closing elements, such as `<br>`, `<hr>`, `<img>`, `<link>` and `<meta>`. These are optional in the [HTML5 specification](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag).
 
 
 ### Accessibility
 * Do not set `tabindex` manually; rely on the browser to set the order.
-* Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br>` tags.
+* Paragraphs of text SHOULD always be placed in a `<p>` tag. Never use multiple `<br>` tags.
 
 
 ### Attribute order
 
-HTML attributes should come in this particular order for easier reading of code.
+HTML attributes SHOULD come in this particular order for easier reading of code.
 
 * `class`
 * `id`, `name`
@@ -72,7 +73,7 @@ HTML attributes should come in this particular order for easier reading of code.
 * `title`, `alt`
 * `role`, `aria-*`
 
-Classes make for great reusable components, so they come first; `id`s are more specific and should be used sparingly (e.g., for in-page bookmarks or JavaScript hooks), so they come second.
+Classes make for great reusable components, so they come first; `id`s are more specific and SHOULD be used sparingly (e.g., for in-page bookmarks or JavaScript hooks), so they come second.
 
 
 ### Boolean attributes
@@ -91,7 +92,7 @@ Unlike in XHTML, in HTML5 many attributes don't require a value to be set, like 
 
 If you _must_ include the attribute's value (if you are using XHTML5, for instance) then follow the [WhatWG guideline](https://html.spec.whatwg.org/multipage/infrastructure.html#boolean-attributes):
 
-> If the attribute is present, its value must either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.
+> If the attribute is present, its value MUST either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.
 
 For more information, read the latest [HTML5 specification](http://www.w3.org/html/wg/drafts/html/master/infrastructure.html#boolean-attributes).
 
@@ -115,7 +116,7 @@ Whenever possible, avoid superfluous parent elements when writing HTML. Many tim
 
 ## 2. HTML5 doctype 
 
-Use a doctype that triggers standards mode in your browser; this ensures more consistent rendering in browsers. Quirks mode should always be avoided.
+Use a doctype that triggers standards mode in your browser; this ensures more consistent rendering in browsers. Quirks mode MUST always be avoided.
 
 For simplicity, use the HTML5 doctype:
 
@@ -147,7 +148,7 @@ Sitepoint lists all [ISO two-letter language codes](http://www.sitepoint.com/web
 
 Ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document, generally UTF-8 ([Unicode](http://unicode.org/)).
 
-The character encoding **must** be the first element within `head` as this affects the character set for the entire document, including the `title`.
+The character encoding MUST be the first element within `head` as this affects the character set for the entire document, including the `title`.
 
 ```
 <head>
@@ -158,9 +159,9 @@ The character encoding **must** be the first element within `head` as this affec
 </head>
 ```
 
-These three `<meta>` elements (if used) **must** come before any other `<meta>`elements.
+These three `<meta>` elements (if used) MUST come before any other `<meta>`elements.
 
-Remember, `<meta>` tags should not include a self-closing trailing slash.
+Remember, `<meta>` tags SHOULD not include a self-closing trailing slash.
 
 A comprehensive list of `<meta>`, `<link>`, social media, and browser and platform-specific elements can be found on Josh Buchea's [HEAD GitHub repository](https://github.com/joshbuchea/HEAD).
 
@@ -191,7 +192,7 @@ Unless you have a very specific use-case, it is most helpful to instruct IE to u
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 ```
 
-This element should immediately follow the `<title>` element.
+This element SHOULD immediately follow the `<title>` element.
 
 As [Microsoft has withdrawn support for older versions of Internet Explorer](https://www.microsoft.com/en-gb/WindowsForBusiness/End-of-IE-support) we now support only IE 11, which is standards-compliant. However, it is courteous to still include this tag for any users who have not yet upgraded.
 
@@ -237,14 +238,14 @@ According to the [W3C HTML specification](http://w3c.github.io/html/sections.htm
 
 > The `address` element represents the contact information for its nearest `article` or `body` element ancestor. If that is the `body` element, then the contact information applies to the document as a whole.
 > 
->The `address` element must not be used to represent arbitrary addresses (e.g., postal addresses), unless those addresses are in fact the relevant contact information. (The `p` element is the appropriate element for marking up postal addresses in general.)
+>The `address` element MUST not be used to represent arbitrary addresses (e.g., postal addresses), unless those addresses are in fact the relevant contact information. (The `p` element is the appropriate element for marking up postal addresses in general.)
 
 Rather than causing confusion, simply do not use it.
 
 
 ### Bold and strong
 
-Remember that markup should be semantic: the elements used should also convey a layer of meaning. In HTML5 
+Remember that markup should be semantic: the elements used should also convey a layer of meaning. In HTML5:
 
 * `<strong>` indicates strong importance, seriousness (a warning or cautionary notice), or urgency. ([WhatWG](https://html.spec.whatwg.org/multipage/semantics.html#the-strong-element))
 * `<b>` indicates "a span of text to which attention is being drawn for utilitarian purposes without conveying any extra importance and with no implication of an alternate voice or mood, such as keywords in a document abstract, product names in a review, actionable words in interactive text-driven software, or an article lede." ([WhatWG](https://html.spec.whatwg.org/multipage/semantics.html#the-b-element))
@@ -264,7 +265,7 @@ As a rule, comment anything that isn't immediately obvious from the code alone. 
 
 Keep comments up-to-date when code changes.
 
-Comments may make their way into production environments.
+Comments MAY make their way into production environments.
 
 Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open/close tag highlighting.
 
@@ -273,20 +274,20 @@ Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to
 
 * Lean towards radio or checkbox lists instead of select menus; the former are more accessible.
 * Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here: the wrapping automatically associates the two.
-* Form buttons should always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
-* The primary form button must come first in the DOM, especially for forms with multiple submit buttons.
+* Form buttons SHOULD always include an explicit `type`. Use primary buttons for the `type="submit"` button and regular buttons for `type="button"`.
+* The primary form button MUST come first in the DOM, especially for forms with multiple submit buttons.
 * Input field placeholders are generally bad for accessibility. Do not hide text that would be useful to the user in a placeholder as it will disappear as soon as the user starts typing. For more guidance see [Placeholders in form fields are harmful](https://www.nngroup.com/articles/form-design-placeholders/).
 
 
 ### Images
 
-* All images used in `<img>` elements must be in either GIF, JPG, PNG or SVG formats.
-* You must specify height and width attributes when using an `<img>` element. This improves page rendering speed as it allows the browser to understand the page layout without having to wait for the images to download to learn their dimensions.
+* All images used in `<img>` elements MUST be in either GIF, JPG, PNG or SVG formats.
+* You MUST specify height and width attributes when using an `<img>` element. This improves page rendering speed as it allows the browser to understand the page layout without having to wait for the images to download to learn their dimensions.
 
 
 #### alt text
 
-All images must have `alt` attributes defined to describe the image. The description should be:
+All images MUST have `alt` attributes defined to describe the image. The description SHOULD be:
 
 * Accurate;
 * Succinct: typically no more than a few words, although a short sentence or two may be appropriate;
@@ -297,7 +298,7 @@ Do not use phases like "Image of..." or "Graphic of...". It should be clear from
 
 ### Italics and emphasis
 
-Remember that markup should be semantic: the elements used should also convey a layer of meaning. In HTML5 
+Remember that markup SHOULD be semantic: the elements used SHOULD also convey a layer of meaning. In HTML5 
 
 * `<em>` indicates _emphatic stress_, that is something you would pronounce differently. ([WhatWG](https://html.spec.whatwg.org/multipage/semantics.html#the-em-element))
 * `<i>` indicates "a span of text in an alternate voice or mood, or otherwise offset from the normal prose in a manner indicating a different quality of text, such as a taxonomic designation, a technical term, an idiomatic phrase from another language, transliteration, a thought, or a ship name in Western texts." ([WhatWG](https://html.spec.whatwg.org/multipage/semantics.html#the-i-element))
@@ -305,7 +306,7 @@ Remember that markup should be semantic: the elements used should also convey a 
 
 ### Lists
 
-List items should always be within `<ul>`, `<ol>`, or `<dl>` elements. Never use a set of `<div>` or `<p>` tags.
+List items MUST always be within `<ul>`, `<ol>`, or `<dl>` elements. Never use a set of `<div>` or `<p>` tags.
 
 Although in HTML5 you may omit closing tags from certain elements such as list items, always close list items:
 
@@ -328,7 +329,7 @@ Although in HTML5 you may omit closing tags from certain elements such as list i
 
 ### Tables
 
-Tables must only be used to present tabular data; they must never be used for presentation.
+Tables MUST only be used to present tabular data; they MUST NOT be used for presentation.
 
 Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attribute) when appropriate. (Note: `<tfoot>` goes above `<tbody>` for speed reasons. You want the browser to load the footer before a table full of data.)
 
@@ -367,10 +368,10 @@ If in doubt, check the HTML5 Doctor's [HTML5 Element Index](http://html5doctor.c
 
 Guidance on class and ID names can be found in the CSS style guide. Here are a few basics:
 
-* First two characters must be either letters, underscores or hyphens; thereafter, any number of underscores, hyphens, letters or numbers.
+* First two characters MUST be either letters, underscores or hyphens; thereafter, any number of underscores, hyphens, letters or numbers.
 * Do not use asterisks (`*`) which are universal selectors; forward slashes (`/`) or backward slashes (`\`) are not accepted.
 * Use [BEM - Block Element Modifier](http://getbem.com/)-style class and ID names.
-* Class and ID names should be lowercase. Do not use camelCase.
+* Class and ID names MUST be lowercase. Do not use camelCase.
 * Delimit words with a hyphen (`-`), e.g. `page-head`.
 * Separate multiple values in a class attribute with two spaces; this makes it much easier to read, e.g. `<button class="btn`  `btn-link">`.
 
@@ -411,7 +412,7 @@ See CSS style guide for more on JavaScript hooks.
 
 ## 11. Error pages
 
-Error pages should be built such that they require no external dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
+Error pages MUST be built such that they require no external dependency on anything whatsoever. That means static HTML with inline CSS and base64-encoded images.
 
 The following are banned from every error page:
 
@@ -443,7 +444,7 @@ See Github [502](https://github.com/502.html)
 * **503** — We are having a bad problem and the app server will not talk to us.
 See Github [503](https://github.com/503.html)
 
-* **maintenance** — For the rare case we must take the website down to perform maintenance. See Github [maintenance](https://github.com/maintenance.html). May need this for other systems, e.g. Pure.
+* **maintenance** — For the rare case we have to take the website down to perform maintenance. See Github [maintenance](https://github.com/maintenance.html). May need this for other systems, e.g. Pure.
 
 
 
