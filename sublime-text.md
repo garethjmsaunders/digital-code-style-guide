@@ -162,4 +162,3 @@ The following user preferences settings, found at `Preferences > Settings — Us
 	"wordwrap": true
 }
 ```
-
