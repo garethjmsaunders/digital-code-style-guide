@@ -1,10 +1,12 @@
 # Commit message style guide
 
-Version 0.4 | Thursday 14 January 2016
+Version 1.0
+Last updated: Thursday 26 May 2016
+
+The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 * TODO: Tag formats
 * TODO: Version numbers
-
 
 <!-- MarkdownTOC -->
 
@@ -14,22 +16,20 @@ Version 0.4 | Thursday 14 January 2016
         - [i. Type](#i-type)
         - [ii. Component](#ii-component)
         - [iii. Brief summary](#iii-brief-summary)
-    - [Description (optional)](#description-optional)
-    - [Reference(s) (optional)](#references-optional)
+    - [Description \(optional\)](#description-optional)
+    - [Reference\(s\) \(optional\)](#references-optional)
 - [4. Examples](#4-examples)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
 
-
 ---
-
 
 ## 1. Introduction
 
 <sub>Based on [WordPress][wordpresscommit]</sub>
 
-This guide outlines how messages should be formatted when committing code to any version control system, such as Git or Subversion (SVN).
+This guide outlines how messages SHOULD be formatted when committing code to any version control system, such as Git or Subversion (SVN).
 
 Commit messages are an integral part of each project's history, along with the changesets themselves. We write commit messages for multiple audiences: 
 
@@ -46,13 +46,13 @@ Good commit messages serve each of these audiences well. They describe the what 
 
 <sub>Based on [BlueJava][bluejavacommit]</sub>
 
-Each commit message should include:
+Each commit message SHOULD include:
 
 * **Subject line** — with TYPE, Component, and a Brief summary.
 * **Description** (optional) — always preceded by a blank line.
 * **Reference** (optional) — always preceded by a blank line.
 
-A well-formed commit message might look something like this:
+A well-formed commit message SHOULD look something like this:
 
 ```
 TYPE (Component) Brief summary
@@ -94,7 +94,7 @@ The only **exception** is when populating a **new repository**. All that is requ
 
 #### i. Type
 
-Every commit subject line starts with a TYPE in all CAPS and no spaces or other characters preceding it. The recognised types are:
+Every commit subject line MUST start with a TYPE in all CAPS and no spaces or other characters preceding it. The recognised types are:
 
 <table>
     <thead>
@@ -148,9 +148,9 @@ Briefly describe the component, feature or module being developed; in the case o
 
 Consistency is important. Make sure you have a definitive list of the various components being developed somewhere in your project notes so that all code contributors are aware of them. Adding a new component should be a considered decision, not just a whim when making your commit.
 
-* Must be separated from the TYPE with a single space.
-* Must be enclosed in parentheses/round brackets, i.e. `()`.
-* Must be consistently named throughout a project. For example, don't name it `(Long-form content)` in one commit but `(long form)` in another.
+* MUST be separated from the TYPE with a single space.
+* MUST be enclosed in parentheses/round brackets, i.e. `()`.
+* MUST be consistently named throughout a project. For example, don't name it `(Long-form content)` in one commit but `(long form)` in another.
 
 
 
@@ -163,25 +163,25 @@ The brief summary is used for email subject lines, changelogs, and features prom
 
 The high visibility of the summary makes it critical to craft something that is as descriptive as possible within space limits.
 
-* Must be one line; no line breaks.
-* Begin with a capital.
-* No dot (full stop/period) at the end.
-* Use the [imperative mood][wikipedia-imperative] when possible, e.g. "change" not "changed" nor "changes".
-* Aim for **around 50 characters or fewer, stopping at 70**. This is important because log-viewing tools nearly all expect the first line of commit messages to fit within these limits. This difficult restriction may force you to think critically about the essence of your commit; if you can’t describe the change in a short sentence, the commit may not be atomic enough. Note that the TYPE counts toward the 50/70 character count.
+* MUST be one line; no line breaks.
+* MUST begin with a capital.
+* MUST NOT include a dot (full stop/period) at the end.
+* SHOULD use the [imperative mood][wikipedia-imperative] when possible, e.g. "change" not "changed" nor "changes".
+* SHOULD aim for **around 50 characters or fewer, stopping at 70**. This is important because log-viewing tools nearly all expect the first line of commit messages to fit within these limits. This difficult restriction may force you to think critically about the essence of your commit; if you can’t describe the change in a short sentence, the commit may not be atomic enough. Note that the TYPE counts toward the 50/70 character count.
 
 
 
 ### Description (optional)
 
-The longer, multi-line description is optional, but if you wish to include it always separate it from the subject line by a blank line. In other words, the second line in your commit message should always be blank if you are making a multi-line commit.
+The longer, multi-line description is optional, but if you wish to include it always separate it from the subject line by a blank line. In other words, the second line in your commit message SHOULD always be blank if you are making a multi-line commit.
 
 The longer description is a chance to elaborate on the change you made. **Focus on the motivation and extra considerations for the change rather than detailing what you changed**. The details of what changed can be seen in the file diff. But extra considerations such as side effects or migration hints are less obvious from the code, and could be helpful to detail here.
 
-* Describe the _what_ and the _why_ of the changeset, rather than the _how_.
-* Must be separated from the subject line by a blank line.
-* Use the [imperative mood][wikipedia-imperative].
-* Can be multiple paragraphs if required, separated by blank lines for clarity.
-* Can include bulleted lists (using asterisks).
+* MUST be separated from the subject line by a blank line.
+* SHOULD describe the _what_ and the _why_ of the changeset, rather than the _how_.
+* SHOULD Use the [imperative mood][wikipedia-imperative].
+* MAY be multiple paragraphs if required, separated by blank lines for clarity.
+* MAY include bulleted lists (using asterisks).
 
 
 
@@ -195,10 +195,10 @@ Closes GitHub issue #123, #456
 Implements #543
 ```
 
-* Must be separated from the description (if present) or subject line by a blank line.
-* Ticket references should be on their own line. Include (in parentheses) the name of the ticketing system if this clarifies things.
-* Multiple ticket references should be separated by a comma and space.
-* If referencing both fixed and related tickets, begin with "Fixes" and end each set with a full-stop, e.g. `Fixes #123, #456. See #765.`.
+* MUST be separated from the description (if present) or subject line by a blank line.
+* Ticket references SHOULD be on their own line. Include (in parentheses) the name of the ticketing system if this clarifies things.
+* Multiple ticket references SHOULD be separated by a comma and space.
+* If referencing both fixed and related tickets, SHOULD begin with "Fixes" and end each set with a full-stop, e.g. `Fixes #123, #456. See #765.`.
 
 
 
