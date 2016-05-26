@@ -1,6 +1,7 @@
 # Sublime Text standards guide
 
-Version 0.7 | Tuesday 20 October 2015
+Version 1.0
+Last updated: Thursday 26 May 2016
 
 <!-- MarkdownTOC -->
 
@@ -12,8 +13,7 @@ Version 0.7 | Tuesday 20 October 2015
 
 <!-- /MarkdownTOC -->
 
-
-
+---
 
 ## 1. Version
 
