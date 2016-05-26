@@ -1,10 +1,12 @@
 # Commit message style guide
 
-Version 0.4 | Thursday 14 January 2016
+Version 1.0
+Last updated: Thursday 26 May 2016
+
+The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 * TODO: Tag formats
 * TODO: Version numbers
-
 
 <!-- MarkdownTOC -->
 
@@ -14,16 +16,14 @@ Version 0.4 | Thursday 14 January 2016
         - [i. Type](#i-type)
         - [ii. Component](#ii-component)
         - [iii. Brief summary](#iii-brief-summary)
-    - [Description (optional)](#description-optional)
-    - [Reference(s) (optional)](#references-optional)
+    - [Description \(optional\)](#description-optional)
+    - [Reference\(s\) \(optional\)](#references-optional)
 - [4. Examples](#4-examples)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
 
-
 ---
-
 
 ## 1. Introduction
 
