@@ -1,13 +1,14 @@
 # XML style guide
 
-Version 1.0
-Last updated: Wednesday 25 May 2016
+Version 1.1
+Last updated: Friday 3 June 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC -->
 
 - [1. Syntax](#1-syntax)
+    - [Well-formed XML](#well-formed-xml)
     - [General formatting](#general-formatting)
     - [Entity references](#entity-references)
         - [Character references](#character-references)
@@ -46,9 +47,14 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 ## 1. Syntax
 
 
-### General formatting
+### Well-formed XML
 
 All XML documents MUST be 'well-formed' in accordance with the [latest XML specification](https://www.w3.org/TR/xml/).
+
+You may find it useful to use an XML validation service, such as those provided by [Code Beautify](http://codebeautify.org/xmlvalidate) or [Validome](http://www.validome.org/xml/), or a code editor plugin such as [Sublime​Linter-xmllint](https://packagecontrol.io/packages/SublimeLinter-xmllint).
+
+
+### General formatting
 
 For consistency:
 
