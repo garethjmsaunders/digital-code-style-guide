@@ -1,9 +1,9 @@
 # Markdown style guide
 
-Version 0.3
-Last updated: Tuesday 08 March 2016
+Version 1.0
+Last updated: Thursday 26 May 2016
 
-TODO: 
+The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC -->
 
@@ -42,18 +42,17 @@ TODO:
 
 <!-- /MarkdownTOC -->
 
-
-
+---
 
 ## 1. Documents
 
 ### Filenames
 
-Use `.md` suffix rather than `.markdown`.
+Filenames MUST use `.md` suffix rather than `.markdown`.
 
-If the Markdown file is a **product deliverable** (such as these style guide files) then the filename should be all lowercase, including the `.md` file suffix.
+If the Markdown file is a **product deliverable** (such as these style guide files) then the filename SHOULD be all lowercase, including the `.md` file suffix.
 
-If the Markdown file is a **supporting document** with instructions, set up guides, changelogs, etc. (such as CHANGELOG.md, CONTRIBUTING.md, README.md, SETUP.md)  then the filename should be uppercase
+If the Markdown file is a **supporting document** with instructions, set up guides, changelogs, etc. (such as CHANGELOG.md, CONTRIBUTING.md, README.md, SETUP.md)  then the filename SHOULD be uppercase
 
 ```
 \\ Correct
@@ -90,9 +89,9 @@ The standard layout for the beginning of a Markdown-formatted document is:
 * TODO items
 * Table of contents
 
-Each section should be separated by a blank line, except version number and last update date which should be grouped together with a line-break.
+Each section MUST be separated by a blank line, except version number and last update date which MUST be grouped together with a line-break.
 
-It should look something like this:
+It MUST look something like this:
 
 ```
 # Document title (in sentence case)
@@ -100,12 +99,15 @@ It should look something like this:
 Version 0.1
 Last updated: Thursday 03 March 2016
 
-TODO: Add outstanding items here.
+TODO: (Optional) Add outstanding items here.
 TODO: You can have as many or few as you like.
 
 <!-- MarkdownTOC -->
     ...
 <!-- /MarkdownTOC -->
+
+---
+
 ```
 
 If you are using Sublime Text then use the [MarkdownTOC](https://packagecontrol.io/packages/MarkdownTOC) package to automatically build the table of contents.
@@ -182,7 +184,7 @@ non nibh consequat, ultrices est sit amet, volutpat dui. [...]
 
 #### Footer
 
-The footer of a Markdown document can be used to list useful resources, references, etc.
+The footer of a Markdown document MAY be used to list useful resources, references, etc.
 
 It should begin with a blank line, a horizontal rule (three dashes, `---`) and another blank line. Then a heading at level 2 (`##`).
 
@@ -217,14 +219,14 @@ According to the [Markdown definition of a paragraph](https://daringfireball.net
 > blank line — a line containing nothing but spaces or tabs is considered 
 > blank.) Normal paragraphs should not be indented with spaces or tabs.
 
-* Paragraphs must be separated with a single blank line.
-* Do not indent normal paragraphs with either tabs or spaces.
+* Paragraphs MUST be separated with a single blank line.
+* Normal paragraphs MUST NOT be indented with either tabs or spaces.
 * To create a line break (to insert a `<br />` tag) end a line with two or more spaces, then type return.
  
 
 ### Headings
 
-Markdown supports two styles of headings: [Setext](http://docutils.sourceforge.net/mirror/setext.html) and [atx](http://www.aaronsw.com/2002/atx/); we use atx.
+Markdown supports two styles of headings: [Setext](http://docutils.sourceforge.net/mirror/setext.html) and [atx](http://www.aaronsw.com/2002/atx/); we MUST use atx.
 
 Atx-style headings use **one to six number sign characters** (`#`), also called a hash or pound sign, at the start of the line. These correspond to heading levels 1 to 6. For example:
 
@@ -242,7 +244,7 @@ Atx-style headings use **one to six number sign characters** (`#`), also called 
 ###### This is a heading 6 (H6)
 ```
 
-There must be at least **one blank line either side** of the heading.
+There MUST be at least **one blank line either side** of the heading.
 
 ```
 \\ This is correct
@@ -277,7 +279,7 @@ tempor incididunt ut labore et dolore magna aliqua.
 
 ### Blockquotes
 
-Prefix each line with a **greater-than sign** `>`. Do not use the lazy method of only prefixing the first line.
+Prefix each line with a **greater-than sign** `>`. You MUST NOT use the lazy method of only prefixing the first line.
 
 ```
 > This is a blockquote with two paragraphs. Notice how each
@@ -289,7 +291,7 @@ Prefix each line with a **greater-than sign** `>`. Do not use the lazy method of
 > character.
 ```
 
-Try to avoid nesting blockquotes.
+You SHOULD avoid nesting blockquotes.
 
 
 ### Lists
@@ -348,7 +350,7 @@ For longer lists, reuse the number one (`1.`) before each item. The Markdown int
 
 #### Formatting lists
 
-You may use hanging indents, using either 4 spaces or a tab.
+You MAY use hanging indents, using either 4 spaces or a tab.
 
 ```
 *   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
@@ -358,7 +360,7 @@ You may use hanging indents, using either 4 spaces or a tab.
     Suspendisse id sem consectetuer libero luctus adipiscing.
 ```
 
-To include a code block within a list item indent it twice — use 8 spaces or two tabs.
+To include a code block within a list item indent it twice — you SHOULD use 8 spaces or two tabs.
 
 *   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
     Aliquam endrerit mi posuere lectus. Vestibulum enim wisi, 
@@ -395,7 +397,7 @@ To produce pre-formatted code blocks, add **three backticks** (`` ``` ``) on bla
 
 ### Horizontal rules
 
-Use **three hyphens on their own line** to add a horizontal rule (`<hr />`). There should be a **blank line above and below** the row of hyphens (otherwise the previous line may be misinterpreted as a Setext heading 2.
+Use **three hyphens on their own line** to add a horizontal rule (`<hr />`). There SHOULD be a **blank line above and below** the row of hyphens (otherwise the previous line may be misinterpreted as a Setext heading 2.
 
 ```
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
@@ -423,7 +425,7 @@ Markdown supports three styles of links: inline links, reference links, and auto
 
 #### Inline links
 
-Link text is wrapped in square brackets, followed immediately (no space) by parentheses containing the URL. There may be an optional title, wrapped in quotes, after the URL.
+Link text is wrapped in square brackets, followed immediately (no space) by parentheses containing the URL. There MAY be an optional title, wrapped in quotes, after the URL.
 
 ```
 This is [an example](http://www.example.com/ "Title") inline link.
@@ -447,7 +449,7 @@ At the bottom of the section you are editing (above the next `## Heading 2,`) de
 [label]: http://www.example.com/ "Optional title"
 ```
 
-For longer URLs you may put the title attribute on a separate line, indented with 4 spaces or a tab, like this:
+For longer URLs you MAY put the title attribute on a separate line, indented with 4 spaces or a tab, like this:
 
 ```
 [label]: http://www.example.com/longer/path/to/resource/here/
@@ -476,19 +478,19 @@ These will display as:
 
 #### Bold
 
-To make text bold, wrap the text with **two asterisks**.
+To make text bold, you MUST wrap the text with **two asterisks**.
 
 ```
-To make text bold, wrap the text with **two asterisks**.
+To make text bold, you MUST wrap the text with **two asterisks**.
 ```
 
 
 #### Italic
 
-To make text italic, wrap the text with _one underscore_.
+To make text italic, you MUST wrap the text with _one underscore_.
 
 ```
-To make text italic, wrap the text with _one underscore_.
+To make text italic, you MUST wrap the text with _one underscore_.
 ```
 
 Although asterisks and underscores can be used for both bold and italic (one for italic, two for bold) they are easier to distinguish if used for different purposes.
@@ -505,7 +507,7 @@ Use single backticks to markup inline code, such as `<code>`.
 
 ### Images
 
-Although images are rarely used in our markdown documents, use the fuller syntax:
+Although images are rarely used in our markdown documents, you MUST use the fuller syntax:
 
 ```
 ![Alt text](http://example.com/path/to/img.jpg "Optional title")
