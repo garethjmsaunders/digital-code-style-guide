@@ -1,7 +1,7 @@
 # CSS standards guide
 
-Version 0.9
-Last updated: Wednesday 30 September 2015
+Version 0.10
+Last updated: Monday 4 July 2016
 
 <!-- MarkdownTOC depth=3 -->
 
@@ -17,13 +17,13 @@ Last updated: Wednesday 30 September 2015
         - [@charset "UTF-8";](#charset-utf-8)
         - [Save as UTF-8 with BOM](#save-as-utf-8-with-bom)
         - [Further reading](#further-reading)
-    - [2.3 Use LF (Unix) line endings](#23-use-lf-unix-line-endings)
+    - [2.3 Use LF \(Unix\) line endings](#23-use-lf-unix-line-endings)
         - [Further reading](#further-reading-1)
     - [2.4 Filenames](#24-filenames)
         - [Meaningful and descriptive](#meaningful-and-descriptive)
         - [Lowercase, no spaces](#lowercase-no-spaces)
-        - [Use a hyphen (-) to separate words](#use-a-hyphen---to-separate-words)
-        - [Underscores (_) for Sass files](#underscores-_-for-sass-files)
+        - [Use a hyphen \(-\) to separate words](#use-a-hyphen---to-separate-words)
+        - [Underscores \(_\) for Sass files only](#underscores-_-for-sass-files-only)
     - [2.5 Link to external CSS files](#25-link-to-external-css-files)
         - [Link](#link)
         - [@import for debug and Sass only](#import-for-debug-and-sass-only)
@@ -31,10 +31,10 @@ Last updated: Wednesday 30 September 2015
         - [Do not use style elements](#do-not-use-style-elements)
 - [3. Syntax and formatting](#3-syntax-and-formatting)
     - [3.1 Anatomy of a ruleset](#31-anatomy-of-a-ruleset)
-    - [3.2 80 characters wide](#32-80-characters-wide)
+    - [3.2 Line width \(80 characters\)](#32-line-width-80-characters)
     - [3.3 Block style](#33-block-style)
         - [Multi-line CSS](#multi-line-css)
-        - [Indent with four (4) spaces, no tabs](#indent-with-four-4-spaces-no-tabs)
+        - [Indent with four \(4\) spaces, no tabs](#indent-with-four-4-spaces-no-tabs)
         - [Colons and semicolons, braces and spaces](#colons-and-semicolons-braces-and-spaces)
         - [List declarations in alphabetical order](#list-declarations-in-alphabetical-order)
         - [Alignment](#alignment)
@@ -44,7 +44,7 @@ Last updated: Wednesday 30 September 2015
         - [Colour keywords - use only black and white](#colour-keywords---use-only-black-and-white)
         - [Prefer RGB over hex](#prefer-rgb-over-hex)
         - [Use short hex codes](#use-short-hex-codes)
-        - [Alpha transparency - below one prefix with a zero](#alpha-transparency---below-one-prefix-with-a-zero)
+        - [Alpha transparency](#alpha-transparency)
     - [3.6 Syntax](#36-syntax)
         - [Use single quotation marks](#use-single-quotation-marks)
         - [Shorthand properties](#shorthand-properties)
@@ -156,7 +156,7 @@ Roberts continues, "a coding style guide (note, not a visual style guide) is a v
 
 "Style guides should be learned, understood, and implemented at all times on a project which is governed by one, and any deviation must be fully justified."
 
-Source: [CSS Styleguide](http://cssguidelin.es/#the-importance-of-a-styleguide "Harry Roberts")
+Source: [CSS guidelines](http://cssguidelin.es/#the-importance-of-a-styleguide "Harry Roberts")
 
 
 
@@ -181,7 +181,7 @@ The [W3C CSS validation service](http://jigsaw.w3.org/css-validator/) is a usefu
 
 ### Vendor prefixes
 
-There are occasions when this is not possible, for example in CSS3 vendor-specific prefixes (e.g. `-webkit-`, `–moz-`, `-ms-`, `-o-`) are permitted. 
+There are occasions when writing valid code may not be possible, for example when using CSS3 vendor-specific prefixes (e.g. `-webkit-`, `–moz-`, `-ms-`, `-o-`) are permitted. 
 
 As Andy Clarke says in _Hardboiled Web Design_ (2010):
 
@@ -199,7 +199,7 @@ This style guide draws heavily on the work of Harry Roberts’ work at [CSS guid
 
 As Roberts says, "These guidelines are opinionated, but they have been repeatedly tried, tested, stressed, refined, broken, reworked, and revisited over a number of years on projects of all sizes."
 
-This has been used with his permission: "There isn’t an actual license in place for CSS Guidelines (if there was I suppose it would be Apache 2) but take this in writing as permission to slice and dice it to for your needs, provided there is reasonable attribution :)"
+This has been used with Roberts' permission: "There isn’t an actual license in place for CSS Guidelines (if there was I suppose it would be Apache 2) but take this in writing as permission to slice and dice it to for your needs, provided there is reasonable attribution :)"
 
 
 ---
@@ -232,7 +232,7 @@ Although rare, it is worth bearing in mind that character encoding can affect CS
 > files use the same encoding, the latest versions of major browsers will 
 > apply the encoding of the HTML file to the CSS stylesheet.)
 
-We recommend that you both **set the character encoding within the stylesheet** and then **save the file in the UTF-8 encoding**.
+We recommend that you both **set the character encoding within the stylesheet** and also **save the file in the UTF-8 encoding**.
 
 
 ### @charset "UTF-8";
@@ -245,7 +245,7 @@ To set the character encoding inside the stylesheet, use the following sequence 
 
 Only one `@charset` byte sequence may appear in an external style sheet and it must appear at the very start of the document. It must not be preceded by any characters, not even comments.
 
-Accompanying HTML files should similarly have the character encoding set by adding a `<meta charset="utf-8>"` element to the head of the document.
+(Accompanying HTML files should similarly have the character encoding set by adding a `<meta charset="utf-8>"` element to the head of the document.)
 
 
 ### Save as UTF-8 with BOM
@@ -258,14 +258,10 @@ If given the option, use Unicode normalization form C (also known as 'NFC'). The
 
 ### Further reading
 
-*   [Declaring character encodings in CSS (W3C)]
-        (http://www.w3.org/International/questions/qa-css-charset)
-*   [Normalization in HTML and CSS (W3C)]
-        (http://www.w3.org/International/questions/qa-html-css-normalization)
-*   [The byte-order mark (BOM) in HTML]
-        (http://www.w3.org/International/questions/qa-byte-order-mark)
-*   [Unicode FAQ on Normalization (Unicode Consortium)]
-        (http://unicode.org/faq/normalization.html)
+*   [Declaring character encodings in CSS (W3C)](http://www.w3.org/International/questions/qa-css-charset)
+*   [Normalization in HTML and CSS (W3C)](http://www.w3.org/International/questions/qa-html-css-normalization)
+*   [The byte-order mark (BOM) in HTML](http://www.w3.org/International/questions/qa-byte-order-mark)
+*   [Unicode FAQ on Normalization (Unicode Consortium)](http://unicode.org/faq/normalization.html)
 
 
 
@@ -283,8 +279,7 @@ For example, in Sublime Text you can add the following to your user settings:
 
 ### Further reading
 
-*   [The Great Newline Schism]
-        (http://blog.codinghorror.com/the-great-newline-schism/)
+*   [The Great Newline Schism](http://blog.codinghorror.com/the-great-newline-schism/)
 
 
 
@@ -293,7 +288,7 @@ For example, in Sublime Text you can add the following to your user settings:
 
 ### Meaningful and descriptive
 
-Filenames MUST be meaningful and descriptive, e.g. `external-02-standard.css` rather than `xtn-02s.css`. It can be useful to prefix the name of the project to the CSS file, e.g. `divinity-external-02-standard.css`.
+Filenames MUST be meaningful and descriptive, e.g. `external-02-standard.css` rather than `xtn-02s.css`.
 
 If concatinated and minified most production files will be called something short anyway, e.g. `screen.css`.
 
@@ -305,19 +300,19 @@ Filenames MUST be all lowercase, with no spaces. This makes them easier to read 
 
 ### Use a hyphen (-) to separate words
 
-Use a hyphen (`-`) to separate words, e.g. `external-stylesheet.css`. This makes filenames easier to read than `externalstylsheetalloneword.css`.
+Use a hyphen (`-`) to separate words, e.g. `external-stylesheet.css`. This makes filenames easier to read than `externalstylesheet.css`.
 
 
-### Underscores (_) for Sass files
+### Underscores (_) for Sass files only
 
-Underscores (`_`) may be used only for naming Sass or Less partial files.
+Underscores (`_`) may be used only for naming Sass (or Less) partial files.
 
 
 
 
 ## 2.5 Link to external CSS files
 
-All CSS files SHOULD be referenced externally because it enables caching control and makes the HTML smaller.
+All CSS files SHOULD be referenced externally, because it enables caching control and makes the HTML smaller.
 
 
 ### Link
@@ -330,7 +325,7 @@ External CSS MUST be referenced via the `link` element, which MUST be placed in 
 ### @import for debug and Sass only
 External CSS MUST NOT be imported using `@import` because it impairs caching and blocks rendering.
 
-Debug files and pre-processor source files (e.g. Sass) are the only exceptions to this rule. `@import` rules must appear before any other rules in the document. You may include (and in fact are recommended) to include comments before the `@import` rules.
+Debug files during development, and pre-processor source files (e.g. Sass) are the only exceptions to this rule. `@import` rules must appear before any other rules in the document. You may include (and in fact are recommended) to include comments before the `@import` rules.
 
 
 ### Do not use inline CSS
@@ -341,7 +336,7 @@ Inline styles MAY BE used where necessary to debug, but ALWAYS then move the cod
 
 ### Do not use style elements
 
-Document head CSS (between `style` tags) SHOULD NOT be used Where a style rule is only required for a specific page. To do so makes these rules uncacheable and inconsistent.
+Document head CSS (between `style` tags) SHOULD NOT be used where a style rule is only required for a specific page. To do so makes these rules uncacheable and inconsistent.
 
 Avoid using embedded styles which control the style of only one page; also avoid using `@import` rules within a style block.
 
@@ -364,7 +359,7 @@ Before we discuss how we write out our rulesets, let's first familiarise ourselv
 
 Every CSS rule has two parts: 
 
-1.   a selector
+1.   a selector (or selectors).
 2.   a declaration block, containing one or more declarations.
 
 This is a RULE:
@@ -411,7 +406,7 @@ Property-value    `green`
 
 
 
-## 3.2 80 characters wide
+## 3.2 Line width (80 characters)
 
 Where possible, **limit CSS files' width to 80 characters**. Reasons for this include:
 
@@ -453,9 +448,9 @@ Exceptions to this rule should be fairly apparent, such as similar rulesets that
     background-image: url(/img/sprite.svg);
 }
 
-.icon--home     { background-position:   0     0  ; }
-.icon--person   { background-position: -16px   0  ; }
-.icon--files    { background-position:   0   -16px; }
+.icon--home     { background-position:  0     0   ; }
+.icon--person   { background-position: -16px  0   ; }
+.icon--files    { background-position:  0    -16px; }
 .icon--settings { background-position: -16px -16px; }
 ```
 
@@ -472,18 +467,18 @@ Source: [CSS guidelines](http://cssguidelin.es/#multi-line-css "Harry Roberts")
 
 **The purpose of indentation is to improve the legibility of the code** and optionally to also understand the structure of the HTML documents being styled.
 
-The debates about tabs-vs-spaces and two-vs-four-spaces are much older than CSS development. What matters though are:
+The debates about tabs-vs-spaces and two-vs-four-vs-eight spaces are much older than CSS development. What matters though are:
 
 *   Consistency in documents and across projects
 *   Code legibility
 
 With this in mind we recommend:
 
-*    **Indent declarations with four (4) spaces**.
-*    **Never mix tabs and spaces**. Code indented with a mixture of tabs and 
-     spaces should be converted to using spaces only; if your coding editor allows, set the option to convert tabs to spaces.
+*    **Indent declarations MUST be created with four (4) spaces**.
+*    **Tabs and spaces MUST NEVER be mixed**. Code indented with a mixture
+     of tabs and spaces should be converted to using spaces only; if your coding editor allows, set the option to convert tabs to spaces.
 
-As well as intending individual declarations, **you may indent entire related rulesets to signal their relation to one another**, for example:
+As well as intending individual declarations, **you MAY indent entire related rulesets to signal their relation to one another**, for example:
 
 ```
 .foo {
@@ -504,7 +499,7 @@ By doing this, a developer can see at a glance that `.foo__baz {}` lives inside 
 This quasi-replication of the DOM tells developers a lot about where classes are expected to be used without them having to refer to a snippet of HTML.
 
 
-#### Indenting Sass (SHOULD WE HAVE A SEPARATE Sass guide?)
+#### Indenting Sass
 Sass provides nesting functionality. That is to say, by writing this:
 
 ```
@@ -527,7 +522,7 @@ Sass provides nesting functionality. That is to say, by writing this:
 
 When indenting Sass, we stick to the same four (4) spaces, and we also leave a blank line before and after the nested ruleset.
 
-N.B. Nesting in Sass should be avoided wherever possible. See the Specificity section for more details.
+N.B. Nesting in Sass should be avoided wherever possible. See section 7.3 on specificity for more details.
 
 
 ### Colons and semicolons, braces and spaces
@@ -562,7 +557,7 @@ Here you can see we have:
 
 This format seems to be the largely universal standard, except for variations in number of spaces, many developers prefer two (2).
 
-Source: [CSS Guidelines "Harry Roberts"](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
+Source: [CSS guidelines](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
 
 
 ### List declarations in alphabetical order
@@ -641,20 +636,20 @@ Attempt to align common and related identical strings in declarations, for examp
 
 .bar {
     position: absolute;
-    top:    0;
-    right:  0;
-    bottom: 0;
-    left:   0;
+    top:           0;
+    right:         0;
+    bottom:        0;
+    left:          0;
     margin-right: -10px;
-    margin-left:  -10px;
-    padding-right: 10px;
-    padding-left:  10px;
+    margin-left:  -15px;
+    padding-right: 20px;
+    padding-left:  25px;
 }
 ```
 
 This makes life a little easier for developers whose text editors support column editing, allowing them to change several identical and aligned lines in one go.
 
-Source: [CSS Guidelines](http://cssguidelin.es/#alignment "Harry Roberts")
+Source: [CSS guidelines](http://cssguidelin.es/#alignment "Harry Roberts")
 
 
 
@@ -663,15 +658,15 @@ Source: [CSS Guidelines](http://cssguidelin.es/#alignment "Harry Roberts")
 
 As well as indentation, we can provide a lot of information through liberal and judicious use of whitespace between rulesets. We use:
 
-*   One (1) empty line between closely related rulesets.
-*   Two (2) empty lines between loosely related rulesets.
-*   Five (5) empty lines between entirely new sections.
+*   One  (1) empty line between closely related rulesets.
+*   Two  (2) empty lines between loosely related rulesets.
+*   Four (4) empty lines between entirely new sections.
 
 For example:
 
 ```
 /*------------------------------------*\
-    FOO
+    Pattern A
 \*------------------------------------*/
 
 .foo {}
@@ -685,7 +680,7 @@ For example:
 
 
 /*------------------------------------*\
-    BAR
+    Pattern B
 \*------------------------------------*/
 
 .bar {}
@@ -703,7 +698,7 @@ There should never be a scenario in which two rulesets do not have an empty line
 .foo--baz {}
 ```
 
-Source: [CSS Guidelines](http://cssguidelin.es/#meaningful-whitespace)
+Source: [CSS guidelines](http://cssguidelin.es/#meaningful-whitespace)
 
 
 
@@ -712,19 +707,19 @@ Source: [CSS Guidelines](http://cssguidelin.es/#meaningful-whitespace)
 
 ### Use the approved St Andrews palette of colours
 
-Unless you have a very good reason not to, you must use the approved palette of St Andrews colours.
+Unless you have a very good reason not to, you must use the approved palette of University of St&nbsp;Andrews colours.
 
 
 ### Colour keywords - use only black and white
 
 The [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/#html4) specification defines 16 basic colour keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
 
-You may use only `black` and `white`; although consider this article [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor. Do not use the other values, except in debug files.
+You MUST NOT use colour keywords except `black` and `white`; although consider this article [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor. Do not use the other values, except in debug files.
 
 
 ### Prefer RGB over hex
 
-Use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there must be a space after each comma.
+You SHOULD use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there MUST be a space after each comma.
 
 The reason for preferring RGB is three-fold:
 
@@ -733,9 +728,9 @@ The reason for preferring RGB is three-fold:
      below.
 3.   RGB format is more widely supported in graphic design applications.
 
-To expand on the first point, while colours on the web have traditionally been specified using hex codes (e.g. St Andrews Blue is `#00539b`) it is not as easy to estimate the colour just by looking at the code, unless you can convert hex to decimal in your head. For example, at a glance `rgb(0, 83, 155)` has about 60% blue and 30% green so you may safely estimate that this is dark blue.
+To expand on the first point, while colours on the web have traditionally been specified using hex codes (e.g. St Andrews Blue is `#00539b`) it is not as easy to estimate the colour just by looking at the code, unless you can convert hex to decimal in your head. For example, at a glance `rgb(0, 83, 155)` has about 30% green and 60% blue so you may safely estimate that this is dark blue.
 
-There is a current trend to prefer HSL over RGB as it allows you to more easily make them lighter or darker. With a fixed pallette, such as ours, we don't need this.
+There is a current trend to prefer HSL over RGB as it allows you to more easily make them lighter or darker. With a fixed palette, such as ours, we don't need this.
 
 
 ### Use short hex codes
@@ -743,7 +738,7 @@ There is a current trend to prefer HSL over RGB as it allows you to more easily 
 If you must use hex codes: shorten values where possible (`#fff` instead of `#ffffff`) and use lowercase alphabetical values (`#fff` not `#FFF`).
 
 
-### Alpha transparency - below one prefix with a zero
+### Alpha transparency
 
 Specifying colours in `rgb(r, g, b)` format also makes it much easier to add alpha transparency later, as you simply need to append an ‘a’ and a fourth value:
 
@@ -768,9 +763,9 @@ If the alpha value is 1 then simply use `rgb(r, g, b)` rather than `rgba(r, g, b
 
 ### Use single quotation marks
 
-In CSS quotation marks are optional, however, languages that do not require strings to be quoted are a minority. **Always use single quotes** unless there is a compelling reason to not use, for example to greatly aid clarity.
+In CSS, quotation marks are optional, however, languages that do not require strings to be quoted are a minority. **Always use single quotes** unless there is a compelling reason to not use, for example to aid clarity.
 
-It is preferable to use single quotes for CSS and double-quotes for HTML so that you may easily drop CSS code into inline styles:
+It is preferable to use single quotes for CSS and double-quotes for HTML so that you may easily drop CSS code into inline styles, e.g.
 
 ```
 <div style="background-image: url('img.gif');"> [...] </div>
