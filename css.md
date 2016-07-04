@@ -50,16 +50,11 @@ Last updated: Monday 4 July 2016
         - [Shorthand properties](#shorthand-properties)
         - [Units](#units)
         - [Zero](#zero)
-    - [3.7 Don't use IE hacks](#37-dont-use-ie-hacks)
-        - [Filters](#filters)
-        - [IE hacks](#ie-hacks)
-        - [Consider using shame.css](#consider-using-shamecss)
-        - [Further reading](#further-reading-2)
 - [4. Comments](#4-comments)
     - [4.1 CSS needs more comments](#41-css-needs-more-comments)
     - [4.2 General advice](#42-general-advice)
     - [4.3 Sass comments](#43-sass-comments)
-        - [Further reading](#further-reading-3)
+        - [Further reading](#further-reading-2)
     - [4.4 Every CSS file must have...](#44-every-css-file-must-have)
         - [File information](#file-information)
         - [Table of contents](#table-of-contents)
@@ -916,49 +911,6 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
     padding: 10px 0px    // Incorrect
 }
 ```
-
-
-
-
-## 3.7 Don't use IE hacks
-
-### Filters
-
-Do not use Microsoft Internet Explorer filters, e.g. 
-
-```
--ms-filter : "progid:DXImageTransform.Microsoft.Alpha(opacity=50)";
-```
-
-as these can have a serious negative impact on a website's performance.
-
-
-### IE hacks
-
-Try to not use other [browser-specific hacks](http://browserhacks.com/ "Browser hacks") for Internet Explorer. But if you must then these must be served from a separate style sheet, targetted using an IE conditional, e.g.
-
-```
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" href="ie.css">
-<![endif]-->
-```
-
-
-### Consider using shame.css
-
-Consider Harry Roberts, Chris Coyier, and Dave Rupert's idea of a [shame.css](http://csswizardry.com/2013/04/shame-css/ "Article from 17 April 2013") file that groups all "bodges, hacks and quick-fixes in their own file". Their reasons are:
-
-1. You make them stick out like a sore thumb.
-2. You keep your 'main' codebase clean.
-3. You make developers aware that their hacks are made very visible.
-4. You make them easier to isolate and fix.
-5. `$ git blame shame.css`.
-
-
-### Further reading
-
-* [Microsoft Developer Network](https://msdn.microsoft.com/en-us/library/ms537512%28v=vs.85%29.aspx)
-* [Quirksmode](http://www.quirksmode.org/css/condcom.html)
 
 
 ---
