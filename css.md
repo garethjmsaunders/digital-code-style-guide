@@ -54,6 +54,11 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 <!-- /MarkdownTOC -->
 
+TODO: Version numbers.
+TODO: Highlight scannable, key points in bold.
+TODO: Simplify 5. Rule organisation, and 6. Naming conventions, and 7. CSS selectors
+TODO: Number all sub-sections to aid navigation.
+
 
 ---
 
