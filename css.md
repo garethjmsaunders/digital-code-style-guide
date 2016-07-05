@@ -1,4 +1,4 @@
-# CSS standards guide
+## CSS standards guide
 
 Version 0.10
 Last updated: Monday 4 July 2016
@@ -7,58 +7,26 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 <!-- MarkdownTOC depth=3 -->
 
-- [1. Introduction](#1-introduction)
-    - [1.1 Write valid CSS](#11-write-valid-css)
-        - [Vendor prefixes](#vendor-prefixes)
-    - [1.4 Acknowledgements](#14-acknowledgements)
+- [1. Write valid CSS](#1-write-valid-css)
+    - [1.1 Vendor prefixes](#11-vendor-prefixes)
 - [2. File format](#2-file-format)
     - [2.1 Use multiple files, concatinate and minify](#21-use-multiple-files-concatinate-and-minify)
     - [2.2 Character encoding](#22-character-encoding)
-        - [@charset "UTF-8";](#charset-utf-8)
-        - [Save as UTF-8 with BOM](#save-as-utf-8-with-bom)
-        - [Further reading](#further-reading)
     - [2.3 Use LF \(Unix\) line endings](#23-use-lf-unix-line-endings)
-        - [Further reading](#further-reading-1)
     - [2.4 Filenames](#24-filenames)
-        - [Meaningful and descriptive](#meaningful-and-descriptive)
-        - [Lowercase, no spaces](#lowercase-no-spaces)
-        - [Use a hyphen \(-\) to separate words](#use-a-hyphen---to-separate-words)
-        - [Underscores \(_\) for Sass files only](#underscores-_-for-sass-files-only)
     - [2.5 Link to external CSS files](#25-link-to-external-css-files)
-        - [Link](#link)
-        - [@import for debug and Sass only](#import-for-debug-and-sass-only)
-        - [Do not use inline CSS](#do-not-use-inline-css)
-        - [Do not use style elements](#do-not-use-style-elements)
 - [3. Syntax and formatting](#3-syntax-and-formatting)
     - [3.1 Anatomy of a ruleset](#31-anatomy-of-a-ruleset)
     - [3.2 Line width \(80 characters\)](#32-line-width-80-characters)
     - [3.3 Block style](#33-block-style)
-        - [Multi-line CSS](#multi-line-css)
-        - [Indent with four \(4\) spaces, no tabs](#indent-with-four-4-spaces-no-tabs)
-        - [Colons and semicolons, braces and spaces](#colons-and-semicolons-braces-and-spaces)
-        - [List declarations in alphabetical order](#list-declarations-in-alphabetical-order)
-        - [Alignment](#alignment)
     - [3.4 Meaningful whitespace](#34-meaningful-whitespace)
     - [3.5 Colours](#35-colours)
-        - [Use the approved St Andrews palette of colours](#use-the-approved-st-andrews-palette-of-colours)
-        - [Colour keywords - use only black and white](#colour-keywords---use-only-black-and-white)
-        - [Prefer RGB over hex](#prefer-rgb-over-hex)
-        - [Use short hex codes](#use-short-hex-codes)
-        - [Alpha transparency](#alpha-transparency)
     - [3.6 Syntax](#36-syntax)
-        - [Use single quotation marks](#use-single-quotation-marks)
-        - [Shorthand properties](#shorthand-properties)
-        - [Units](#units)
-        - [Zero](#zero)
 - [4. Comments](#4-comments)
     - [4.1 CSS needs more comments](#41-css-needs-more-comments)
     - [4.2 General advice](#42-general-advice)
     - [4.3 Sass comments](#43-sass-comments)
-        - [Further reading](#further-reading-2)
     - [4.4 Every CSS file must have...](#44-every-css-file-must-have)
-        - [File information](#file-information)
-        - [Table of contents](#table-of-contents)
-        - [Section titles](#section-titles)
     - [4.5 Magic numbers](#45-magic-numbers)
     - [4.6 High-level comments](#46-high-level-comments)
     - [4.7 Object–extension pointers](#47-object–extension-pointers)
@@ -66,42 +34,23 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [4.9 Preprocessor comments](#49-preprocessor-comments)
 - [5. Rule organisation](#5-rule-organisation)
     - [5.1 Categorise your CSS rules](#51-categorise-your-css-rules)
-        - [1. Base](#1-base)
-        - [2. Layout](#2-layout)
-        - [3. Modules](#3-modules)
-        - [4. State](#4-state)
-        - [5. Theme](#5-theme)
 - [6. Naming conventions](#6-naming-conventions)
     - [6.1 Naming](#61-naming)
     - [6.2 Naming UI components](#62-naming-ui-components)
     - [6.3 Accepted characters in class and ID names](#63-accepted-characters-in-class-and-id-names)
-        - [Characters to avoid](#characters-to-avoid)
     - [6.4 Hyphen delimited](#64-hyphen-delimited)
     - [6.5 BEM-like naming](#65-bem-like-naming)
-        - [Starting context](#starting-context)
     - [6.6 Modifying elements](#66-modifying-elements)
     - [6.7 Naming conventions in HTML](#67-naming-conventions-in-html)
     - [6.8 JavaScript hooks](#68-javascript-hooks)
-        - [Do not use HTML5 `data-*` attributes as JavaScript hooks](#do-not-use-html5-data--attributes-as-javascript-hooks)
 - [7. CSS Selectors](#7-css-selectors)
     - [7.1 General rules](#71-general-rules)
     - [7.2 Selector intent](#72-selector-intent)
     - [7.3 Specificity](#73-specificity)
-        - [Keep specificity low at all times](#keep-specificity-low-at-all-times)
-        - [Do not use !important as a hack](#do-not-use-important-as-a-hack)
-        - [Use !important proactively not reactively](#use-important-proactively-not-reactively)
-        - [Hacking specificity](#hacking-specificity)
     - [7.4 Reusability](#74-reusability)
-        - [Location independence](#location-independence)
-        - [Portability](#portability)
-        - [Object-orientation](#object-orientation)
-        - [The single responsibility principle](#the-single-responsibility-principle)
-        - [Open to extension / closed to modification](#open-to-extension--closed-to-modification)
-        - [The separation of concerns](#the-separation-of-concerns)
-        - [DRY](#dry)
     - [7.5 Selector performance](#75-selector-performance)
-        - [The key selector](#the-key-selector)
     - [7.6 Further reading](#76-further-reading)
+- [Acknowledgements](#acknowledgements)
 
 <!-- /MarkdownTOC -->
 
@@ -109,17 +58,12 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 ---
 
 
-# 1. Introduction
+## 1. Write valid CSS
+
+All CSS code SHOULD validate to the [latest CSS specification](https://www.w3.org/Style/CSS/); if in doubt, use the [W3C CSS validation service](http://jigsaw.w3.org/css-validator/).
 
 
-## 1.1 Write valid CSS
-
-Ideally, all CSS code should validate to the latest CSS specification for which it is written.
-
-The [W3C CSS validation service](http://jigsaw.w3.org/css-validator/) is a useful resource. You may also find CSS validators that integrate with your code editor of choice, or your browser.
-
-
-### Vendor prefixes
+### 1.1 Vendor prefixes
 
 There are occasions when writing valid code may not be possible, for example when using CSS3 vendor-specific prefixes (e.g. `-webkit-`, `–moz-`, `-ms-`, `-o-`) are permitted. 
 
@@ -131,33 +75,22 @@ As Andy Clarke says in _Hardboiled Web Design_ (2010):
 > achieve using emerging CSS3 standards.
 
 
-
-
-## 1.4 Acknowledgements
-
-This style guide draws heavily on the work of Harry Roberts’ work at [CSS guidelines: High-level advice and guidelines for writing sane, manageable, scalable CSS](http://cssguidelin.es/).
-
-As Roberts says, "These guidelines are opinionated, but they have been repeatedly tried, tested, stressed, refined, broken, reworked, and revisited over a number of years on projects of all sizes."
-
-This has been used with Roberts' permission: "There isn’t an actual license in place for CSS Guidelines (if there was I suppose it would be Apache 2) but take this in writing as permission to slice and dice it to for your needs, provided there is reasonable attribution :)"
-
-
 ---
 
 
-# 2. File format
+## 2. File format
 
 This section outlines standards for creating and saving CSS files to ensure that they are not affected by encoding or file system differences. There is also general information about linking to external CSS files.
 
 
-## 2.1 Use multiple files, concatinate and minify
+### 2.1 Use multiple files, concatinate and minify
 
-With the meteoric rise of pre-processors (such as Sass and Less) of late, more often is the case that developers are splitting CSS across multiple files. Even if not using a pre-processor, it is a good idea to split discrete chunks of code into their own files, which can then be concatenated and minified during a build process. \[[HR](http://cssguidelin.es/#multiple-files)\]
-
-
+CSS source code SHOULD be split across multiple files, to split discrete chunks of code into their own files which can then be concatenated and minified during a build process. \[[HR](http://cssguidelin.es/#multiple-files)\]
 
 
-## 2.2 Character encoding
+
+
+### 2.2 Character encoding
 
 Although rare, it is worth bearing in mind that character encoding can affect CSS files. According to the [W3C](http://www.w3.org/International/questions/qa-css-charset):
 
@@ -172,31 +105,30 @@ Although rare, it is worth bearing in mind that character encoding can affect CS
 > files use the same encoding, the latest versions of major browsers will 
 > apply the encoding of the HTML file to the CSS stylesheet.)
 
-We recommend that you both **set the character encoding within the stylesheet** and also **save the file in the UTF-8 encoding**.
 
+#### @charset "UTF-8";
 
-### @charset "UTF-8";
-
-To set the character encoding inside the stylesheet, use the following sequence of bytes **at the very start of the file**, one byte per character:
+Character encoding MUST be set within each stylesheet. Unicode (UTF-8) SHOULD be used.
 
 ```
 @charset "UTF-8";
 ```
 
-Only one `@charset` byte sequence may appear in an external style sheet and it must appear at the very start of the document. It must not be preceded by any characters, not even comments.
+Only one `@charset` may appear in an external stylesheet and it MUST appear at the very start of the document. It MUST NOT be preceded by any characters, not even comments.
 
 (Accompanying HTML files should similarly have the character encoding set by adding a `<meta charset="utf-8>"` element to the head of the document.)
 
 
-### Save as UTF-8 with BOM
+#### Save as UTF-8 with BOM
 
-Files should be saved with Unicode (UTF-8) encoding; saving with the byte-order mark (UTF-8 with BOM) is optional, but recommended.
+Files MUST be saved with Unicode (UTF-8) encoding; saving with the byte-order mark (UTF-8 with BOM) is optional, but recommended.
 
-The CSS3 syntax specification indicates that if you have a UTF-8 byte-order mark (BOM) at the start of your file then this should cause the browser to read the stylesheet as UTF-8 regardless of any other declaration. This is not, however, currently supported universally. IE 10 and IE 11 still give higher precedence to the HTTP header and `@charset` declaration. 
+The CSS3 syntax specification indicates that if you have a UTF-8 byte-order mark (BOM) at the start of your file then this should cause the browser to read the stylesheet as UTF-8 regardless of any other declaration. This is not, however, currently supported universally. IE 10 and IE 11 still give higher precedence to the HTTP header and `@charset` declaration.
 
 If given the option, use Unicode normalization form C (also known as 'NFC'). The W3C recommends the use of NFC normalized text on the Web. 
 
-### Further reading
+
+#### Further reading
 
 *   [Declaring character encodings in CSS (W3C)](http://www.w3.org/International/questions/qa-css-charset)
 *   [Normalization in HTML and CSS (W3C)](http://www.w3.org/International/questions/qa-html-css-normalization)
@@ -206,7 +138,7 @@ If given the option, use Unicode normalization form C (also known as 'NFC'). The
 
 
 
-## 2.3 Use LF (Unix) line endings
+### 2.3 Use LF (Unix) line endings
 
 Line feed (LF) Unix style line endings (sometimes called line breaks) should be used.
 
@@ -217,64 +149,64 @@ For example, in Sublime Text you can add the following to your user settings:
     "default_line_ending": "LF",
 ```
 
-### Further reading
+#### Further reading
 
-*   [The Great Newline Schism](http://blog.codinghorror.com/the-great-newline-schism/)
-
-
+*   [The great newline schism](http://blog.codinghorror.com/the-great-newline-schism/)
 
 
-## 2.4 Filenames
 
-### Meaningful and descriptive
 
-Filenames MUST be meaningful and descriptive, e.g. `external-02-standard.css` rather than `xtn-02s.css`.
+### 2.4 Filenames
+
+#### Meaningful and descriptive
+
+Filenames MUST be meaningful and descriptive, e.g. `external-standard.css` rather than `xtn-02s.css`.
 
 If concatinated and minified most production files will be called something short anyway, e.g. `screen.css`.
 
 
-### Lowercase, no spaces
+#### Lowercase, no spaces
 
-Filenames MUST be all lowercase, with no spaces. This makes them easier to read and prevents links that substitute `%20` codes for spaces.
+Filenames MUST be all lowercase, with no spaces. This makes them easier to read and prevents links that replace spaces with `%20` codes.
 
 
-### Use a hyphen (-) to separate words
+#### Use a hyphen (-) to separate words
 
 Use a hyphen (`-`) to separate words, e.g. `external-stylesheet.css`. This makes filenames easier to read than `externalstylesheet.css`.
 
 
-### Underscores (_) for Sass files only
+#### Underscores (_) for Sass files only
 
 Underscores (`_`) may be used only for naming Sass (or Less) partial files.
 
 
 
 
-## 2.5 Link to external CSS files
+### 2.5 Link to external CSS files
 
-All CSS files SHOULD be referenced externally, because it enables caching control and makes the HTML smaller.
+All CSS files MUST be referenced externally, unless there is a very strong reason. This enables caching control and makes the HTML smaller.
 
 
-### Link
+#### Link
 External CSS MUST be referenced via the `link` element, which MUST be placed in the head section of the document before any links to JavaScript and as close as possible to the top, but after the `title` element. This will improve performance and not impede SEO.
 
 ```
-<link rel="stylesheet" type="text/css" href="filename.css" />
+<link rel="stylesheet" type="text/css" href="screen.css" />
 ```
 
-### @import for debug and Sass only
-External CSS MUST NOT be imported using `@import` because it impairs caching and blocks rendering.
+#### @import for debug and Sass only
+External CSS MUST NOT be imported using `@import`; this impairs caching and blocks rendering.
 
-Debug files during development, and pre-processor source files (e.g. Sass) are the only exceptions to this rule. `@import` rules must appear before any other rules in the document. You may include (and in fact are recommended) to include comments before the `@import` rules.
+Debug files during development, and pre-processor source files (e.g. Sass) are the only exceptions to this rule. `@import` rules MUST appear before any other rules in the document. You SHOULD include comments before the `@import` rules to explain what they are.
 
 
-### Do not use inline CSS
+#### Do not use inline CSS
 You MUST NOT use inline styles. To do so makes these rules uncacheable and inconsistent. And it makes the HTML pages larger.
 
-Inline styles MAY BE used where necessary to debug, but ALWAYS then move the code into linked stylesheets.
+Inline styles MAY be used where necessary to debug, but ALWAYS then move the code into linked stylesheets.
 
 
-### Do not use style elements
+#### Do not use style elements
 
 Document head CSS (between `style` tags) SHOULD NOT be used where a style rule is only required for a specific page. To do so makes these rules uncacheable and inconsistent.
 
@@ -284,7 +216,7 @@ Avoid using embedded styles which control the style of only one page; also avoid
 ---
 
 
-# 3. Syntax and formatting
+## 3. Syntax and formatting
 
 One of the simplest forms of a style guide is a set of rules regarding syntax and formatting. Having a standard way of writing CSS means that code will always look and feel familiar to all members of the team: consistency is key.
 
@@ -293,7 +225,7 @@ Further, code that looks clean feels clean. It is a much nicer environment to wo
 Source: [CSS guidelines](http://cssguidelin.es/#syntax-and-formatting "Harry Roberts")
 
 
-## 3.1 Anatomy of a ruleset
+### 3.1 Anatomy of a ruleset
 
 Before we discuss how we write out our rulesets, let's first familiarise ourselves with the relevant terminology.
 
@@ -307,7 +239,7 @@ This is a RULE:
 ```
 h1, h2,
 .foo, .foo-bar,
-# baz {
+## baz {
     background-color: green;
     color: red;
     display: block;
@@ -346,7 +278,7 @@ Property-value    `green`
 
 
 
-## 3.2 Line width (80 characters)
+### 3.2 Line width (80 characters)
 
 Where possible, **limit CSS files' width to 80 characters**. Reasons for this include:
 
@@ -367,9 +299,9 @@ Do not worry about unavoidable exceptions to this rule, such as URLs, or gradien
 
 
 
-## 3.3 Block style
+### 3.3 Block style
 
-### Multi-line CSS
+#### Multi-line CSS
 
 **CSS should be written across multiple lines**, except in very specific circumstances. There are a number of benefits to this:
 
@@ -403,7 +335,7 @@ These types of ruleset benefit from being single-lined because:
 Source: [CSS guidelines](http://cssguidelin.es/#multi-line-css "Harry Roberts")
 
 
-### Indent with four (4) spaces, no tabs
+#### Indent with four (4) spaces, no tabs
 
 **The purpose of indentation is to improve the legibility of the code** and optionally to also understand the structure of the HTML documents being styled.
 
@@ -439,7 +371,7 @@ By doing this, a developer can see at a glance that `.foo__baz {}` lives inside 
 This quasi-replication of the DOM tells developers a lot about where classes are expected to be used without them having to refer to a snippet of HTML.
 
 
-#### Indenting Sass
+##### Indenting Sass
 Sass provides nesting functionality. That is to say, by writing this:
 
 ```
@@ -465,7 +397,7 @@ When indenting Sass, we stick to the same four (4) spaces, and we also leave a b
 N.B. Nesting in Sass should be avoided wherever possible. See section 7.3 on specificity for more details.
 
 
-### Colons and semicolons, braces and spaces
+#### Colons and semicolons, braces and spaces
 
 Consider this example rule:
 
@@ -500,7 +432,7 @@ This format seems to be the largely universal standard, except for variations in
 Source: [CSS guidelines](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
 
 
-### List declarations in alphabetical order
+#### List declarations in alphabetical order
 
 Multiple selectors should be listed in alphabetical order as this makes it much easier to find declaration blocks.
 
@@ -520,7 +452,7 @@ For example:
 ```
 
 
-#### Positioned elements
+##### Positioned elements
 
 An exception is where elements are being positioned on the page. In this case it can help to group the `top`, `right`, `bottom`, and `left` declarations (in that order) immediately after `position`:
 
@@ -543,7 +475,7 @@ An exception is where elements are being positioned on the page. In this case it
 ```
 
 
-#### Vendor prefixes
+##### Vendor prefixes
 
 Another exception is prefixed vendor-specific property pairs which should appear directly before the generic property to which they refer. This allows newer browsers that support the W3C standards to use the final declaration.
 
@@ -563,7 +495,7 @@ Another exception is prefixed vendor-specific property pairs which should appear
 It can greatly aid readability if the prefixes are ordered from longest to shortest: `-webkit-`, `-moz-`, `-ms-`, `-o-`.
 
 
-### Alignment
+#### Alignment
 
 Attempt to align common and related identical strings in declarations, for example:
 
@@ -594,7 +526,7 @@ Source: [CSS guidelines](http://cssguidelin.es/#alignment "Harry Roberts")
 
 
 
-## 3.4 Meaningful whitespace
+### 3.4 Meaningful whitespace
 
 As well as indentation, we can provide a lot of information through liberal and judicious use of whitespace between rulesets. We use:
 
@@ -643,21 +575,21 @@ Source: [CSS guidelines](http://cssguidelin.es/#meaningful-whitespace)
 
 
 
-## 3.5 Colours
+### 3.5 Colours
 
-### Use the approved St Andrews palette of colours
+#### Use the approved St Andrews palette of colours
 
 Unless you have a very good reason not to, you must use the approved palette of University of St&nbsp;Andrews colours.
 
 
-### Colour keywords - use only black and white
+#### Colour keywords - use only black and white
 
 The [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/#html4) specification defines 16 basic colour keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
 
 You MUST NOT use colour keywords except `black` and `white`; although consider this article [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor. Do not use the other values, except in debug files.
 
 
-### Prefer RGB over hex
+#### Prefer RGB over hex
 
 You SHOULD use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there MUST be a space after each comma.
 
@@ -673,12 +605,12 @@ To expand on the first point, while colours on the web have traditionally been s
 There is a current trend to prefer HSL over RGB as it allows you to more easily make them lighter or darker. With a fixed palette, such as ours, we don't need this.
 
 
-### Use short hex codes
+#### Use short hex codes
 
 If you must use hex codes: shorten values where possible (`#fff` instead of `#ffffff`) and use lowercase alphabetical values (`#fff` not `#FFF`).
 
 
-### Alpha transparency
+#### Alpha transparency
 
 Specifying colours in `rgb(r, g, b)` format also makes it much easier to add alpha transparency later, as you simply need to append an ‘a’ and a fourth value:
 
@@ -699,9 +631,9 @@ If the alpha value is 1 then simply use `rgb(r, g, b)` rather than `rgba(r, g, b
 
 
 
-## 3.6 Syntax
+### 3.6 Syntax
 
-### Use single quotation marks
+#### Use single quotation marks
 
 In CSS, quotation marks are optional, however, languages that do not require strings to be quoted are a minority. **Always use single quotes** unless there is a compelling reason to not use, for example to aid clarity.
 
@@ -714,7 +646,7 @@ It is preferable to use single quotes for CSS and double-quotes for HTML so that
 Not that you should be using inline CSS, you understand!
 
 
-#### Font-family
+##### Font-family
 
 Use single-quotes in a `font-family` declaration (or in the shorthand `font` declaration) when listing a font name that has spaces in it, or if the font name includes non-alphanumeric characters such as the symbols '#' or '$'.
 
@@ -733,7 +665,7 @@ h2 {
 ```
 
 
-#### URLs
+##### URLs
 
 **Do not use quotations marks in URL values.**
 
@@ -746,7 +678,7 @@ There may be situations where the URL contains characters that would otherwise n
 In these cases use the most appropriate quotation mark to aid clarity without needing to escape anything; if in doubt, use single quotes.
 
 
-### Shorthand properties
+#### Shorthand properties
 
 Use of shorthand properties is generally discouraged as they are harder to read for non-experts; exceptions are noted below. Priority should be given to code readability and scanability.
 
@@ -770,7 +702,7 @@ Compare the following for clarity:
 The following exceptions may be made for using shorthand properties due to their wide-spread use.
 
 
-#### Background
+##### Background
 
 ```
 selector {
@@ -783,7 +715,7 @@ div {
 ```
 
 
-#### Border
+##### Border
 
 ```
 selector {
@@ -796,7 +728,7 @@ div {
 ```
 
 
-#### List-style
+##### List-style
 
 ```
 selector {
@@ -810,7 +742,7 @@ div {
 ```
 
 
-#### Margin and padding
+##### Margin and padding
 
 When specifying margin and padding you MUST use either
 
@@ -832,7 +764,7 @@ div {
 NEVER use three values as it is not immediately obvious what this means; it is actually `[top], [right/left], [bottom]`.
 
 
-### Units
+#### Units
 
 Consider using `rem` (which sizes elements relative to the `body` element) instead of `px` when sizing fonts, line-heights, etc.
 
@@ -846,7 +778,7 @@ element {
 ```
 
 
-### Zero
+#### Zero
 
 When a length value is zero (0) do not use a unit designator. Zero is always zero regardless of how you measure it.
 
@@ -861,12 +793,12 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
 ---
 
 
-# 4. Comments
+## 4. Comments
 
 As Harry Roberts points out in his [CSS guidelines](http://cssguidelin.es/): "CSS needs more comments".
 
 
-## 4.1 CSS needs more comments
+### 4.1 CSS needs more comments
 
 The cognitive overhead of working with CSS is huge. With so much to be aware of, and so many project-specific nuances to remember, the worst situation most developers find themselves in is being the-person-who-didn't-write-this-code. Remembering your own classes, rules, objects, and helpers is manageable to an extent, but anyone inheriting CSS barely stands a chance.
 
@@ -890,7 +822,7 @@ Source: [CSS Guidelines](http://cssguidelin.es/#commenting "Harry Roberts")
 
 
 
-## 4.2 General advice
+### 4.2 General advice
 
 Write comments as complete, grammatical sentences with an initial capital and a full-stop at the end. (The only exception to initial capital is class and ID identifiers.)
 
@@ -912,7 +844,7 @@ It should go without saying, **keep comments up-to-date when code changes**.
 
 
 
-## 4.3 Sass comments
+### 4.3 Sass comments
 
 If you are using [Sass](http://sass-lang.com/) please take note of the following distinction between the two type of comments used within Sass:
 
@@ -922,7 +854,7 @@ If you are using [Sass](http://sass-lang.com/) please take note of the following
      after the script has been executy.
 
 
-### Further reading
+#### Further reading
 
 * [Comments: /* */ and //](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments)
 * [Commenting on Sass Guidelines](http://sass-guidelin.es/#commenting)
@@ -930,7 +862,7 @@ If you are using [Sass](http://sass-lang.com/) please take note of the following
 
 
 
-## 4.4 Every CSS file must have...
+### 4.4 Every CSS file must have...
 
 Every CSS file MUST have the following comment blocks:
 
@@ -939,7 +871,7 @@ Every CSS file MUST have the following comment blocks:
 *   Section titles.
 
 
-### File information
+#### File information
 
 All CSS files should begin with the following standard template to describe the file. This follows the CSSdoc conventions for commenting.
 
@@ -1033,7 +965,7 @@ Example:
     @TODO Make layout responsive
 
 
-### Table of contents
+#### Table of contents
 
 A table of contents is a fairly substantial maintenance overhead, but the benefits it brings far outweigh any costs. It takes a diligent developer to keep a table of contents up to date, but it is well worth sticking with. An up-to-date table of contents provides a team with a single, canonical catalogue of what is in a CSS project, what it does, and in what order.
 
@@ -1115,7 +1047,7 @@ TODO: What about prefixing the names with a character, e.g. $ from http://csswiz
 ```
 
 
-### Section titles
+#### Section titles
 
 Begin every new major section of a CSS project with a title:
 
@@ -1182,7 +1114,7 @@ If you are working on a project where each section is its own file, this title s
 
 
 
-## 4.5 Magic numbers
+### 4.5 Magic numbers
 
 "Magic number" is an old school programming term for an unnamed numerical constant. Basically, it’s just a random number that happens to _just work_™ yet is not tied to any logical explanation.
 
@@ -1205,7 +1137,7 @@ See also
 * [Magic numbers in CSS](http://css-tricks.com/magic-numbers-in-css/)
 
 
-## 4.6 High-level comments
+### 4.6 High-level comments
 
 For large comments that document entire sections or components, we use a DocBlock-esque multi-line comment which adheres to our 80 column width.
 Here is a real-life example from the CSS which styles the page header on [CSS Wizardry](http://csswizardry.com): 
@@ -1231,7 +1163,7 @@ This level of detail should be the norm for all non-trivial code—descriptions 
 
 
 
-## 4.7 Object–extension pointers
+### 4.7 Object–extension pointers
 
 When working across multiple partials, or in an OOCSS (object-oriented CSS) manner, you will often find that rulesets that can work in conjunction with each other are not always in the same file or location. For example, you may have a generic button object—which provides purely structural styles—which is to be extended in a component-level partial which will add cosmetics. We document this relationship across files with simple object–extension pointers. In the object file:
 
@@ -1258,7 +1190,7 @@ This simple, low effort commenting can make a lot of difference to developers wh
 
 
 
-## 4.8 Reverse footnote comments
+### 4.8 Reverse footnote comments
 
 Oftentimes we want to comment on specific declarations (i.e. lines) in a ruleset. To do this we use a kind of reverse footnote. Here is a more complex comment detailing the larger site headers mentioned above:
 
@@ -1319,7 +1251,7 @@ These types of comment allow us to keep all of our documentation in one place wh
 
 
 
-## 4.9 Preprocessor comments
+### 4.9 Preprocessor comments
 
 With most — if not all — preprocessors, we have the option to write comments that will not get compiled out into our resulting CSS file. As a rule, use these comments to document code that would not get written out to that CSS file either. If you are documenting code which will get compiled, use comments that will compile also. For example, this is correct:
 
@@ -1366,7 +1298,7 @@ In situations where it would be useful for a developer to know exactly how a chu
 ---
 
 
-# 5. Rule organisation
+## 5. Rule organisation
 
 As Jonathan Snook says in [Scalable and Modular Architecture for CSS](https://smacss.com/book/categorizing "Categorizing CSS Rules"):
 
@@ -1377,7 +1309,7 @@ As Jonathan Snook says in [Scalable and Modular Architecture for CSS](https://sm
 We use Jonathan Snook's Scalable and Modular Architecture for CSS (SMACSS), to inform how to organise the rules within a CSS (or Sass) file.
 
 
-## 5.1 Categorise your CSS rules
+### 5.1 Categorise your CSS rules
 
 At the heart of SMACSS is categorisation. CSS rules are grouped into five categories:
 
@@ -1402,7 +1334,7 @@ Let's examine each of these categories.
 
 
 
-### 1. Base
+#### 1. Base
 
 Base rules set the default styling for how any 'vanilla' element should look in all occurrences on the page.
 
@@ -1444,7 +1376,7 @@ input[type="text"] {
 ```
 
 
-#### CSS resets
+##### CSS resets
 
 CSS resets (which are designed to strip out, or standardise, across all browsers the default margins, padding, and other properties) are a particular subset of base styles.
 
@@ -1453,14 +1385,14 @@ If you use a separate CSS reset (for example, Eric Meyer's [Reset CSS](http://me
 Any CSS reset or normalise code should be clearly commented indicating its version number and source URL.
 
 
-#### Frameworks
+##### Frameworks
 
 CSS frameworks, such as [Bootstrap](http://getbootstrap.com/) and [Foundation](http://foundation.zurb.com/), SHOULD NOT be regarded as base rules as they style far more than simple elements and often have more classes than a perpetual student.
 
 If you need to include frameworks (whole or in part) within your stylesheet — which you may if you are `@import`-ing from numerous sources into a Sass file for production — then you should precede the base section with a section zero called `0. Framework` and include comments clearly indicating its version number and source URL.
 
 
-#### Further reading
+##### Further reading
 
 * [SMACSS: Categorizing CSS rules](https://smacss.com/book/categorizing "Scalable and Modular Architecture for CSS by Jonathan Snook")
 * [SMACSS: Base rules](https://smacss.com/book/type-base "Scalable and Modular Architecture for CSS by Jonathan Snook")
@@ -1468,19 +1400,19 @@ If you need to include frameworks (whole or in part) within your stylesheet — 
 
 
 
-### 2. Layout
+#### 2. Layout
 
 Layout rules define the major layout components of a page, such as header, footer, navigation, main content, and sidebar. These are the areas in which modules sit.
 
 
-#### Further reading
+##### Further reading
 
 * [SMACSS: Layout rules](https://smacss.com/book/type-layout "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
 
 
-### 3. Modules
+#### 3. Modules
 
 Modules are the reusable, modular components of our design. These are usually defined by distinct patterns in our digital pattern library, e.g. accordion, breadcrumps, hero banner, navbox, etc.
 
@@ -1490,14 +1422,14 @@ Modules are the reusable, modular components of our design. These are usually de
 * Modules can easily be moved to different parts of the layout without breaking.
 
 
-#### Further reading
+##### Further reading
 
 * [SMACSS: Module rules](https://smacss.com/book/type-module "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
 
 
-### 4. State
+#### 4. State
 
 "A state is something that augments and overrides all other styles. For example, an accordion section may be in a collapsed or expanded state. A message may be in a success or error state." [Source](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
@@ -1506,7 +1438,7 @@ State rules describe how our layouts or modules will look when in a particular s
 But the state may also refer to how something looks on a larger or smaller screen, or how an element might appear in a different view such as on the homepage.
 
 
-#### Prefix classes with `.is-`
+##### Prefix classes with `.is-`
 
 Jonathan Snook's idea is that "states are generally applied to the same element as a layout rule or applied to the same element as a base module class." 
 
@@ -1518,7 +1450,7 @@ In some cases it can be very useful to prefix the class name with the verb `is-`
 * `.is-inactive`
 
 
-#### Isnʼt it just a module?
+##### Isnʼt it just a module?
 
 The answer to this question is worth quoting in full:
 
@@ -1534,14 +1466,14 @@ The answer to this question is worth quoting in full:
 Source: [SMACSS: Type state](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
-#### Using `!important`
+##### Using `!important`
 
 States should be stand-alone and built from one single class selector, e.g. `.is-selected`.
 
 Use of `!important` is allowed if required, but do not from apply it unless it is absolutely necessary.
 
 
-#### Further reading
+##### Further reading
 
 * [SMACSS: State rules](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 * [SMACSS: Changing state](https://smacss.com/book/state "Scalable and Modular Architecture for CSS by Jonathan Snook")
@@ -1549,7 +1481,7 @@ Use of `!important` is allowed if required, but do not from apply it unless it i
 
 
 
-### 5. Theme
+#### 5. Theme
 
 Theme rules define the colours and images of your web application or site.
 
@@ -1586,7 +1518,7 @@ or you may prefer to separate these out completely. The context should determine
 ```
 
 
-#### Further reading
+##### Further reading
 
 * [SMACSS: Theme rules](https://smacss.com/book/type-theme "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
@@ -1594,7 +1526,7 @@ or you may prefer to separate these out completely. The context should determine
 ---
 
 
-# 6. Naming conventions
+## 6. Naming conventions
 
 Naming conventions in CSS are hugely useful in making your code more strict, more transparent, and more informative.
 
@@ -1609,7 +1541,7 @@ The naming convention we follow is very simple: hyphen (-) delimited strings, wi
 It's worth noting that a naming convention is not only useful for the CSS-side of development, they really come into their own when viewed in HTML.
 
 
-## 6.1 Naming
+### 6.1 Naming
 
 As Phil Karlton once said, 'There are only two hard things in Computer Science: cache invalidation and naming things.'
 
@@ -1657,7 +1589,7 @@ It is important to strike a balance between names that do not literally describe
 
 
 
-## 6.2 Naming UI components
+### 6.2 Naming UI components
 
 Naming components with agnosticism and reusability in mind really helps developers construct and modify user-interfaces (UIs) much more quickly, and with far less waste. However, it can sometimes be beneficial to provide more specific or meaningful naming alongside the more ambiguous class, particularly when several agnostic classes come together to form a more complex and specific component that might benefit from having a more meaningful name. In this scenario, we augment the classes with a `data-ui-component` attribute which houses a more specific name, for example:
 
@@ -1688,7 +1620,7 @@ The implementation is largely personal preference, but the concept still remains
 
 
 
-## 6.3 Accepted characters in class and ID names
+### 6.3 Accepted characters in class and ID names
 
 In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR/CSS21/grammar.html#scanner) a class name or ID must follow these rules:
 
@@ -1706,7 +1638,7 @@ In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR
 *   numbers
 
 
-### Characters to avoid
+#### Characters to avoid
 
 *   Asterisks (*) are universal selectors: they will apply styling to every 
     element in the document. Do not use them in class or ID names.
@@ -1716,7 +1648,7 @@ In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR
 
 
 
-## 6.4 Hyphen delimited
+### 6.4 Hyphen delimited
 
 All words in classnames MUST be delimited with a hyphen (-), like so:
 
@@ -1735,7 +1667,7 @@ Camel case and underscores MUST NOT be used for regular classes; the following a
 
 
 
-## 6.5 BEM-like naming
+### 6.5 BEM-like naming
 
 For larger, more interrelated pieces of UI that require a number of classes, we use a BEM-like naming convention.
 
@@ -1760,7 +1692,7 @@ Elements are delimited with two (2) underscores (__), and modifiers are delimite
 Here we can see that `.person {}` is the block; it is the sole root of a discrete entity. `.person__head {}` is an element; it is a smaller part of the .person {} block. Finally, `.person--tall {} is a modifier; it is a specific variant of the .person {} block.
 
 
-### Starting context
+#### Starting context
 
 Your block context starts at the most logical, self-contained, discrete location. To continue with our person-based analogy, we'd not have a class like `.room__person {}`, as the room is another, much higher context. We'd probably have separate blocks, like so:
 
@@ -1818,7 +1750,7 @@ If we were to add another Element—called, let's say, .person__eye {}—to this
 
 
 
-## 6.6 Modifying elements
+### 6.6 Modifying elements
 
 You can have variants of Elements, and these can be denoted in a number of ways depending on how and why they are being modified. Carrying on with our person example, a blue eye might look like this:
 
@@ -1861,7 +1793,7 @@ Note that we do not nest a new instance of `.person__face {}` inside of `.person
 
 
 
-## 6.7 Naming conventions in HTML
+### 6.7 Naming conventions in HTML
 
 As I previously hinted at, naming conventions aren't necessarily all that useful in your CSS. Where naming conventions' power really lies is in your markup. Take the following, non-naming-conventioned HTML:
 
@@ -1894,7 +1826,7 @@ Now we can clearly see which classes are and are not related to each other, and 
 
 
 
-## 6.8 JavaScript hooks
+### 6.8 JavaScript hooks
 
 As a rule, it is unwise to bind your CSS and your JavaScript onto the same class in your HTML. This is because doing so means you can't have (or remove) one without (removing) the other. It is much cleaner, much more transparent, and much more maintainable to bind your JavaScript onto specific classes.
 
@@ -1909,7 +1841,7 @@ Typically, these are classes that are prepended with `js-`, for example:
 This means that we can have an element elsewhere which can carry with style of `.btn {}`, but without the behaviour of `.js-btn`.
 
 
-### Do not use HTML5 `data-*` attributes as JavaScript hooks
+#### Do not use HTML5 `data-*` attributes as JavaScript hooks
 
 A common practice is to use `data-*` attributes as JavaScript hooks, but this is incorrect. `data-*` attributes, as per the spec, are used to store custom data private to the page or application (emphasis mine). `data-*` attributes are designed to store data, not be bound to.
 
@@ -1917,14 +1849,14 @@ A common practice is to use `data-*` attributes as JavaScript hooks, but this is
 ---
 
 
-# 7. CSS Selectors
+## 7. CSS Selectors
 
 Perhaps somewhat surprisingly, one of the most fundamental, critical aspects of writing maintainable and scalable CSS is selectors. Their specificity, their reusability, and their performance all have a direct impact on the efficiency and effectiveness of our CSS.
 
 **TODO: This whole section needs considerable editing.**
 
 
-## 7.1 General rules
+### 7.1 General rules
 
 Your selectors are fundamental to writing good CSS. To very briefly sum up the above sections:
 
@@ -1945,7 +1877,7 @@ Focussing on these points will keep your selectors a lot more sane and easy to w
 
 
 
-## 7.2 Selector intent
+### 7.2 Selector intent
 
 It is important when writing CSS that we scope our selectors correctly, and that we're selecting the right things for the right reasons. Selector intent is the process of deciding and defining what you want to style and how you will go about selecting it. For example, if you are wanting to style your website's main navigation menu, a selector like this would be incredibly unwise:
 
@@ -1970,9 +1902,9 @@ CSS cannot be encapsulated, it is inherently leaky, but we can mitigate some of 
 
 
 
-## 7.3 Specificity
+### 7.3 Specificity
 
-### Keep specificity low at all times
+#### Keep specificity low at all times
 
 "CSS isn't the most friendly of languages: globally operating, very leaky, dependent on location, hard to encapsulate, based on inheritance. But none of that even comes close to the horrors of specificity." — Harry Roberts
 
@@ -2003,7 +1935,7 @@ To quote Jonathan Snook: "whenever declaring your styles, use the least number o
 As a rule, if a selector will work without it being nested then do not nest it.
 
 
-### Do not use !important as a hack
+#### Do not use !important as a hack
 
 `!important` is often used as a way to cheat your way out of specificity wars. The general rule is this: **do not use !important**, especially if it is used as a ham-fisted hack to 'just make things work'.
 
@@ -2020,7 +1952,7 @@ How much more specific will the next rule need to be?!
 If you find that you need to use `!important` to get something to work then that is a good sign that your code needs to be refactored. As Harry Roberts says, `!important` is "often viewed as a last resort — a desperate, defeated stab at patching over the symptoms of a much bigger problem with your code."
 
 
-### Use !important proactively not reactively
+#### Use !important proactively not reactively
 
 `!important` does have a place in CSS projects, but only if used sparingly and proactively.
 
@@ -2043,14 +1975,14 @@ Here we proactively apply `!important` to ensure that these styles always win. T
 Only use `!important` proactively, not reactively.
 
 
-### Hacking specificity
+#### Hacking specificity
 
 With all that said on the topic of specificity, and keeping it low, it is inevitable that we will encounter problems. No matter how hard we try, and how conscientious we are, there will always be times that we need to hack and wrangle specificity.
 
 When these situations do arise, it is important that we handle the hacks as safely and elegantly as possible.
 
 
-#### Chain a class with itself
+##### Chain a class with itself
 
 In the event that you need **to increase the specificity of a class selector**, there are a number of options. We could nest the class inside something else to bring its specificity up. For example, we could use `.header .site-nav {}` to bring up the specificity of a simple `.site-nav {}` selector.
 
@@ -2065,7 +1997,7 @@ Instead, we can use a much safer hack that will not impact this component's port
 This chaining doubles the specificity of the selector, but does not introduce any dependency on location.
 
 
-#### Use an attribute selector to select an ID
+##### Use an attribute selector to select an ID
 
 In the event that we do, for whatever reason, have an ID in our markup that we cannot replace with a class, select it via an attribute selector as opposed to an ID selector. For example, let's imagine we have embedded a third-party widget on our page. We can style the widget via the markup that it outputs, but we have no ability to edit that markup ourselves:
 
@@ -2088,20 +2020,20 @@ Here we are selecting based on an attribute rather than an ID, and **attribute s
 Do keep in mind that these are hacks, and should not be used unless you have no better alternative.
 
 
-#### Further reading
+##### Further reading
 [Hacks for dealing with specificity](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/)
 
 
 
 
-## 7.4 Reusability
+### 7.4 Reusability
 
 With a move toward a more component-based approach to constructing UIs, the idea of reusability is paramount. We want the option to be able to move, recycle, duplicate, and syndicate components across our projects.
 
 To this end, we make heavy use of classes. IDs, as well as being hugely over-specific, cannot be used more than once on any given page, whereas classes can be reused an infinite amount of times. Everything you choose, from the type of selector to its name, should lend itself toward being reused.
 
 
-### Location independence
+#### Location independence
 
 Given the ever-changing nature of most UI projects, and the move to more component-based architectures, it is in our interests not to style things based on where they are, but on what they are. That is to say, our components' styling should not be reliant upon where we place them—they should remain entirely location independent.
 
@@ -2120,7 +2052,7 @@ Not only does this have poor selector intent—it will greedily style any and ev
 This single class can be reused anywhere outside of `.promo` and will always carry its correct styling. As a result of a better selector, this piece of UI is more portable, more recyclable, doesn't have any dependencies, and has much better selector intent. A component shouldn't have to live in a certain place to look a certain way.
 
 
-### Portability
+#### Portability
 
 Reducing, or, ideally, removing, location dependence means that we can move components around our markup more freely, but how about improving our ability to move classes around components? On a much lower level, there are changes we can make to our selectors that make the selectors themselves more portable, as opposed to the components they create. Take the following example:
 
@@ -2167,7 +2099,7 @@ This is one example where a qualified selector might be justifiable, but I would
 This means that we can apply `.error-box` to any element, and not just a `div` — it is more reusable than a qualified selector.
 
 
-#### Quasi-qualified selectors
+##### Quasi-qualified selectors
 
 One thing that qualified selectors can be useful for is signalling where a class might be expected or intended to be used, for example:
 
@@ -2184,7 +2116,7 @@ Here we can see that the `.nav` class is meant to be used on a `ul` element, and
 By commenting out the leading element, we can still leave it to be read, but avoid qualifying and increasing the specificity of the selector.
 
 
-### Object-orientation
+#### Object-orientation
 
 Object-orientation is a programming paradigm that breaks larger programs up into smaller, in(ter)dependent objects that all have their own roles and responsibilities. From Wikipedia:
 
@@ -2241,14 +2173,14 @@ Favour the multiple-class approach over using something like `@extend:` using mu
 Whenever you are building a UI component, try and see if you can break it into two parts: one for structural styles (paddings, layout, etc.) and another for skin (colours, typefaces, etc.).
 
 
-#### Further reading
+##### Further reading
 
 * [The media object saves hundreds of lines of code](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/)
 * [The flag object](http://csswizardry.com/2013/05/the-flag-object/)
 * [Naming UI components in OOCSS](http://csswizardry.com/2014/03/naming-ui-components-in-oocss/)
 
 
-### The single responsibility principle
+#### The single responsibility principle
 
 The _single responsibility principle_ is a paradigm that, very loosely, states that all pieces of code (in our case, classes) should focus on doing one thing and one thing only. More formally:
 
@@ -2316,12 +2248,12 @@ Now we have a general abstraction for boxes which can live, and be used, complet
 By focussing on single responsibilities, we can give our code much more flexibility, and extending components' functions becomes very simple when sticking to the open/closed principle, which we're going to look at next.
 
 
-#### Further reading
+##### Further reading
 
 * The single responsibility principle applied to CSS
 
 
-### Open to extension / closed to modification
+#### Open to extension / closed to modification
 
 The open/closed principle, in my opinion, is rather poorly named. It is poorly named because 50% of the vital information is omitted from its title. The open/closed principle states that
 
@@ -2378,12 +2310,12 @@ When working in a team environment, be sure to write API-like CSS; always ensure
 Exceptions may present themselves when it transpires that a root object does need a rewrite or refactor, but it is only in these specific cases that you should modify code. Remember: **open for extension; closed for modification**.
 
 
-#### Further reading
+##### Further reading
 
 * [The open/closed principle applied to CSS](http://csswizardry.com/2012/06/the-open-closed-principle-applied-to-css/)
 
 
-### The separation of concerns
+#### The separation of concerns
 
 The separation of concerns is a principle which, at first, sounds a lot like the single responsibility principle. The separation of concerns states that code should be broken up
 
@@ -2453,7 +2385,7 @@ The separation of concerns allows you to keep code self-sufficient, ignorant, an
 The separation of concerns increases reusability and confidence whilst reducing dependency.
 
 
-### DRY
+#### DRY
 
 DRY, which stands for _Don't repeat yourself_, is a micro-principle used in software development which aims to keep the repetition of key information to a minimum. Its formal definition is that
 
@@ -2558,14 +2490,14 @@ Now the two declarations only exist once, meaning we're not repeating ourselves.
 
 In short, only DRY code that is actually, thematically related. Do not try to reduce purely coincidental repetition: **duplication is better than the wrong abstraction**.
 
-#### Further reading
+##### Further reading
 
 * [Writing DRYer vanilla CSS](http://csswizardry.com/2013/07/writing-dryer-vanilla-css/)
 
 
 
 
-## 7.5 Selector performance
+### 7.5 Selector performance
 
 A topic which is — with the quality of today's browsers — more interesting than it is important, is selector performance. That is to say, how quickly a browser can match the selectors your write in CSS up with the nodes it finds in the DOM.
 
@@ -2600,7 +2532,7 @@ This is just one reason why nesting with preprocessors is often a false economy;
 By using a child selector (e.g. `.foo > .bar {}`) we can make the process much more efficient, because this only requires the browser to look one level higher in the DOM, and it will stop regardless of whether or not it found a match.
 
 
-### The key selector
+#### The key selector
 
 Because browsers read selectors right-to-left, the rightmost selector is often critical in defining a selector's performance: this is called the key selector.
 
@@ -2621,7 +2553,7 @@ As well as their own specific issues, nesting, qualifying, and poor selector int
 
 
 
-## 7.6 Further reading
+### 7.6 Further reading
 
 * [Shoot to kill; CSS selector intent](http://csswizardry.com/2012/07/shoot-to-kill-css-selector-intent/)
 * ['Scope' in CSS](http://csswizardry.com/2013/05/scope-in-css/)
@@ -2629,3 +2561,16 @@ As well as their own specific issues, nesting, qualifying, and poor selector int
 * [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 * [Naming UI components in OOCSS](http://csswizardry.com/2014/03/naming-ui-components-in-oocss/)
 * [Writing efficient CSS selectors](http://csswizardry.com/2011/09/writing-efficient-css-selectors/)
+
+
+
+---
+
+
+## Acknowledgements
+
+This style guide draws heavily on the work of Harry Roberts’ work at [CSS guidelines: High-level advice and guidelines for writing sane, manageable, scalable CSS](http://cssguidelin.es/).
+
+As Roberts says, "These guidelines are opinionated, but they have been repeatedly tried, tested, stressed, refined, broken, reworked, and revisited over a number of years on projects of all sizes."
+
+This has been used with Roberts' permission: "There isn’t an actual license in place for CSS Guidelines (if there was I suppose it would be Apache 2) but take this in writing as permission to slice and dice it to for your needs, provided there is reasonable attribution :)"
