@@ -73,7 +73,6 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
         - [3. Modules](#3-modules)
         - [4. State](#4-state)
         - [5. Theme](#5-theme)
-    - [5.2 Further reading](#52-further-reading)
 - [6. Naming conventions](#6-naming-conventions)
     - [6.1 Naming](#61-naming)
     - [6.2 Naming UI components](#62-naming-ui-components)
@@ -1431,7 +1430,7 @@ As Jonathan Snook says in [Scalable and Modular Architecture for CSS](https://sm
 > onto the end of a single file would make finding things more difficult and 
 > would be very confusing for anybody else working on the project.
 
-We use Jonathan Snook's Scalable and Modular Architecture for CSS, aka SMACSS, to inform how to organise the rules within a CSS (or Sass) file.
+We use Jonathan Snook's Scalable and Modular Architecture for CSS (SMACSS), to inform how to organise the rules within a CSS (or Sass) file.
 
 
 ## 5.1 Categorise your CSS rules
@@ -1472,9 +1471,10 @@ These are more often than not simple element selectors (e.g. `a`, `h1`, `p`) but
 An example might look like:
 
 ```
-/* ==========================================================================
+/* =========================================
    1. Base
-   ========================================================================== */
+   =========================================
+*/
 
 html,
 body,
@@ -1506,12 +1506,12 @@ CSS resets (which are designed to strip out, or standardise, across all browsers
 
 If you use a separate CSS reset (for example, Eric Meyer's [Reset CSS](http://meyerweb.com/eric/tools/css/reset/ "CSS Tools: Reset CSS") or [Normalize](http://necolas.github.io/normalize.css/ "A modern, HTML5-ready alternative to CSS resets")) then you should include this at the top of the base section before any of your own rules.
 
-Any CSS reset / normalise code should be clearly commented indicating its version number and source URL.
+Any CSS reset or normalise code should be clearly commented indicating its version number and source URL.
 
 
 #### Frameworks
 
-CSS frameworks, such as [Bootstrap](http://getbootstrap.com/) and [Foundation](http://foundation.zurb.com/), should NOT be regarded as base rules as they style far more than simple elements and often have more classes than a perpetual student.
+CSS frameworks, such as [Bootstrap](http://getbootstrap.com/) and [Foundation](http://foundation.zurb.com/), SHOULD NOT be regarded as base rules as they style far more than simple elements and often have more classes than a perpetual student.
 
 If you need to include frameworks (whole or in part) within your stylesheet — which you may if you are `@import`-ing from numerous sources into a Sass file for production — then you should precede the base section with a section zero called `0. Framework` and include comments clearly indicating its version number and source URL.
 
@@ -1562,7 +1562,7 @@ State rules describe how our layouts or modules will look when in a particular s
 But the state may also refer to how something looks on a larger or smaller screen, or how an element might appear in a different view such as on the homepage.
 
 
-#### Prefix classes with -is
+#### Prefix classes with `.is-`
 
 Jonathan Snook's idea is that "states are generally applied to the same element as a layout rule or applied to the same element as a base module class." 
 
@@ -1587,14 +1587,14 @@ The answer to this question is worth quoting in full:
 
 "For example, clicking on a tab will activate that tab. Therefore, an is-active or is-tab-active class is appropriate. Clicking on a dialog close button will hide the dialog. Therefore, an is-hidden class is appropriate."
 
-[Source](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
+Source: [SMACSS: Type state](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
-#### Using !important
+#### Using `!important`
 
 States should be stand-alone and built from one single class selector, e.g. `.is-selected`.
 
-Use of `!important` is allowed if required, but hang back from applying it unless it is absolutely necessary.
+Use of `!important` is allowed if required, but do not from apply it unless it is absolutely necessary.
 
 
 #### Further reading
@@ -1609,7 +1609,7 @@ Use of `!important` is allowed if required, but hang back from applying it unles
 
 Theme rules define the colours and images of your web application or site.
 
-Separating out theme rules allows you to very easily reuse layouts and modules across a site but apply different 'skins' to each. For example, undergraduates, postgraduates and staff pages might have the same basic layout and functionality but use different colour palettes.
+Separating out theme rules allows you to very easily reuse layouts and modules across a site but apply different 'skins' to each. For example, the first version of the undergraduates, postgraduates and staff pages had the same basic layout and functionality but used different colour palettes.
 
 It is probably self-evident that not all colour and image information needs to sit within a theme section. It can be helpful to define default colour scheme for a layout or module within their respective sections and then use theme CSS to override these later, e.g.
 
@@ -1642,9 +1642,7 @@ or you may prefer to separate these out completely. The context should determine
 ```
 
 
-
-
-## 5.2 Further reading
+#### Further reading
 
 * [SMACSS: Theme rules](https://smacss.com/book/type-theme "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
