@@ -1,34 +1,43 @@
 # JavaScript style guide
 
-version 0.2
-Last updated: Tuesday 29 September 2015
+version 0.3
+Last updated: Tuesday 5 July 2016
 
 <!-- MarkdownTOC -->
 
 - [Introduction](#introduction)
-- [Naming conventions](#naming-conventions)
-- [Semicolon](#semicolon)
-- [Scope](#scope)
-- [Spaces vs Tabs](#spaces-vs-tabs)
-- [Blocks](#blocks)
-- [Line length](#line-length)
-- [Don't use `eval`.](#dont-use-eval)
-- [Multiline Function arguments](#multiline-function-arguments)
-- [Binary and Ternary Operators](#binary-and-ternary-operators)
-- [Quoting strings](#quoting-strings)
-- [JSLint Configuration](#jslint-configuration)
-- [References](#references)
+- [1. General](#1-general)
+  - [Naming conventions](#naming-conventions)
+  - [Semicolon](#semicolon)
+  - [Scope](#scope)
+  - [Comments](#comments)
+  - [Avoid mixing technology](#avoid-mixing-technology)
+  - [Don't use `eval`](#dont-use-eval)
+- [2. Formatting](#2-formatting)
+  - [Spaces vs Tabs](#spaces-vs-tabs)
+  - [Blocks](#blocks)
+  - [Line length](#line-length)
+  - [Multiline Function arguments](#multiline-function-arguments)
+  - [Binary and Ternary Operators](#binary-and-ternary-operators)
+  - [Quoting strings](#quoting-strings)
+- [3. Configuration & references](#3-configuration--references)
+  - [JSLint Configuration](#jslint-configuration)
+  - [References](#references)
 
 <!-- /MarkdownTOC -->
 
 
-## Introduction
+# Introduction
 
 We use JSLint as a standard specification for our code. That implies some decisions about style. This document highlights some of the more important ramifications of JSLint and any additional stylistic requirements we have. See the full documentation [JSLint][jslint] for more information.
 
 TODO: Merge in style guide advice from Douglas Crockford (author of JSLint) http://javascript.crockford.com/code.html
 
+# 1. General 
+
 ## Naming conventions
+
+We call things by their name. Good variable and function names should be easy to understand and tell you what is going on — not more and not less. 
 
 <sub>Based on [Google JS Style Guide][googlestyle].</sub>
 
@@ -78,8 +87,71 @@ Every statement should be followed by a semicolon except for `for`, `function`, 
 
 <sub>From [JSLint][].</sub>
 
-Declare all variables at the top of the function with one `var` statement.
+Declare all variables at the top of the function with one `var` statement. They should be listed in alphabetical order if possible.
+```
+var currentStudentID;
+var graduationYear;
+var orientation;
+```
 
+## Comments
+
+Comment as much as needed but not more. Comments are your messages to other developers (and yourself, if you come back to your code after several months working on something else). We prefer to use the `/* */` rather than the `//`.
+```
+module = function(){
+  var current = null;
+  function init(){
+  };
+/*
+  function show(){
+    current = 1;
+  };
+  function hide(){
+    show();
+  };
+*/
+  return{init:init,show:show,current:current}
+}();
+```
+
+## Avoid mixing technology
+
+While it is possible to create everything you need in a document using JavaScript and the DOM it is not necessarily the most effective way of doing so. We could write CSS inline on a DOM element, but it would be far better to apply a class and let the styling be handled in the style sheet.
+
+This
+```
+var f = document.getElementById('mainform');
+var inputs = f.getElementsByTagName('input');
+for(var i=0,j=inputs.length;i<j;i++){
+  if(inputs[i].className === 'mandatory' &&
+     inputs[i].value === ''){
+    inputs[i].className += ' error';
+  }
+}
+```
+
+Not this
+```
+var f = document.getElementById('mainform');
+var inputs = f.getElementsByTagName('input');
+for(var i=0,j=inputs.length;i<j;i++){
+  if(inputs[i].className === 'mandatory' &&
+     inputs[i].value === ''){
+    inputs[i].style.borderColor = '#f00';
+    inputs[i].style.borderStyle = 'solid';
+    inputs[i].style.borderWidth = '1px';
+  }
+}
+```
+
+
+## Don't use `eval`
+
+<sub>From [JSLint][].</sub>
+
+`eval` is probably the most misused feature of JavaScript, because there is almost always a better way to achieve the same thing. See the [JSLint article](https://jslinterrors.com/eval-is-evil) for more information.
+
+# 2. Formatting
 
 ## Spaces vs Tabs
 
@@ -98,25 +170,25 @@ Use explicit blocks for `if`, `while`, `do` and `for` statements. Always start y
 ```
 // Good
 if (condition) {
-  // ...
+   ...
 }
 else {
-  // ...
+   ...
 }
 
 // Not so good
 if (condition) {
-  // ...
+   ...
   } else {
-    // ...
+     ...
   }
 
-  // Bad
-  if (condition) statement;
+// Bad
+if (condition) statement;
 
-  // Bad
-  if (condition) statement;
-  else statement2;
+// Bad
+if (condition) statement;
+else statement2;
 
 ```
 
@@ -135,10 +207,6 @@ Each line of text in your code should be at most 80 characters long.
 
 * Statements with a long URL may exceed 80 characters.
 
-## Don't use `eval`.
-
-<sub>From [JSLint][].</sub>
-
 ## Multiline Function arguments
 
 <sub>From [Google JS Style Guide][googlestyle].</sub>
@@ -154,9 +222,9 @@ bleModelEventHandlerProxy, artichokeDescriptorAdapterIterator) {
 // ...
 
 
- Four-space, one argument per line.  Works with long function names,
- survives renaming, and emphasizes each argument.
-og.foo.bar.doThingThatIsVeryDifficultToExplain = function(
+// Four-space, one argument per line.  Works with long function names,
+// survives renaming, and emphasizes each argument.
+goog.foo.bar.doThingThatIsVeryDifficultToExplain = function(
 veryDescriptiveArgumentNumberOne,
 veryDescriptiveArgumentTwo,
 tableModelEventHandlerProxy,
@@ -171,8 +239,8 @@ bleModelEventHandlerProxy, artichokeDescriptorAdapterIterator) {
 // ...
 
 
- Parenthesis-aligned, one argument per line.  Emphasizes each
- individual argument.
+// Parenthesis-aligned, one argument per line.  Emphasizes each
+// individual argument.
 nction bar(veryDescriptiveArgumentNumberOne,
 veryDescriptiveArgumentTwo,
 tableModelEventHandlerProxy,
@@ -218,7 +286,7 @@ Single-quotes (') are preferred to double-quotes ("). This is helpful when creat
 var msg = 'This is some <a href="#url">HTML</a>';
 ```
 
-
+# 3. Configuration & references
 
 ## JSLint Configuration
 
