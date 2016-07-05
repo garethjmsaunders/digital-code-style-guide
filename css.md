@@ -1017,53 +1017,52 @@ TODO: Add release date?
  * normal sentences with punctuation.
  *
  * @project     Project name
- * @version     1.0
- * @author      gjms1
- * @copyright   2014
- * @license     Apache 2.0
+ * @version     1.2.0 2016-07-04
+ * @author      Gareth J M Saunders <gjms1@st-andrews.ac.uk>
+ * @copyright   2016
+ * @license     http://opensource.org/licenses/gpl-license.php, GNU Public License
 */
 ```
 
 
 ####@project
-Use this tag to describe the name of the project; in other words, what this CSS file is being used for.
+Use this tag MUST be used to describe the name of the project; in other words, what this CSS file is being used for.
 
 
 ####@version
-Can be used on modules and elements to show the revision they are currently in.    
-Example:
+MUST be used on modules and elements to show the current revision. Use version numbering guidelines from [semantic versioning](http://semver.org/), which employs a MAJOR.MINOR.PATCH format.
 
-    @version 12
+    @version 1.2.0
 
-You may as well append a date after the version number.
+You MAY also append a date after the version number.
 
-    @version: 12 2011-10-26
+    @version: 1.2.0 2016-07-04
 
 
 ####@author
-Use this tag to define an author for an element. It can either be only the authors' name, or append a connection in <> brackets. Example:
+This tag MAY be used to define an author for an element. It can either be only the authors' name, or append a connection in <> brackets. Example:
 
     @author Gareth J M Saunders <gjms1@st-andrews.ac.uk>
 
 The following connections are recognized: URL (http://example.com), email (hello@example.com), Twitter handle (@example) 
-The tag can be used multiple times.
+The tag MAY be used multiple times.
 
 
 ####@copyright
 This tag is used to apply copyright information to the CSS document.    
-It can be used on the project definition block. Example:
+It MAY be used on the project definition block. Example:
 
-    @copyright Copyright (c) 2015 University of St Andrews
+    @copyright Copyright (c) 2016 University of St Andrews
 
 
 ####@license
-This displays a hyperlink to a url for a license. Can be used in the project definition block. It is made of two parts: the URL and a title, separated by comma. Example:
+This displays a hyperlink to a url for a license. MAY be used in the project definition block. It is made of two parts: the URL and a title, separated by comma. Example:
 
     @license http://opensource.org/licenses/gpl-license.php, GNU Public License
 
 
 ####@since
-Can be used on modules and elements to show in which revision they have been implemented. Example:
+MAY be used on modules and elements to show in which revision they have been implemented. Example:
 
     @since 3.0
 
@@ -1137,7 +1136,7 @@ TODO: What about prefixing the names with a character, e.g. $ from http://csswiz
 
 ```
 /* ==========================================================================
-   Section comment block
+   SECTION
    ========================================================================== */
 
 
@@ -1147,9 +1146,12 @@ TODO: What about prefixing the names with a character, e.g. $ from http://csswiz
 
 
 
+
 /* ==========================================================================
    MODULES
    ========================================================================== */
+
+
 
 
 /* ==========================================================================
@@ -1165,7 +1167,7 @@ TODO: What about prefixing the names with a character, e.g. $ from http://csswiz
 
    @TODO Add rounded corners - looks nicer.
    @package content
-   @since 2   
+   @since 2.0.0
    */
 ```
 
@@ -1194,7 +1196,7 @@ c-
 
 ```
 *------------------------------------
-    Introducional area
+    Introducion
     This area is used right underneath the page head menu.
     It increases the color contrast and font size of the child elements (h1, p).
     The intro area is a bit darker than the rest of the page to make it pop out.
@@ -1206,7 +1208,7 @@ c-
 ```
 
 
-The title of the section is prefixed with a hash () symbol to allow us to perform more targeted searches (e.g. grep, etc.): instead of searching for just SECTION-TITLE—which may yield many results—a more scoped search of SECTION-TITLE should return only the section in question.
+The title of the section is prefixed with a hash (#) symbol to allow us to perform more targeted searches (e.g. grep, etc.): instead of searching for just SECTION-TITLE, which may yield many results, a more scoped search of SECTION-TITLE should return only the section in question.
 
 Leave a carriage return between this title and the next line of code (be that a comment, some Sass, or some CSS).
 
@@ -1256,7 +1258,7 @@ Needless to say, magic numbers are a plague and should be avoided at all costs. 
 
 See also
 
-* [Sass styleguide CSS ](http://sass-guidelin.es/#magic-numbers)
+* [Sass guidelines CSS ](http://sass-guidelin.es/#magic-numbers)
 * [Magic numbers in CSS](http://css-tricks.com/magic-numbers-in-css/)
 
 
@@ -1367,7 +1369,7 @@ Oftentimes we want to comment on specific declarations (i.e. lines) in a ruleset
 }
 ```
 
-These types of comment allow us to keep all of our documentation in one place whilst referring to the parts of the ruleset to which they belong.
+These types of comment allow us to keep all of our documentation in one place while referring to the parts of the ruleset to which they belong.
 
 @TODO From Trello: If you find an answer online (read: on Stack Overflow) then add the link to a comment so future people know what’s up.
 
@@ -1376,7 +1378,7 @@ These types of comment allow us to keep all of our documentation in one place wh
 
 ## 4.9 Preprocessor comments
 
-With most—if not all—preprocessors, we have the option to write comments that will not get compiled out into our resulting CSS file. As a rule, use these comments to document code that would not get written out to that CSS file either. If you are documenting code which will get compiled, use comments that will compile also. For example, this is correct:
+With most — if not all — preprocessors, we have the option to write comments that will not get compiled out into our resulting CSS file. As a rule, use these comments to document code that would not get written out to that CSS file either. If you are documenting code which will get compiled, use comments that will compile also. For example, this is correct:
 
 ```
 // Dimensions of the @2x image sprite:
@@ -1395,9 +1397,7 @@ $sprite-height: 212px;
 }
 ```
 
-We have documented variables—code which will not get compiled into our CSS file—with preprocessor comments, whereas our CSS—code which will get compiled into our CSS file—is documented using CSS comments. This means that we have only the correct and relevant information available to us when debugging our compiled stylesheets.
-
-
+We have documented variables (code which will not get compiled into our CSS file) with preprocessor comments, whereas our CSS (code which will get compiled into our CSS file) is documented using CSS comments. This means that we have only the correct and relevant information available to us when debugging our compiled stylesheets.
 
 TODO: HTML in CSS
 http://csswizardry.com/2012/04/my-html-css-coding-style/
