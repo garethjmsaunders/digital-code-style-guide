@@ -920,7 +920,7 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
 
 # 4. Comments
 
-As Harry Roberts points out in his [CSS Guidelines](http://cssguidelin.es/) document: "CSS needs more comments".
+As Harry Roberts points out in his [CSS guidelines](http://cssguidelin.es/): "CSS needs more comments".
 
 
 ## 4.1 CSS needs more comments
@@ -938,7 +938,7 @@ As CSS is something of a declarative language that doesn't really leave much of 
 *   what styles something might pass on (intentionally or otherwise);
 *   where the author intended a piece of CSS to be used.
 
-This doesn't even take into account some of CSS's many quirks—such as various sates of `overflow` triggering block formatting context, or certain transform properties triggering hardware acceleration—that make it even more baffling to developers inheriting projects.
+This doesn't even take into account some of CSS's many quirks, such as various sates of `overflow` triggering block formatting context, or certain transform properties triggering hardware acceleration—that make it even more baffling to developers inheriting projects.
 
 As a result of CSS not telling its own story very well, it is a language that really does benefit from being heavily commented.
 
@@ -960,7 +960,7 @@ As a rule, you should comment anything that isn't immediately obvious from the c
 * the order of CSS declarations;
 * the thought process behind a way of doing things.
 
-That is to say, there is no need to tell someone that `color: red;` will make something red, but if you're using `overflow: hidden;` to clear floats—as opposed to clipping an element's overflow—this is probably something worth documenting.
+That is to say, there is no need to tell someone that `color: red;` will make something red, but if you're using `overflow: hidden;` to clear floats — as opposed to clipping an element's overflow — this is probably something worth documenting.
 
 It should go without saying, **keep comments up-to-date when code changes**.
 
@@ -1000,7 +1000,7 @@ Every CSS file MUST have the following comment blocks:
 
 All CSS files should begin with the following standard template to describe the file. This follows the CSSdoc conventions for commenting.
 
-See [CSS Automatic Documentation](https://github.com/Paratron/CSSdoc)
+See [CSS automatic documentation](https://github.com/Paratron/CSSdoc)
 
 At least the version number should be updated every time you make a change, especially once the file goes into production.
 
