@@ -3,6 +3,8 @@
 Version 0.10
 Last updated: Monday 4 July 2016
 
+The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
+
 <!-- MarkdownTOC depth=3 -->
 
 - [1. Introduction](#1-introduction)
