@@ -8,9 +8,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 <!-- MarkdownTOC depth=3 -->
 
 - [1. Introduction](#1-introduction)
-    - [1.1 The importance of a style guide](#11-the-importance-of-a-style-guide)
-    - [1.2 When to be inconsistent](#12-when-to-be-inconsistent)
-    - [1.3 Write valid CSS](#13-write-valid-css)
+    - [1.1 Write valid CSS](#11-write-valid-css)
         - [Vendor prefixes](#vendor-prefixes)
     - [1.4 Acknowledgements](#14-acknowledgements)
 - [2. File format](#2-file-format)
@@ -113,62 +111,8 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 # 1. Introduction
 
-These CSS guidelines are applicable to all websites and web applications created and managed by and for the University of St Andrews under the st-andrews.ac.uk domain.
 
-
-## 1.1 The importance of a style guide
-
-As Harry Roberts writes in [CSS Guidelines](http://cssguidelin.es/#introduction):
-
-"CSS is not a pretty language. While it is simple to learn and get started with, it soon becomes problematic at any reasonable scale. There isn't much we can do to change how CSS works, but we can make changes to the way we author and structure it.
-
-"In working on large, long-running projects, with dozens of developers of differing specialities and abilities, it is important that we all work in a unified way in order to, among other things:
-
-*   **keep stylesheets maintainable**;
-*   **keep code transparent, sane, and readable**;
-*   **keep stylesheets scalable**.
-
-"There are a variety of techniques we must employ in order to satisfy these goals."
-
-This CSS style guide contains recommendations and approaches that will help us to acheive these goals.
-
-Roberts continues, "a coding style guide (note, not a visual style guide) is a valuable tool for teams who:
-
-*   build and maintain products for a reasonable length of time;
-*   have developers of differing abilities and specialisms;
-*   have a number of different developers working on a product at any
-    given time;
-*   on-board new staff regularly;
-*   have a number of codebases that developers dip in and out of.
-
-"While style guides are typically more suited to product teams—large codebases on long-lived and evolving projects, with multiple developers contributing over prolonged periods of time—all developers should strive for a degree of standardisation in their code.
-
-"A good style guide, when well followed, will:
-
-*   **set the standard for code quality across a codebase**;
-*   **promote consistency across codebases**;
-*   **give developers a feeling of familiarity across codebases**;
-*   **increase productivity**.
-
-"Style guides should be learned, understood, and implemented at all times on a project which is governed by one, and any deviation must be fully justified."
-
-Source: [CSS guidelines](http://cssguidelin.es/#the-importance-of-a-styleguide "Harry Roberts")
-
-
-
-
-## 1.2 When to be inconsistent
-
-While consistency is important, equally important is knowing when to be inconsistent—sometimes the style guide just doesn’t apply.
-
-Ask yourself if applying the rule would make the code less readable, even for someone who is used to reading code that follows the rules. When in doubt use your best judgment, look at other examples, and decide what looks best.
-
-The ground rule is simple: **readability is preferential to strict adherence to rules**.
-
-
-
-
-## 1.3 Write valid CSS
+## 1.1 Write valid CSS
 
 Ideally, all CSS code should validate to the latest CSS specification for which it is written.
 
