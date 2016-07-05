@@ -1,6 +1,6 @@
 ## CSS standards guide
 
-Version 0.10
+Version 0.11.0
 Last updated: Monday 4 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -15,10 +15,10 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [2.3 Use LF \(Unix\) line endings](#23-use-lf-unix-line-endings)
     - [2.4 Filenames](#24-filenames)
     - [2.5 Link to external CSS files](#25-link-to-external-css-files)
-- [3. Syntax and formatting](#3-syntax-and-formatting)
+- [3. Formatting and syntax](#3-formatting-and-syntax)
     - [3.1 Anatomy of a ruleset](#31-anatomy-of-a-ruleset)
     - [3.2 Line width \(80 characters\)](#32-line-width-80-characters)
-    - [3.3 Block style](#33-block-style)
+    - [3.3 General formatting](#33-general-formatting)
     - [3.4 Meaningful whitespace](#34-meaningful-whitespace)
     - [3.5 Colours](#35-colours)
     - [3.6 Syntax](#36-syntax)
@@ -216,7 +216,7 @@ Avoid using embedded styles which control the style of only one page; also avoid
 ---
 
 
-## 3. Syntax and formatting
+## 3. Formatting and syntax
 
 One of the simplest forms of a style guide is a set of rules regarding syntax and formatting. Having a standard way of writing CSS means that code will always look and feel familiar to all members of the team: consistency is key.
 
@@ -229,24 +229,19 @@ Source: [CSS guidelines](http://cssguidelin.es/#syntax-and-formatting "Harry Rob
 
 Before we discuss how we write out our rulesets, let's first familiarise ourselves with the relevant terminology.
 
-Every CSS rule has two parts: 
-
-1.   a selector (or selectors).
-2.   a declaration block, containing one or more declarations.
-
-This is a RULE:
+This is a CSS rule:
 
 ```
 h1, h2,
 .foo, .foo-bar,
-## baz {
+#baz {
     background-color: green;
     color: red;
     display: block;
 }
 ```
 
-These are SELECTORS:
+Every CSS rule comprises two parts: a selector (or selectors),
 
 ```
 h1, h2,
@@ -254,7 +249,7 @@ h1, h2,
 #baz
 ```
 
-This is a DECLARATION BLOCK:
+and a declaration block, containing one or more declarations.
 
 ```
 {
@@ -264,16 +259,7 @@ This is a DECLARATION BLOCK:
 }
 ```
 
-This is a DECLARATION:
-
-```
-    background-color: green;
-```
-
 Each declaration is a pairing of a property name and a property value separated by a colon, and concluding with a semi-colon.
-
-Property-name     `background-color`
-Property-value    `green`
 
 
 
@@ -299,11 +285,38 @@ Do not worry about unavoidable exceptions to this rule, such as URLs, or gradien
 
 
 
-### 3.3 Block style
+### 3.3 General formatting
 
-#### Multi-line CSS
+Consider this example rule:
 
-**CSS should be written across multiple lines**, except in very specific circumstances. There are a number of benefits to this:
+```
+.foo, .foo-bar,
+.baz {
+    background-color: #ed1b34;
+    color: white;
+    display: block;
+}
+```
+
+*   Related selectors SHOULD be on the same line; unrelated selectors SHOULD be on new lines.
+*   The opening brace (`{`) MUST be on the same line as the final selector.
+*   There SHOULD be a space before the opening brace (`{`).
+*   Each declaration is on its own new line; the first declaration is on a new line after the opening brace (`{`);
+*   Properties and values MUST be on the same line.
+*   There MUST be NO SPACE between the property-name and colon (`:`).
+*   There MUST be one space after the property–value delimiting colon (`:`).
+*   Each declaration MUST be indented by four (4) spaces;
+*   A trailing semi-colon (`;`) MUST be included after the last declaration;
+    this enables authors to add new declarations after it without the 
+    possibility of missing colons introducing errors.
+*   The closing brace (`}`) must be on its own new line using the same level of indentation as its opening selectors.
+
+Source: [CSS guidelines](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
+
+
+#### Multi-line vs single-line
+
+CSS should be written across multiple lines, except in very specific circumstances. There are a number of benefits to this:
 
 *   A reduced chance of merge conflicts, because each piece of functionality
     exists on its own line.
@@ -337,104 +350,21 @@ Source: [CSS guidelines](http://cssguidelin.es/#multi-line-css "Harry Roberts")
 
 #### Indent with four (4) spaces, no tabs
 
-**The purpose of indentation is to improve the legibility of the code** and optionally to also understand the structure of the HTML documents being styled.
+The purpose of indentation is to improve the legibility of the code.
 
-The debates about tabs-vs-spaces and two-vs-four-vs-eight spaces are much older than CSS development. What matters though are:
-
-*   Consistency in documents and across projects
-*   Code legibility
-
-With this in mind we recommend:
-
-*    **Indent declarations MUST be created with four (4) spaces**.
-*    **Tabs and spaces MUST NEVER be mixed**. Code indented with a mixture
+*    Indent declarations MUST be created with four (4) spaces.
+*    Tabs and spaces MUST NEVER be mixed. Code indented with a mixture
      of tabs and spaces should be converted to using spaces only; if your coding editor allows, set the option to convert tabs to spaces.
-
-As well as intending individual declarations, **you MAY indent entire related rulesets to signal their relation to one another**, for example:
-
-```
-.foo {
-    // code
-}
-
-    .foo__bar {
-        // code
-    }
-
-        .foo__baz {
-            // code
-        }
-```
-
-By doing this, a developer can see at a glance that `.foo__baz {}` lives inside `.foo_bar {}` lives inside `.foo {}`.
-
-This quasi-replication of the DOM tells developers a lot about where classes are expected to be used without them having to refer to a snippet of HTML.
 
 
 ##### Indenting Sass
-Sass provides nesting functionality. That is to say, by writing this:
 
-```
-.foo {
-    color: red;
-
-    .bar {
-        color: blue;
-    }
-
-}
-```
-
-…we will be left with this compiled CSS:
-
-```
-.foo { color: red; }
-.foo .bar { color: blue; }
-```
-
-When indenting Sass, we stick to the same four (4) spaces, and we also leave a blank line before and after the nested ruleset.
-
-N.B. Nesting in Sass should be avoided wherever possible. See section 7.3 on specificity for more details.
-
-
-#### Colons and semicolons, braces and spaces
-
-Consider this example rule:
-
-```
-.foo, .foo-bar,
-.baz {
-    background-color: green;
-    color: red;
-    display: block;
-}
-```
-
-Here you can see we have:
-
-*   Related selectors on the same line; unrelated selectors on new lines.
-*   The opening brace ({) on the same line as the last selector.
-*   A space before the opening brace ({).
-*   Each declaration on its own new line; the first declaration on a new line 
-    after the opening brace ({);
-*   Properties and values on the same line.
-*   No space between the property-name and colon (:).
-*   A space after the property–value delimiting colon (:).
-*   Each declaration indented by four (4) spaces;
-*   A trailing semi-colon (;) MUST be included after our last declaration; this
-    enables authors to add new declarations after it without the possibility of
-    missing colons introducing errors.
-*   The closing brace (}) must be on its own new line using the same level of 
-    indentation as its opening selectors.
-
-This format seems to be the largely universal standard, except for variations in number of spaces, many developers prefer two (2).
-
-Source: [CSS guidelines](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
+Nesting in Sass SHOULD be avoided wherever possible. However, if used stick to the same four (4) spaces rule, and leave a blank line before and after the nested ruleset.
 
 
 #### List declarations in alphabetical order
 
-Multiple selectors should be listed in alphabetical order as this makes it much easier to find declaration blocks.
+Multiple selectors SHOULD be listed in alphabetical order. This makes it much easier to find declaration blocks.
 
 For example:
 
@@ -562,14 +492,6 @@ For example:
     .bar__foo {}
 ```
 
-There should never be a scenario in which two rulesets do not have an empty line between them. This would be incorrect:
-
-```
-.foo {}
-    .foo__bar {}
-.foo--baz {}
-```
-
 Source: [CSS guidelines](http://cssguidelin.es/#meaningful-whitespace)
 
 
@@ -577,16 +499,16 @@ Source: [CSS guidelines](http://cssguidelin.es/#meaningful-whitespace)
 
 ### 3.5 Colours
 
-#### Use the approved St Andrews palette of colours
+#### Use the approved University of St Andrews palette of colours
 
-Unless you have a very good reason not to, you must use the approved palette of University of St&nbsp;Andrews colours.
+Unless you have a very good reason not to, you MUST use the approved palette of University of St&nbsp;Andrews colours. Web colours are defined in the [digital pattern library](https://www.st-andrews.ac.uk/~wwwtest/dpl/0.5.2/index.html).
 
 
 #### Colour keywords - use only black and white
 
 The [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/#html4) specification defines 16 basic colour keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
 
-You MUST NOT use colour keywords except `black` and `white`; although consider this article [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor. Do not use the other values, except in debug files.
+You MUST NOT use colour keywords except `black` and `white`; although consider this article [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor. Other colour keywords MAY be used in debug files.
 
 
 #### Prefer RGB over hex
@@ -595,19 +517,15 @@ You SHOULD use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there MU
 
 The reason for preferring RGB is three-fold:
 
-1.   Colours in RGB format are easier to guess.
+1.   Colours in RGB format are easier to read and estimate the colour.
 2.   It is quicker to add transparency if required (see alpha transparency)
      below.
 3.   RGB format is more widely supported in graphic design applications.
 
-To expand on the first point, while colours on the web have traditionally been specified using hex codes (e.g. St Andrews Blue is `#00539b`) it is not as easy to estimate the colour just by looking at the code, unless you can convert hex to decimal in your head. For example, at a glance `rgb(0, 83, 155)` has about 30% green and 60% blue so you may safely estimate that this is dark blue.
-
-There is a current trend to prefer HSL over RGB as it allows you to more easily make them lighter or darker. With a fixed palette, such as ours, we don't need this.
-
 
 #### Use short hex codes
 
-If you must use hex codes: shorten values where possible (`#fff` instead of `#ffffff`) and use lowercase alphabetical values (`#fff` not `#FFF`).
+If you must use hex codes, you SHOULD shorten values where possible (`#fff` instead of `#ffffff`), and use lowercase alphabetical values (`#fff` not `#FFF`).
 
 
 #### Alpha transparency
@@ -624,9 +542,9 @@ Specifying colours in `rgb(r, g, b)` format also makes it much easier to add alp
 }
 ```
 
-Alpha values below one MUST always begin with a zero (`0.75` rather than `.75`); without a zero it can trigger errors in CSS pre-processors.
+Alpha values smaller than 1 MUST always begin with a zero (`0.75` rather than `.75`); without a zero it can trigger errors in CSS pre-processors.
 
-If the alpha value is 1 then simply use `rgb(r, g, b)` rather than `rgba(r, g, b, 1);`.
+If the alpha value is 1 then you SHOULD simply use `rgb(r, g, b)` rather than `rgba(r, g, b, 1);`.
 
 
 
@@ -635,9 +553,9 @@ If the alpha value is 1 then simply use `rgb(r, g, b)` rather than `rgba(r, g, b
 
 #### Use single quotation marks
 
-In CSS, quotation marks are optional, however, languages that do not require strings to be quoted are a minority. **Always use single quotes** unless there is a compelling reason to not use, for example to aid clarity.
+In CSS, quotation marks are optional, however, languages that do not require strings to be quoted are a minority. You MUST always use single quotation marks unless there is a compelling reason to not use, for example to aid clarity.
 
-It is preferable to use single quotes for CSS and double-quotes for HTML so that you may easily drop CSS code into inline styles, e.g.
+It is preferable to use single quotes for CSS and double-quotes for HTML so that you may easily drop CSS code into inline styles if required, e.g.
 
 ```
 <div style="background-image: url('img.gif');"> [...] </div>
@@ -646,7 +564,7 @@ It is preferable to use single quotes for CSS and double-quotes for HTML so that
 Not that you should be using inline CSS, you understand!
 
 
-##### Font-family
+#### Font-family
 
 Use single-quotes in a `font-family` declaration (or in the shorthand `font` declaration) when listing a font name that has spaces in it, or if the font name includes non-alphanumeric characters such as the symbols '#' or '$'.
 
@@ -665,9 +583,9 @@ h2 {
 ```
 
 
-##### URLs
+#### URLs
 
-**Do not use quotations marks in URL values.**
+You SHOULD NOT use quotation marks in URL values.
 
 ```
 @embed url(http://www.st-andrews.ac.uk/code/framework.css);
@@ -710,7 +628,7 @@ selector {
 }
 
 div {
-    background: rgb(0, 83, 155) url('img/bg.png') no-repeat fixed left bottom;
+    background: rgb(0, 83, 155) url(img/bg.png) no-repeat fixed left bottom;
 }
 ```
 
@@ -795,14 +713,12 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
 
 ## 4. Comments
 
-As Harry Roberts points out in his [CSS guidelines](http://cssguidelin.es/): "CSS needs more comments".
+As Harry Roberts remarks in his [CSS guidelines](http://cssguidelin.es/): "CSS needs more comments".
 
 
 ### 4.1 CSS needs more comments
 
 The cognitive overhead of working with CSS is huge. With so much to be aware of, and so many project-specific nuances to remember, the worst situation most developers find themselves in is being the-person-who-didn't-write-this-code. Remembering your own classes, rules, objects, and helpers is manageable to an extent, but anyone inheriting CSS barely stands a chance.
-
-**CSS needs more comments.**
 
 As CSS is something of a declarative language that doesn't really leave much of a paper-trail, it is often hard to discern—from looking at the CSS alone:
 
@@ -824,7 +740,7 @@ Source: [CSS Guidelines](http://cssguidelin.es/#commenting "Harry Roberts")
 
 ### 4.2 General advice
 
-Write comments as complete, grammatical sentences with an initial capital and a full-stop at the end. (The only exception to initial capital is class and ID identifiers.)
+Write comments as **complete, grammatical sentences** with an initial capital and a full-stop at the end. (The only exception to initial capital is class and ID identifiers.)
 
 As a rule, you should comment anything that isn't immediately obvious from the code alone. These could be explaining:
 
@@ -857,7 +773,7 @@ If you are using [Sass](http://sass-lang.com/) please take note of the following
 #### Further reading
 
 * [Comments: /* */ and //](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments)
-* [Commenting on Sass Guidelines](http://sass-guidelin.es/#commenting)
+* [Commenting on Sass guidelines](http://sass-guidelin.es/#commenting)
 
 
 
@@ -873,25 +789,17 @@ Every CSS file MUST have the following comment blocks:
 
 #### File information
 
-All CSS files should begin with the following standard template to describe the file. This follows the CSSdoc conventions for commenting.
+All CSS files should begin with the following standard template to describe the file. This follows the [CSSdoc conventions for commenting](https://github.com/Paratron/CSSdoc).
 
-See [CSS automatic documentation](https://github.com/Paratron/CSSdoc)
-
-At least the version number should be updated every time you make a change, especially once the file goes into production.
-
-TODO: This is currently a combination of docblock and CSSdoc -- is that okay?
-TODO: What information is required here?
-TODO: Add release date?
+At the very least the version number should be updated every time you make a change, especially once the file goes into production.
 
 ```
 /**
- * Stylesheet title
- * 
+ * File title
  * Long description about the file, what it is for, its scope, and
  * optionally when it may expire. The description should consist of
  * normal sentences with punctuation.
  *
- * @project     Project name
  * @version     1.2.0 2016-07-04
  * @author      Gareth J M Saunders <gjms1@st-andrews.ac.uk>
  * @copyright   2016
@@ -900,11 +808,7 @@ TODO: Add release date?
 ```
 
 
-####@project
-Use this tag MUST be used to describe the name of the project; in other words, what this CSS file is being used for.
-
-
-####@version
+##### @version
 MUST be used on modules and elements to show the current revision. Use version numbering guidelines from [semantic versioning](http://semver.org/), which employs a MAJOR.MINOR.PATCH format.
 
     @version 1.2.0
@@ -914,7 +818,7 @@ You MAY also append a date after the version number.
     @version: 1.2.0 2016-07-04
 
 
-####@author
+##### @author
 This tag MAY be used to define an author for an element. It can either be only the authors' name, or append a connection in <> brackets. Example:
 
     @author Gareth J M Saunders <gjms1@st-andrews.ac.uk>
@@ -923,26 +827,26 @@ The following connections are recognized: URL (http://example.com), email (hello
 The tag MAY be used multiple times.
 
 
-####@copyright
+##### @copyright
 This tag is used to apply copyright information to the CSS document.    
 It MAY be used on the project definition block. Example:
 
     @copyright Copyright (c) 2016 University of St Andrews
 
 
-####@license
+##### @license
 This displays a hyperlink to a url for a license. MAY be used in the project definition block. It is made of two parts: the URL and a title, separated by comma. Example:
 
     @license http://opensource.org/licenses/gpl-license.php, GNU Public License
 
 
-####@since
+##### @since
 MAY be used on modules and elements to show in which revision they have been implemented. Example:
 
     @since 3.0
 
 
-####@deprecated
+##### @deprecated
 This indicates that the following element is, or will be deprecated in the future. Define a upcoming version number to indicate that the element will be deprecated then. Example:
 
     @deprecated 18.0
@@ -952,13 +856,13 @@ Alternatively any string can be placed as well:
     @deprecated Will be used no more since 2011-11-13
 
 
-####@example
+##### @example
 Can be used on the project, modules and elements to link to a real world example where the styles are used. Example:
 
     @example http://example.com/contact.html
 
 
-####@TODO
+##### @TODO
 The TODO marker indicates if something has to be done on either projects, modules or elements.     
 Example:
 
@@ -1055,19 +959,23 @@ Begin every new major section of a CSS project with a title:
 This is Harry Roberts' style:
 
 ```
-/*------------------------------------*\
-    SECTION-TITLE
-\*------------------------------------*/
+/*----------------------------------------*\
+    SECTION TITLE
+\*----------------------------------------*/
 
 .selector {}
 ```
 
+This is another style:
+
 ```
-c-
+/* ==========================================================================
+   SECTION TITLE
+   ========================================================================== */
 ```
 
 
-@TODO It might make sense to use the CSSdoc convention here, to keep things consistent, e.g.
+TODO: It might make sense to use the CSSdoc convention here, to keep things consistent, e.g.
 
 ```
 *------------------------------------
@@ -1090,9 +998,9 @@ Leave a carriage return between this title and the next line of code (be that a 
 If you are working on a project where each section is its own file, this title should appear at the top of each one. If you are working on a project with multiple sections per file, each title should be preceded by five (5) carriage returns. This extra whitespace coupled with a title makes new sections much easier to spot when scrolling through large files:
 
 ```
-/*------------------------------------*\
+/*----------------------------------------*\
     A-SECTION
-\*------------------------------------*/
+\*----------------------------------------*/
 
 .selector {}
 
@@ -1100,9 +1008,9 @@ If you are working on a project where each section is its own file, this title s
 
 
 
-/*------------------------------------*\
+/*----------------------------------------*\
     ANOTHER-SECTION
-\*------------------------------------*/
+\*----------------------------------------*/
 
 /**
  * Comment
@@ -1139,7 +1047,7 @@ See also
 
 ### 4.6 High-level comments
 
-For large comments that document entire sections or components, we use a DocBlock-esque multi-line comment which adheres to our 80 column width.
+For large comments that document entire sections or components, use a DocBlock-esque multi-line comment which adheres to our 80 column width.
 Here is a real-life example from the CSS which styles the page header on [CSS Wizardry](http://csswizardry.com): 
 
 "Front-end architecture and performance engineering by Harry Roberts"
@@ -1246,7 +1154,7 @@ Oftentimes we want to comment on specific declarations (i.e. lines) in a ruleset
 
 These types of comment allow us to keep all of our documentation in one place while referring to the parts of the ruleset to which they belong.
 
-@TODO From Trello: If you find an answer online (read: on Stack Overflow) then add the link to a comment so future people know what’s up.
+TODO: From Trello: If you find an answer online (read: on Stack Overflow) then add the link to a comment so future people know what’s up.
 
 
 
@@ -1274,8 +1182,7 @@ $sprite-height: 212px;
 
 We have documented variables (code which will not get compiled into our CSS file) with preprocessor comments, whereas our CSS (code which will get compiled into our CSS file) is documented using CSS comments. This means that we have only the correct and relevant information available to us when debugging our compiled stylesheets.
 
-TODO: HTML in CSS
-http://csswizardry.com/2012/04/my-html-css-coding-style/
+TODO: HTML in CSS http://csswizardry.com/2012/04/my-html-css-coding-style/
 
 In situations where it would be useful for a developer to know exactly how a chunk of CSS applies to some HTML, I often include a snippet of HTML in a CSS comment, for example:
 
