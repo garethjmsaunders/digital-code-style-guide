@@ -1660,7 +1660,7 @@ A good naming convention will tell you and your team:
 *   where a class can be used;
 *   what (else) a class might be related to.
 
-The naming convention I follow is very simple: hyphen (-) delimited strings, with BEM-like naming for more complex pieces of code.
+The naming convention we follow is very simple: hyphen (-) delimited strings, with BEM-like naming for more complex pieces of code.
 
 It's worth noting that a naming convention is not normally useful CSS-side of development; they really come into their own when viewed in HTML.
 
@@ -1669,7 +1669,7 @@ It's worth noting that a naming convention is not normally useful CSS-side of de
 
 As Phil Karlton once said, 'There are only two hard things in Computer Science: cache invalidation and naming things.'
 
-I won't comment on the former claim here, but the latter has plagued me for years. My advice with regard to naming things in CSS is to pick a name that is sensible, but somewhat ambiguous: aim for high reusability. For example, instead of a class like `.site-nav`, choose something like `.primary-nav`; rather than `.footer-links`, favour a class like `.sub-links`.
+Pick a name that is sensible, but somewhat ambiguous: aim for high reusability. For example, instead of a class like `.site-nav`, choose something like `.primary-nav`; rather than `.footer-links`, favour a class like `.sub-links`.
 
 The differences in these names is that the first of each two examples is tied to a very specific use case: they can only be used as the site's navigation or the footer's links respectively. By using slightly more ambiguous names, we can increase our ability to reuse these components in different circumstances.
 
@@ -1715,20 +1715,20 @@ Name things for people; they're the only things that actually read your classes 
 }
 ```
 
-It is important to strike a balance between names that do not literally describe the style that the class brings, but also ones that do not explicitly describe specific use cases. Instead of .home-page-panel, choose .masthead; instead of .site-nav, favour .primary-nav; instead of .btn-login, opt for .btn-primary.
+It is important to strike a balance between names that do not literally describe the style that the class brings, but also ones that do not explicitly describe specific use cases. Instead of `.home-page-panel`, choose `.masthead`; instead of `.site-nav`, favour `.primary-nav`; instead of `.btn-login`, opt for `.btn-primary`.
 
 
 
 
 ## 6.2 Naming UI components
 
-Naming components with agnosticism and reusability in mind really helps developers construct and modify UIs much more quickly, and with far less waste. However, it can sometimes be beneficial to provide more specific or meaningful naming alongside the more ambiguous class, particularly when several agnostic classes come together to form a more complex and specific component that might benefit from having a more meaningful name. In this scenario, we augment the classes with a `data-ui-component` attribute which houses a more specific name, for example:
+Naming components with agnosticism and reusability in mind really helps developers construct and modify user-interfaces (UIs) much more quickly, and with far less waste. However, it can sometimes be beneficial to provide more specific or meaningful naming alongside the more ambiguous class, particularly when several agnostic classes come together to form a more complex and specific component that might benefit from having a more meaningful name. In this scenario, we augment the classes with a `data-ui-component` attribute which houses a more specific name, for example:
 
 ```
 <ul class="tabbed-nav" data-ui-component="Main Nav">
 ```
 
-Here we have the benefits of a highly reusable class name which does not describe—and, therefore, tie itself to—a specific use case, and added meaning via our data-ui-component attribute. The data-ui-component's value can take any format you wish, like title case:
+Here we have the benefits of a highly reusable class name which does not describe—and, therefore, tie itself to—a specific use case, and added meaning via our `data-ui-component` attribute. The `data-ui-component`'s value can take any format you wish, like title case:
 
 ```
 <ul class="tabbed-nav" data-ui-component="Main Nav">
