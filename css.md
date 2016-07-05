@@ -84,7 +84,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [6.6 Modifying elements](#66-modifying-elements)
     - [6.7 Naming conventions in HTML](#67-naming-conventions-in-html)
     - [6.8 JavaScript hooks](#68-javascript-hooks)
-        - [Do not use HTML5 data-* attributes as JavaScript hooks](#do-not-use-html5-data--attributes-as-javascript-hooks)
+        - [Do not use HTML5 `data-*` attributes as JavaScript hooks](#do-not-use-html5-data--attributes-as-javascript-hooks)
 - [7. CSS Selectors](#7-css-selectors)
     - [7.1 General rules](#71-general-rules)
     - [7.2 Selector intent](#72-selector-intent)
@@ -1662,7 +1662,7 @@ A good naming convention will tell you and your team:
 
 The naming convention we follow is very simple: hyphen (-) delimited strings, with BEM-like naming for more complex pieces of code.
 
-It's worth noting that a naming convention is not normally useful CSS-side of development; they really come into their own when viewed in HTML.
+It's worth noting that a naming convention is not only useful for the CSS-side of development, they really come into their own when viewed in HTML.
 
 
 ## 6.1 Naming
@@ -1686,30 +1686,23 @@ The debate surrounding semantics has raged for years, but it is important that w
 Name things for people; they're the only things that actually read your classes (everything else merely matches them). Once again, it is better to strive for reusable, recyclable classes rather than writing for specific use cases. Let's take an example:
 
 ```
-/**
- * Runs the risk of becoming out of date; not very maintainable.
- */
+// Runs the risk of becoming out of date; not very maintainable.
 .blue {
     color: blue;
 }
 
-/**
- * Depends on location in order to be rendered properly.
- */
+// Depends on location in order to be rendered properly.
 .header span {
     color: blue;
 }
 
-/**
- * Too specific; limits our ability to reuse.
- */
+// Too specific; limits our ability to reuse.
 .header-color {
     color: blue;
 }
 
-/**
- * Nicely abstracted, very portable, doesn't risk becoming out of date.
- */
+// Nicely abstracted, very portable, doesn't risk becoming out of date.
+
 .highlight-color {
     color: blue;
 }
@@ -1758,7 +1751,7 @@ In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR
 **First two characters**
 
 *   letters
-*   underscores
+*   underscores, or
 *   hyphens
 
 **Thereafter, any number of**
@@ -1768,28 +1761,27 @@ In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR
 *   letters
 *   numbers
 
-**Do not start with...**
-
 
 ### Characters to avoid
 
 *   Asterisks (*) are universal selectors: they will apply styling to every 
     element in the document. Do not use them in class or ID names.
 *   Forward slashes (/) and backward slashes (\) are not accepted.
+*   Accented or non-English characters, e.g. æ, ß, ç, è.
 
 
 
 
 ## 6.4 Hyphen delimited
 
-All strings in classes are delimited with a hyphen (-), like so:
+All words in classnames MUST be delimited with a hyphen (-), like so:
 
 ```
 .page-head {}
 .sub-content {}
 ```
 
-Camel case and underscores are not used for regular classes; the following are incorrect:
+Camel case and underscores MUST NOT be used for regular classes; the following are incorrect:
 
 ```
 .pageHead {}
@@ -1803,13 +1795,13 @@ Camel case and underscores are not used for regular classes; the following are i
 
 For larger, more interrelated pieces of UI that require a number of classes, we use a BEM-like naming convention.
 
-BEM, meaning Block, Element, Modifier, is a front-end methodology coined by developers working at Yandex. Whilst BEM is a complete methodology, here we are only concerned with its naming convention. Further, the naming convention here only is BEM-like; the principles are exactly the same, but the actual syntax differs slightly.
+BEM, meaning block, element, modifier, is a front-end methodology coined by developers working at Yandex. While BEM is a complete methodology, here we are only concerned with its naming convention. Further, the naming convention here only is BEM-like; the principles are exactly the same, but the actual syntax differs slightly.
 
 BEM splits components' classes into three groups:
 
 * Block: The sole root of the component.
-* Element: A component part of the Block.
-* Modifier: A variant or extension of the Block.
+* Element: A component part of the block.
+* Modifier: A variant or extension of the block.
 
 To take an analogy (note, not an example):
 
@@ -1821,12 +1813,12 @@ To take an analogy (note, not an example):
 
 Elements are delimited with two (2) underscores (__), and modifiers are delimited by two (2) hyphens (--).
 
-Here we can see that `.person {}` is the Block; it is the sole root of a discrete entity. `.person__head {}` is an Element; it is a smaller part of the .person {} Block. Finally, `.person--tall {} is a Modifier; it is a specific variant of the .person {} Block.
+Here we can see that `.person {}` is the block; it is the sole root of a discrete entity. `.person__head {}` is an element; it is a smaller part of the .person {} block. Finally, `.person--tall {} is a modifier; it is a specific variant of the .person {} block.
 
 
 ### Starting context
 
-Your Block context starts at the most logical, self-contained, discrete location. To continue with our person-based analogy, we'd not have a class like `.room__person {}`, as the room is another, much higher context. We'd probably have separate Blocks, like so:
+Your block context starts at the most logical, self-contained, discrete location. To continue with our person-based analogy, we'd not have a class like `.room__person {}`, as the room is another, much higher context. We'd probably have separate blocks, like so:
 
 ```
 .room {}
@@ -1841,9 +1833,9 @@ Your Block context starts at the most logical, self-contained, discrete location
     .person__head {}
 ```
 
-If we did want to denote a `.person {}` inside a `.room {}`, it is more correct to use a selector like `.room .person {}` which bridges two Blocks than it is to increase the scope of existing Blocks and Elements.
+If we did want to denote a `.person {}` inside a `.room {}`, it is more correct to use a selector like `.room .person {}` which bridges two blocks than it is to increase the scope of existing blocks and elements.
 
-A more realistic example of properly scoped blocks might look something like this, where each chunk of code represents its own Block:
+A more realistic example of properly scoped blocks might look something like this, where each chunk of code represents its own block:
 
 ```
 .page {}
@@ -1890,9 +1882,9 @@ You can have variants of Elements, and these can be denoted in a number of ways 
 .person__eye--blue {}
 ```
 
-Here we can see we're directly modifying the eye Element.
+Here we can see we're directly modifying the eye element.
 
-Things can get more complex, however. Please excuse the crude analogy, and let's imagine we have a face Element that is handsome. The person themselves isn't that handsome, so we modify the face Element directly—a handsome face on a regular person:
+Things can get more complex, however. Please excuse the crude analogy, and let's imagine we have a face element that is handsome. The person themselves isn't that handsome, so we modify the face element directly—a handsome face on a regular person:
 
 ```
 .person__face--handsome {}
@@ -1904,7 +1896,7 @@ But what if that person is handsome, and we want to style their face because of 
 .person--handsome .person__face {}
 ```
 
-Here is one of a few occasions where we'd use a descendant selector to modify an Element based on a Modifier on the Block.
+Here is one of a few occasions where we'd use a descendant selector to modify an Element based on a Modifier on the block.
 
 If using Sass, we would likely write this like so:
 
@@ -1960,11 +1952,11 @@ Now we can clearly see which classes are and are not related to each other, and 
 
 ## 6.8 JavaScript hooks
 
-As a rule, it is unwise to bind your CSS and your JS onto the same class in your HTML. This is because doing so means you can't have (or remove) one without (removing) the other. It is much cleaner, much more transparent, and much more maintainable to bind your JS onto specific classes.
+As a rule, it is unwise to bind your CSS and your JavaScript onto the same class in your HTML. This is because doing so means you can't have (or remove) one without (removing) the other. It is much cleaner, much more transparent, and much more maintainable to bind your JavaScript onto specific classes.
 
-I have known occasions before when trying to refactor some CSS has unwittingly removed JS functionality because the two were tied to each other—it was impossible to have one without the other.
+I have known occasions before when trying to refactor some CSS has unwittingly removed JavaScript functionality because the two were tied to each other—it was impossible to have one without the other.
 
-Typically, these are classes that are prepended with js-, for example:
+Typically, these are classes that are prepended with `js-`, for example:
 
 ```
 <input type="submit" class="btn  js-btn" value="Follow" />
@@ -1973,7 +1965,7 @@ Typically, these are classes that are prepended with js-, for example:
 This means that we can have an element elsewhere which can carry with style of `.btn {}`, but without the behaviour of `.js-btn`.
 
 
-### Do not use HTML5 data-* attributes as JavaScript hooks
+### Do not use HTML5 `data-*` attributes as JavaScript hooks
 
 A common practice is to use `data-*` attributes as JavaScript hooks, but this is incorrect. `data-*` attributes, as per the spec, are used to store custom data private to the page or application (emphasis mine). `data-*` attributes are designed to store data, not be bound to.
 
@@ -1989,8 +1981,6 @@ Perhaps somewhat surprisingly, one of the most fundamental, critical aspects of 
 
 
 ## 7.1 General rules
-
-**KEEP THIS BUT EXTEND IT IN LIGHT OF WHAT COMES AFTER IT**
 
 Your selectors are fundamental to writing good CSS. To very briefly sum up the above sections:
 
@@ -2201,17 +2191,13 @@ Qualified selectors do not lend themselves well to being reused, and every selec
 Of course, there are times when you may want to legitimately qualify a selector — you might need to apply some very specific styling to a particular element when it carries a certain class, for example:
 
 ```
-/**
- * Embolden and colour any element with a class of `.error`.
- */
+// Embolden and colour any element with a class of `.error`.
 .error {
     color: red;
     font-weight: bold;
 }
 
-/**
- * If the element is a `div`, also give it some box-like styling.
- */
+// If the element is a `div`, also give it some box-like styling.
 div.error {
     padding: 10px;
     border: 1px solid;
@@ -2221,17 +2207,13 @@ div.error {
 This is one example where a qualified selector might be justifiable, but I would still recommend an approach more like:
 
 ```
-/**
- * Text-level errors.
- */
+// Text-level errors.
 .error-text {
     color: red;
     font-weight: bold;
 }
 
-/**
- * Elements that contain errors.
- */
+// Elements that contain errors.
 .error-box {
     padding: 10px;
     border: 1px solid;
@@ -2277,10 +2259,8 @@ Structural aspects can be thought of like skeletons; common, recurring frames th
 Skin is a layer that we (optionally) add to our structure in order to give objects and abstractions a specific look-and-feel. Let's look at an example:
 
 ```
-/**
- * A simple, design-free button object. Extend this object with a `.btn--*` skin
- * class.
- */
+/* A simple, design-free button object. Extend this object with a 
+   `.btn--*` skin class. */
 .btn {
     display: inline-block;
     padding: 1em 2em;
@@ -2288,17 +2268,13 @@ Skin is a layer that we (optionally) add to our structure in order to give objec
 }
 
 
-/**
- * Positive buttons' skin. Extends `.btn`.
- */
+// Positive buttons' skin. Extends `.btn`.
 .btn--positive {
     background-color: green;
     color: white;
 }
 
-/**
- * Negative buttons' skin. Extends `.btn`.
- */
+// Negative buttons' skin. Extends `.btn`.
 .btn--negative {
     background-color: red;
     color: white;
