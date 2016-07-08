@@ -472,9 +472,9 @@ As well as indentation, we can provide a lot of information through liberal and 
 For example:
 
 ```
-/*------------------------------------*\
-    Pattern A
-\*------------------------------------*/
+/* ==========================================================================
+   Foo pattern
+   ========================================================================== */
 
 .foo {}
 
@@ -486,9 +486,9 @@ For example:
 
 
 
-/*------------------------------------*\
-    Pattern B
-\*------------------------------------*/
+/* ==========================================================================
+   Bar pattern
+   ========================================================================== */
 
 .bar {}
 
@@ -1003,9 +1003,9 @@ Leave a carriage return between this title and the next line of code (be that a 
 If you are working on a project where each section is its own file, this title should appear at the top of each one. If you are working on a project with multiple sections per file, each title should be preceded by five (5) carriage returns. This extra whitespace coupled with a title makes new sections much easier to spot when scrolling through large files:
 
 ```
-/*----------------------------------------*\
-    A-SECTION
-\*----------------------------------------*/
+/* ==========================================================================
+   A SECTION
+   ========================================================================== */
 
 .selector {}
 
@@ -1013,9 +1013,9 @@ If you are working on a project where each section is its own file, this title s
 
 
 
-/*----------------------------------------*\
-    ANOTHER-SECTION
-\*----------------------------------------*/
+/* ==========================================================================
+   ANOTHER SECTION
+   ========================================================================== */
 
 /**
  * Comment
@@ -1192,9 +1192,9 @@ TODO: HTML in CSS http://csswizardry.com/2012/04/my-html-css-coding-style/
 In situations where it would be useful for a developer to know exactly how a chunk of CSS applies to some HTML, I often include a snippet of HTML in a CSS comment, for example:
 
 ```
-/*------------------------------------*\
-    $TOOLTIPS
-\*------------------------------------*/
+/* ==========================================================================
+   $TOOLTIPS
+   ========================================================================== */
 /*
 <small class=tooltip><span>Lorem ipsum dolor</span></small>
 */
@@ -1259,10 +1259,9 @@ These are more often than not simple element selectors (e.g. `a`, `h1`, `p`) but
 An example might look like:
 
 ```
-/* =========================================
+/* ==========================================================================
    1. Base
-   =========================================
-*/
+   ========================================================================== */
 
 html,
 body,
