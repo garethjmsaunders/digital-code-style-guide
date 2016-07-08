@@ -40,9 +40,8 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [6.3 Accepted characters in class and ID names](#63-accepted-characters-in-class-and-id-names)
     - [6.4 Hyphen delimited](#64-hyphen-delimited)
     - [6.5 BEM-like naming](#65-bem-like-naming)
-    - [6.6 Modifying elements](#66-modifying-elements)
-    - [6.7 Naming conventions in HTML](#67-naming-conventions-in-html)
-    - [6.8 JavaScript hooks](#68-javascript-hooks)
+    - [6.6 Naming conventions in HTML](#66-naming-conventions-in-html)
+    - [6.7 JavaScript hooks](#67-javascript-hooks)
 - [7. CSS Selectors](#7-css-selectors)
     - [7.1 General rules](#71-general-rules)
     - [7.2 Selector intent](#72-selector-intent)
@@ -1447,14 +1446,14 @@ A good naming convention will tell you and your team:
 *   where a class can be used;
 *   what (else) a class might be related to.
 
-The naming convention we follow is very simple: hyphen (-) delimited strings, with BEM-like naming for more complex pieces of code.
+Use a very simple naming convention: hyphen (-) delimited strings, with BEM-like naming for more complex pieces of code.
 
 It's worth noting that a naming convention is not only useful for the CSS-side of development, they really come into their own when viewed in HTML.
 
 
 ### 6.1 Naming
 
-As Phil Karlton once said, 'There are only two hard things in Computer Science: cache invalidation and naming things.'
+As Phil Karlton once said, 'There are only two hard things in computer science: cache invalidation and naming things.'
 
 Pick a name that is sensible, but somewhat ambiguous: aim for high reusability. For example, instead of a class like `.site-nav`, choose something like `.primary-nav`; rather than `.footer-links`, favour a class like `.sub-links`.
 
@@ -1489,7 +1488,6 @@ Name things for people; they're the only things that actually read your classes 
 }
 
 // Nicely abstracted, very portable, doesn't risk becoming out of date.
-
 .highlight-color {
     color: blue;
 }
@@ -1502,29 +1500,13 @@ It is important to strike a balance between names that do not literally describe
 
 ### 6.2 Naming UI components
 
-Naming components with agnosticism and reusability in mind really helps developers construct and modify user-interfaces (UIs) much more quickly, and with far less waste. However, it can sometimes be beneficial to provide more specific or meaningful naming alongside the more ambiguous class, particularly when several agnostic classes come together to form a more complex and specific component that might benefit from having a more meaningful name. In this scenario, we augment the classes with a `data-ui-component` attribute which houses a more specific name, for example:
-
-```
-<ul class="tabbed-nav" data-ui-component="Main Nav">
-```
-
-Here we have the benefits of a highly reusable class name which does not describe—and, therefore, tie itself to—a specific use case, and added meaning via our `data-ui-component` attribute. The `data-ui-component`'s value can take any format you wish, like title case:
-
-```
-<ul class="tabbed-nav" data-ui-component="Main Nav">
-```
-
-Or class-like:
+Naming components with agnosticism and reusability in mind really helps developers construct and modify user-interfaces (UIs) much more quickly, and with far less waste. However, it can sometimes be beneficial to provide more specific or meaningful naming alongside the more ambiguous class, particularly when several agnostic classes come together to form a more complex and specific component that might benefit from having a more meaningful name. In this scenario, augment the classes with a `data-ui-component` attribute which houses a more specific name, for example:
 
 ```
 <ul class="tabbed-nav" data-ui-component="main-nav">
 ```
 
-Or namespaced:
-
-```
-<ul class="tabbed-nav" data-ui-component="nav-main">
-```
+Here we have the benefits of a highly reusable class name which does not describe — and, therefore, tie itself to — a specific use case, and added meaning via our `data-ui-component` attribute. Use a class-like format for the `data-ui-component`'s value.
 
 The implementation is largely personal preference, but the concept still remains: add any useful or specific meaning via a mechanism that will not inhibit your and your team's ability to recycle and reuse CSS.
 
@@ -1535,13 +1517,13 @@ The implementation is largely personal preference, but the concept still remains
 
 In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR/CSS21/grammar.html#scanner) a class name or ID must follow these rules:
 
-**First two characters**
+**First two characters** may be only
 
 *   letters
 *   underscores, or
 *   hyphens
 
-**Thereafter, any number of**
+**thereafter, any number of**
 
 *   underscores
 *   hyphens
@@ -1553,9 +1535,8 @@ In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR
 
 *   Asterisks (*) are universal selectors: they will apply styling to every 
     element in the document. Do not use them in class or ID names.
-*   Forward slashes (/) and backward slashes (\) are not accepted.
-*   Accented or non-English characters, e.g. æ, ß, ç, è.
-
+*   Forward slashes (/) and backward slashes (\\) are not accepted.
+*   Accented or non-English characters, e.g. á, æ, ç, è, î, ö, ø, û. Substitute these with the nearest English equivalent, e.g. a, ae, c, e, i, o, o, u.
 
 
 
@@ -1564,6 +1545,7 @@ In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR
 All words in classnames MUST be delimited with a hyphen (-), like so:
 
 ```
+// Correct
 .page-head {}
 .sub-content {}
 ```
@@ -1571,6 +1553,7 @@ All words in classnames MUST be delimited with a hyphen (-), like so:
 Camel case and underscores MUST NOT be used for regular classes; the following are incorrect:
 
 ```
+// Incorrect
 .pageHead {}
 .sub_content {}
 ```
@@ -1580,7 +1563,7 @@ Camel case and underscores MUST NOT be used for regular classes; the following a
 
 ### 6.5 BEM-like naming
 
-For larger, more interrelated pieces of UI that require a number of classes, we use a BEM-like naming convention.
+For larger, more interrelated pieces of UI that require a number of classes, use a BEM-like naming convention.
 
 BEM, meaning block, element, modifier, is a front-end methodology coined by developers working at Yandex. While BEM is a complete methodology, here we are only concerned with its naming convention. Further, the naming convention here only is BEM-like; the principles are exactly the same, but the actual syntax differs slightly.
 
@@ -1600,111 +1583,14 @@ To take an analogy (note, not an example):
 
 Elements are delimited with two (2) underscores (__), and modifiers are delimited by two (2) hyphens (--).
 
-Here we can see that `.person {}` is the block; it is the sole root of a discrete entity. `.person__head {}` is an element; it is a smaller part of the .person {} block. Finally, `.person--tall {} is a modifier; it is a specific variant of the .person {} block.
-
-
-#### Starting context
-
-Your block context starts at the most logical, self-contained, discrete location. To continue with our person-based analogy, we'd not have a class like `.room__person {}`, as the room is another, much higher context. We'd probably have separate blocks, like so:
-
-```
-.room {}
-
-    .room__door {}
-
-.room--kitchen {}
-
-
-.person {}
-
-    .person__head {}
-```
-
-If we did want to denote a `.person {}` inside a `.room {}`, it is more correct to use a selector like `.room .person {}` which bridges two blocks than it is to increase the scope of existing blocks and elements.
-
-A more realistic example of properly scoped blocks might look something like this, where each chunk of code represents its own block:
-
-```
-.page {}
-
-
-.content {}
-
-
-.sub-content {}
-
-
-.footer {}
-
-    .footer__copyright {}
-```
-
-Incorrect notation for this would be:
-
-```
-.page {}
-
-    .page__content {}
-
-    .page__sub-content {}
-
-    .page__footer {}
-
-        .page__copyright {}
-```
+Here we can see that `.person {}` is the block; it is the sole root of a discrete entity. `.person__head {}` is an element; it is a smaller part of the `.person {}` block. Finally, `.person--tall {}` is a modifier; it is a specific variant of the `.person {}` block.
 
 It is important to know when BEM scope starts and stops. As a rule, BEM applies to self-contained, discrete parts of the UI.
-More layers
-
-If we were to add another Element—called, let's say, .person__eye {}—to this .person {} component, we would not need to step through every layer of the DOM. That is to say, the correct notation would be .person__eye {}, and not .person__head__eye {}. Your classes do not reflect the full paper-trail of the DOM.
 
 
 
 
-### 6.6 Modifying elements
-
-You can have variants of Elements, and these can be denoted in a number of ways depending on how and why they are being modified. Carrying on with our person example, a blue eye might look like this:
-
-```
-.person__eye--blue {}
-```
-
-Here we can see we're directly modifying the eye element.
-
-Things can get more complex, however. Please excuse the crude analogy, and let's imagine we have a face element that is handsome. The person themselves isn't that handsome, so we modify the face element directly—a handsome face on a regular person:
-
-```
-.person__face--handsome {}
-```
-
-But what if that person is handsome, and we want to style their face because of that fact? A regular face on a handsome person:
-
-```
-.person--handsome .person__face {}
-```
-
-Here is one of a few occasions where we'd use a descendant selector to modify an Element based on a Modifier on the block.
-
-If using Sass, we would likely write this like so:
-
-```
-.person {}
-
-    .person__face {
-
-        .person--handsome & {}
-
-    }
-
-.person--handsome {}
-```
-
-Note that we do not nest a new instance of `.person__face {}` inside of `.person--handsome {};` instead, we make use of Sass' parent selectors to prepend `.person--handsome` onto the existing `.person__face {}` selector. This means that all of our `.person__face {}`-related rules exist in once place, and aren't spread throughout the file. This is general good practice when dealing with nested code: keep all of your context (e.g. all `.person__face {}` code) encapsulated in one location.
-
-
-
-
-### 6.7 Naming conventions in HTML
+### 6.6 Naming conventions in HTML
 
 As I previously hinted at, naming conventions aren't necessarily all that useful in your CSS. Where naming conventions' power really lies is in your markup. Take the following, non-naming-conventioned HTML:
 
@@ -1717,6 +1603,8 @@ As I previously hinted at, naming conventions aren't necessarily all that useful
 
 </div>
 ```
+
+Note how two spaces between class names makes the classes easier to read.
 
 How are the classes box and profile related to each other? How are the classes profile and avatar related to each other? Are they related at all? Should you be using pro-user alongside bio? Will the classes image and profile live in the same part of the CSS? Can you use avatar anywhere else?
 
@@ -1737,24 +1625,22 @@ Now we can clearly see which classes are and are not related to each other, and 
 
 
 
-### 6.8 JavaScript hooks
+### 6.7 JavaScript hooks
 
-As a rule, it is unwise to bind your CSS and your JavaScript onto the same class in your HTML. This is because doing so means you can't have (or remove) one without (removing) the other. It is much cleaner, much more transparent, and much more maintainable to bind your JavaScript onto specific classes.
+As a rule, it is unwise to bind both CSS and JavaScript onto the same classes in HTML. This is because doing so means you can't have (or remove) one without (removing) the other. It is much cleaner, much more transparent, and much more maintainable to bind your JavaScript onto specific classes.
 
-I have known occasions before when trying to refactor some CSS has unwittingly removed JavaScript functionality because the two were tied to each other—it was impossible to have one without the other.
-
-Typically, these are classes that are prepended with `js-`, for example:
+Use class names that are prepended with `js-`, for example:
 
 ```
 <input type="submit" class="btn  js-btn" value="Follow" />
 ```
 
-This means that we can have an element elsewhere which can carry with style of `.btn {}`, but without the behaviour of `.js-btn`.
+This means that we can have an element elsewhere which can carry with style of `.btn {}`, but without the behaviour of `.js-btn`. It also makes it very clear that this element will be manipulated via JavaScript.
 
 
 #### Do not use HTML5 `data-*` attributes as JavaScript hooks
 
-A common practice is to use `data-*` attributes as JavaScript hooks, but this is incorrect. `data-*` attributes, as per the spec, are used to store custom data private to the page or application (emphasis mine). `data-*` attributes are designed to store data, not be bound to.
+A common practice is to use `data-*` attributes as JavaScript hooks, but this is incorrect. `data-*` attributes, [as per the spec](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html#embedding-custom-non-visible-data-with-the-data-attributes), "are intended to store custom data private to the page or application". `data-*` attributes are designed to store data, not be bound to.
 
 
 ---
