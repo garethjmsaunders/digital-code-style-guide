@@ -55,9 +55,13 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 TODO: Version numbers.
 TODO: Highlight scannable, key points in bold.
-TODO: Simplify 5. Rule organisation, and 6. Naming conventions, and 7. CSS selectors
-TODO: Number all sub-sections to aid navigation.
-
+TODO: Simplify 4. Comments - ensure comments are consistent.
+TODO: Simplify 5. Rule organisation.
+TODO: Simplify 6. Naming conventions.
+TODO: Simplify 7. CSS selectors.
+TODO: Ensure source references are present and up-to-date.
+TODO: Standardise lists with colons.
+TODO: Remove code blocks from headings (no \`\`s)
 
 ---
 
@@ -1587,6 +1591,11 @@ Here we can see that `.person {}` is the block; it is the sole root of a discret
 
 It is important to know when BEM scope starts and stops. As a rule, BEM applies to self-contained, discrete parts of the UI.
 
+#### Further reading
+
+* [BEM naming convention](https://en.bem.info/methodology/naming-convention/)
+* [CSS guidelines - BEM-like naming](http://cssguidelin.es/#bem-like-naming)
+
 
 
 
@@ -1707,10 +1716,10 @@ CSS cannot be encapsulated, it is inherently leaky, but we can mitigate some of 
 
 CSS specificity can, among other things:
 
-* Limit your ability to extend your classes.
-* Interfere with the cascade, how CSS inherits from parent rules.
-* Make your code unnecessarily long and/or complex.
-* Prevent code from working as expected when moved from one project to another.
+* limit your ability to extend your classes;
+* interfere with the cascade, how CSS inherits from parent rules;
+* make your code unnecessarily long and/or complex;
+* prevent code from working as expected when moved from one project to another.
 
 All of these issues are greatly magnified when working on a larger project with a number of developers contributing code.
 
@@ -1720,12 +1729,12 @@ One of the single, simplest tips for an easier life when writing CSS—particula
 
 Doing so will instantly help you tame and manage your project, meaning that no overly-specific selectors are likely to impact or affect anything of a lower specificity elsewhere. It also means you're less likely to need to fight your way out of specificity corners, and you'll probably also be writing much smaller stylesheets.
 
-Simple changes to the way we work include, but are not limited to:
+As such, you SHOULD:
 
-* **Avoid using IDs in your CSS.**
-* **Avoid nesting selectors.**
-* **Avoid qualifying classes.**
-* **Avoid chaining selectors.**
+* **avoid using IDs in your CSS;**
+* **avoid nesting selectors;**
+* **avoid qualifying classes;**
+* **avoid chaining selectors.**
 
 To quote Jonathan Snook: "whenever declaring your styles, use the least number of selectors required to style an element."
 
@@ -1767,7 +1776,7 @@ Proactive use of `!important` is when it is **used before you've encountered any
 
 These two helper, or utility, classes are very specific in their intentions: you would only use them if you wanted something to be rendered at 50% width or not rendered at all. If you didn't want this behaviour, you would not use these classes, therefore whenever you do use them you will definitely want them to win.
 
-Here we proactively apply `!important` to ensure that these styles always win. This is correct use of `!important` to guarantee that these trumps always work, and don't accidentally get overridden by something else more specific.
+Here we proactively apply `!important` to ensure that these styles always win. This is correct use of `!important` to guarantee that these declarations always work, and don't accidentally get overridden by something else more specific.
 
 Only use `!important` proactively, not reactively.
 
@@ -1788,10 +1797,13 @@ The problem with this, as we've discussed, is that it introduces location depend
 Instead, we can use a much safer hack that will not impact this component's portability: we can chain that class with itself:
 
 ```
+// Chaining class to double specificity without introducing location dependency
 .site-nav.site-nav {}
 ```
 
 This chaining doubles the specificity of the selector, but does not introduce any dependency on location.
+
+If you use this, ensure that you include a comment to explain what you have done and why.
 
 
 ##### Use an attribute selector to select an ID
@@ -1818,7 +1830,7 @@ Do keep in mind that these are hacks, and should not be used unless you have no 
 
 
 ##### Further reading
-[Hacks for dealing with specificity](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/)
+[Hacks for dealing with specificity](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/) (CSS Wizardry)
 
 
 
@@ -1832,7 +1844,7 @@ To this end, we make heavy use of classes. IDs, as well as being hugely over-spe
 
 #### Location independence
 
-Given the ever-changing nature of most UI projects, and the move to more component-based architectures, it is in our interests not to style things based on where they are, but on what they are. That is to say, our components' styling should not be reliant upon where we place them—they should remain entirely location independent.
+Given the ever-changing nature of most UI projects, and the move to more component-based architectures, it is in our interests not to style things based on where they are, but on what they are. That is to say, our components' styling should not be reliant upon where we place them — they should remain entirely location independent.
 
 Let's take an example of a call-to-action button that we have chosen to style via the following selector:
 
@@ -1904,7 +1916,7 @@ One thing that qualified selectors can be useful for is signalling where a class
 ul.nav {}
 ```
 
-Here we can see that the `.nav` class is meant to be used on a `ul` element, and not on a `nav`. By using quasi-qualified selectors we can still provide that information without actually qualifying the selector:
+Here you can see that the `.nav` class is meant to be used on a `ul` element, and not on a `nav`. By using quasi-qualified selectors we can still provide that information without actually qualifying the selector, like so:
 
 ```
 /*ul*/.nav {}
