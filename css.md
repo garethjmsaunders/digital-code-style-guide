@@ -1991,11 +1991,12 @@ Whenever you are building a UI component, try and see if you can break it into t
 
 #### The single responsibility principle
 
-The _single responsibility principle_ is a paradigm that, very loosely, states that all pieces of code (in our case, classes) should focus on doing one thing and one thing only. More formally:
+The single responsibility principle is a paradigm that, very loosely, states that all pieces of code (in our case, classes) should focus on doing one thing and one thing only. More formally:
 
 > …the single responsibility principle states that every context (class, 
 > function, variable, etc.) should have a single responsibility, and that 
 > responsibility should be entirely encapsulated by the context.
+  
 > What this means for us is that our CSS should be composed of a series of 
 > much smaller classes that focus on providing very specific and limited 
 > functionality. This means that we need to decompose UIs into their smallest 
@@ -2008,25 +2009,25 @@ The _single responsibility principle_ is a paradigm that, very loosely, states t
 .error-message {
     display: block;
     padding: 10px;
-    border-top: 1px solid f00;
-    border-bottom: 1px solid f00;
-    background-color: fee;
-    color: f00;
+    border-top: 1px solid rgb(164, 35, 29);
+    border-bottom: 1px solid rgb(164, 35, 29);
+    background-color: rgb(194, 42, 34);
+    color: white;
     font-weight: bold;
 }
 
 .success-message {
     display: block;
     padding: 10px;
-    border-top: 1px solid 0f0;
-    border-bottom: 1px solid 0f0;
-    background-color: efe;
-    color: 0f0;
+    border-top: 1px solid rgb(78, 110, 46);
+    border-bottom: 1px solid rgb(78, 110, 46);
+    background-color: rgb(96, 135, 56);
+    color: white;
     font-weight: bold;
 }
 ```
 
-Here we can see that—despite being named after one very specific use-case—these classes are handling quite a lot: layout, structure, and cosmetics. We also have a lot of repetition. We need to refactor this in order to abstract out some shared objects (OOCSS) and bring it more inline with the single responsibility principle. We can break these two classes out into four much smaller responsibilities:
+Here we can see that — despite being named after one very specific use-case — these classes are handling quite a lot: layout, structure, and cosmetics. We also have a lot of repetition. We need to refactor this in order to abstract out some shared objects (OOCSS) and bring it more inline with the single responsibility principle. We can break these two classes out into four much smaller responsibilities:
 
 ```
 .box {
@@ -2042,14 +2043,22 @@ Here we can see that—despite being named after one very specific use-case—th
 }
 
 .message--error {
-    background-color: fee;
-    color: f00;
+    background-color: rgb(194, 42, 34);
+    border-color: rgb(164, 35, 29);
+    color: white;
 }
 
 .message--success {
-    background-color: efe;
-    color: 0f0;
+    background-color: rgb(96, 135, 56);
+    border-color: rgb(78, 110, 46);    
+    color: white;
 }
+```
+
+Which we can use with the following HTML:
+
+```
+<div class="box  message  message--success"> ... </div>
 ```
 
 Now we have a general abstraction for boxes which can live, and be used, completely separately from our message component, and we have a base message component that can be extended by a number of smaller responsibility classes. The amount of repetition has been greatly reduced, and our ability to extend and compose our CSS has been greatly increased. This is a great example of OOCSS and the single responsibility principle working in tandem.
@@ -2063,6 +2072,8 @@ By focussing on single responsibilities, we can give our code much more flexibil
 
 
 #### Open to extension / closed to modification
+
+!gjms
 
 The open/closed principle, in my opinion, is rather poorly named. It is poorly named because 50% of the vital information is omitted from its title. The open/closed principle states that
 
