@@ -2068,21 +2068,19 @@ By focussing on single responsibilities, we can give our code much more flexibil
 
 ##### Further reading
 
-* The single responsibility principle applied to CSS
+* [The single responsibility principle applied to CSS](http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/)
 
 
 #### Open to extension / closed to modification
 
-!gjms
-
-The open/closed principle, in my opinion, is rather poorly named. It is poorly named because 50% of the vital information is omitted from its title. The open/closed principle states that
+The open/closed principle is remarkably simple, it states that
 
 > [s]oftware entities (classes, modules, functions, etc.) should be open for 
 > extension, but closed for modification.
 
-See? The most important words—extension and modification—are completely missing from the name, which isn't very useful at all.
+In other words, any additions, new functionality, or features we add to our classes should be added via extension — we should not modify these classes directly.
 
-Once you have trained yourself to remember what the words open and closed actually relate to, you'll find that open/closed principle remarkably simple: any additions, new functionality, or features we add to our classes should be added via extension—we should not modify these classes directly. This really trains us to write bulletproof single responsibilities: because we shouldn't modify objects and abstractions directly, we need to make sure we get them as simple as possible the first time. This means that we should never need to actually change an abstraction—we'd simply stop using it—but any slight variants of it can be made very easily by extending it.
+This really trains us to write bulletproof single responsibilities: because we shouldn't modify objects and abstractions directly, we need to make sure we get them as simple as possible the first time. This means that we should never need to actually change an abstraction — we'd simply stop using it — but any slight variants of it can be made very easily by extending it.
 
 Let's take an example:
 
@@ -2112,7 +2110,7 @@ An incorrect way of achieving the same might look like this:
 }
 ```
 
-Not only is this overly specific, locationally dependent, and potentially displaying poor Selector Intent, we are modifying the `.box {}` directly. We should rarely—if ever—find an object or abstraction's class as a key selector in a compound selector.
+Not only is this overly specific, locationally dependent, and potentially displaying poor selector intent, we are modifying the `.box {}` directly. We should rarely—if ever—find an object or abstraction's class as a key selector in a compound selector.
 
 A selector like `.content .box {}` is potentially troublesome because
 
@@ -2143,7 +2141,7 @@ The separation of concerns is a principle which, at first, sounds a lot like the
 > A concern is a set of information that affects the code of a computer 
 > program. […] A program that embodies SoC well is called a modular program.
 
-Modular is a word we're probably used to; the idea of breaking UIs and CSS into much smaller, composable pieces. The separation of concerns is just a formal definition which covers the concepts of modularity and encapsulation in code. In CSS this means building individual components, and writing code which only focusses itself on one task at a time.
+Modular is a word we're probably used to: the idea of breaking UIs and CSS into much smaller, composable pieces. The separation of concerns is just a formal definition which covers the concepts of modularity and encapsulation in code. In CSS this means building individual components, and writing code which only focusses itself on one task at a time.
 
 The term was coined by Edsger W. Dijkstra, who rather elegantly said:
 
@@ -2164,7 +2162,7 @@ The term was coined by Edsger W. Dijkstra, who rather elegantly said:
 > of view, the other is irrelevant. It is being one- and multiple-track minded 
 > simultaneously.
 
-Beautiful. The idea here is to focus fully on one thing at once; build one thing to do its job very well whilst paying as little attention as possible to other facets of your code. Once you have addressed and built all these separate concerns in isolation—meaning they're probably very modular, decoupled, and encapsulated—you can begin bringing them together into a larger project.
+Beautiful. The idea here is to focus fully on one thing at once; build one thing to do its job very well whilst paying as little attention as possible to other facets of your code. Once you have addressed and built all these separate concerns in isolation — meaning they're probably very modular, decoupled, and encapsulated — you can begin bringing them together into a larger project.
 
 A great example is layout. If you are using a grid system, all of the code pertaining to layout should exist on its own, without including anything else. You've written code that handles layout, and that's it:
 
@@ -2209,10 +2207,10 @@ The separation of concerns increases reusability and confidence whilst reducing 
 
 DRY, which stands for _Don't repeat yourself_, is a micro-principle used in software development which aims to keep the repetition of key information to a minimum. Its formal definition is that
 
-> [e]very piece of knowledge must have a single, unambiguous, authoritative 
+> every piece of knowledge must have a single, unambiguous, authoritative 
 > representation within a system.
 
-Although a very simple principle—in principle—DRY is often misinterpreted as the necessity to never repeat the exact same thing twice at all in a project. This is impractical and usually counterproductive, and can lead to forced abstractions, over-thought and -engineered code, and unusual dependencies.
+Although a very simple principle — in principle — DRY is often misinterpreted as the necessity to never repeat the exact same thing twice at all in a project. This is impractical and usually counterproductive, and can lead to forced abstractions, over-thought and over-engineered code, and unusual dependencies.
 
 The key isn't to avoid all repetition, but to normalise and abstract meaningful repetition. If two things happen to share the same declarations coincidentally, then we needn't DRY anything out; that repetition is purely circumstantial and cannot be shared or abstracted. For example:
 
@@ -2240,7 +2238,7 @@ The key isn't to avoid all repetition, but to normalise and abstract meaningful 
     }
 ```
 
-From the above code, we can reasonably deduce that the font-weight: bold; declaration appears three times purely coincidentally. To try and create an abstraction, mixin, or `@extend` directive to cater for this repetition would be overkill, and would tie these three rulesets together based purely on circumstance.
+From the above code, we can reasonably deduce that the `font-weight: bold;` declaration appears three times purely coincidentally. To try and create an abstraction, mixin, or `@extend` directive to cater for this repetition would be overkill, and would tie these three rulesets together based purely on circumstance.
 
 However, imagine we're using a web-font that requires `font-weight: bold;` to be declared every time the font-family is:
 
@@ -2273,9 +2271,9 @@ However, imagine we're using a web-font that requires `font-weight: bold;` to be
 
 Here we're repeating a more meaningful snippet of CSS; these two declarations have to always be declared together. In this instance, we probably would DRY out our CSS.
 
-I would recommend using a mixin over @extend here because, even though the two declarations are thematically grouped, the rulesets themselves are still separate, unrelated entities: to use @extend would be to physically group these unrelated rulesets together in our CSS, thus making the unrelated related.
+You SHOULD use a mixin over @extend here because, even though the two declarations are thematically grouped, the rulesets themselves are still separate, unrelated entities: to use @extend would be to physically group these unrelated rulesets together in our CSS, thus making the unrelated related.
 
-Our mixin:
+The mixin:
 
 ```
 @mixin my-web-font() {
