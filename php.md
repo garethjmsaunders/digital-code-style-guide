@@ -64,6 +64,13 @@ This style guide is based mainly around the assumption that we will be writing s
 
 Important thing is code consistency and comprehensibility. If you use another framework (such as CodeIgniter or Symphony) it is more important to write your code consistently with the parent framework than follow this guide to the letter.
 
+Focus on code, not formatting
+Consistency
+Readability
+Collaboration
+
+Don’t invent your own standard. You are not special and your PHP source code is not unique.
+
 
 
 
@@ -357,6 +364,11 @@ Source: WordPress
 
 
 ## 7. Comments
+
+TODO: Organize Your Code
+•Learn to utilize @category, @package, @subpackage
+•PEAR style is the de facto standard
+•Always Prefix Your Classes (Foo_)
 
 In general, code should be commented proflifically. There is not a required format for comments, but the following are recommended.
 
