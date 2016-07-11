@@ -31,7 +31,6 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Logical comparisons](#logical-comparisons)
     - [Type casting](#type-casting)
 - [7. Comments](#7-comments)
-    - [Comments](#comments)
 - [8. Naming conventions](#8-naming-conventions)
     - [Classes and methods](#classes-and-methods)
         - [Class names](#class-names)
@@ -51,6 +50,12 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 - [Further reading](#further-reading)
 
 <!-- /MarkdownTOC -->
+
+TODO: Update comments
+TODO: Rewrite introduction
+TODO: Arrays
+TODO: Security
+TODO: Avoid magic numbers
 
 
 ## 1. Introduction
@@ -352,8 +357,6 @@ Source: WordPress
 
 
 ## 7. Comments
-
-### Comments
 
 In general, code should be commented proflifically. There is not a required format for comments, but the following are recommended.
 
