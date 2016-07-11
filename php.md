@@ -8,19 +8,31 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 <!-- MarkdownTOC -->
 
-- Principles of writing secure code
-- Code standards
-    - Bracket and parenthetic spacing
-    - Class and method naming
-    - Code indenting
-    - Commenting
-    - Constants
-    - File naming
-    - Logical operators
-    - PHP closing tag
-    - Variable names
+- [1. File format](#1-file-format)
+- [Principles of writing secure code](#principles-of-writing-secure-code)
+- [Code standards](#code-standards)
+    - [Bracket and parenthetic spacing](#bracket-and-parenthetic-spacing)
+    - [Class and method naming](#class-and-method-naming)
+    - [Code indenting](#code-indenting)
+    - [Commenting](#commenting)
+    - [Constants](#constants)
+    - [File naming](#file-naming)
+    - [Logical operators](#logical-operators)
+    - [PHP closing tag](#php-closing-tag)
+    - [Variable names](#variable-names)
 
 <!-- /MarkdownTOC -->
+
+
+
+
+## 1. File format
+
+Files MUST be saved with Unicode (UTF-8) encoding; saving with the byte-order mark (UTF-8 with BOM) MUST NOT be used.
+
+
+
+
 
 ## Principles of writing secure code
 
