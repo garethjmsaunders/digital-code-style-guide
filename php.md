@@ -1,115 +1,359 @@
 # PHP style guide
 
-Version 0.1
-Last updated: Thursday 26 May 2016
+Version 0.3.0
+Last updated: Monday 11 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 
 <!-- MarkdownTOC -->
 
-- [1. File format](#1-file-format)
-- [Principles of writing secure code](#principles-of-writing-secure-code)
-- [Code standards](#code-standards)
-    - [Bracket and parenthetic spacing](#bracket-and-parenthetic-spacing)
-    - [Class and method naming](#class-and-method-naming)
-    - [Code indenting](#code-indenting)
-    - [Commenting](#commenting)
-    - [Constants](#constants)
-    - [File naming](#file-naming)
-    - [Logical operators](#logical-operators)
-    - [PHP closing tag](#php-closing-tag)
+- [1. Introduction](#1-introduction)
+- [2. File format](#2-file-format)
+    - [Unicode \(UTF-8\)](#unicode-utf-8)
+    - [Use LF \(Unix\) line endings](#use-lf-unix-line-endings)
+- [3. No shorthand PHP tags](#3-no-shorthand-php-tags)
+- [4. PHP closing tag](#4-php-closing-tag)
+- [5. General formatting](#5-general-formatting)
+    - [Indentation](#indentation)
+    - [Line width \(80 characters\)](#line-width-80-characters)
+    - [One statement per line](#one-statement-per-line)
+    - [Semicolons](#semicolons)
+    - [Parentheses](#parentheses)
+    - [Brace style](#brace-style)
+    - [Single and double quotation marks](#single-and-double-quotation-marks)
+- [6. Spaces](#6-spaces)
+    - [Whitespace](#whitespace)
+    - [Remove trailing spaces](#remove-trailing-spaces)
+    - [Array items](#array-items)
+    - [Blocks](#blocks)
+    - [Functions](#functions)
+    - [Logical comparisons](#logical-comparisons)
+    - [Type casting](#type-casting)
+- [7. Comments](#7-comments)
+    - [Comments](#comments)
+- [8. Naming conventions](#8-naming-conventions)
+    - [Classes and methods](#classes-and-methods)
+        - [Class names](#class-names)
+        - [Class method names](#class-method-names)
+    - [Constant names](#constant-names)
+    - [Filenames](#filenames)
+    - [Function names](#function-names)
     - [Variable names](#variable-names)
+- [9. Language specifics](#9-language-specifics)
+    - [elseif, not else if #](#elseif-not-else-if-)
+    - [Logical operators](#logical-operators)
+    - [Regular expressions #](#regular-expressions-)
+    - [Ternary operator](#ternary-operator)
+    - [TRUE, FALSE, and NULL](#true-false-and-null)
+    - [Yoda conditions](#yoda-conditions)
+- [10. Debug code](#10-debug-code)
+- [Further reading](#further-reading)
 
 <!-- /MarkdownTOC -->
 
 
+## 1. Introduction
 
+This style guide is based mainly around the assumption that we will be writing simple code and/or WordPress development, so it is based heavily on the [WordPress PHP coding standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/).
 
-## 1. File format
-
-Files MUST be saved with Unicode (UTF-8) encoding; saving with the byte-order mark (UTF-8 with BOM) MUST NOT be used.
-
-
-
-
-
-## Principles of writing secure code
+Important thing is code consistency and comprehensibility. If you use another framework (such as CodeIgniter or Symphony) it is more important to write your code consistently with the parent framework than follow this guide to the letter.
 
 
 
 
+## 2. File format
 
-## Code standards
+### Unicode (UTF-8)
 
-### Bracket and parenthetic spacing
+* Files MUST be saved with Unicode (UTF-8) encoding.
+* Files MUST NOT be saved with the byte-order mark (UTF-8 with BOM).
 
-In general, parenthesis and brackets should not use any additional whitespaces. The exception is that a space should always follow PHP control structures that accept arguments with parenthesis to help distinguish them from functions and to increase readability.
 
-Incorrect:
+### Use LF (Unix) line endings
 
-```
-$arr[ $foo ] = 'foo';
-```
+Line feed (LF) Unix style line endings (sometimes called line breaks) SHOULD be used.
 
-Correct:
+This is more of an issue for developers who work in Windows, but in any case ensure that your text editor is set up to save files with Unix line breaks. For example, in Sublime Text you can add the following to your user settings:
 
 ```
-$arr[$foo] = 'foo';
+    "default_line_ending": "LF",
 ```
 
-Incorrect:
+
+
+## 3. No shorthand PHP tags
+
+You must NEVER use shorthand PHP start tags; always choose full PHP tags.
 
 ```
-function foo ( $bar )
-{
-    
+// Correct
+<?php ... ?>
+<?php echo $var; ?>
+
+
+// Incorrect
+<? ... ?>
+<?= $var ?>
+```
+
+
+
+
+## 4. PHP closing tag
+
+The PHP closing tag (`?>`) is optional for the PHP parser. However, if used any whitespace following the closing tag can cause unexpected output, errors, or blank pages (if errors are suppressed).
+
+All PHP files MUST omit the PHP closing tag. Remove trailing whitespace and end the file with a single empty line.
+
+```
+// Wrong
+<?php
+    example () {
+        // code        
+    }
+?>
+
+// Correct
+<?php
+    example () {
+        // code        
+    }
+
+```
+
+
+
+
+## 5. General formatting
+
+### Indentation
+
+PHP parsers do not care about indentation, it is solely used for the convenience of human readers. Indentation should be used to enhance readability of the source code.
+
+* Do not indent code unnecessarily.
+* Indent on purpose.
+* Indent consistently.
+
+Code indentation should always reflect the logical structure of the code.
+
+* Use soft tabs with FOUR spaces. Spaces are the only way to guarantee code renders the same in any environment.
+* Nested elements SHOULD be indented once (four spaces).
+
+
+### Line width (80 characters)
+
+Where possible, limit PHP files' width to 80 characters. Reasons for this include:
+
+* the ability to have multiple files open side by side;
+* viewing PHP on sites like GitHub, or in a terminal window;
+* providing a comfortable line length for comments.
+
+Do not worry about unavoidable exceptions to this rule, such as URLs, or within a `heredoc`.
+
+
+### One statement per line
+
+Statements SHOULD always be written one per line; do not combine statements on one line.
+
+One statement per line makes code easier to read and compare using a diff tool.
+
+At best multiple, combined statements makes code look messy and confusing, at worst it can contribute to the insertion of errors or missing something when reviewing code.
+
+There MAY be some exceptions, such as `switch` statements, but readability and ease of debugging and code maintenance should take precidence over strict adherence to this rule, e.g.
+
+```
+<?php
+switch ($_REQUEST['tag']) {
+    default:   $string=FALSE;                     break; 
+    case 1:    $string='first choice';            break; 
+    case 2:    $string='another possible choice'; break; 
+    case 3:    $string='maybe something else';    break; 
+    case 4:    $string='yet another idea';        break; 
 }
 ```
 
-Correct:
+
+### Semicolons
+
+PHP generally uses semicolons (`;`) to mark the end of a statement. However, if the PHP closing tag is on the same line after a statement, the semicolon is optional and should not be used.
+
+A code block, enclosed in braces `{...}` is not a statement, it is a group of statements. Each statement within the code block MUST be terminated with a semicolon, but the code block itself is NOT terminated with a semicolon.
+
+<small>Source: MIT Sloan School of Management</small>
+
+
+### Parentheses
+
+Parentheses SHOULD only be used where they are required. Additional parentheses may be used to clarify groupings in complex conditional constructs, but knowing operator precedence should eliminate their necessity.
+
+Parentheses SHOULD NOT be used when using language constructs such as `echo`, `print`, `include`, or `require`. These are not functions and don't require parentheses around their parameters.
+
+When calling class constructors with no arguments, always include parentheses: The constructors are functions, so constructor calls need to look like function calls.
+
+<small>Source: MIT Sloan School of Management</small>
+
+
+### Brace style
+
+You MUST use 1TBS (one true brace style) to indent braces, e.g.
 
 ```
-function foo($bar)
-{
-
+if ( condition ) {
+    action1();
+    action2();
+} elseif ( condition2 && condition3 ) {
+    action3();
+    action4();
+} else {
+    defaultaction();
 }
 ```
 
-Incorrect:
+Braces MUST always be used, even when they are not required. This means that single-statement inline control structures MUST NOT be used.
+
+You MAY use alternative syntax for control structures (e.g. `if/endif`, `while/endwhile`) especially in your templates where PHP code is embedded within HTML, for instance in WordPress:
 
 ```
-foreach( $query->result() as $row )
+<?php if ( have_posts() ) : ?>
+    <div class="hfeed">
+        <?php while ( have_posts() ) : the_post(); ?>
+            <article id="post-<?php the_ID() ?>" class="<?php post_class() ?>">
+                <!-- ... -->
+            </article>
+        <?php endwhile; ?>
+    </div>
+<?php endif; ?>
 ```
 
-Correct:
+<small>Source: WordPress</small>
+
+
+### Single and double quotation marks
+
+Use single and double quotes when appropriate. If you’re not evaluating anything in the string, you SHOULD use single quotes.
+
+You SHOULD almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
 
 ```
-foreach ($query->result() as $row)
+echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
+echo "<a href='$link' title='$linktitle'>$linkname</a>";
+```
+
+In WordPress, text that goes into attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue.
+
+<small>Source: WordPress</small>
+
+
+
+
+## 6. Spaces
+
+
+### Whitespace
+
+There MUST NOT be any whitespace before the opening PHP tag.
+
+
+### Remove trailing spaces
+
+You MUST remove trailing whitespace at the end of each line of code.
+
+
+### Array items
+
+Spaces MUST always be inserted after commas, and on both sides of logical, comparison, string and assignment operators.
+
+When referring to array items, one space MUST be inserted around the index ONLY if it is a variable.
+
+```
+x = array( 1, 2, 3 );  // Note no space after array keyword
+
+$x = $foo['bar'];
+$x = $foo[0];
+$x = $foo[ $bar ];
 ```
 
 
-### Class and method naming
+### Blocks
 
-Class names should always start with an uppercase letter. Multiple words should be separated with an underscore.
-
-```
-class Super_class
-```
-
-Class methods should be entirely lowercased and named to clearly indicate their function, preferably with a verb. Multiple words should be separated with an underscore.
+Spaces MUST be inserted on both sides of the opening and closing parenthesis of `if`, `elseif`, `foreach`, `for`, and `switch` blocks.
 
 ```
-function get_file_properties()
+for ( expr1; expr2; expr3 ) {
+    ... 
+}
+
+foreach ( $foo as $bar ) { 
+    ... 
+}
+
+if ( x < 45 ) {
+    elseif ( x > 45 ) {
+}
+
+switch ( $i ) { 
+    ... 
+}
 ```
 
-### Code indenting
+
+### Functions
+
+When defining a function:
+
+```
+function my_function( $param1 = 'foo', $param2 = 'bar' ) {
+    ...
+}
+```
 
 
-[Link](url) 
+When calling a function:
+
+```
+my_function( $param1, func_param( $param2 ) );
+```
 
 
-### Commenting
+### Logical comparisons
+
+When performing logical comparisons:
+
+```
+if ( ! $foo ) { 
+    ...
+}
+
+x == 23;
+$baz === '-5';
+$term .= 'X';
+foo && bar;
+! foo;
+
+```
+
+
+### Type casting
+
+When type casting:
+
+```
+foreach ( (array) $foo as $bar ) { 
+    ...
+}
+
+$foo = (boolean) $bar;
+```
+ 
+Source: WordPress
+
+
+
+
+## 7. Comments
+
+### Comments
 
 In general, code should be commented proflifically. There is not a required format for comments, but the following are recommended.
 
@@ -150,48 +394,110 @@ $parts = explode("\n", $str);
 $parts = $this -> foo($parts);
 ```
 
-### Constants
-
-Constants follow the same guidelines as variables, except constants should always be uppercase.
-
-### File naming
-
-### Logical operators
-
-Use of the `||` "or" comparison operator is discouraged as its clarity on some output devices is low (looking like the number 11 for instance). `&&` is preferred over `and` but either are acceptable. A space should always precede and follow `!`
 
 
-
-### PHP closing tag
-
-The PHP closing tag `?>` is optional to the PHP parser. If used, any whitespace following the closing tag can cause unwanted output, PHP errors, or if the latter are suppressed, blank pages. For this reason, all PHP files must omit the PHP closing tag and end with a single empty line instead. 
+## 8. Naming conventions
 
 
+### Classes and methods
+
+#### Class names
+
+Regex pattern: `(([A-Z]{1}[a-zA-Z]*)_*)+`
+
+* Class names MUST always start with an uppercase letter.
+* Multiple words MUST be separated with an underscore.
+* Subsequent words MUST also begin with an uppercase letter.
+* Abbreviations MUST be written in all-uppercase.
+
+```
+class Class_Name
+class Longer_Class_Name
+class WP_HTTP
+```
 
 
+#### Class method names
+
+Regex pattern: `(([a-z]+)_*)+`
+
+A method is a function used in the context of a class/object.
+
+* Class methods MUST be entirely lowercase
+* Class methods SHOULD be named to clearly indicate their function, preferably beginning with a verb.
+* Multiple words MUST be separated with an underscore.
+
+```
+function get_file_properties()
+```
 
 
+### Constant names
+
+Regex pattern: `(([A-Z]+)_*)+`
+
+Variables should only contain UPPERCASE letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Numbers SHOULD NOT be used in constants.
+
+```
+define('MIN_VALUE', '0.0');
+define('MAX_VALUE', '1.0');
+
+class Constants {
+  const MIN_VALUE = 0.0;      // RIGHT - Works INSIDE of a class definition.
+  const MAX_VALUE = 1.0;      // RIGHT - Works INSIDE of a class definition.
+}
+```
+
+
+### Filenames
+
+Regex pattern: `(([a-z])+-*)+(.inc)*.php`
+
+Following the WordPress convention:
+
+* Files SHOULD be named descriptively using lowercase letters.
+* Words MUST be separated by hyphens.
+* Filenames MUST never end with `.inc`. If you use an included file use a double suffix: `.inc.php`.
+
+```
+filename.php
+my-plugin-name.php
+helper-class-library.inc.php
+```
+
+Class file filenames should be based on the class name with `class-` prepended and the underscores in the class name replaced with hyphens, for example `WP_Error` becomes:
+
+```
+class-wp-error.php
+```
+
+
+### Function names
+
+Regex pattern: `(([a-z])+_*)+`
+
+Function MUST contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents.
+
+```
+function write_message() {
+    echo 'Hello world!';
+}
+
+function greet_fullname( $first_name, $last_name ) {
+    echo "Hello $first_name $last_name";
+}
+```
 
 
 
 ### Variable names
 
-Guidelines for variable naming are similar to those used for class methods. Variables should only contain lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Very short, non-word variable sdhould only used for iterations in `for()` loops.
+Regex pattern: `\$(([a-z])+_*)+`
 
-Incorrect:
-
-```
-$j = 'foo'; //single letter variables should only be used in for() loops
-$Str //contains uppercase letters
-$bufferedText //uses CamelCase and could be shortened without losing semantic meaning
-$groupid //multiple words, needs underscore separator
-$name_of_last_city_used //too long
-```
-
-Correct:
+Variable names MUST contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Very short, non-word variable sdhould only used for iterations in `for()` loops.
 
 ```
-for($j = 0; $j < 0; $j++)
+for ( $j = 0; $j < 0; $j++ ) { ... }
 $str
 $buffer
 $group_id
@@ -199,16 +505,72 @@ $last_city
 ```
 
 
+## 9. Language specifics
+
+### elseif, not else if #
+
+`else if` is not compatible with the colon syntax for `if|elseif` blocks. For this reason, use `elseif` for conditionals.
+
+
+### Logical operators
+
+Use of the `||` "or" comparison operator is discouraged as its clarity on some output devices is low (looking like the number 11 for instance). `&&` is preferred over `and` but either are acceptable. A space should always precede and follow `!`
+
+
+### Regular expressions #
+
+Perl compatible regular expressions (PCRE, `preg_` functions) SHOULD be used in preference to their POSIX counterparts.
+
+Single-quoted strings SHOULD be used for regular expressions as they have only two metasequences (sequences of characters that have special meaning in a regular expression pattern): `\'` and `\\`.
+
+### Ternary operator
+
+Ternary operators are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using ! empty(), as testing for false here is generally more intuitive.)
+
+For example:
+
+```
+// (if statement is true) ? (do this) : (else, do this);
+$musictype = ( 'jazz' == $music ) ? 'cool' : 'blah';
+```
+
+
+### TRUE, FALSE, and NULL
+
+TRUE, FALSE, and NULL are PHP keywords that should always be written fully uppercase.
+
+
+### Yoda conditions
+
+```
+if ( true == $the_force ) {
+    $victorious = you_will( $be );
+}
+```
+
+When doing logical comparisons, always put the variable on the right side, constants or literals on the left.
+
+In the above example, if you omit an equals sign (admit it, it happens even to the most seasoned of us), you'll get a parse error, because you can’t assign to a constant like true. If the statement were the other way around ( $the_force = true ), the assignment would be perfectly valid, returning 1, causing the `if` statement to evaluate to true, and you could be chasing that bug for a while.
+
+A little bizarre it is to read. Get used to it you will.
+
+This applies to `==`, `!=`, `===`, and `!==`. Yoda conditions for `<`, `>`, `<=` or `>=` are significantly more difficult to read and are best avoided.
 
 
 
 
+## 10. Debug code
+
+Debugging code MUST NOT be left in production code, even if commented out.
+
+Functions such as `var_dump()`, `print_r()`, `die()`/`exit()`` SHOULD NOT remain in your code unless it serves a specific purpose other than debugging.
 
 
 
+---
 
+## Further reading
 
-
-
-
-
+* [CodeIgniter PHP style guide](https://codeigniter.com/user_guide/general/styleguide.html)
+* [WordPress PHP coding standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/)
+* [MIT Sloan School of Management](http://mitsloan.mit.edu/shared/content/PHP_Code_Style_Guide.php)
