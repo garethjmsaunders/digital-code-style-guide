@@ -2325,7 +2325,7 @@ Generally speaking, the longer a selector is (i.e. the more component parts) the
 body.home div.header ul {}
 ```
 
-…is a far less efficient selector than:
+is a far less efficient selector than:
 
 ```
 .primary-nav {}
