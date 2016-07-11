@@ -1,41 +1,50 @@
 # JavaScript style guide
 
-version 0.3
+version 0.4
 Last updated: Tuesday 5 July 2016
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC depth=4 -->
 
-- [Introduction](#introduction)
-- [1. General](#1-general)
-  - [Naming conventions](#naming-conventions)
-  - [Semicolon](#semicolon)
-  - [Scope](#scope)
-  - [Comments](#comments)
-  - [Avoid mixing technology](#avoid-mixing-technology)
-  - [Don't use `eval`](#dont-use-eval)
-- [2. Formatting](#2-formatting)
-  - [Spaces vs Tabs](#spaces-vs-tabs)
-  - [Blocks](#blocks)
-  - [Line length](#line-length)
-  - [Multiline Function arguments](#multiline-function-arguments)
-  - [Binary and Ternary Operators](#binary-and-ternary-operators)
-  - [Quoting strings](#quoting-strings)
-- [3. Configuration & references](#3-configuration--references)
-  - [JSLint Configuration](#jslint-configuration)
-  - [References](#references)
+- [1 Introduction](#1-introduction)
+- [2. General](#2-general)
+  - [2.1 Naming conventions](#21-naming-conventions)
+  - [2.2 Semicolon](#22-semicolon)
+  - [2.3 Scope](#23-scope)
+  - [2.4 Comments](#24-comments)
+  - [2.5 Avoid mixing technology](#25-avoid-mixing-technology)
+  - [2.6 Don't use `eval`](#26-dont-use-eval)
+- [3. Formatting](#3-formatting)
+  - [3.1 Spaces vs tabs](#31-spaces-vs-tabs)
+  - [3.2 Blocks](#32-blocks)
+  - [3.3 Line length](#33-line-length)
+    - [Allowable exceptions](#allowable-exceptions)
+  - [3.4 Multi-line function arguments](#34-multi-line-function-arguments)
+  - [3.5 Binary and ternary operators](#35-binary-and-ternary-operators)
+  - [3.6 Quoting strings](#36-quoting-strings)
+- [4. Configuration and references](#4-configuration-and-references)
+  - [4.1 JSLint configuration](#41-jslint-configuration)
+- [References](#references)
 
 <!-- /MarkdownTOC -->
 
 
-# Introduction
-
-We use JSLint as a standard specification for our code. That implies some decisions about style. This document highlights some of the more important ramifications of JSLint and any additional stylistic requirements we have. See the full documentation [JSLint][jslint] for more information.
 
 TODO: Merge in style guide advice from Douglas Crockford (author of JSLint) http://javascript.crockford.com/code.html
 
-# 1. General 
 
-## Naming conventions
+---
+
+
+## 1 Introduction
+
+We use JSLint as a standard specification for our code. That implies some decisions about style. This document highlights some of the more important ramifications of JSLint and any additional stylistic requirements we have. See the full documentation [JSLint][jslint] for more information.
+
+
+
+
+## 2. General 
+
+### 2.1 Naming conventions
 
 We call things by their name. Good variable and function names should be easy to understand and tell you what is going on — not more and not less. 
 
@@ -76,14 +85,15 @@ We call things by their name. Good variable and function names should be easy to
     </tr>
 </table>
 
-## Semicolon
+
+### 2.2 Semicolon
 
 <sub>From [JSLint][].</sub>
 
 Every statement should be followed by a semicolon except for `for`, `function`, `if`, `switch`, `try`, and `while`.
 
 
-## Scope
+### 2.3 Scope
 
 <sub>From [JSLint][].</sub>
 
@@ -94,27 +104,30 @@ var graduationYear;
 var orientation;
 ```
 
-## Comments
+
+### 2.4 Comments
 
 Comment as much as needed but not more. Comments are your messages to other developers (and yourself, if you come back to your code after several months working on something else). We prefer to use the `/* */` rather than the `//`.
 ```
 module = function(){
-  var current = null;
-  function init(){
-  };
+    var current = null;
+    function init(){
+    };
 /*
   function show(){
-    current = 1;
+      current = 1;
   };
   function hide(){
-    show();
+      show();
   };
 */
-  return{init:init,show:show,current:current}
+
+return{init:init,show:show,current:current}
 }();
 ```
 
-## Avoid mixing technology
+
+### 2.5 Avoid mixing technology
 
 While it is possible to create everything you need in a document using JavaScript and the DOM it is not necessarily the most effective way of doing so. We could write CSS inline on a DOM element, but it would be far better to apply a class and let the styling be handled in the style sheet.
 
@@ -145,27 +158,31 @@ for(var i=0,j=inputs.length;i<j;i++){
 ```
 
 
-## Don't use `eval`
+### 2.6 Don't use `eval`
 
 <sub>From [JSLint][].</sub>
 
 `eval` is probably the most misused feature of JavaScript, because there is almost always a better way to achieve the same thing. See the [JSLint article](https://jslinterrors.com/eval-is-evil) for more information.
 
-# 2. Formatting
 
-## Spaces vs Tabs
+
+
+## 3. Formatting
+
+### 3.1 Spaces vs tabs
 
 <sub>From [JSLint][].</sub>
 
-Use only spaces, and indent 2 spaces at a time.
+Use only spaces, and indent FOUR (4) spaces at a time.
 
-We use spaces for indentation. Do not use tabs in your code. You should set your editor to emit spaces when you hit the tab key.
+Use spaces for indentation. Do not use tabs in your code. You should set your editor to emit spaces when you hit the tab key.
 
-## Blocks
+
+### 3.2 Blocks
 
 <sub>Based on requirements from [JSLint][].</sub>
 
-Use explicit blocks for `if`, `while`, `do` and `for` statements. Always start your curly braces on the same line as whatever they're opening, and leave the closing brace on it's own line. For example:
+Use explicit blocks for `if`, `while`, `do` and `for` statements. Always start your curly braces on the same line as whatever they're opening, and leave the closing brace on its own line. For example:
 
 ```
 // Good
@@ -192,22 +209,23 @@ else statement2;
 
 ```
 
-## Line length
+
+### 3.3 Line length
 
 <sub>Based on [Google JS Style Guide][googlestyle].</sub>
 
 Each line of text in your code should be at most 80 characters long.
 
+#### Allowable exceptions
 
-**Allowable Exceptions**
+*   If a comment line contains an example command or a literal URL longer than 
+    80 characters, that line may be longer than 80 characters for ease of cut and paste.
+*   A raw-string literal may have content that exceeds 80 characters. Except 
+    for test code, such literals should appear near top of a file.
+*   Statements with a long URL may exceed 80 characters.
 
-* If a comment line contains an example command or a literal URL longer than 80 characters, that line may be longer than 80 characters for ease of cut and paste.
 
-* A raw-string literal may have content that exceeds 80 characters. Except for test code, such literals should appear near top of a file.
-
-* Statements with a long URL may exceed 80 characters.
-
-## Multiline Function arguments
+### 3.4 Multi-line function arguments
 
 <sub>From [Google JS Style Guide][googlestyle].</sub>
 
@@ -249,7 +267,8 @@ artichokeDescriptorAdapterIterator) {
 }
 ```
 
-## Binary and Ternary Operators
+
+### 3.5 Binary and ternary operators
 
 <sub>From [Google JS Style Guide][googlestyle].</sub>
 
@@ -276,7 +295,8 @@ doSomething().
 doSomethingElse();
 ```
 
-## Quoting strings
+
+### 3.6 Quoting strings
 
 <sub>From [Google JS Style Guide][googlestyle].</sub>
 
@@ -286,9 +306,13 @@ Single-quotes (') are preferred to double-quotes ("). This is helpful when creat
 var msg = 'This is some <a href="#url">HTML</a>';
 ```
 
-# 3. Configuration & references
 
-## JSLint Configuration
+
+
+## 4. Configuration and references
+
+
+### 4.1 JSLint configuration
 
 The pattern library provides a JSLint config file that implements many of these rules and can be used to ensure that your code matches our work.
 
