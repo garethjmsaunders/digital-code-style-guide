@@ -1,6 +1,6 @@
 # PHP style guide
 
-Version 0.5.1
+Version 0.5.2
 Last updated: Tuesday 12 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -284,6 +284,7 @@ In WordPress, text that goes into attributes should be run through `esc_attr()` 
 
 Spaces MUST always be inserted after commas, and on both sides of logical, comparison, string and assignment operators.
 
+
 ### Whitespace
 
 There MUST NOT be any whitespace before the opening PHP tag.
@@ -400,6 +401,7 @@ $foo = (boolean) $bar;
 
 In general, code needs more comments; comment your code prolifically.
 
+
 ### DocBlock
 
 Multi-line comments SHOULD use [phpDocumentor](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.pkg.html)-style comments.
@@ -469,8 +471,6 @@ You MAY also append a date after the version number.
 ```
 
 
-
-
 ### Class, method, and property declarations
 
 You SHOULD use [DocBlock](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.howto.pkg.html#basics.docblock) style comments before class, method, and property declarations. Some IDEs use these comments to infer information about the code.
@@ -494,6 +494,7 @@ You SHOULD use [DocBlock](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/ph
 class Super_Class { ... }
 ```
 
+
 #### Methods
 ```
 /**
@@ -504,6 +505,7 @@ class Super_Class { ... }
 * /
 function xml_encode($str) { ... }
 ```
+
 
 #### Property declarations
 ```
@@ -543,7 +545,6 @@ Needless to say, magic numbers are a plague and should be avoided at all costs. 
 ---
 
 ## 8. Naming conventions
-
 
 ### Classes and methods
 
@@ -713,6 +714,7 @@ Use of the `||` "or" comparison operator is discouraged as its clarity on some o
 Perl compatible regular expressions (PCRE, `preg_` functions) SHOULD be used in preference to their POSIX counterparts.
 
 Single-quoted strings SHOULD be used for regular expressions as they have only two metasequences (sequences of characters that have special meaning in a regular expression pattern): `\'` and `\\`.
+
 
 ### Ternary operator
 
