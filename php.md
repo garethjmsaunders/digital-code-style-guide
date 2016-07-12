@@ -1,6 +1,6 @@
 # PHP style guide
 
-Version 0.4.0
+Version 0.5.0
 Last updated: Tuesday 12 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -60,12 +60,11 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Ternary operator](#ternary-operator)
     - [TRUE, FALSE, and NULL](#true-false-and-null)
     - [Yoda conditions](#yoda-conditions)
-- [10. Debug code](#10-debug-code)
+- [10. Security](#10-security)
+    - [Debug code](#debug-code)
 - [Further reading](#further-reading)
 
 <!-- /MarkdownTOC -->
-
-TODO: Add new section 10. Security -- add debug as sub-section
 
 
 
@@ -753,11 +752,27 @@ This applies to `==`, `!=`, `===`, and `!==`. Yoda conditions for `<`, `>`, `<=`
 
 ---
 
-## 10. Debug code
+## 10. Security
+
+Ensure that your code is secure and does not make the web server vulnerable to attack.
+
+Areas that you MUST address and actively test for include:
+
+* Input validation
+* Secure network connections (SSL)
+* Cross-site scripting
+* SQL, code or command injection
+* Remote execution
+* Session security
+* Securing file access
+* Securing via obscurity
+
+
+### Debug code
 
 Debugging code MUST NOT be left in production code, even if commented out.
 
-Functions such as `var_dump()`, `print_r()`, `die()`/`exit()`` SHOULD NOT remain in your code unless it serves a specific purpose other than debugging.
+Functions such as `var_dump()`, `print_r()`, `die()`, or `exit()` SHOULD NOT remain in your code unless it serves a specific purpose other than debugging.
 
 
 
