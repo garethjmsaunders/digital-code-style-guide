@@ -32,6 +32,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [String concatenation](#string-concatenation)
     - [Type casting](#type-casting)
 - [7. Comments](#7-comments)
+    - [Magic numbers](#magic-numbers)
 - [8. Naming conventions](#8-naming-conventions)
     - [Classes and methods](#classes-and-methods)
         - [Class names](#class-names)
@@ -46,7 +47,6 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
         - [Associative arrays](#associative-arrays)
     - [elseif, not else if #](#elseif-not-else-if-)
     - [Logical operators](#logical-operators)
-    - [Magic numbers](#magic-numbers)
     - [Regular expressions #](#regular-expressions-)
     - [Ternary operator](#ternary-operator)
     - [TRUE, FALSE, and NULL](#true-false-and-null)
@@ -424,6 +424,14 @@ $parts = explode("\n", $str);
 
 $parts = $this -> foo($parts);
 ```
+
+
+### Magic numbers
+
+"Magic number" is an old school programming term for an unnamed numerical constant. Basically, it's just a random number that happens to _just work_™ yet is not tied to any logical explanation.
+
+Needless to say, magic numbers are a plague and should be avoided at all costs. When you cannot manage to find a reasonable explanation for why a number works, add an extensive comment explaining how you got there and why you think it works. Admitting you don’t know why something works is still more helpful to the next developer than them having to figure out what's going on from scratch.
+
 
 
 
