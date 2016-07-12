@@ -84,9 +84,11 @@ Don’t invent your own standard. You are not special and your PHP source code i
 
 ### Use LF (Unix) line endings
 
-Line feed (LF) Unix style line endings (sometimes called line breaks) SHOULD be used.
+Lines MUST end with a single, Unix-style line feed (LF) character.
 
-This is more of an issue for developers who work in Windows, but in any case ensure that your text editor is set up to save files with Unix line breaks. For example, in Sublime Text you can add the following to your user settings:
+Do not use carriage returns (CR) as used by Apple OS, or carriage return/line feed (CRLF) as used by Windows.
+
+Ensure that your text editor is set up to save files with Unix-style line breaks. For example, in Sublime Text you can add the following to your user settings:
 
 ```
     "default_line_ending": "LF",
@@ -116,7 +118,7 @@ You must NEVER use shorthand PHP start tags; always choose full PHP tags.
 
 The PHP closing tag (`?>`) is optional for the PHP parser. However, if used any whitespace following the closing tag can cause unexpected output, errors, or blank pages (if errors are suppressed).
 
-All PHP files MUST omit the PHP closing tag. Remove trailing whitespace and end the file with a single empty line.
+For files that contain only PHP code you MUST omit the PHP closing tag. Remove any trailing whitespace and end the file with a single empty line.
 
 ```
 // Wrong
