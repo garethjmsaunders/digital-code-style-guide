@@ -65,7 +65,6 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 <!-- /MarkdownTOC -->
 
-TODO: Rewrite 1. introduction
 TODO: Add new section 10. Security -- add debug as sub-section
 
 
@@ -77,14 +76,9 @@ TODO: Add new section 10. Security -- add debug as sub-section
 
 This style guide is based mainly around the assumption that we will be writing simple code and/or WordPress development, so it is based heavily on the [WordPress PHP coding standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/).
 
-Important thing is code consistency and comprehensibility. If you use another framework (such as CodeIgniter or Symphony) it is more important to write your code consistently with the parent framework than follow this guide to the letter.
+The most important thing when writing any code, particularly when collaborating on code within teams, is code consistency, readability, and comprehensibility. Remember that the only people actually reading your code are other humans: computers simply interpret it.
 
-Focus on code, not formatting
-Consistency
-Readability
-Collaboration
-
-Don’t invent your own standard. You are not special and your PHP source code is not unique.
+If you use another framework (such as CodeIgniter or Symphony) it is more important to write your code consistently with the parent framework than follow this guide to the letter.
 
 
 
