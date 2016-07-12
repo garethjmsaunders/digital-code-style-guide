@@ -1,6 +1,6 @@
 # PHP style guide
 
-Version 0.5.0
+Version 0.5.1
 Last updated: Tuesday 12 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -781,6 +781,8 @@ Functions such as `var_dump()`, `print_r()`, `die()`, or `exit()` SHOULD NOT rem
 ## Further reading
 
 * [CodeIgniter PHP style guide](https://codeigniter.com/user_guide/general/styleguide.html)
-* [WordPress PHP coding standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/)
 * [MIT Sloan School of Management](http://mitsloan.mit.edu/shared/content/PHP_Code_Style_Guide.php)
+* [phpDocumentor](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/li_phpDocumentor.html)
+* [Semantic versioning](http://semver.org/)
+* [WordPress PHP coding standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/)
 * [Zend framework coding standard for PHP](https://framework.zend.com/manual/1.11/en/coding-standard.html)
