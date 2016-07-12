@@ -32,6 +32,15 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [String concatenation](#string-concatenation)
     - [Type casting](#type-casting)
 - [7. Comments](#7-comments)
+    - [DocBlock](#docblock)
+        - [@package, @subpackage and @category](#package-subpackage-and-category)
+        - [@version](#version)
+        - [@since](#since)
+    - [Class, method, and property declarations](#class-method-and-property-declarations)
+        - [Classes](#classes)
+        - [Methods](#methods)
+        - [Property declarations](#property-declarations)
+    - [Single-line comments](#single-line-comments)
     - [Magic numbers](#magic-numbers)
 - [8. Naming conventions](#8-naming-conventions)
     - [Classes and methods](#classes-and-methods)
@@ -45,9 +54,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Arrays](#arrays)
         - [Numerically-indexed arrays](#numerically-indexed-arrays)
         - [Associative arrays](#associative-arrays)
-    - [elseif, not else if #](#elseif-not-else-if-)
+    - [elseif, not else if](#elseif-not-else-if)
     - [Logical operators](#logical-operators)
-    - [Regular expressions #](#regular-expressions-)
+    - [Regular expressions](#regular-expressions)
     - [Ternary operator](#ternary-operator)
     - [TRUE, FALSE, and NULL](#true-false-and-null)
     - [Yoda conditions](#yoda-conditions)
@@ -56,10 +65,13 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 <!-- /MarkdownTOC -->
 
-TODO: Update 7. Comments
 TODO: Rewrite 1. introduction
 TODO: Add new section 10. Security -- add debug as sub-section
 
+
+
+
+---
 
 ## 1. Introduction
 
@@ -76,6 +88,8 @@ Don’t invent your own standard. You are not special and your PHP source code i
 
 
 
+
+---
 
 ## 2. File format
 
@@ -99,6 +113,9 @@ Ensure that your text editor is set up to save files with Unix-style line breaks
 
 
 
+
+---
+
 ## 3. No shorthand PHP tags
 
 You must NEVER use shorthand PHP start tags; always choose full PHP tags.
@@ -116,6 +133,8 @@ You must NEVER use shorthand PHP start tags; always choose full PHP tags.
 
 
 
+
+---
 
 ## 4. PHP closing tag
 
@@ -141,6 +160,8 @@ For files that contain only PHP code you MUST omit the PHP closing tag. Remove a
 
 
 
+
+---
 
 ## 5. General formatting
 
@@ -264,6 +285,8 @@ In WordPress, text that goes into attributes should be run through `esc_attr()` 
 
 
 
+---
+
 ## 6. Spaces
 
 Spaces MUST always be inserted after commas, and on both sides of logical, comparison, string and assignment operators.
@@ -373,34 +396,112 @@ foreach ( (array) $foo as $bar ) {
 $foo = (boolean) $bar;
 ```
  
-Source: WordPress
+<small>Source: WordPress</small>
 
 
 
+
+---
 
 ## 7. Comments
 
-TODO: Organize Your Code
-•Learn to utilize @category, @package, @subpackage
-•PEAR style is the de facto standard
-•Always Prefix Your Classes (Foo_)
+In general, code needs more comments; comment your code prolifically.
 
-In general, code should be commented proflifically. There is not a required format for comments, but the following are recommended.
+### DocBlock
 
-DocBlock style comments preceding class, method and property declarations allow them to be picked up by IDEs.
+Multi-line comments SHOULD use [phpDocumentor](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.pkg.html)-style comments.
 
 ```
 /**
-* Super Class
-*
-* @package Package name
-* @subpackage Subpackage
-* @category Category
-* @author Auther name
-* @link http://example.com
-* /
+ * Comment heading
+ * Comment about what the following piece of code is for and why.
+ *
+ * @package SomePackage name
+ * @subpackage SubPackage name
+ * @category Category name
+ * @version 1.2.0 2016-07-04
+ * @author Gareth J M Saunders <gjms1@st-andrews.ac.uk>
+ * @copyright 2016
+ * @license http://opensource.org/licenses/gpl-license.php, GNU Public License
+ * @since 1.0.9
+ */
 ```
 
+Comments SHOULD be written as complete, grammatical sentences with an initial capital and a full-stop at the end.
+
+All [phpDocumentor tags](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_tags.pkg.html) are available but pay special attention to @package, @subpackage and @category, @version and @since.
+
+
+#### @package, @subpackage and @category
+
+Packages, subpackages and categories are used to help you logically group related elements.
+
+* [@package](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_tags.package.pkg.html) groups the class or elements in the file into a "package" in the documentation.
+* [@subpackage](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_tags.subpackage.pkg.html) groupings inside of a package, `@package` tag must also be present.
+* [@category](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_tags.category.pkg.html) organizes groups of packages.
+
+
+```
+/**
+ * Class Class_Name
+ * Class-level DocBlock example.
+ * @package packageName
+ * @subpackage singleWordName
+ * @category categoryName
+ */
+```
+
+
+#### @version
+
+[@version](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_tags.version.pkg.html) MUST be used on modules and elements to show the current revision. Use version numbering guidelines from [semantic versioning](http://semver.org/), which employs a MAJOR.MINOR.PATCH format.
+
+```
+@version 1.2.0]
+```
+
+You MAY also append a date after the version number.
+
+```
+@version 1.2.0 2016-07-04
+```
+
+
+#### @since
+
+[@since](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_tags.since.pkg.html) MAY be used on modules and elements to show in which revision they were first implemented. Example:
+
+```
+@since 1.3.0
+```
+
+
+
+
+### Class, method, and property declarations
+
+You SHOULD use [DocBlock](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.howto.pkg.html#basics.docblock) style comments before class, method, and property declarations. Some IDEs use these comments to infer information about the code.
+
+
+#### Classes
+```
+/**
+* Super Class
+* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique 
+* veniam earum ipsa eaque doloremque tenetur commodi dolor molestias 
+* non voluptatum sint minus quam quis culpa, praesentium distinctio id, 
+* saepe natus!
+*
+* @package Package Name
+* @subpackage Subpackage
+* @category Category
+* @author Author name
+* @link http://example.com
+* /
+class Super_Class { ... }
+```
+
+#### Methods
 ```
 /**
 * Encodes string for use in XML 
@@ -408,14 +509,26 @@ DocBlock style comments preceding class, method and property declarations allow 
 * @param string $str Input string
 * @return string
 * /
-
-function xml_encode($str)
+function xml_encode($str) { ... }
 ```
+
+#### Property declarations
+```
+/**
+ * Data for class manipulation
+ *
+ * @var array
+ */
+public $data = array();
+```
+
+
+### Single-line comments
 
 Use single line comments within code, leaving a blank line between large comment blocks and code.
 
 ```
-// Break up the string by newlines
+// Break up the string by new lines
 $parts = explode("\n", $str);
 
 // A longer comment that needs more detail
@@ -433,6 +546,8 @@ Needless to say, magic numbers are a plague and should be avoided at all costs. 
 
 
 
+
+---
 
 ## 8. Naming conventions
 
@@ -543,6 +658,10 @@ $last_city
 ```
 
 
+
+
+---
+
 ## 9. Language specifics
 
 ### Arrays
@@ -586,7 +705,7 @@ Again, a trailing comma MUST always be included after the final item in the arra
 <small>Source: Zend</small>
 
 
-### elseif, not else if #
+### elseif, not else if
 
 `else if` is not compatible with the colon syntax for `if|elseif` blocks. For this reason, use `elseif` for conditionals.
 
@@ -596,7 +715,7 @@ Again, a trailing comma MUST always be included after the final item in the arra
 Use of the `||` "or" comparison operator is discouraged as its clarity on some output devices is low (looking like the number 11 for instance). `&&` is preferred over `and` but either are acceptable. A space should always precede and follow `!`
 
 
-### Regular expressions #
+### Regular expressions
 
 Perl compatible regular expressions (PCRE, `preg_` functions) SHOULD be used in preference to their POSIX counterparts.
 
@@ -637,6 +756,8 @@ This applies to `==`, `!=`, `===`, and `!==`. Yoda conditions for `<`, `>`, `<=`
 
 
 
+
+---
 
 ## 10. Debug code
 
