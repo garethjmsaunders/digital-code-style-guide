@@ -29,6 +29,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Blocks](#blocks)
     - [Functions](#functions)
     - [Logical comparisons](#logical-comparisons)
+    - [String concatenation](#string-concatenation)
     - [Type casting](#type-casting)
 - [7. Comments](#7-comments)
 - [8. Naming conventions](#8-naming-conventions)
@@ -40,6 +41,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Function names](#function-names)
     - [Variable names](#variable-names)
 - [9. Language specifics](#9-language-specifics)
+    - [Arrays - EDIT THIS](#arrays---edit-this)
+        - [Numerically indexed arrays](#numerically-indexed-arrays)
+        - [Associative arrays](#associative-arrays)
     - [elseif, not else if #](#elseif-not-else-if-)
     - [Logical operators](#logical-operators)
     - [Regular expressions #](#regular-expressions-)
@@ -348,6 +352,15 @@ foo && bar;
 ```
 
 
+### String concatenation
+
+When concatenating strings using the `.` operator, a space MUST be inserted on both sides of the operator to improve readability.
+
+```
+$example = 'University' . ' of ' . 'St Andrews';
+```
+
+
 ### Type casting
 
 When type casting:
@@ -524,6 +537,59 @@ $last_city
 
 ## 9. Language specifics
 
+### Arrays - EDIT THIS
+
+#### Numerically indexed arrays
+
+Negative numbers are not permitted as indices.
+
+An indexed array may start with any non-negative number, however all base indices besides 0 are discouraged.
+
+When declaring indexed arrays with the Array function, a trailing space must be added after each comma delimiter to improve readability:
+
+$sampleArray = array(1, 2, 3, 'Zend', 'Studio');
+It is permitted to declare multi-line indexed arrays using the "array" construct. In this case, each successive line must be padded with spaces such that beginning of each line is aligned:
+
+```
+$sampleArray = array(1, 2, 3, 'Zend', 'Studio',
+                     $a, $b, $c,
+                     56.44, $d, 500);
+```
+
+Alternately, the initial array item may begin on the following line. If so, it should be padded at one indentation level greater than the line containing the array declaration, and all successive lines should have the same indentation; the closing paren should be on a line by itself at the same indentation level as the line containing the array declaration:
+
+```
+$sampleArray = array(
+    1, 2, 3, 'Zend', 'Studio',
+    $a, $b, $c,
+    56.44, $d, 500,
+);
+```
+
+When using this latter declaration, we encourage using a trailing comma for the last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure no parse errors occur due to a missing comma.
+
+#### Associative arrays
+When declaring associative arrays with the Array construct, breaking the statement into multiple lines is encouraged. In this case, each successive line must be padded with white space such that both the keys and the values are aligned:
+
+```
+$sampleArray = array('firstKey'  => 'firstValue',
+                     'secondKey' => 'secondValue');
+```
+
+Alternately, the initial array item may begin on the following line. If so, it should be padded at one indentation level greater than the line containing the array declaration, and all successive lines should have the same indentation; the closing paren should be on a line by itself at the same indentation level as the line containing the array declaration. For readability, the various "=>" assignment operators should be padded such that they align.
+
+```
+$sampleArray = array(
+    'firstKey'  => 'firstValue',
+    'secondKey' => 'secondValue',
+);
+```
+
+When using this latter declaration, we encourage using a trailing comma for the last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure no parse errors occur due to a missing comma.
+
+<small>Source: Zend</small>
+
+
 ### elseif, not else if #
 
 `else if` is not compatible with the colon syntax for `if|elseif` blocks. For this reason, use `elseif` for conditionals.
@@ -591,3 +657,4 @@ Functions such as `var_dump()`, `print_r()`, `die()`/`exit()`` SHOULD NOT remain
 * [CodeIgniter PHP style guide](https://codeigniter.com/user_guide/general/styleguide.html)
 * [WordPress PHP coding standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/)
 * [MIT Sloan School of Management](http://mitsloan.mit.edu/shared/content/PHP_Code_Style_Guide.php)
+* [Zend framework coding standard for PHP](https://framework.zend.com/manual/1.11/en/coding-standard.html)
