@@ -1,7 +1,7 @@
 # PHP style guide
 
-Version 0.3.0
-Last updated: Monday 11 July 2016
+Version 0.4.0
+Last updated: Tuesday 12 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -41,11 +41,12 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Function names](#function-names)
     - [Variable names](#variable-names)
 - [9. Language specifics](#9-language-specifics)
-    - [Arrays - EDIT THIS](#arrays---edit-this)
-        - [Numerically indexed arrays](#numerically-indexed-arrays)
+    - [Arrays](#arrays)
+        - [Numerically-indexed arrays](#numerically-indexed-arrays)
         - [Associative arrays](#associative-arrays)
     - [elseif, not else if #](#elseif-not-else-if-)
     - [Logical operators](#logical-operators)
+    - [Magic numbers](#magic-numbers)
     - [Regular expressions #](#regular-expressions-)
     - [Ternary operator](#ternary-operator)
     - [TRUE, FALSE, and NULL](#true-false-and-null)
@@ -57,7 +58,6 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 TODO: Update comments
 TODO: Rewrite introduction
-TODO: Arrays
 TODO: Security
 TODO: Avoid magic numbers
 
@@ -267,6 +267,7 @@ In WordPress, text that goes into attributes should be run through `esc_attr()` 
 
 ## 6. Spaces
 
+Spaces MUST always be inserted after commas, and on both sides of logical, comparison, string and assignment operators.
 
 ### Whitespace
 
@@ -280,7 +281,7 @@ You MUST remove trailing whitespace at the end of each line of code.
 
 ### Array items
 
-Spaces MUST always be inserted after commas, and on both sides of logical, comparison, string and assignment operators.
+Spaces MUST always be inserted after commas.
 
 When referring to array items, one space MUST be inserted around the index ONLY if it is a variable.
 
@@ -537,55 +538,43 @@ $last_city
 
 ## 9. Language specifics
 
-### Arrays - EDIT THIS
+### Arrays
 
-#### Numerically indexed arrays
+#### Numerically-indexed arrays
 
-Negative numbers are not permitted as indices.
+Arrays SHOULD always be created using the `array()` function rather than the square bracket notation (`$array = [ ... ]`).
 
-An indexed array may start with any non-negative number, however all base indices besides 0 are discouraged.
+* Negative numbers MUST not be used as indices.
+* Base numbers other than zero (0) SHOULD NOT be used.
+* A space SHOULD always be inserted after commas to aid readability. (See more about spaces, above).
 
-When declaring indexed arrays with the Array function, a trailing space must be added after each comma delimiter to improve readability:
-
-$sampleArray = array(1, 2, 3, 'Zend', 'Studio');
-It is permitted to declare multi-line indexed arrays using the "array" construct. In this case, each successive line must be padded with spaces such that beginning of each line is aligned:
-
-```
-$sampleArray = array(1, 2, 3, 'Zend', 'Studio',
-                     $a, $b, $c,
-                     56.44, $d, 500);
-```
-
-Alternately, the initial array item may begin on the following line. If so, it should be padded at one indentation level greater than the line containing the array declaration, and all successive lines should have the same indentation; the closing paren should be on a line by itself at the same indentation level as the line containing the array declaration:
+When declaring multi-line index arrays the initial array item SHOULD begin on the line following the `array()`` function, indented by four spaces. Subsequent lines MUST have the same indentation. The closing parenthesis should be on a line by itself at the same indentation level as the line containing the array declaration:
 
 ```
-$sampleArray = array(
-    1, 2, 3, 'Zend', 'Studio',
+$array = array(
+    1, 2, 3, 4, 5,
     $a, $b, $c,
-    56.44, $d, 500,
+    'colour', 'shape',
 );
 ```
 
-When using this latter declaration, we encourage using a trailing comma for the last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure no parse errors occur due to a missing comma.
+A trailing comma MUST always be included after the final item in the array. This helps avoid errors should the array be appended to and the missing comma not restored.
+
 
 #### Associative arrays
-When declaring associative arrays with the Array construct, breaking the statement into multiple lines is encouraged. In this case, each successive line must be padded with white space such that both the keys and the values are aligned:
+
+When declaring associative arrays, the statement SHOULD be broken into multiple lines, following the same guidelines as for numerically-indexed arrays.
+
+Key and value pairs SHOULD be padded with whitespace so that they align.
 
 ```
-$sampleArray = array('firstKey'  => 'firstValue',
-                     'secondKey' => 'secondValue');
-```
-
-Alternately, the initial array item may begin on the following line. If so, it should be padded at one indentation level greater than the line containing the array declaration, and all successive lines should have the same indentation; the closing paren should be on a line by itself at the same indentation level as the line containing the array declaration. For readability, the various "=>" assignment operators should be padded such that they align.
-
-```
-$sampleArray = array(
-    'firstKey'  => 'firstValue',
-    'secondKey' => 'secondValue',
+$array = array(
+    'first_key'  => 'first value',
+    'second_key' => 'second value',
 );
 ```
 
-When using this latter declaration, we encourage using a trailing comma for the last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure no parse errors occur due to a missing comma.
+Again, a trailing comma MUST always be included after the final item in the array.
 
 <small>Source: Zend</small>
 
