@@ -56,10 +56,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 <!-- /MarkdownTOC -->
 
-TODO: Update comments
-TODO: Rewrite introduction
-TODO: Security
-TODO: Avoid magic numbers
+TODO: Update 7. Comments
+TODO: Rewrite 1. introduction
+TODO: Add new section 10. Security -- add debug as sub-section
 
 
 ## 1. Introduction
@@ -416,11 +415,11 @@ function xml_encode($str)
 Use single line comments within code, leaving a blank line between large comment blocks and code.
 
 ```
-//break up the string by newlines
+// Break up the string by newlines
 $parts = explode("\n", $str);
 
-//A longer comment that needs more detail
-//on what is occurring and why can use multiple single-line comments.
+// A longer comment that needs more detail
+// on what is occurring and why can use multiple single-line comments.
 
 $parts = $this -> foo($parts);
 ```
