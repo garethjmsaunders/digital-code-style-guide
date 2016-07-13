@@ -1,6 +1,6 @@
 ## CSS standards guide
 
-Version 0.13.1
+Version 0.13.2
 Last updated: Wednesday 13 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -52,14 +52,8 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 <!-- /MarkdownTOC -->
 
-TODO: Version numbers.
-TODO: Highlight scannable, key points in bold.
-TODO: Simplify 5. Rule organisation.
-TODO: Simplify 6. Naming conventions.
-TODO: Simplify 7. CSS selectors.
-TODO: Ensure source references are present and up-to-date.
-TODO: Standardise lists with colons.
-TODO: Remove code blocks from headings (no \`\`s)
+
+
 
 ---
 
@@ -510,7 +504,7 @@ Source: [CSS guidelines](http://cssguidelin.es/#meaningful-whitespace)
 Unless you have a very good reason not to, you MUST use the approved palette of University of St&nbsp;Andrews colours. Web colours are defined in the [digital pattern library](https://www.st-andrews.ac.uk/~wwwtest/dpl/0.5.2/index.html).
 
 
-#### Colour keywords - use only black and white
+#### Colour keywords — use only black and white
 
 The [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/#html4) specification defines 16 basic colour keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
 
@@ -793,10 +787,13 @@ At the very least the version number should be updated every time you make a cha
  *
  * @version     1.2.0 2016-07-04
  * @author      Gareth J M Saunders <gjms1@st-andrews.ac.uk>
- * @copyright   2016
  * @license     http://opensource.org/licenses/gpl-license.php, GNU Public License
 */
 ```
+
+* You SHOULD use [CSSdoc](https://github.com/Paratron/CSSdoc) tags.
+* You MUST use [Semantic versioning](http://semver.org/) for version numbers. It follows a MAJOR.MINOR.PATCH increment.
+
 
 
 ### 4.4 Table of contents
