@@ -1,11 +1,13 @@
 # JavaScript style guide
 
-version 0.4
-Last updated: Tuesday 5 July 2016
+version 0.4.1
+Last updated: Wednesday 6 July 2016
+
+The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC depth=4 -->
 
-- [1 Introduction](#1-introduction)
+- [1. Introduction](#1-introduction)
 - [2. General](#2-general)
   - [2.1 Naming conventions](#21-naming-conventions)
   - [2.2 Semicolon](#22-semicolon)
@@ -30,14 +32,15 @@ Last updated: Tuesday 5 July 2016
 
 
 TODO: Merge in style guide advice from Douglas Crockford (author of JSLint) http://javascript.crockford.com/code.html
+TODO: Rewrite to be more prescriptive, and less first-person plural.
 
 
 ---
 
 
-## 1 Introduction
+## 1. Introduction
 
-We use JSLint as a standard specification for our code. That implies some decisions about style. This document highlights some of the more important ramifications of JSLint and any additional stylistic requirements we have. See the full documentation [JSLint][jslint] for more information.
+JavaScript code SHOULD pass [JSLint](http://www.jslint.com/). JSLint defines an opinionated subset of JavaScript with a very strict definition of acceptable style.
 
 
 
@@ -47,6 +50,8 @@ We use JSLint as a standard specification for our code. That implies some decisi
 ### 2.1 Naming conventions
 
 We call things by their name. Good variable and function names should be easy to understand and tell you what is going on — not more and not less. 
+
+TODO: Expand this a bit more...
 
 <sub>Based on [Google JS Style Guide][googlestyle].</sub>
 
@@ -90,7 +95,7 @@ We call things by their name. Good variable and function names should be easy to
 
 <sub>From [JSLint][].</sub>
 
-Every statement should be followed by a semicolon except for `for`, `function`, `if`, `switch`, `try`, and `while`.
+Every statement MUST be followed by a semicolon except for `for`, `function`, `if`, `switch`, `try`, and `while`.
 
 
 ### 2.3 Scope
