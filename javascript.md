@@ -293,12 +293,9 @@ foo && bar;
 When concatenating strings using the `+` operator, a space MUST be inserted on both sides of the operator to improve readability.
 
 ```
-txt1 = "University";
-txt2 = "St Andrews";
-txt3 = txt1 + " of " + txt2;
-
-
-$example = 'University' . ' of ' . 'St Andrews';
+institution = "University";
+town = "St Andrews";
+name = institution + " of " + town;
 ```
 
 
