@@ -309,9 +309,9 @@ Comment as much as needed but not more. Comments are your messages to other deve
 TODO: Expand this. Consider JSDoc. Compare with PHP guide.
 
 ```
-module = function(){
+module = function() {
     var current = null;
-    function init(){
+    function init() {
     };
 
     /*
