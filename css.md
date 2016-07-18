@@ -1,7 +1,7 @@
 ## CSS standards guide
 
-Version 0.13.2
-Last updated: Wednesday 13 July 2016
+Version 1.0.0
+Last updated: Monday 18 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -798,7 +798,7 @@ At the very least the version number should be updated every time you make a cha
 
 ### 4.4 Table of contents
 
-As Harry Roberts says, "a table of contents is a fairly substantial maintenance overhead, but the benefits it brings far outweigh any costs. It takes a diligent developer to keep a table of contents up to date, but it is well worth sticking with. An up-to-date table of contents provides a team with a single, canonical catalogue of what is in a CSS project, what it does, and in what order.""
+As Harry Roberts says, "a table of contents is a fairly substantial maintenance overhead, but the benefits it brings far outweigh any costs. It takes a diligent developer to keep a table of contents up to date, but it is well worth sticking with. An up-to-date table of contents provides a team with a single, canonical catalogue of what is in a CSS project, what it does, and in what order."
 
 An example table of contents might look like:
 
@@ -1131,9 +1131,11 @@ Modules are the reusable, modular components of our design. These are usually de
 
 #### 4. State
 
-"A state is something that augments and overrides all other styles. For example, an accordion section may be in a collapsed or expanded state. A message may be in a success or error state." [Source](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
-
 State rules describe how our layouts or modules will look when in a particular state such as visible or hidden, collapsed or expanded, active or inactive, error or success.
+
+> "A state is something that augments and overrides all other styles. 
+> For example, an accordion section may be in a collapsed or expanded state. 
+> A message may be in a success or error state." [Source](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 But the state may also refer to how something looks on a larger or smaller screen, or how an element might appear in a different view such as on the homepage.
 
@@ -1444,9 +1446,6 @@ A common practice is to use `data-*` attributes as JavaScript hooks, but this is
 ## 7. CSS Selectors
 
 Perhaps somewhat surprisingly, one of the most fundamental, critical aspects of writing maintainable and scalable CSS is selectors. Their specificity, their reusability, and their performance all have a direct impact on the efficiency and effectiveness of our CSS.
-
-**TODO: This whole section needs considerable editing.**
-
 
 ### 7.1 General rules
 
