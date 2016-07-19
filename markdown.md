@@ -306,7 +306,7 @@ You SHOULD avoid nesting blockquotes.
 Use **asterisks** (`*`) for unordered lists. Do not indent first-level lists.
 
 ```
-// Correct
+\\ Correct
 
 * Apples
 * Bananas
@@ -314,7 +314,7 @@ Use **asterisks** (`*`) for unordered lists. Do not indent first-level lists.
 * Pears
 
 
-// Wrong
+\\ Wrong
 
     * Apples
     * Bananas
