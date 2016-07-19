@@ -1,7 +1,7 @@
 # JavaScript style guide
 
-version 0.5.2
-Last updated: Monday 18 July 2016
+version 0.6.0
+Last updated: Tuesday 19 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -29,18 +29,14 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 - [5. Comments](#5-comments)
 - [6 Naming conventions](#6-naming-conventions)
 - [7. Language specifics](#7-language-specifics)
-    - [Scope](#scope)
     - [Avoid mixing technology](#avoid-mixing-technology)
-    - [DO NOT use eval](#do-not-use-eval)
-- [3. Formatting](#3-formatting)
-    - [Blocks](#blocks-1)
-    - [Line length](#line-length)
-        - [Allowable exceptions](#allowable-exceptions)
-    - [Multi-line function arguments](#multi-line-function-arguments)
-    - [Binary and ternary operators](#binary-and-ternary-operators)
+    - [Eval](#eval)
+    - [Function arguments](#function-arguments)
     - [Quoting strings](#quoting-strings)
+    - [Scope](#scope)
+    - [Ternary operators](#ternary-operators)
 - [8. JSLint configuration](#8-jslint-configuration)
-- [References](#references)
+- [Further reading](#further-reading)
 
 <!-- /MarkdownTOC -->
 
@@ -382,19 +378,6 @@ TODO: Expand this a bit more...
 
 ## 7. Language specifics
 
-### Scope
-
-<sub>From [JSLint][]</sub>
-
-Declare all variables at the top of the function with one `var` statement. They should be listed in alphabetical order if possible.
-
-```
-var currentStudentID;
-var graduationYear;
-var orientation;
-```
-
-
 ### Avoid mixing technology
 
 While it is possible to create everything you need in a document using JavaScript and the DOM it is not necessarily the most effective way of doing so. We could write CSS inline on a DOM element, but it would be far better to apply a class and let the styling be handled in the style sheet.
@@ -416,153 +399,86 @@ Not this
 var f = document.getElementById('mainform');
 var inputs = f.getElementsByTagName('input');
 for(var i=0,j=inputs.length;i<j;i++){
-  if(inputs[i].className === 'mandatory' &&
-     inputs[i].value === ''){
+    if(inputs[i].className === 'mandatory' &&
+    inputs[i].value === ''){
     inputs[i].style.borderColor = '#f00';
     inputs[i].style.borderStyle = 'solid';
     inputs[i].style.borderWidth = '1px';
-  }
+    }
 }
 ```
 
 
-### DO NOT use eval
+### Eval
 
-<sub>From [JSLint][].</sub>
+You MUST NOT use `eval`.
 
-`eval` is probably the most misused feature of JavaScript, because there is almost always a better way to achieve the same thing. See the [JSLint article](https://jslinterrors.com/eval-is-evil) for more information.
+`eval` is probably the most misused feature of JavaScript, because there is almost always a better way to achieve the same thing.
+
+See the [JSLint article](https://jslinterrors.com/eval-is-evil) for more information.
 
 
+### Function arguments
 
+Where possible, all function arguments SHOULD be listed on the same line.
 
-## 3. Formatting
+If doing so would exceed the 80-column limit, the arguments must be line-wrapped in a readable way. To save space, you may wrap as close to 80 as possible, or put each argument on its own line to enhance readability. The indentation may be either four spaces, or aligned to the parenthesis.
 
-### Blocks
-
-<sub>Based on requirements from [JSLint][].</sub>
-
-Use explicit blocks for `if`, `while`, `do` and `for` statements. Always start your curly braces on the same line as whatever they're opening, and leave the closing brace on its own line. For example:
+Either of these is acceptable:
 
 ```
-// Good
-if (condition) {
-   ...
-}
-else {
-   ...
+// Indent arguments by four spaces
+function my_function( parameter1, parameter2, parameter3, 
+    parameter4, parameter5 ) {
+    ...
 }
 
-// Not so good
-if (condition) {
-   ...
-  } else {
-     ...
-  }
-
-// Bad
-if (condition) statement;
-
-// Bad
-if (condition) statement;
-else statement2;
-
-```
-
-
-### Line length
-
-<sub>Based on [Google JS Style Guide][googlestyle].</sub>
-
-Each line of text in your code should be at most 80 characters long.
-
-#### Allowable exceptions
-
-*   If a comment line contains an example command or a literal URL longer than 
-    80 characters, that line may be longer than 80 characters for ease of cut and paste.
-*   A raw-string literal may have content that exceeds 80 characters. Except 
-    for test code, such literals should appear near top of a file.
-*   Statements with a long URL may exceed 80 characters.
-
-
-### Multi-line function arguments
-
-<sub>From [Google JS Style Guide][googlestyle].</sub>
-
-When possible, all function arguments should be listed on the same line. If doing so would exceed the 80-column limit, the arguments must be line-wrapped in a readable way. To save space, you may wrap as close to 80 as possible, or put each argument on its own line to enhance readability. The indentation may be either four spaces, or aligned to the parenthesis. Below are the most common patterns for argument wrapping:
-
-```
-// Four-space, wrap at 80.  Works with very long function names, survives
-// renaming without reindenting, low on space.
-goog.foo.bar.doThingThatIsVeryDifficultToExplain = function(
-ryDescriptiveArgumentNumberOne, veryDescriptiveArgumentTwo,
-bleModelEventHandlerProxy, artichokeDescriptorAdapterIterator) {
-// ...
-
-
-// Four-space, one argument per line.  Works with long function names,
-// survives renaming, and emphasizes each argument.
-goog.foo.bar.doThingThatIsVeryDifficultToExplain = function(
-veryDescriptiveArgumentNumberOne,
-veryDescriptiveArgumentTwo,
-tableModelEventHandlerProxy,
-artichokeDescriptorAdapterIterator) {
- ...
-};
-
-// Parenthesis-aligned indentation, wrap at 80.  Visually groups arguments,
-// low on space.
-function foo(veryDescriptiveArgumentNumberOne, veryDescriptiveArgumentTwo,
-bleModelEventHandlerProxy, artichokeDescriptorAdapterIterator) {
-// ...
-
-
-// Parenthesis-aligned, one argument per line.  Emphasizes each
-// individual argument.
-nction bar(veryDescriptiveArgumentNumberOne,
-veryDescriptiveArgumentTwo,
-tableModelEventHandlerProxy,
-artichokeDescriptorAdapterIterator) {
- ...
+// Align arguments with first row
+function my_function( parameter1, parameter2, parameter3, 
+                      parameter4, parameter5 ) {
+    ...
 }
-```
-
-
-### Binary and ternary operators
-
-<sub>From [Google JS Style Guide][googlestyle].</sub>
-
-Always put the operator on the preceding line. Otherwise, line breaks and indentation follow the same rules as in other Google style guides. This operator placement was initially agreed upon out of concerns about automatic semicolon insertion. In fact, semicolon insertion cannot happen before a binary operator, but new code should stick to this style for consistency.
-
-```
-var x = a ? b : c;  // All on one line if it will fit.
-
-// Indentation +4 is OK.
-var y = a ?
-longButSimpleOperandB : longButSimpleOperandC;
-
-// Indenting to the line position of the first operand is also OK.
-var z = a ?
-moreComplicatedB :
-moreComplicatedC;
-```
-
-This includes the dot operator.
-
-```
-var x = foo.bar().
-doSomething().
-doSomethingElse();
 ```
 
 
 ### Quoting strings
 
-<sub>From [Google JS Style Guide][googlestyle].</sub>
-
-Single-quotes (') are preferred to double-quotes ("). This is helpful when creating strings that include HTML:
+You SHOULD always use single-quotes (`'`) rather than double-quotes (`"`). This is helpful when creating strings that include HTML:
 
 ```
 var msg = 'This is some <a href="#url">HTML</a>';
+```
+
+
+### Scope
+
+<sub>From [JSLint][]</sub>
+
+Declare all variables at the top of the function with one `var` statement. They should be listed in alphabetical order if possible.
+
+```
+var currentStudentID;
+var graduationYear;
+var orientation;
+```
+
+
+### Ternary operators
+
+A ternary operator is a conditional operator that uses the syntax:
+
+```
+(condition) ? (if_true) : (if_false)
+```
+
+* Ternary operators SHOULD only be used for simple evaluations.
+* Ternary operators MUST NOT be used for complex or nested conditionals.
+* The complete statement SHOULD fit onto a single 80-character line; if the line exceeds 80-characters then split and indent across multiple lines, prefixing the true and false evaluations with the `?` and `:` operators.
+
+```
+(condition) 
+    ? (if_true) 
+    : (if_false)
 ```
 
 
@@ -578,9 +494,11 @@ The pattern library provides a JSLint config file that implements many of these 
 ---
 
 
-## References
 
-For more in depth treatment, see the following:
+
+## Further reading
+
+For more in-depth treatment, see the following:
 
 * [JSLint](http://www.jslint.com/help.html)
 * [Google JS Style Guide](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
