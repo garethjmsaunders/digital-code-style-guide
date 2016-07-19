@@ -29,12 +29,16 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 - [5. Comments](#5-comments)
 - [6 Naming conventions](#6-naming-conventions)
 - [7. Language specifics](#7-language-specifics)
-    - [Avoid mixing technology](#avoid-mixing-technology)
+    - [Arrays and objects](#arrays-and-objects)
+    - [Avoid mixing technologies](#avoid-mixing-technologies)
+    - [Continue](#continue)
     - [Eval](#eval)
     - [Function arguments](#function-arguments)
+    - [JavaScript Object Notation \(JSON\)](#javascript-object-notation-json)
     - [Quoting strings](#quoting-strings)
-    - [Scope](#scope)
     - [Ternary operators](#ternary-operators)
+    - [Variable declarations](#variable-declarations)
+    - [With](#with)
 - [8. JSLint configuration](#8-jslint-configuration)
 - [Further reading](#further-reading)
 
@@ -378,7 +382,13 @@ TODO: Expand this a bit more...
 
 ## 7. Language specifics
 
-### Avoid mixing technology
+### Arrays and objects
+
+* Use `[]` instead of `new Array()`.
+* Use `{}` instead of `new Object()`.
+
+
+### Avoid mixing technologies
 
 While it is possible to create everything you need in a document using JavaScript and the DOM it is not necessarily the most effective way of doing so. We could write CSS inline on a DOM element, but it would be far better to apply a class and let the styling be handled in the style sheet.
 
@@ -408,6 +418,10 @@ for(var i=0,j=inputs.length;i<j;i++){
 }
 ```
 
+
+### Continue
+
+Avoid use of the `continue` statement as it tends to obscure the control flow of a function.
 
 ### Eval
 
@@ -441,6 +455,39 @@ function my_function( parameter1, parameter2, parameter3,
 ```
 
 
+### JavaScript Object Notation (JSON)
+
+If manually creating a JavaScript Object Notation (JSON) file use the following layout:
+
+```
+{"employees":[
+    { "firstName":"John",  "lastName":"Burnet" },
+    { "firstName":"Agnes", "lastName":"Blackadder" },
+    { "firstName":"David", "lastName":"Russell" }
+]}
+```
+
+* Records MUST be indented with FOUR (4) spaces.
+* You MAY align name:value pairs to make the lines easier to read.
+* Records SHOULD be listed on a single line. If lines exceed 80 characters then split across multiple lines, e.g.
+
+```
+{"employees":[
+    { "firstName":  "John",
+      "lastName":   "Burnet",
+      "employeeID": "0001"
+    },
+    { "firstName":  "Agnes",
+      "lastName":   "Blackadder",
+      "employeeID": "0002"
+    },
+    { "firstName":  "David",
+      "lastName":   "Russell",
+      "employeeID": "0003" }
+]}
+```
+
+
 ### Quoting strings
 
 You SHOULD always use single-quotes (`'`) rather than double-quotes (`"`). This is helpful when creating strings that include HTML:
@@ -450,17 +497,6 @@ var msg = 'This is some <a href="#url">HTML</a>';
 ```
 
 
-### Scope
-
-<sub>From [JSLint][]</sub>
-
-Declare all variables at the top of the function with one `var` statement. They should be listed in alphabetical order if possible.
-
-```
-var currentStudentID;
-var graduationYear;
-var orientation;
-```
 
 
 ### Ternary operators
@@ -482,6 +518,28 @@ A ternary operator is a conditional operator that uses the syntax:
 ```
 
 
+### Variable declarations
+
+* All variables MUST be declared before being used.
+* Implied global variables MUST NOT be used.
+* Use of global variables SHOULD be minimized.
+
+Listed variables in alphabetical order, if possible and comment each.
+
+```
+var currentStudentID;   // This is taken from the SITS student record
+var graduationYear;     // Calculated from start date
+var orientation;        // options: landscape or portrait
+```
+
+
+### With
+
+The `with` statement MUST not be used.
+
+See [with Statement Considered Harmful](http://yuiblog.com/blog/2006/04/11/with-statement-considered-harmful/) on the Yahoo! UI blog.
+
+
 
 
 ---
@@ -500,5 +558,6 @@ The pattern library provides a JSLint config file that implements many of these 
 
 For more in-depth treatment, see the following:
 
+* [Code conventions for the JavaScript programming language](http://javascript.crockford.com/code.html) by Douglas Crockford
 * [JSLint](http://www.jslint.com/help.html)
-* [Google JS Style Guide](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+* [Google JavaScript style guide](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
