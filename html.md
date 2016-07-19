@@ -1,6 +1,6 @@
 # HTML style guide
 
-Version 1.1.0
+Version 1.1.1
 Last updated: Tuesday 5 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -42,6 +42,8 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 
 
+
+---
 
 ## 1. Syntax 
 
@@ -112,6 +114,8 @@ Whenever possible, avoid superfluous parent elements when writing HTML. Many tim
 
 
 
+
+---
 
 ## 2. Document head
 
@@ -215,6 +219,8 @@ In line with the HTML5 specification, there is no need to specify a `type` when 
 
 
 
+
+---
 
 ## 3. Element rules
 
@@ -353,6 +359,8 @@ Make use of `<thead>`, `<tfoot>`, `<tbody>`, and `<th>` tags (and `scope` attrib
 
 
 
+---
+
 ## 4. Class and ID names
 
 Guidance on class and ID names can be found in the CSS style guide. Here are a few basics:
@@ -385,6 +393,8 @@ For the following content types, consider using [Microformat 2](http://microform
 
 
 
+---
+
 ## 5. Avoid JavaScript-generated markup
 
 Unless you are using a JavaScript templating engine such as [Handlebars]](http://handlebarsjs.com/), do not 'hide' markup in JavaScript files. It makes content harder to find, harder to edit and diminishes performance.
@@ -398,6 +408,8 @@ If you must, in the document into which you are injecting code prefix the sectio
 See CSS style guide for more on JavaScript hooks.
 
 
+
+---
 
 ## 6. Error pages
 

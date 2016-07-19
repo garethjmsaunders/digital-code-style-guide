@@ -1,52 +1,55 @@
 # Markdown style guide
 
-Version 1.0
-Last updated: Thursday 26 May 2016
+Version 1.1
+Last updated: Tuesday 19 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC -->
 
 - [1. Documents](#1-documents)
-    - [Filenames](#filenames)
-    - [Document layout](#document-layout)
+    - [1.1 Filenames](#11-filenames)
+    - [1.2 Document layout](#12-document-layout)
         - [Intro block](#intro-block)
         - [Spacing](#spacing)
         - [Footer](#footer)
 - [2. Block Elements](#2-block-elements)
-    - [Paragraphs and line breaks](#paragraphs-and-line-breaks)
-    - [Headings](#headings)
-    - [Blockquotes](#blockquotes)
-    - [Lists](#lists)
+    - [2.1 Paragraphs and line breaks](#21-paragraphs-and-line-breaks)
+    - [2.2 Headings](#22-headings)
+    - [2.3 Blockquotes](#23-blockquotes)
+    - [2.4 Lists](#24-lists)
         - [Unordered lists](#unordered-lists)
         - [Ordered lists](#ordered-lists)
         - [Formatting lists](#formatting-lists)
-    - [Code blocks](#code-blocks)
-    - [Horizontal rules](#horizontal-rules)
+    - [2.5 Code blocks](#25-code-blocks)
+    - [2.6 Horizontal rules](#26-horizontal-rules)
 - [3. Span elements](#3-span-elements)
-    - [Links](#links)
+    - [3.1 Links](#31-links)
         - [Inline links](#inline-links)
         - [Reference links](#reference-links)
         - [Automatic links](#automatic-links)
-    - [Emphasis](#emphasis)
+    - [3.2 Emphasis](#32-emphasis)
         - [Bold](#bold)
         - [Italic](#italic)
-    - [Code](#code)
-    - [Images](#images)
+    - [3.3 Code](#33-code)
+    - [3.4 Images](#34-images)
 - [4. Miscellaneous](#4-miscellaneous)
-    - [Backslash escapes](#backslash-escapes)
+    - [4.1 Backslash escapes](#41-backslash-escapes)
 - [5. Sublime Text packages](#5-sublime-text-packages)
-    - [Markdown​Editing](#markdown​editing)
-    - [Markdown Preview](#markdown-preview)
-    - [MarkdownTOC](#markdowntoc)
+    - [5.1 Markdown​Editing](#51-markdown​editing)
+    - [5.2 Markdown Preview](#52-markdown-preview)
+    - [5.3 MarkdownTOC](#53-markdowntoc)
 
 <!-- /MarkdownTOC -->
+
+
+
 
 ---
 
 ## 1. Documents
 
-### Filenames
+### 1.1 Filenames
 
 Filenames MUST use `.md` suffix rather than `.markdown`.
 
@@ -77,7 +80,7 @@ Setup.markdown
 ```
 
 
-### Document layout
+### 1.2 Document layout
 
 #### Intro block
 
@@ -207,10 +210,12 @@ Boolean attributes, Lean markup, Forms and Tables taken from
 
 
 
+---
+
 ## 2. Block Elements
 
 
-### Paragraphs and line breaks
+### 2.1 Paragraphs and line breaks
 
 According to the [Markdown definition of a paragraph](https://daringfireball.net/projects/markdown/syntax#p):
 
@@ -224,7 +229,7 @@ According to the [Markdown definition of a paragraph](https://daringfireball.net
 * To create a line break (to insert a `<br />` tag) end a line with two or more spaces, then type return.
  
 
-### Headings
+### 2.2 Headings
 
 Markdown supports two styles of headings: [Setext](http://docutils.sourceforge.net/mirror/setext.html) and [atx](http://www.aaronsw.com/2002/atx/); we MUST use atx.
 
@@ -277,7 +282,7 @@ tempor incididunt ut labore et dolore magna aliqua.
 ```
 
 
-### Blockquotes
+### 2.3 Blockquotes
 
 Prefix each line with a **greater-than sign** `>`. You MUST NOT use the lazy method of only prefixing the first line.
 
@@ -294,7 +299,7 @@ Prefix each line with a **greater-than sign** `>`. You MUST NOT use the lazy met
 You SHOULD avoid nesting blockquotes.
 
 
-### Lists
+### 2.4 Lists
 
 #### Unordered lists
 
@@ -384,7 +389,7 @@ To separate list items (wrapping each list item with a `<p>` tag) add a blank li
 ```
 
 
-### Code blocks
+### 2.5 Code blocks
 
 To produce pre-formatted code blocks, add **three backticks** (`` ``` ``) on blank lines above and below your code.
 
@@ -395,7 +400,7 @@ To produce pre-formatted code blocks, add **three backticks** (`` ``` ``) on bla
     ```
 
 
-### Horizontal rules
+### 2.6 Horizontal rules
 
 Use **three hyphens on their own line** to add a horizontal rule (`<hr />`). There SHOULD be a **blank line above and below** the row of hyphens (otherwise the previous line may be misinterpreted as a Setext heading 2.
 
@@ -415,10 +420,12 @@ consequat.
 
 
 
+---
+
 ## 3. Span elements
 
 
-### Links
+### 3.1 Links
 
 Markdown supports three styles of links: inline links, reference links, and automatic links.
 
@@ -474,7 +481,7 @@ These will display as:
 * <digitalcommunications@st-andrews.ac.uk>
 
 
-### Emphasis
+### 3.2 Emphasis
 
 #### Bold
 
@@ -496,7 +503,7 @@ To make text italic, you MUST wrap the text with _one underscore_.
 Although asterisks and underscores can be used for both bold and italic (one for italic, two for bold) they are easier to distinguish if used for different purposes.
 
 
-### Code
+### 3.3 Code
 
 Use single backticks to markup inline code, such as `<code>`.
 
@@ -505,7 +512,7 @@ Use single backticks to markup inline code, such as `<code>`.
 ```
 
 
-### Images
+### 3.4 Images
 
 Although images are rarely used in our markdown documents, you MUST use the fuller syntax:
 
@@ -516,10 +523,12 @@ Although images are rarely used in our markdown documents, you MUST use the full
 
 
 
+---
+
 ## 4. Miscellaneous
 
 
-### Backslash escapes
+### 4.1 Backslash escapes
 
 Markdown allows you to use backslash escapes to generate literal characters that would otherwise have special meaning in Markdown’s formatting syntax.
 
@@ -543,12 +552,14 @@ _   underscore
 
 
 
+---
+
 ## 5. Sublime Text packages
 
 There are a few Sublime Text packages that make working with Markdown documents easier.
 
 
-### Markdown​Editing
+### 5.1 Markdown​Editing
 
 A powerful Markdown package for Sublime Text with more robust syntax highlighting and better colour schemes (light and dark). This supports 
     
@@ -559,7 +570,7 @@ A powerful Markdown package for Sublime Text with more robust syntax highlightin
 <https://packagecontrol.io/packages/MarkdownEditing>
 
 
-### Markdown Preview
+### 5.2 Markdown Preview
 
 Preview in your browser the Markdown file you are currently editing. Supports both standard and GitHub-style Markdown.
 
@@ -568,7 +579,7 @@ Preview in your browser the Markdown file you are currently editing. Supports bo
 https://packagecontrol.io/packages/Markdown%20Preview
 
 
-### MarkdownTOC
+### 5.3 MarkdownTOC
 
 This package searches headings within a Markdown document and inserts a hierarchical table of contents (TOC).
 

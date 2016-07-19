@@ -1,17 +1,20 @@
 # Sublime Text standards guide
 
-Version 1.0
-Last updated: Thursday 26 May 2016
+Version 1.1
+Last updated: Tuesday 19 July 2016
 
 <!-- MarkdownTOC -->
 
 - [1. Version](#1-version)
 - [2. Package control](#2-package-control)
-	- [Batch install packages](#batch-install-packages)
-	- [Package descriptions](#package-descriptions)
+	- [2.1 Batch install packages](#21-batch-install-packages)
+	- [2.2 Package descriptions](#22-package-descriptions)
 - [3. User preferences](#3-user-preferences)
 
 <!-- /MarkdownTOC -->
+
+
+
 
 ---
 
@@ -24,6 +27,8 @@ All the plugins work with Sublime Text 2 so it's up to user preference.
 
 
 
+---
+
 ## 2. Package control
 
 Plugins for Sublime Text are called 'packages'.
@@ -35,7 +40,7 @@ Install via the console (`Ctrl + '` or `View > Show Console`). Copy and paste th
 Packages can then be searched via `Preferences > Browse Packages...`.
 
 
-### Batch install packages
+### 2.1 Batch install packages
 
 To speed up getting started, when you first install Sublime Text you can batch import packages (plugins).
 
@@ -87,7 +92,7 @@ Simply copy and paste the following code into your `Package Control.sublime-sett
 	}
 
 
-### Package descriptions
+### 2.2 Package descriptions
 
 * [Alignment](https://packagecontrol.io/packages/Alignment) - Key-binding to align multi-line and multiple selections.
 * [Autoprefixer](https://packagecontrol.io/packages/Autoprefixer) - Auto-add vendor prefixes.
@@ -115,6 +120,8 @@ Simply copy and paste the following code into your `Package Control.sublime-sett
 
 
 
+
+---
 
 ## 3. User preferences
 
