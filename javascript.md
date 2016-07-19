@@ -1,6 +1,6 @@
 # JavaScript style guide
 
-version 0.6.0
+version 0.7.0
 Last updated: Tuesday 19 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -9,44 +9,44 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 - [1. Introduction](#1-introduction)
 - [2. File format](#2-file-format)
-    - [Unicode \(UTF-8\)](#unicode-utf-8)
-    - [Use LF \(Unix\) line endings](#use-lf-unix-line-endings)
+    - [2.1 Unicode \(UTF-8\)](#21-unicode-utf-8)
+    - [2.2 Use LF \(Unix\) line endings](#22-use-lf-unix-line-endings)
 - [3. General formatting](#3-general-formatting)
-    - [Indentation](#indentation)
-    - [Line width \(80 characters\)](#line-width-80-characters)
-    - [One statement per line](#one-statement-per-line)
-    - [Semicolons](#semicolons)
-    - [Parentheses](#parentheses)
-    - [Brace style](#brace-style)
-    - [Single and double quotation marks](#single-and-double-quotation-marks)
+    - [3.1 Indentation](#31-indentation)
+    - [3.2 Line width \(80 characters\)](#32-line-width-80-characters)
+    - [3.3 One statement per line](#33-one-statement-per-line)
+    - [3.4 Semicolons](#34-semicolons)
+    - [3.5 Parentheses](#35-parentheses)
+    - [3.6 Brace style](#36-brace-style)
+    - [3.7 Single and double quotation marks](#37-single-and-double-quotation-marks)
 - [4. Spaces](#4-spaces)
-    - [Remove trailing spaces](#remove-trailing-spaces)
-    - [Array items](#array-items)
-    - [Blocks](#blocks)
-    - [Functions](#functions)
-    - [Logical comparisons](#logical-comparisons)
-    - [String concatenation](#string-concatenation)
+    - [4.1 Remove trailing spaces](#41-remove-trailing-spaces)
+    - [4.2 Array items](#42-array-items)
+    - [4.3 Blocks](#43-blocks)
+    - [4.4 Functions](#44-functions)
+    - [4.5 Logical comparisons](#45-logical-comparisons)
+    - [4.6 String concatenation](#46-string-concatenation)
 - [5. Comments](#5-comments)
 - [6 Naming conventions](#6-naming-conventions)
-    - [Classes and methods](#classes-and-methods)
+    - [6.1 Classes and methods](#61-classes-and-methods)
         - [Class names](#class-names)
         - [Class method names](#class-method-names)
-    - [Constant names](#constant-names)
-    - [Enumerated types \(enum\)](#enumerated-types-enum)
-    - [Filenames](#filenames)
-    - [Function names](#function-names)
-    - [Variable names](#variable-names)
+    - [6.2 Constant names](#62-constant-names)
+    - [6.3 Enumerated types \(enum\)](#63-enumerated-types-enum)
+    - [6.4 Filenames](#64-filenames)
+    - [6.5 Function names](#65-function-names)
+    - [6.6 Variable names](#66-variable-names)
 - [7. Language specifics](#7-language-specifics)
-    - [Arrays and objects](#arrays-and-objects)
-    - [Avoid mixing technologies](#avoid-mixing-technologies)
-    - [Continue](#continue)
-    - [Eval](#eval)
-    - [Function arguments](#function-arguments)
-    - [JavaScript Object Notation \(JSON\)](#javascript-object-notation-json)
-    - [Quoting strings](#quoting-strings)
-    - [Ternary operators](#ternary-operators)
-    - [Variable declarations](#variable-declarations)
-    - [With](#with)
+    - [7.1 Arrays and objects](#71-arrays-and-objects)
+    - [7.2 Avoid mixing technologies](#72-avoid-mixing-technologies)
+    - [7.3 Continue](#73-continue)
+    - [7.4 Eval](#74-eval)
+    - [7.5 Function arguments](#75-function-arguments)
+    - [7.6 JavaScript Object Notation \(JSON\)](#76-javascript-object-notation-json)
+    - [7.7 Quoting strings](#77-quoting-strings)
+    - [7.8 Ternary operators](#78-ternary-operators)
+    - [7.9 Variable declarations](#79-variable-declarations)
+    - [7.10 With](#710-with)
 - [8. JSLint configuration](#8-jslint-configuration)
 - [Further reading](#further-reading)
 
@@ -71,13 +71,13 @@ JavaScript code SHOULD pass [JSLint](http://www.jslint.com/). JSLint defines an 
 
 ## 2. File format
 
-### Unicode (UTF-8)
+### 2.1 Unicode (UTF-8)
 
 * Files MUST be saved with Unicode (UTF-8) encoding.
 * Files MUST NOT be saved with the byte-order mark (UTF-8 with BOM).
 
 
-### Use LF (Unix) line endings
+### 2.2 Use LF (Unix) line endings
 
 Lines MUST end with a single, Unix-style line feed (LF) character.
 
@@ -95,7 +95,7 @@ Ensure that your text editor is set up to save files with Unix-style line breaks
 ---
 ## 3. General formatting
 
-### Indentation
+### 3.1 Indentation
 
 JavaScript parsers do not care about indentation, it is solely used for the convenience of human readers. Indentation should be used to enhance readability of the source code.
 
@@ -110,7 +110,7 @@ Code indentation should always reflect the logical structure of the code.
 * Nested elements SHOULD be indented once (four spaces).
 
 
-### Line width (80 characters)
+### 3.2 Line width (80 characters)
 
 Where possible, limit JavaScript files' width to 80 characters. Reasons for this include:
 
@@ -121,7 +121,7 @@ Where possible, limit JavaScript files' width to 80 characters. Reasons for this
 Do not worry about unavoidable exceptions to this rule, such as URLs.
 
 
-### One statement per line
+### 3.3 One statement per line
 
 Statements SHOULD always be written one per line; do not combine statements on one line.
 
@@ -144,7 +144,7 @@ switch (new Date().getDay()) {
 ```
 
 
-### Semicolons
+### 3.4 Semicolons
 
 JavaScript uses semicolons (`;`) to mark the end of a statement; it is required on these statements:
 
@@ -173,7 +173,7 @@ You MUST NOT rely on automatic semicolon insertion.
 A code block, enclosed in braces `{...}` is not a statement, it is a group of statements. Each statement within the code block MUST be terminated with a semicolon, but the code block itself is NOT terminated with a semicolon.
 
 
-### Parentheses
+### 3.5 Parentheses
 
 Parentheses SHOULD only be used where they are required. Additional parentheses may be used to clarify groupings in complex conditional constructs, but knowing operator precedence should eliminate their necessity.
 
@@ -182,7 +182,7 @@ When calling class constructors with no arguments, always include parentheses: T
 Never use parentheses for unary operators such as `delete`, `typeof` and `void` or after keywords such as `return`, `throw` as well as others (`case`, `in` or `new`).
 
 
-### Brace style
+### 3.6 Brace style
 
 You MUST use 1TBS (one true brace style) to indent braces, e.g.
 
@@ -201,7 +201,7 @@ if ( condition ) {
 Braces MUST always be used, even when they are not required. This means that single-statement inline control structures MUST NOT be used.
 
 
-### Single and double quotation marks
+### 3.7 Single and double quotation marks
 
 Use single quotes (`'`) for symbols, character constants, and internal strings such as property names.
 
@@ -217,12 +217,12 @@ Use double quotes (`"`) for strings that will be exported from the program, such
 Spaces MUST always be inserted after commas, and on both sides of logical, comparison, string and assignment operators.
 
 
-### Remove trailing spaces
+### 4.1 Remove trailing spaces
 
 You MUST remove trailing whitespace at the end of each line of code.
 
 
-### Array items
+### 4.2 Array items
 
 Spaces MUST always be inserted after commas.
 
@@ -237,7 +237,7 @@ x = foo[ bar ];
 ```
 
 
-### Blocks
+### 4.3 Blocks
 
 Spaces MUST be inserted on both sides of the opening and closing parenthesis of `if`, `elseif`, `foreach`, `for`, and `switch` blocks.
 
@@ -261,7 +261,7 @@ switch ( $i ) {
 ```
 
 
-### Functions
+### 4.4 Functions
 
 When defining a function:
 
@@ -279,7 +279,7 @@ my_function( parameter1, parameter2, parameter3 );
 ```
 
 
-### Logical comparisons
+### 4.5 Logical comparisons
 
 When performing logical comparisons:
 
@@ -296,7 +296,7 @@ foo && bar;
 ```
 
 
-### String concatenation
+### 4.6 String concatenation
 
 When concatenating strings using the `+` operator, a space MUST be inserted on both sides of the operator to improve readability.
 
@@ -343,7 +343,7 @@ return { init:init, show:show, current:current }
 
 ## 6 Naming conventions
 
-### Classes and methods
+### 6.1 Classes and methods
 
 #### Class names
 
@@ -376,7 +376,7 @@ function get_file_properties()
 ```
 
 
-### Constant names
+### 6.2 Constant names
 
 Regex pattern: `(([A-Z]+)_*)+`
 
@@ -388,7 +388,7 @@ const MAX_VALUE = 1.0;
 ```
 
 
-### Enumerated types (enum)
+### 6.3 Enumerated types (enum)
 
 Regex pattern: `(([a-z]+)_*)+`
 
@@ -407,7 +407,7 @@ var WeekDay = { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY }
 * Multiple words MUST be separated with an underscore.
 
 
-### Filenames
+### 6.4 Filenames
 
 Regex pattern: `(([a-z])+-*)+(.inc)*.js
 
@@ -422,7 +422,7 @@ helper-class-library.js
 ```
 
 
-### Function names
+### 6.5 Function names
 
 Regex pattern: `(([a-z])+_*)+`
 
@@ -440,7 +440,7 @@ function greet_fullname( first_name, last_name ) {
 
 
 
-### Variable names
+### 6.6 Variable names
 
 Regex pattern: `\$(([a-z])+_*)+`
 
@@ -460,13 +460,13 @@ var last_city = 'St Andrews';
 
 ## 7. Language specifics
 
-### Arrays and objects
+### 7.1 Arrays and objects
 
 * Use `[]` instead of `new Array()`.
 * Use `{}` instead of `new Object()`.
 
 
-### Avoid mixing technologies
+### 7.2 Avoid mixing technologies
 
 While it is possible to create everything you need in a document using JavaScript and the DOM it is not necessarily the most effective way of doing so. We could write CSS inline on a DOM element, but it would be far better to apply a class and let the styling be handled in the style sheet.
 
@@ -497,11 +497,12 @@ for(var i=0,j=inputs.length;i<j;i++){
 ```
 
 
-### Continue
+### 7.3 Continue
 
 Avoid use of the `continue` statement as it tends to obscure the control flow of a function.
 
-### Eval
+
+### 7.4 Eval
 
 You MUST NOT use `eval`.
 
@@ -510,7 +511,7 @@ You MUST NOT use `eval`.
 See the [JSLint article](https://jslinterrors.com/eval-is-evil) for more information.
 
 
-### Function arguments
+### 7.5 Function arguments
 
 Where possible, all function arguments SHOULD be listed on the same line.
 
@@ -533,7 +534,7 @@ function my_function( parameter1, parameter2, parameter3,
 ```
 
 
-### JavaScript Object Notation (JSON)
+### 7.6 JavaScript Object Notation (JSON)
 
 If manually creating a JavaScript Object Notation (JSON) file use the following layout:
 
@@ -566,7 +567,7 @@ If manually creating a JavaScript Object Notation (JSON) file use the following 
 ```
 
 
-### Quoting strings
+### 7.7 Quoting strings
 
 You SHOULD always use single-quotes (`'`) rather than double-quotes (`"`). This is helpful when creating strings that include HTML:
 
@@ -575,9 +576,7 @@ var msg = 'This is some <a href="#url">HTML</a>';
 ```
 
 
-
-
-### Ternary operators
+### 7.8 Ternary operators
 
 A ternary operator is a conditional operator that uses the syntax:
 
@@ -596,7 +595,7 @@ A ternary operator is a conditional operator that uses the syntax:
 ```
 
 
-### Variable declarations
+### 7.9 Variable declarations
 
 * All variables MUST be declared before being used.
 * Implied global variables MUST NOT be used.
@@ -611,7 +610,7 @@ var orientation;        // options: landscape or portrait
 ```
 
 
-### With
+### 7.10 With
 
 The `with` statement MUST not be used.
 
