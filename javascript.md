@@ -27,6 +27,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [4.5 Logical comparisons](#45-logical-comparisons)
     - [4.6 String concatenation](#46-string-concatenation)
 - [5. Comments](#5-comments)
+    - [5.1 JSDoc](#51-jsdoc)
+    - [5.2 Single-line comments](#52-single-line-comments)
+    - [5.3 Magic numbers](#53-magic-numbers)
 - [6 Naming conventions](#6-naming-conventions)
     - [6.1 Classes and methods](#61-classes-and-methods)
         - [Class names](#class-names)
@@ -312,32 +315,73 @@ name = institution + " of " + town;
 ---
 ## 5. Comments
 
-Comment as much as needed but not more. Comments are your messages to other developers (and yourself, if you come back to your code after several months working on something else). We prefer to use the `/* */` rather than the `//`.
+In general, code needs more comments; comment your code prolifically.
 
-TODO: Expand this. Consider JSDoc. Compare with PHP guide.
+Comments are your messages to other developers (and yourself, if you come back to your code after several months working on something else).
+
+You SHOULD comment anything that isn't immediately obvious from the code alone. These could be explaining:
+
+* the structure and/or role of a file;
+* the goal of a function or class;
+* the idea behind a 'magic number';
+* the reason for a statement;
+* the order of items in an array or constant;
+* the thought process behind a way of doing things.
+
+In situations where it would be useful for a developer to know exactly how a JavaScript snippet applies to some HTML, you MAY include a snippet of HTML in a comment.
+
+If you find an answer online (for example, on Stack Overflow, or a blog) then you SHOULD add the link to a comment so future developers know what's up.
+
+You MUST keep comments up-to-date when code changes.
+
+Comments SHOULD NOT make their way into production environments. Comments are for development not production.
+
+All JavaScript SHOULD be minified, stripping out comments, before being deployed.
+
+
+### 5.1 JSDoc
+
+Multi-line comments SHOULD use [jSDoc](http://usejsdoc.org/)-style comments.
 
 ```
-module = function() {
-    var current = null;
-    function init() {
-    };
+/**
+ * Comment heading
+ * Comment about what the following piece of code is for and why.
+ *
+ * @version 1.2.0 2016-07-04
+ * @author Gareth J M Saunders <gjms1@st-andrews.ac.uk>
+ * @copyright 2016
+ * @license http://opensource.org/licenses/gpl-license.php, GNU Public License
+ * @since 1.0.9
+ */
+```
 
-    /*
-    function show(){
-        current = 1;
-    };
+Comments SHOULD be written as complete, grammatical sentences with an initial capital and a full-stop at the end.
 
-    function hide(){
-        show();
-    };
-    */
+All [JSDoc block tags](http://usejsdoc.org/) are available for use. Pay particular attention to block tags used to comment on classes, enums, events, functions, global objects, types, etc.
 
-return { init:init, show:show, current:current }
-}();
+
+### 5.2 Single-line comments
+
+Use single line comments within code, leaving a blank line between large comment blocks and code.
+
+```
+// Split a string into an array of substrings.
+var str = "How are you doing today?";
+var res = str.split(" ");
+
+// A longer comment that needs more detail
+// on what is occurring and why can use multiple single-line comments.
+
+document.getElementById("demo").innerHTML = "Hello World.";
 ```
 
 
+### 5.3 Magic numbers
 
+"Magic number" is an old school programming term for an unnamed numerical constant. Basically, it's just a random number that happens to _just work_™ yet is not tied to any logical explanation.
+
+Needless to say, magic numbers are a plague and should be avoided at all costs. When you cannot manage to find a reasonable explanation for why a number works, add an extensive comment explaining how you got there and why you think it works. Admitting you don’t know why something works is still more helpful to the next developer than them having to figure out what's going on from scratch.
 
 ---
 
