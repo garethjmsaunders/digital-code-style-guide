@@ -57,7 +57,6 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 ---
 
-
 ## 1. Write valid CSS
 
 All CSS code SHOULD validate to the [latest CSS specification](https://www.w3.org/Style/CSS/); if in doubt, use the [W3C CSS validation service](http://jigsaw.w3.org/css-validator/).
@@ -75,8 +74,9 @@ As Andy Clarke says in _Hardboiled Web Design_ (2010):
 > achieve using emerging CSS3 standards.
 
 
----
 
+
+---
 
 ## 2. File format
 
@@ -86,8 +86,6 @@ This section outlines standards for creating and saving CSS files to ensure that
 ### 2.1 Use multiple files, concatinate and minify
 
 CSS source code SHOULD be split across multiple files, to split discrete chunks of code into their own files which can then be concatenated and minified during a build process. \[[HR](http://cssguidelin.es/#multiple-files)\]
-
-
 
 
 ### 2.2 Character encoding
@@ -136,8 +134,6 @@ If given the option, use Unicode normalization form C (also known as 'NFC'). The
 *   [Unicode FAQ on Normalization (Unicode Consortium)](http://unicode.org/faq/normalization.html)
 
 
-
-
 ### 2.3 Use LF (Unix) line endings
 
 Line feed (LF) Unix style line endings (sometimes called line breaks) should be used.
@@ -152,8 +148,6 @@ For example, in Sublime Text you can add the following to your user settings:
 #### Further reading
 
 *   [The great newline schism](http://blog.codinghorror.com/the-great-newline-schism/)
-
-
 
 
 ### 2.4 Filenames
@@ -180,8 +174,6 @@ Use a hyphen (`-`) to separate words, e.g. `external-stylesheet.css`. This makes
 Underscores (`_`) may be used only for naming Sass (or Less) partial files.
 
 
-
-
 ### 2.5 Link to external CSS files
 
 All CSS files MUST be referenced externally, unless there is a very strong reason. This enables caching control and makes the HTML smaller.
@@ -193,6 +185,7 @@ External CSS MUST be referenced via the `link` element, which MUST be placed in 
 ```
 <link rel="stylesheet" type="text/css" href="screen.css" />
 ```
+
 
 #### @import for debug and Sass only
 External CSS MUST NOT be imported using `@import`; this impairs caching and blocks rendering.
@@ -213,8 +206,9 @@ Document head CSS (between `style` tags) SHOULD NOT be used where a style rule i
 Avoid using embedded styles which control the style of only one page; also avoid using `@import` rules within a style block.
 
 
----
 
+
+---
 
 ## 3. Formatting and syntax
 
@@ -262,8 +256,6 @@ and a declaration block, containing one or more declarations.
 Each declaration is a pairing of a property name and a property value separated by a colon, and concluding with a semi-colon.
 
 
-
-
 ### 3.2 Line width (80 characters)
 
 Where possible, **limit CSS files' width to 80 characters**. Reasons for this include:
@@ -281,8 +273,6 @@ Where possible, **limit CSS files' width to 80 characters**. Reasons for this in
 ```
 
 Do not worry about unavoidable exceptions to this rule, such as URLs, or gradient syntax.
-
-
 
 
 ### 3.3 General formatting
@@ -454,8 +444,6 @@ This makes life a little easier for developers whose text editors support column
 Source: [CSS guidelines](http://cssguidelin.es/#alignment "Harry Roberts")
 
 
-
-
 ### 3.4 Meaningful whitespace
 
 As well as indentation, we can provide a lot of information through liberal and judicious use of whitespace between rulesets. We use:
@@ -496,6 +484,8 @@ Source: [CSS guidelines](http://cssguidelin.es/#meaningful-whitespace)
 
 
 
+
+---
 
 ### 3.5 Colours
 
@@ -545,8 +535,6 @@ Specifying colours in `rgb(r, g, b)` format also makes it much easier to add alp
 Alpha values smaller than 1 MUST always begin with a zero (`0.75` rather than `.75`); without a zero it can trigger errors in CSS pre-processors.
 
 If the alpha value is 1 then you SHOULD simply use `rgb(r, g, b)` rather than `rgba(r, g, b, 1);`.
-
-
 
 
 ### 3.6 Syntax
@@ -712,7 +700,6 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
 
 ---
 
-
 ## 4. Comments
 
 ### 4.1 General guidelines
@@ -793,7 +780,6 @@ At the very least the version number should be updated every time you make a cha
 
 * You SHOULD use [CSSdoc](https://github.com/Paratron/CSSdoc) tags.
 * You MUST use [Semantic versioning](http://semver.org/) for version numbers. It follows a MAJOR.MINOR.PATCH increment.
-
 
 
 ### 4.4 Table of contents
@@ -998,7 +984,6 @@ These types of comment allow us to keep all of our documentation in one place wh
 
 ---
 
-
 ## 5. Rule organisation
 
 As Jonathan Snook says in [Scalable and Modular Architecture for CSS](https://smacss.com/book/categorizing "Categorizing CSS Rules"):
@@ -1031,8 +1016,6 @@ By separating our rules into these categories it keeps our code simpler, more mo
 [Source](https://smacss.com/book/categorizing "SMACSS: Categorizing CSS Rules")
 
 Let's examine each of these categories.
-
-
 
 
 #### 1. Base
@@ -1110,8 +1093,6 @@ Layout rules define the major layout components of a page, such as header, foote
 * [SMACSS: Layout rules](https://smacss.com/book/type-layout "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
-
-
 #### 3. Modules
 
 Modules are the reusable, modular components of our design. These are usually defined by distinct patterns in our digital pattern library, e.g. accordion, breadcrumps, hero banner, navbox, etc.
@@ -1129,6 +1110,8 @@ Modules are the reusable, modular components of our design. These are usually de
 
 
 
+---
+
 #### 4. State
 
 State rules describe how our layouts or modules will look when in a particular state such as visible or hidden, collapsed or expanded, active or inactive, error or success.
@@ -1140,7 +1123,7 @@ State rules describe how our layouts or modules will look when in a particular s
 But the state may also refer to how something looks on a larger or smaller screen, or how an element might appear in a different view such as on the homepage.
 
 
-##### Prefix classes with `.is-`
+##### Prefix classes with .is-
 
 Jonathan Snook's idea is that "states are generally applied to the same element as a layout rule or applied to the same element as a base module class." 
 
@@ -1168,7 +1151,7 @@ The answer to this question is worth quoting in full:
 Source: [SMACSS: Type state](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
-##### Using `!important`
+##### Using !important
 
 States should be stand-alone and built from one single class selector, e.g. `.is-selected`.
 
@@ -1182,6 +1165,8 @@ Use of `!important` is allowed if required, but do not from apply it unless it i
 
 
 
+
+---
 
 #### 5. Theme
 
@@ -1225,8 +1210,9 @@ or you may prefer to separate these out completely. The context should determine
 * [SMACSS: Theme rules](https://smacss.com/book/type-theme "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
 
----
 
+
+---
 
 ## 6. Naming conventions
 
@@ -1288,8 +1274,6 @@ Name things for people; they're the only things that actually read your classes 
 It is important to strike a balance between names that do not literally describe the style that the class brings, but also ones that do not explicitly describe specific use cases. Instead of `.home-page-panel`, choose `.masthead`; instead of `.site-nav`, favour `.primary-nav`; instead of `.btn-login`, opt for `.btn-primary`.
 
 
-
-
 ### 6.2 Naming UI components
 
 Naming components with agnosticism and reusability in mind really helps developers construct and modify user-interfaces (UIs) much more quickly, and with far less waste. However, it can sometimes be beneficial to provide more specific or meaningful naming alongside the more ambiguous class, particularly when several agnostic classes come together to form a more complex and specific component that might benefit from having a more meaningful name. In this scenario, augment the classes with a `data-ui-component` attribute which houses a more specific name, for example:
@@ -1301,8 +1285,6 @@ Naming components with agnosticism and reusability in mind really helps develope
 Here we have the benefits of a highly reusable class name which does not describe — and, therefore, tie itself to — a specific use case, and added meaning via our `data-ui-component` attribute. Use a class-like format for the `data-ui-component`'s value.
 
 The implementation is largely personal preference, but the concept still remains: add any useful or specific meaning via a mechanism that will not inhibit your and your team's ability to recycle and reuse CSS.
-
-
 
 
 ### 6.3 Accepted characters in class and ID names
@@ -1331,7 +1313,6 @@ In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR
 *   Accented or non-English characters, e.g. á, æ, ç, è, î, ö, ø, û. Substitute these with the nearest English equivalent, e.g. a, ae, c, e, i, o, o, u.
 
 
-
 ### 6.4 Hyphen delimited
 
 All words in classnames MUST be delimited with a hyphen (-), like so:
@@ -1349,8 +1330,6 @@ Camel case and underscores MUST NOT be used for regular classes; the following a
 .pageHead {}
 .sub_content {}
 ```
-
-
 
 
 ### 6.5 BEM-like naming
@@ -1383,8 +1362,6 @@ It is important to know when BEM scope starts and stops. As a rule, BEM applies 
 
 * [BEM naming convention](https://en.bem.info/methodology/naming-convention/)
 * [CSS guidelines - BEM-like naming](http://cssguidelin.es/#bem-like-naming)
-
-
 
 
 ### 6.6 Naming conventions in HTML
@@ -1420,8 +1397,6 @@ From that markup alone, it is very hard to answer any of those questions. Using 
 Now we can clearly see which classes are and are not related to each other, and how; we know what classes we can't use outside of the scope of this component; and we know which classes we may be free to reuse elsewhere.
 
 
-
-
 ### 6.7 JavaScript hooks
 
 As a rule, it is unwise to bind both CSS and JavaScript onto the same classes in HTML. This is because doing so means you can't have (or remove) one without (removing) the other. It is much cleaner, much more transparent, and much more maintainable to bind your JavaScript onto specific classes.
@@ -1440,8 +1415,9 @@ This means that we can have an element elsewhere which can carry with style of `
 A common practice is to use `data-*` attributes as JavaScript hooks, but this is incorrect. `data-*` attributes, [as per the spec](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html#embedding-custom-non-visible-data-with-the-data-attributes), "are intended to store custom data private to the page or application". `data-*` attributes are designed to store data, not be bound to.
 
 
----
 
+
+---
 
 ## 7. CSS Selectors
 
@@ -1466,8 +1442,6 @@ Your selectors are fundamental to writing good CSS. To very briefly sum up the a
 Focussing on these points will keep your selectors a lot more sane and easy to work with on changing and long-running projects.
 
 
-
-
 ### 7.2 Selector intent
 
 It is important when writing CSS that we scope our selectors correctly, and that we're selecting the right things for the right reasons. Selector intent is the process of deciding and defining what you want to style and how you will go about selecting it. For example, if you are wanting to style your website's main navigation menu, a selector like this would be incredibly unwise:
@@ -1489,8 +1463,6 @@ An unambiguous, explicit selector with good selector intent. We are explicitly s
 Poor selector intent is one of the biggest reasons for headaches on CSS projects. Writing rules that are far too greedy — and that apply very specific treatments via very far reaching selectors — causes unexpected side effects and leads to very tangled stylesheets, with selectors overstepping their intentions and impacting and interfering with otherwise unrelated rulesets.
 
 CSS cannot be encapsulated, it is inherently leaky, but we can mitigate some of these effects by not writing such globally-operating selectors: your selectors should be as explicit and well reasoned as your reason for wanting to select something.
-
-
 
 
 ### 7.3 Specificity
@@ -1619,6 +1591,8 @@ Do keep in mind that these are hacks, and should not be used unless you have no 
 
 
 
+
+---
 
 ### 7.4 Reusability
 
@@ -2152,8 +2126,6 @@ Thankfully, by writing selectors with good selector intent, we are probably avoi
 That said, however, CSS selector performance should be fairly low on your list of things to optimise; browsers are fast, and are only ever getting faster, and it is only on notable edge cases that inefficient selectors would be likely to pose a problem.
 
 As well as their own specific issues, nesting, qualifying, and poor selector intent all contribute to less efficient selectors.
-
-
 
 
 ### 7.6 Further reading
