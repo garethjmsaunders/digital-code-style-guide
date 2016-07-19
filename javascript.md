@@ -28,6 +28,14 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [String concatenation](#string-concatenation)
 - [5. Comments](#5-comments)
 - [6 Naming conventions](#6-naming-conventions)
+    - [Classes and methods](#classes-and-methods)
+        - [Class names](#class-names)
+        - [Class method names](#class-method-names)
+    - [Constant names](#constant-names)
+    - [Enumerated types \(enum\)](#enumerated-types-enum)
+    - [Filenames](#filenames)
+    - [Function names](#function-names)
+    - [Variable names](#variable-names)
 - [7. Language specifics](#7-language-specifics)
     - [Arrays and objects](#arrays-and-objects)
     - [Avoid mixing technologies](#avoid-mixing-technologies)
@@ -335,46 +343,116 @@ return { init:init, show:show, current:current }
 
 ## 6 Naming conventions
 
-We call things by their name. Good variable and function names should be easy to understand and tell you what is going on — not more and not less. 
+### Classes and methods
 
-TODO: Expand this a bit more...
+#### Class names
 
-<sub>Based on [Google JS Style Guide][googlestyle].</sub>
+Regex pattern: `(([A-Z]{1}[a-zA-Z]*)_*)+`
 
-<table>
-    <tr>
-        <th>Entity</th>
-        <th>Example</th>
-    </tr>
-    <tr>
-        <td>function name</td>
-        <td><code>functionNameLikeThis</code></td>
-    </tr>
-    <tr>
-        <td>variable name</td>
-        <td><code>variableNameLikeThis</code></td>
-    </tr>
-    <tr>
-        <td>class name</td>
-        <td><code>ClassNameLikeThis</code></td>
-    </tr>
-    <tr>
-        <td>enum name</td>
-        <td><code>EnumNamesLikeThis</code></td>
-    </tr>
-    <tr>
-        <td>method name</td>
-        <td><code>methodNamesLikeThis</code></td>
-    </tr>
-    <tr>
-        <td>constant name</td>
-        <td><code>CONSTANT_VALUES_LIKE_THIS</code></td>
-    </tr>
-    <tr>
-        <td>filenames</td>
-        <td><code>filenameslikethis.js.</code></td>
-    </tr>
-</table>
+* Class names MUST always start with an uppercase letter.
+* Multiple words MUST be separated with an underscore.
+* Subsequent words MUST also begin with an uppercase letter.
+* Abbreviations MUST be written in all-uppercase.
+
+```
+class Class_Name
+class Longer_Class_Name
+class WP_HTTP
+```
+
+
+#### Class method names
+
+Regex pattern: `(([a-z]+)_*)+`
+
+A method is a function used in the context of a class/object.
+
+* Class methods MUST be entirely lowercase
+* Class methods SHOULD be named to clearly indicate their function, preferably beginning with a verb.
+* Multiple words MUST be separated with an underscore.
+
+```
+function get_file_properties()
+```
+
+
+### Constant names
+
+Regex pattern: `(([A-Z]+)_*)+`
+
+Constants MUST only contain UPPERCASE letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Numbers SHOULD NOT be used in constants.
+
+```
+const MIN_VALUE = 0.0;
+const MAX_VALUE = 1.0;
+```
+
+
+### Enumerated types (enum)
+
+Regex pattern: `(([a-z]+)_*)+`
+
+An enumerated type (also called enumeration or enum) is a data type that consists of a set of named values called elements, members or enumerators of the type.
+
+The enumerator names are usually identifiers that behave as constants in the language. A variable that has been declared as having an enumerated type can be assigned any of the enumerators as a value.
+
+In other words, an enum restricts variables to one value from a predefined set of constants. For example,
+
+```
+var WeekDay = { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY };
+```
+
+* Enums MUST be entirely lowercase
+* Enums SHOULD be named to clearly indicate their function, preferably beginning with a verb.
+* Multiple words MUST be separated with an underscore.
+
+
+### Filenames
+
+Regex pattern: `(([a-z])+-*)+(.inc)*.js
+
+* Files SHOULD be named descriptively.
+* Files MUST be named using only lowercase letters.
+* Words MUST be separated by hyphens.
+
+```
+filename.js
+my-plugin-name.js
+helper-class-library.js
+```
+
+
+### Function names
+
+Regex pattern: `(([a-z])+_*)+`
+
+Function MUST contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents.
+
+```
+function write_message() {
+    ...
+}
+
+function greet_fullname( first_name, last_name ) {
+    ...
+}
+```
+
+
+
+### Variable names
+
+Regex pattern: `\$(([a-z])+_*)+`
+
+Variable names MUST contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Very short, non-word variables should only used for iterations in `for()` loops.
+
+```
+for ( var j = 0; j < 0; j++ ) { ... }
+var str = '';
+var buffer = '';
+var group_id = 0;
+var last_city = 'St Andrews';
+```
 
 
 
