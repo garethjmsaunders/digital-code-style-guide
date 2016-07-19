@@ -1,42 +1,42 @@
 # XML style guide
 
-Version 1.1
-Last updated: Friday 3 June 2016
+Version 1.2
+Last updated: Tuesday 19 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC -->
 
 - [1. Syntax](#1-syntax)
-    - [Well-formed XML](#well-formed-xml)
-    - [General formatting](#general-formatting)
-    - [Entity references](#entity-references)
+    - [1.1 Well-formed XML](#11-well-formed-xml)
+    - [1.2 General formatting](#12-general-formatting)
+    - [1.3 Entity references](#13-entity-references)
         - [Character references](#character-references)
         - [International characters](#international-characters)
-    - [Empty elements](#empty-elements)
+    - [1.4 Empty elements](#14-empty-elements)
 - [2. Reuse existing XML formats](#2-reuse-existing-xml-formats)
-    - [Extending existing formats](#extending-existing-formats)
+    - [2.1 Extending existing formats](#21-extending-existing-formats)
 - [3. XML prolog](#3-xml-prolog)
-    - [Optional](#optional)
-    - [Character encoding](#character-encoding)
+    - [3.1 Optional](#31-optional)
+    - [3.2 Character encoding](#32-character-encoding)
 - [4. Schemas](#4-schemas)
 - [5. Namespaces](#5-namespaces)
-    - [Prefixes](#prefixes)
-    - [Namespace names](#namespace-names)
-    - [Attribute names](#attribute-names)
+    - [5.1 Prefixes](#51-prefixes)
+    - [5.2 Namespace names](#52-namespace-names)
+    - [5.3 Attribute names](#53-attribute-names)
 - [6. Names](#6-names)
 - [7. Elements](#7-elements)
-    - [Mixed content](#mixed-content)
+    - [7.1 Mixed content](#71-mixed-content)
 - [8. Attributes](#8-attributes)
 - [9. Key-value pairs](#9-key-value-pairs)
 - [10. Elements vs attributes](#10-elements-vs-attributes)
-    - [Elements](#elements)
-    - [Attributes](#attributes)
+    - [10.1 Elements](#101-elements)
+    - [10.2 Attributes](#102-attributes)
 - [11. CDATA](#11-cdata)
 - [12. Comments](#12-comments)
-    - [Formatting](#formatting)
-    - [General rules](#general-rules)
-    - [TODOs](#todos)
+    - [12.1 Formatting](#121-formatting)
+    - [12.2 General rules](#122-general-rules)
+    - [12.3 TODOs](#123-todos)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -44,17 +44,19 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 
 
+---
+
 ## 1. Syntax
 
 
-### Well-formed XML
+### 1.1 Well-formed XML
 
 All XML documents MUST be 'well-formed' in accordance with the [latest XML specification](https://www.w3.org/TR/xml/).
 
 You may find it useful to use an XML validation service, such as those provided by [Code Beautify](http://codebeautify.org/xmlvalidate) or [Validome](http://www.validome.org/xml/), or a code editor plugin such as [Sublime​Linter-xmllint](https://packagecontrol.io/packages/SublimeLinter-xmllint).
 
 
-### General formatting
+### 1.2 General formatting
 
 For consistency:
 
@@ -65,7 +67,7 @@ For consistency:
 * Use one space before attributes in an opening-tag. If the tag is too long, the space may be replaced by a newline.
 
 
-### Entity references
+### 1.3 Entity references
 
 Entity references other than the five standard XML entity references MUST NOT be used. The five acceptable entity references are:
 
@@ -90,7 +92,7 @@ XML documents may contain international characters, like Scandanavian `ø`, `æ`
 Again, you may use character references (above) but prefer to use actual characters.
 
 
-### Empty elements
+### 1.4 Empty elements
 
 Some elements do not have end tags because they do not contain anything, consider XHTML tags such as `<img />` and `<br />`.
 
@@ -106,6 +108,8 @@ Either format is acceptable as neither is preferred by XML parsers. Whichever yo
 
 
 
+---
+
 ## 2. Reuse existing XML formats
 
 Where possible reuse existing XML formats, particularly those that allow extensions. XML Cover Pages curates a list of nearly 600 established [XML applications and initiatives](http://xml.coverpages.org/xmlApplications.html).
@@ -115,12 +119,14 @@ Creating a new XML format is hard work and should only be done with consideratio
 Consider Tim Bray's article first: [Don’t invent XML languages](https://www.tbray.org/ongoing/When/200x/2006/01/08/No-New-XML-Languages).
 
 
-### Extending existing formats
+### 2.1 Extending existing formats
 
 When reusing or extending existing formats follow their established conventions and implicit styles for elements and attributes, even if they contradict this guide. Internal file consistency is prefered over strict adherance to this guide.
 
 
 
+
+---
 
 ## 3. XML prolog
 
@@ -135,7 +141,7 @@ The XML prolog appears before the document's root element. XML documents SHOULD 
 ```
 
 
-### Optional
+### 3.1 Optional
 
 * The XML prolog itself is optional.
 * If the XML prolog exists, it MUST come first in the document.
@@ -143,7 +149,7 @@ The XML prolog appears before the document's root element. XML documents SHOULD 
 * The `standalone="yes"` attribute is optional. Valid values are `yes` and `no` (default value). The attribute is only relevant when a DTD is used; and irrelevant when used with a schema instead of a DTD.
 
 
-### Character encoding
+### 3.2 Character encoding
 
 To avoid errors, you should specify the encoding used, or save your XML files as UTF-8; UTF-8 is the default character encoding for XML documents.
 
@@ -158,6 +164,8 @@ You will need to provide a very good argument for using a character encoding tha
 
 
 
+---
+
 ## 4. Schemas
 
 Document formats SHOULD be expressed using a schema language. This improves clarity and ensures documents can be checked programmatically.
@@ -171,6 +179,8 @@ DTDs and/or W3C XML Schemas may be provided for compatibility with existing prod
 
 
 
+---
+
 ## 5. Namespaces
 
 "XML namespaces are used for providing uniquely named elements and attributes in an XML document. They are defined in a [W3C recommendation](https://www.w3.org/TR/xml-names/). An XML instance may contain element or attribute names from more than one XML vocabulary. If each vocabulary is given a namespace, the ambiguity between identically named elements or attributes can be resolved." (Wikipedia)
@@ -183,7 +193,7 @@ An XML namespace is declared using the reserved XML attribute `xmlns` or `xmlns:
 * A default namespace SHOULD be used.
 
 
-### Prefixes
+### 5.1 Prefixes
 
 Well-known prefixes such as `xhtml` (for XHTML), `dc` (for Dublin Core metadata), and `xs` (for XML Schema) SHOULD be used for standard namespaces.
 
@@ -201,7 +211,7 @@ St Andrews-specific prefixes SHOULD begin `sta`.
 * Prefixes SHOULD contain only lower-case ASCII letters.
 
 
-### Namespace names
+### 5.2 Namespace names
 
 Namespace names are HTTP URIs; they SHOULD take the form
 
@@ -212,7 +222,7 @@ https://www.st-andrews.ac.uk/xmlns/{namespace}/{year}
 The namespace should be defined in an HTML document at that URI.
 
 
-### Attribute names
+### 5.3 Attribute names
 
 Attribute names SHOULD NOT be in a namespace.
 
@@ -229,6 +239,8 @@ EASIER TO READ
 
 
 
+---
+
 ## 6. Names
 
 Names here refers to elements, attributes and enumerated values (controlled vocabularies).
@@ -240,6 +252,8 @@ Names here refers to elements, attributes and enumerated values (controlled voca
 
 
 
+
+---
 
 ## 7. Elements
 
@@ -271,7 +285,7 @@ Child elements.
 </letter>
 ```
 
-### Mixed content
+### 7.1 Mixed content
 
 DO NOT use mixed content as many XML data models do not handle mixed content properly.
 
@@ -289,6 +303,8 @@ XML elements that merely wrap repeating child elements SHOULD NOT be used as the
 
 
 
+---
+
 ## 8. Attributes
 
 * You may use either single (`'`) or double (`"`) quotation marks around attribute values; XML parsers make no distinction. However, be consistent in your use of one or the other, and where possible prefer double quotation marks.
@@ -304,6 +320,8 @@ If creating your own document formats:
 
 
 
+
+---
 
 ## 9. Key-value pairs
 
@@ -325,6 +343,8 @@ As Google point out: "keeping the value in an attribute hides it from the user, 
 
 
 
+---
+
 ## 10. Elements vs attributes
 
 There are no strict rules for deciding when to use elements and when to use attributes. However, bear in mind that elements are generally less restrictive than attributes.
@@ -336,14 +356,14 @@ There are no strict rules for deciding when to use elements and when to use attr
 Needless to say, for the sake of continuity and document integrity, if you extend an existing schema follow its internal conventions.
 
 
-### Elements
+### 10.1 Elements
 
 Bear in mind that elements generally use more memory than attributes.
 
 Consider using an element if the data should normally be shown to the user, or if something may appear more than once in the data model.
 
 
-### Attributes
+### 10.2 Attributes
 
 Consider [Google's advice](https://google.github.io/styleguide/xmlstyle.html) about attributes:
 
@@ -356,6 +376,8 @@ Consider [Google's advice](https://google.github.io/styleguide/xmlstyle.html) ab
 
 
 
+
+---
 
 ## 11. CDATA
 
@@ -376,6 +398,8 @@ Specifications must not forbid the use of CDATA sections.
 
 
 
+---
+
 ## 12. Comments
 
 Comments allow you to leave messages for other developers (and for yourself, if you return to your code months later).
@@ -389,7 +413,7 @@ As a general rule, if it is not immediately obvious from the code alone then wri
 Comments SHOULD appear only in the document prolog, or in elements that contain child elements.
 
 
-### Formatting
+### 12.1 Formatting
 
 * Comments SHOULD be written as complete, grammatical sentences with an initial capital and a full-stop at the end.
 * Begin comments with `<!-- `, this includes a space after the dashes.
@@ -405,7 +429,7 @@ CORRECT
 ```
 
 
-### General rules
+### 12.2 General rules
 
 * Comments MUST be kept up-to-date when code changes.
 * Comments MUST NOT be used to carry real data.
@@ -414,7 +438,7 @@ CORRECT
 * Comments SHOULD NOT appear in elements that contain character content.
 
 
-### TODOs
+### 12.3 TODOs
 
 Comments MAY be used to contain `TODO`s in hand-written XML documents. These should be written at the top of the document, in the prolog.
 
