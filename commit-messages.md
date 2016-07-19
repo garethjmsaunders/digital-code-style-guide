@@ -1,7 +1,7 @@
 # Commit message style guide
 
-Version 1.0
-Last updated: Thursday 26 May 2016
+Version 1.1
+Last updated: Tuesday 19 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -12,16 +12,19 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 - [1. Introduction](#1-introduction)
 - [2. Commit message](#2-commit-message)
-    - [Subject line](#subject-line)
+    - [2.1 Subject line](#21-subject-line)
         - [i. Type](#i-type)
         - [ii. Component](#ii-component)
         - [iii. Brief summary](#iii-brief-summary)
-    - [Description \(optional\)](#description-optional)
-    - [Reference\(s\) \(optional\)](#references-optional)
+    - [2.2 Description \(optional\)](#22-description-optional)
+    - [2.3 Reference\(s\) \(optional\)](#23-references-optional)
 - [4. Examples](#4-examples)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
+
+
+
 
 ---
 
@@ -41,6 +44,8 @@ Good commit messages serve each of these audiences well. They describe the what 
 
 
 
+
+---
 
 ## 2. Commit message
 
@@ -77,9 +82,7 @@ TYPE (Component) Brief summary
 ```
 
 
-
-
-### Subject line
+### 2.1 Subject line
 
 Generally, the subject line comprises three elements:
 
@@ -88,8 +91,6 @@ Generally, the subject line comprises three elements:
 * `Brief summary`
 
 The only **exception** is when populating a **new repository**. All that is required is a subject line of `Initial commit`.
-
-
 
 
 #### i. Type
@@ -140,8 +141,6 @@ Every commit subject line MUST start with a TYPE in all CAPS and no spaces or ot
 </table>
 
 
-
-
 #### ii. Component
 
 Briefly describe the component, feature or module being developed; in the case of a pull request MERGE simply add the branch name.
@@ -151,8 +150,6 @@ Consistency is important. Make sure you have a definitive list of the various co
 * MUST be separated from the TYPE with a single space.
 * MUST be enclosed in parentheses/round brackets, i.e. `()`.
 * MUST be consistently named throughout a project. For example, don't name it `(Long-form content)` in one commit but `(long form)` in another.
-
-
 
 
 #### iii. Brief summary
@@ -170,8 +167,7 @@ The high visibility of the summary makes it critical to craft something that is 
 * SHOULD aim for **around 50 characters or fewer, stopping at 70**. This is important because log-viewing tools nearly all expect the first line of commit messages to fit within these limits. This difficult restriction may force you to think critically about the essence of your commit; if you can’t describe the change in a short sentence, the commit may not be atomic enough. Note that the TYPE counts toward the 50/70 character count.
 
 
-
-### Description (optional)
+### 2.2 Description (optional)
 
 The longer, multi-line description is optional, but if you wish to include it always separate it from the subject line by a blank line. In other words, the second line in your commit message SHOULD always be blank if you are making a multi-line commit.
 
@@ -184,9 +180,7 @@ The longer description is a chance to elaborate on the change you made. **Focus 
 * MAY include bulleted lists (using asterisks).
 
 
-
-
-### Reference(s) (optional)
+### 2.3 Reference(s) (optional)
 
 The footer of your commit message is where you should reference issues or ticket numbers to which the change pertains. The format of each footer line should be specific and understood by all team members. For example:
 
@@ -202,6 +196,8 @@ Implements #543
 
 
 
+
+---
 
 ## 4. Examples
 
@@ -241,6 +237,10 @@ Fixes GitHub issue #47
 Fixes GitHub issue #51
 ```
 
+
+
+
+---
 
 ## References
 
