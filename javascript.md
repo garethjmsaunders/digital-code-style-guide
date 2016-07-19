@@ -1,6 +1,6 @@
 # JavaScript style guide
 
-version 0.8.0
+version 0.9.0
 Last updated: Tuesday 19 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -45,11 +45,12 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [7.3 Continue](#73-continue)
     - [7.4 Eval](#74-eval)
     - [7.5 Function arguments](#75-function-arguments)
-    - [7.6 JavaScript Object Notation \(JSON\)](#76-javascript-object-notation-json)
-    - [7.7 Quoting strings](#77-quoting-strings)
-    - [7.8 Ternary operators](#78-ternary-operators)
-    - [7.9 Variable declarations](#79-variable-declarations)
-    - [7.10 With](#710-with)
+    - [7.6 jQuery](#76-jquery)
+    - [7.7 JavaScript Object Notation \(JSON\)](#77-javascript-object-notation-json)
+    - [7.8 Quoting strings](#78-quoting-strings)
+    - [7.9 Ternary operators](#79-ternary-operators)
+    - [7.10 Variable declarations](#710-variable-declarations)
+    - [7.11 With](#711-with)
 - [8. JSLint configuration](#8-jslint-configuration)
 - [Further reading](#further-reading)
 
@@ -578,7 +579,12 @@ function my_function( parameter1, parameter2, parameter3,
 ```
 
 
-### 7.6 JavaScript Object Notation (JSON)
+### 7.6 jQuery
+
+When creating or extending jQuery plugins the conventions recommended by the [jQuery JavaScript style guide](https://contribute.jquery.org/style-guide/js/) SHOULD take precedence over the guidelines contained within this style guide, particularly if the plugin is to be submitted to the jQuery plugin registry.
+
+
+### 7.7 JavaScript Object Notation (JSON)
 
 If manually creating a JavaScript Object Notation (JSON) file use the following layout:
 
@@ -611,7 +617,7 @@ If manually creating a JavaScript Object Notation (JSON) file use the following 
 ```
 
 
-### 7.7 Quoting strings
+### 7.8 Quoting strings
 
 You SHOULD always use single-quotes (`'`) rather than double-quotes (`"`). This is helpful when creating strings that include HTML:
 
@@ -620,7 +626,7 @@ var msg = 'This is some <a href="#url">HTML</a>';
 ```
 
 
-### 7.8 Ternary operators
+### 7.9 Ternary operators
 
 A ternary operator is a conditional operator that uses the syntax:
 
@@ -639,7 +645,7 @@ A ternary operator is a conditional operator that uses the syntax:
 ```
 
 
-### 7.9 Variable declarations
+### 7.10 Variable declarations
 
 * All variables MUST be declared before being used.
 * Implied global variables MUST NOT be used.
@@ -654,7 +660,7 @@ var orientation;        // options: landscape or portrait
 ```
 
 
-### 7.10 With
+### 7.11 With
 
 The `with` statement MUST not be used.
 
