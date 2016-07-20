@@ -1,6 +1,6 @@
 # Sublime Text standards guide
 
-Version 1.1
+Version 1.1.0
 Last updated: Tuesday 19 July 2016
 
 <!-- MarkdownTOC -->
