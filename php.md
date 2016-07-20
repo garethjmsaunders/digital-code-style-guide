@@ -1,7 +1,7 @@
 # PHP style guide
 
-Version 0.5.2
-Last updated: Tuesday 12 July 2016
+Version 1.0.0
+Last updated: Wednesday 20 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
