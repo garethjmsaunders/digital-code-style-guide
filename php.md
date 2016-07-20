@@ -10,58 +10,58 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 - [1. Introduction](#1-introduction)
 - [2. File format](#2-file-format)
-    - [Unicode \(UTF-8\)](#unicode-utf-8)
-    - [Use LF \(Unix\) line endings](#use-lf-unix-line-endings)
+    - [2.1 Unicode \(UTF-8\)](#21-unicode-utf-8)
+    - [2.2 Use LF \(Unix\) line endings](#22-use-lf-unix-line-endings)
 - [3. No shorthand PHP tags](#3-no-shorthand-php-tags)
 - [4. PHP closing tag](#4-php-closing-tag)
 - [5. General formatting](#5-general-formatting)
-    - [Indentation](#indentation)
-    - [Line width \(80 characters\)](#line-width-80-characters)
-    - [One statement per line](#one-statement-per-line)
-    - [Semicolons](#semicolons)
-    - [Parentheses](#parentheses)
-    - [Brace style](#brace-style)
-    - [Single and double quotation marks](#single-and-double-quotation-marks)
+    - [5.1 Indentation](#51-indentation)
+    - [5.2 Line width \(80 characters\)](#52-line-width-80-characters)
+    - [5.3 One statement per line](#53-one-statement-per-line)
+    - [5.4 Semicolons](#54-semicolons)
+    - [5.5 Parentheses](#55-parentheses)
+    - [5.6 Brace style](#56-brace-style)
+    - [5.7 Single and double quotation marks](#57-single-and-double-quotation-marks)
 - [6. Spaces](#6-spaces)
-    - [Whitespace](#whitespace)
-    - [Remove trailing spaces](#remove-trailing-spaces)
-    - [Array items](#array-items)
-    - [Blocks](#blocks)
-    - [Functions](#functions)
-    - [Logical comparisons](#logical-comparisons)
-    - [String concatenation](#string-concatenation)
-    - [Type casting](#type-casting)
+    - [6.1 Whitespace](#61-whitespace)
+    - [6.2 Remove trailing spaces](#62-remove-trailing-spaces)
+    - [6.3 Array items](#63-array-items)
+    - [6.4 Blocks](#64-blocks)
+    - [6.5 Functions](#65-functions)
+    - [6.6 Logical comparisons](#66-logical-comparisons)
+    - [6.7 String concatenation](#67-string-concatenation)
+    - [6.8 Type casting](#68-type-casting)
 - [7. Comments](#7-comments)
-    - [DocBlock](#docblock)
+    - [7.1 DocBlock](#71-docblock)
         - [@package, @subpackage and @category](#package-subpackage-and-category)
         - [@version](#version)
         - [@since](#since)
-    - [Class, method, and property declarations](#class-method-and-property-declarations)
+    - [7.2 Class, method, and property declarations](#72-class-method-and-property-declarations)
         - [Classes](#classes)
         - [Methods](#methods)
         - [Property declarations](#property-declarations)
-    - [Single-line comments](#single-line-comments)
-    - [Magic numbers](#magic-numbers)
+    - [7.3 Single-line comments](#73-single-line-comments)
+    - [7.4 Magic numbers](#74-magic-numbers)
 - [8. Naming conventions](#8-naming-conventions)
-    - [Classes and methods](#classes-and-methods)
+    - [8.1 Classes and methods](#81-classes-and-methods)
         - [Class names](#class-names)
         - [Class method names](#class-method-names)
-    - [Constant names](#constant-names)
-    - [Filenames](#filenames)
-    - [Function names](#function-names)
-    - [Variable names](#variable-names)
+    - [8.2 Constant names](#82-constant-names)
+    - [8.3 Filenames](#83-filenames)
+    - [8.4 Function names](#84-function-names)
+    - [8.5 Variable names](#85-variable-names)
 - [9. Language specifics](#9-language-specifics)
-    - [Arrays](#arrays)
+    - [9.1 Arrays](#91-arrays)
         - [Numerically-indexed arrays](#numerically-indexed-arrays)
         - [Associative arrays](#associative-arrays)
-    - [elseif, not else if](#elseif-not-else-if)
-    - [Logical operators](#logical-operators)
-    - [Regular expressions](#regular-expressions)
-    - [Ternary operator](#ternary-operator)
-    - [TRUE, FALSE, and NULL](#true-false-and-null)
-    - [Yoda conditions](#yoda-conditions)
+    - [9.2 elseif, not else if](#92-elseif-not-else-if)
+    - [9.3 Logical operators](#93-logical-operators)
+    - [9.4 Regular expressions](#94-regular-expressions)
+    - [9.5 Ternary operator](#95-ternary-operator)
+    - [9.6 TRUE, FALSE, and NULL](#96-true-false-and-null)
+    - [9.7 Yoda conditions](#97-yoda-conditions)
 - [10. Security](#10-security)
-    - [Debug code](#debug-code)
+    - [10.1 Debug code](#101-debug-code)
 - [Further reading](#further-reading)
 
 <!-- /MarkdownTOC -->
@@ -86,13 +86,13 @@ If you use another framework (such as CodeIgniter or Symphony) it is more import
 
 ## 2. File format
 
-### Unicode (UTF-8)
+### 2.1 Unicode (UTF-8)
 
 * Files MUST be saved with Unicode (UTF-8) encoding.
 * Files MUST NOT be saved with the byte-order mark (UTF-8 with BOM).
 
 
-### Use LF (Unix) line endings
+### 2.2 Use LF (Unix) line endings
 
 Lines MUST end with a single, Unix-style line feed (LF) character.
 
@@ -158,7 +158,7 @@ For files that contain only PHP code you MUST omit the PHP closing tag. Remove a
 
 ## 5. General formatting
 
-### Indentation
+### 5.1 Indentation
 
 PHP parsers do not care about indentation, it is solely used for the convenience of human readers. Indentation should be used to enhance readability of the source code.
 
@@ -172,7 +172,7 @@ Code indentation should always reflect the logical structure of the code.
 * Nested elements SHOULD be indented once (four spaces).
 
 
-### Line width (80 characters)
+### 5.2 Line width (80 characters)
 
 Where possible, limit PHP files' width to 80 characters. Reasons for this include:
 
@@ -183,7 +183,7 @@ Where possible, limit PHP files' width to 80 characters. Reasons for this includ
 Do not worry about unavoidable exceptions to this rule, such as URLs, or within a `heredoc`.
 
 
-### One statement per line
+### 5.3 One statement per line
 
 Statements SHOULD always be written one per line; do not combine statements on one line.
 
@@ -205,7 +205,7 @@ switch ($_REQUEST['tag']) {
 ```
 
 
-### Semicolons
+### 5.4 Semicolons
 
 PHP generally uses semicolons (`;`) to mark the end of a statement. However, if the PHP closing tag is on the same line after a statement, the semicolon is optional and should not be used.
 
@@ -214,7 +214,7 @@ A code block, enclosed in braces `{...}` is not a statement, it is a group of st
 <small>Source: MIT Sloan School of Management</small>
 
 
-### Parentheses
+### 5.5 Parentheses
 
 Parentheses SHOULD only be used where they are required. Additional parentheses may be used to clarify groupings in complex conditional constructs, but knowing operator precedence should eliminate their necessity.
 
@@ -225,7 +225,7 @@ When calling class constructors with no arguments, always include parentheses: T
 <small>Source: MIT Sloan School of Management</small>
 
 
-### Brace style
+### 5.6 Brace style
 
 You MUST use 1TBS (one true brace style) to indent braces, e.g.
 
@@ -260,7 +260,7 @@ You MAY use alternative syntax for control structures (e.g. `if/endif`, `while/e
 <small>Source: WordPress</small>
 
 
-### Single and double quotation marks
+### 5.7 Single and double quotation marks
 
 Use single and double quotes when appropriate. If you’re not evaluating anything in the string, you SHOULD use single quotes.
 
@@ -285,17 +285,17 @@ In WordPress, text that goes into attributes should be run through `esc_attr()` 
 Spaces MUST always be inserted after commas, and on both sides of logical, comparison, string and assignment operators.
 
 
-### Whitespace
+### 6.1 Whitespace
 
 There MUST NOT be any whitespace before the opening PHP tag.
 
 
-### Remove trailing spaces
+### 6.2 Remove trailing spaces
 
 You MUST remove trailing whitespace at the end of each line of code.
 
 
-### Array items
+### 6.3 Array items
 
 Spaces MUST always be inserted after commas.
 
@@ -310,7 +310,7 @@ $x = $foo[ $bar ];
 ```
 
 
-### Blocks
+### 6.4 Blocks
 
 Spaces MUST be inserted on both sides of the opening and closing parenthesis of `if`, `elseif`, `foreach`, `for`, and `switch` blocks.
 
@@ -333,7 +333,7 @@ switch ( $i ) {
 ```
 
 
-### Functions
+### 6.5 Functions
 
 When defining a function:
 
@@ -351,7 +351,7 @@ my_function( $param1, func_param( $param2 ) );
 ```
 
 
-### Logical comparisons
+### 6.6 Logical comparisons
 
 When performing logical comparisons:
 
@@ -369,7 +369,7 @@ foo && bar;
 ```
 
 
-### String concatenation
+### 6.7 String concatenation
 
 When concatenating strings using the `.` operator, a space MUST be inserted on both sides of the operator to improve readability.
 
@@ -378,7 +378,7 @@ $example = 'University' . ' of ' . 'St Andrews';
 ```
 
 
-### Type casting
+### 6.8 Type casting
 
 When type casting:
 
@@ -419,7 +419,7 @@ You MUST keep comments up-to-date when code changes.
 Comments MAY make their way into production environments as they are ignored when parsed.
 
 
-### DocBlock
+### 7.1 DocBlock
 
 Multi-line comments SHOULD use [phpDocumentor](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.pkg.html)-style comments.
 
@@ -488,7 +488,7 @@ You MAY also append a date after the version number.
 ```
 
 
-### Class, method, and property declarations
+### 7.2 Class, method, and property declarations
 
 You SHOULD use [DocBlock](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.howto.pkg.html#basics.docblock) style comments before class, method, and property declarations. Some IDEs use these comments to infer information about the code.
 
@@ -535,7 +535,7 @@ public $data = array();
 ```
 
 
-### Single-line comments
+### 7.3 Single-line comments
 
 Use single line comments within code, leaving a blank line between large comment blocks and code.
 
@@ -550,7 +550,7 @@ $parts = $this -> foo($parts);
 ```
 
 
-### Magic numbers
+### 7.4 Magic numbers
 
 "Magic number" is an old school programming term for an unnamed numerical constant. Basically, it's just a random number that happens to _just work_™ yet is not tied to any logical explanation.
 
@@ -563,7 +563,7 @@ Needless to say, magic numbers are a plague and should be avoided at all costs. 
 
 ## 8. Naming conventions
 
-### Classes and methods
+### 8.1 Classes and methods
 
 #### Class names
 
@@ -596,7 +596,7 @@ function get_file_properties()
 ```
 
 
-### Constant names
+### 8.2 Constant names
 
 Regex pattern: `(([A-Z]+)_*)+`
 
@@ -613,7 +613,7 @@ class Constants {
 ```
 
 
-### Filenames
+### 8.3 Filenames
 
 Regex pattern: `(([a-z])+-*)+(.inc)*.php`
 
@@ -636,7 +636,7 @@ class-wp-error.php
 ```
 
 
-### Function names
+### 8.4 Function names
 
 Regex pattern: `(([a-z])+_*)+`
 
@@ -652,9 +652,7 @@ function greet_fullname( $first_name, $last_name ) {
 }
 ```
 
-
-
-### Variable names
+### 8.5 Variable names
 
 Regex pattern: `\$(([a-z])+_*)+`
 
@@ -675,7 +673,7 @@ $last_city
 
 ## 9. Language specifics
 
-### Arrays
+### 9.1 Arrays
 
 #### Numerically-indexed arrays
 
@@ -716,24 +714,24 @@ Again, a trailing comma MUST always be included after the final item in the arra
 <small>Source: Zend</small>
 
 
-### elseif, not else if
+### 9.2 elseif, not else if
 
 `else if` is not compatible with the colon syntax for `if|elseif` blocks. For this reason, use `elseif` for conditionals.
 
 
-### Logical operators
+### 9.3 Logical operators
 
 Use of the `||` "or" comparison operator is discouraged as its clarity on some output devices is low (looking like the number 11 for instance). `&&` is preferred over `and` but either are acceptable. A space should always precede and follow `!`
 
 
-### Regular expressions
+### 9.4 Regular expressions
 
 Perl compatible regular expressions (PCRE, `preg_` functions) SHOULD be used in preference to their POSIX counterparts.
 
 Single-quoted strings SHOULD be used for regular expressions as they have only two metasequences (sequences of characters that have special meaning in a regular expression pattern): `\'` and `\\`.
 
 
-### Ternary operator
+### 9.5 Ternary operator
 
 Ternary operators are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using ! empty(), as testing for false here is generally more intuitive.)
 
@@ -745,12 +743,12 @@ $musictype = ( 'jazz' == $music ) ? 'cool' : 'blah';
 ```
 
 
-### TRUE, FALSE, and NULL
+### 9.6 TRUE, FALSE, and NULL
 
 TRUE, FALSE, and NULL are PHP keywords that should always be written fully uppercase.
 
 
-### Yoda conditions
+### 9.7 Yoda conditions
 
 ```
 if ( true == $the_force ) {
@@ -787,7 +785,7 @@ Areas that you MUST address and actively test for include:
 * Securing via obscurity
 
 
-### Debug code
+### 10.1 Debug code
 
 Debugging code MUST NOT be left in production code, even if commented out.
 
