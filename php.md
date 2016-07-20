@@ -401,6 +401,23 @@ $foo = (boolean) $bar;
 
 In general, code needs more comments; comment your code prolifically.
 
+Comments SHOULD be written as complete, grammatical sentences with an initial capital and a full-stop at the end.
+
+You SHOULD comment anything that isn't immediately obvious from the code alone. These could be explaining:
+
+* the structure and/or role of a file;
+* the goal of a block of code;
+* the idea behind a 'magic number';
+* the thought process behind a way of doing things.
+
+In situations where it would be useful for a developer to know exactly how a block of code applies to some HTML, you MAY include a snippet of HTML in a comment.
+
+If you find an answer online (for example, on Stack Overflow, or a blog) then you SHOULD add the link to a comment so future developers know what's up.
+
+You MUST keep comments up-to-date when code changes.
+
+Comments MAY make their way into production environments as they are ignored when parsed.
+
 
 ### DocBlock
 
@@ -583,7 +600,7 @@ function get_file_properties()
 
 Regex pattern: `(([A-Z]+)_*)+`
 
-Variables should only contain UPPERCASE letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Numbers SHOULD NOT be used in constants.
+Constants should only contain UPPERCASE letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Numbers SHOULD NOT be used in constants.
 
 ```
 define('MIN_VALUE', '0.0');
@@ -641,7 +658,7 @@ function greet_fullname( $first_name, $last_name ) {
 
 Regex pattern: `\$(([a-z])+_*)+`
 
-Variable names MUST contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Very short, non-word variable sdhould only used for iterations in `for()` loops.
+Variable names MUST contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Very short, non-word variable should only used for iterations in `for()` loops.
 
 ```
 for ( $j = 0; $j < 0; $j++ ) { ... }
