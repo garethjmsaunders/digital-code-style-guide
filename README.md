@@ -7,6 +7,9 @@ These style and standards guides are applicable to all websites and web applicat
 
 <!-- MarkdownTOC -->
 
+- [Summary](#summary)
+    - [Why use style guides](#why-use-style-guides)
+    - [When to be inconsistent](#when-to-be-inconsistent)
 - [1. Background](#1-background)
     - [1.1 Potential issues](#11-potential-issues)
 - [2. Objective](#2-objective)
@@ -27,6 +30,54 @@ These style and standards guides are applicable to all websites and web applicat
 
 <!-- /MarkdownTOC -->
 
+
+
+
+---
+
+## Summary
+
+### Why use style guides
+
+In working on large, long-running projects, with dozens of developers of differing specialities and abilities, it is important that we all work in a unified way in order to, among other things:
+
+* **keep code maintainable**;
+* **keep code transparent, sane, and readable**;
+* **keep code scalable**.
+
+These style and standards guides contain recommendations and approaches that will help us to acheive these goals.
+
+These guides are valuable for developers who:
+
+*   build and maintain products for a reasonable length of time;
+*   have developers of differing abilities and specialisms;
+*   have a number of different developers working on a product at any
+    given time;
+*   on-board new staff regularly;
+*   have a number of codebases that developers dip in and out of.
+
+While style guides are typically more suited to product teams—large codebases on long-lived and evolving projects, with multiple developers contributing over prolonged periods of time—all developers should strive for a degree of standardisation in their code.
+
+A good style guide, when well followed, will:
+
+* **set the standard for code quality across a codebase**;
+* **promote consistency across codebases**;
+* **give developers a feeling of familiarity across codebases**;
+* **increase productivity**.
+
+Style guides should be learned, understood, and implemented at all times on a project which is governed by one, and any deviation must be fully justified.
+
+
+### When to be inconsistent
+
+While consistency is important, equally important is knowing when to be inconsistent—sometimes the style guide just doesn’t apply.
+
+Ask yourself if applying the rule would make the code less readable, even for someone who is used to reading code that follows the rules. When in doubt use your best judgment, look at other examples, and decide what looks best.
+
+The ground rule is simple: **readability is preferential to strict adherence to rules**.
+
+
+Source: [CSS guidelines](http://cssguidelin.es/#the-importance-of-a-styleguide "Harry Roberts")
 
 
 
