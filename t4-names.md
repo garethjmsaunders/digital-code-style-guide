@@ -53,6 +53,15 @@ current-students
 alumni-and-development
 ```
 
+
+For subjects they MUST have the subject first, then followed by speciality or otherwise
+
+```
+english
+english-creative-writing
+physics
+physics-pod
+```
 ### 2.2 Page layouts
 
 TODO: Discuss more if we will need more than 1 or 2 page layouts. May remove this section if needed.
@@ -91,6 +100,8 @@ Name element field should never be output
 ### 2.8 Media types
 
 ### 2.9 Media library
+
+TODO Structure and heirarchy
 
 ### 2.5 File names
 
