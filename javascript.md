@@ -58,8 +58,6 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 
 
-TODO: Merge in style guide advice from Douglas Crockford (author of JSLint) http://javascript.crockford.com/code.html
-TODO: Rewrite to be more prescriptive, and less first-person plural.
 
 
 
@@ -170,7 +168,7 @@ Every statement MUST be followed by a semicolon except for
 * `if`
 * `switch`
 * `try`
-* `while`.
+* `while`
 
 You MUST NOT rely on automatic semicolon insertion.
 
@@ -560,7 +558,7 @@ See the [JSLint article](https://jslinterrors.com/eval-is-evil) for more informa
 
 Where possible, all function arguments SHOULD be listed on the same line.
 
-If doing so would exceed the 80-column limit, the arguments must be line-wrapped in a readable way. To save space, you may wrap as close to 80 as possible, or put each argument on its own line to enhance readability. The indentation may be either four spaces, or aligned to the parenthesis.
+If doing so would exceed the 80-column limit, the arguments MUST be line-wrapped in a readable way. To save space, you may wrap as close to 80 as possible, or put each argument on its own line to enhance readability. The indentation may be either four spaces, or aligned to the parenthesis.
 
 Either of these is acceptable:
 
