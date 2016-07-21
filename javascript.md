@@ -1,7 +1,7 @@
 # JavaScript style guide
 
-version 0.9.0
-Last updated: Tuesday 19 July 2016
+version 1.0.0
+Last updated: Thursday 21 July 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -45,8 +45,8 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [7.3 Continue](#73-continue)
     - [7.4 Eval](#74-eval)
     - [7.5 Function arguments](#75-function-arguments)
-    - [7.6 jQuery](#76-jquery)
-    - [7.7 JavaScript Object Notation \(JSON\)](#77-javascript-object-notation-json)
+    - [7.6 JavaScript Object Notation \(JSON\)](#76-javascript-object-notation-json)
+    - [7.7 jQuery](#77-jquery)
     - [7.8 Quoting strings](#78-quoting-strings)
     - [7.9 Ternary operators](#79-ternary-operators)
     - [7.10 Variable declarations](#710-variable-declarations)
@@ -577,12 +577,7 @@ function my_function( parameter1, parameter2, parameter3,
 ```
 
 
-### 7.6 jQuery
-
-When creating or extending jQuery plugins the conventions recommended by the [jQuery JavaScript style guide](https://contribute.jquery.org/style-guide/js/) SHOULD take precedence over the guidelines contained within this style guide, particularly if the plugin is to be submitted to the jQuery plugin registry.
-
-
-### 7.7 JavaScript Object Notation (JSON)
+### 7.6 JavaScript Object Notation (JSON)
 
 If manually creating a JavaScript Object Notation (JSON) file use the following layout:
 
@@ -614,6 +609,9 @@ If manually creating a JavaScript Object Notation (JSON) file use the following 
 ]}
 ```
 
+### 7.7 jQuery
+
+When creating or extending jQuery plugins the conventions recommended by the [jQuery JavaScript style guide](https://contribute.jquery.org/style-guide/js/) SHOULD take precedence over the guidelines contained within this style guide, particularly if the plugin is to be submitted to the jQuery plugin registry.
 
 ### 7.8 Quoting strings
 
