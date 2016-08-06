@@ -1,7 +1,7 @@
 # Commit message style guide
 
-Version 1.1.0
-Last updated: Tuesday 19 July 2016
+Version 1.2.0
+Last updated: Saturday 6 August 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -148,7 +148,8 @@ Consistency is important. Make sure you have a definitive list of the various co
 
 * MUST be separated from the TYPE with a single space.
 * MUST be enclosed in parentheses/round brackets, i.e. `()`.
-* MUST be consistently named throughout a project. For example, don't name it `(Long-form content)` in one commit but `(long form)` in another.
+* MUST be consistently named throughout a project. For example, don't name it `(Long-form content)` in one commit but `(Long form)` in another.
+* MUST be written in sentence case, unless you have a very good reason not to. For example, write `(Google maps)` not `(google maps)` or `(google-maps)`.
 
 
 #### iii. Brief summary
