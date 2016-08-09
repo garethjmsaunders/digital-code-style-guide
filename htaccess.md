@@ -125,7 +125,7 @@ You MAY tag commits, but there is no need to unless it marks a significant event
 
 The .htaccess filename SHOULD be named `.htaccess`: a nameless file with a `.htaccess` extension.
 
-However, you MAY alternatively name the file `htaccess.acl`.
+Because of how the server is configured, you MAY name the file `htaccess.acl`, although the strong preference is for `.htaccess`.
 
 Files MUST be saved with Unicode (UTF-8) encoding; saving with the byte-order mark (UTF-8 with BOM) is optional, but recommended.
 
@@ -145,7 +145,7 @@ The .htaccess SHOULD be organised with rules in the following order:
 3. Restructured site redirects
 4. Rewrite engine rules
 
-However, bear in mind that the rules cascade: rules further down the file will overrule directives further up.
+However, bear in mind that in a few places with a .htaccess file rule-order is important, so you may need to break this order.
 
 
 ### 6.2 Redirect rules
