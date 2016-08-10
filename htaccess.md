@@ -1,7 +1,7 @@
 # .htaccess style and standards guide
 
-Version 0.3.0
-Last updated: Monday 8 August 2016
+Version 0.4.0
+Last updated: Wednesday 10 August 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
