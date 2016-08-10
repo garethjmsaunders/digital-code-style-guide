@@ -238,7 +238,7 @@ The .htaccess file SHOULD begin with a general introductory block that records t
 # @owner       Name, School or unit <email@st-andrews.ac.uk>
 ```
 
-In the case of .htaccess files that only offer password protection, you MAY omit the file title in favour of a sub-section (see example 9.2, below)
+In the case of .htaccess files that offer password-protection only, you MAY omit the file title in favour of a sub-section (see example 9.2, below)
 
 
 #### 6.3.2 Section and sub-section titles
