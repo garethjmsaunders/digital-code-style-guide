@@ -18,10 +18,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
         - [6.2.2 Order of rules](#622-order-of-rules)
     - [6.3 Comments](#63-comments)
         - [6.3.1 File title](#631-file-title)
-        - [6.3.2 Section titles](#632-section-titles)
+        - [6.3.2 Section and sub-section titles](#632-section-and-sub-section-titles)
 - [7. Adding new redirects](#7-adding-new-redirects)
-- [8. Example server root .htaccess file](#8-example-server-root-htaccess-file)
-- [9. Password-protect directories](#9-password-protect-directories)
+- [8. Password-protect directories](#8-password-protect-directories)
     - [Any user \(including those from other institutions\)](#any-user-including-those-from-other-institutions)
     - [Any St Andrews staff member](#any-st-andrews-staff-member)
     - [Any St Andrews student](#any-st-andrews-student)
@@ -34,6 +33,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Any St Andrews user](#any-st-andrews-user)
     - [Lists of users](#lists-of-users)
         - [General notes](#general-notes)
+- [9. Examples](#9-examples)
+    - [9.1 Server root .htaccess file example](#91-server-root-htaccess-file-example)
+    - [9.2 Password protect .htaccess file example](#92-password-protect-htaccess-file-example)
 
 <!-- /MarkdownTOC -->
 
@@ -215,7 +217,7 @@ Comments in .htaccess files are prepended with a hash (`#`) symbol.
 
 #### 6.3.1 File title
 
-The .htaccess file MUST begin with a general introductory block that records the following:
+The .htaccess file SHOULD begin with a general introductory block that records the following:
 
 ```
 # ==========================================================================
@@ -235,8 +237,10 @@ The .htaccess file MUST begin with a general introductory block that records the
 # @owner       Name, School or unit <email@st-andrews.ac.uk>
 ```
 
+In the case of .htaccess files that only offer password protection, you MAY omit the file title in favour of a sub-section.
 
-#### 6.3.2 Section titles
+
+#### 6.3.2 Section and sub-section titles
 
 Every new major section and sub-section of a .htaccess file MUST be prefixed with a section title and meta information.
 
@@ -284,7 +288,7 @@ It can be helpful if you record here whether this redirect is linked to an email
 
 If you find an answer online (for example, on Stack Overflow, or a blog) then you SHOULD add the link to the description so future developers know what's up.
 
-**@since**
+**@since** (optional)
 Which version of the .htaccess this was added; the version number can be found in the file title. This can help us track when changes were made.
 
 **@added**
@@ -315,7 +319,143 @@ This means that the oldest redirect rules will appear at the top of each section
 
 ---
 
-## 8. Example server root .htaccess file
+## 8. Password-protect directories
+
+You may also use .htaccess files to password-protect individual directories, using [Shibboleth](https://shibboleth.net/) authentication.
+
+The following 'recipes' -- taken from [Password protecting web pages using htaccess files](https://www.st-andrews.ac.uk/itsupport/accounts/computeraccounts/sharedaccounts/password-protectingwebpages/) -- allow access to your web pages to the following users:
+
+
+### Any user (including those from other institutions)
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+Require valid-user
+```
+
+
+### Any St Andrews staff member
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+require affiliation ~ ^staff@st-andrews\.ac\.uk$
+```
+
+### Any St Andrews student
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+require affiliation ~ ^student@st-andrews\.ac\.uk$
+```
+
+### Any St Andrews 'member' account (staff/student/honorary)
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+require affiliation ~ ^member@st-andrews\.ac\.uk$
+```
+### Exclude alumni and external contractors
+
+N.B. This version will exclude alumni and external contractors
+Anyone with a surname starting with B (insert surname initial as appropriate)
+
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+require sn ~ ^B
+```
+
+### Any member of staff from any .ac.uk institution with whom we interoperate
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+require affiliation ~ ^staff@.+\.ac\.uk$
+```
+
+
+### Any member of staff from any institution within whom we interoperate
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+require unscoped-affiliation staff
+```
+
+### Any staff or student from anywhere
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+require unscoped-affiliation staff student
+```
+
+### Any particular first name (e.g. ‘Chris’)
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+Require givenName Chris
+Single user access (i.e. the admin – you)
+```
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+Require user ~ ^user1@st-andrews\.ac\.uk$
+```
+
+(Replace ‘user1’ with the username required.)
+
+
+### Any St Andrews user
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+Require user ~ .+@st-andrews\.ac\.uk
+```
+
+### Lists of users
+```
+SSLRequireSSL
+ErrorDocument 403 /path/to/error/document/403/
+AuthType shibboleth
+ShibRequestSetting requireSession true
+Require user ~ ^(user1|user2|user3)@st-andrews\.ac\.uk$
+```
+
+#### General notes
+
+* Replace `/path/to/error/document/403/` with the correct path to the error page (omitted here for security reasons).
+* Replace the example usernames there with those required.
+* You are not limited to only three usernames, add as many as you require.
+* A top tip is to add the usernames in alphabetical order, e.g. (dbss|gjms1|pw42|rg40|sde1) to make it easier to find usernames when you next need to update the file.
+
+
+
+
+---
+
+## 9. Examples
+
+### 9.1 Server root .htaccess file example
 
 ```
 # ==========================================================================
@@ -365,7 +505,7 @@ ErrorDocument 404 /path/to/error/document/404/
 
 # Alumni email URL fix
 # --------------------------------------------------------------------------
-# @owner        Jane Doe, Development <email@st-andrews.ac.uk>
+# @owner        Jason Bateman, Development <email@st-andrews.ac.uk>
 # @description  Email sent out with wrong URL. This redirects to the correct
                 one. Email campaign is expected to last 2 months, but we will
                 keep this live for three.
@@ -440,135 +580,19 @@ RewriteRule ^(.*)/$ /$1 [L,R=301]
 ```
 
 
+### 9.2 Password protect .htaccess file example
 
----
-
-## 9. Password-protect directories
-
-You may also use .htaccess files to password-protect individual directories, using [Shibboleth](https://shibboleth.net/) authentication.
-
-The following 'recipes' -- taken from [Password protecting web pages using htaccess files](https://www.st-andrews.ac.uk/itsupport/accounts/computeraccounts/sharedaccounts/password-protectingwebpages/) -- allow access to your web pages to the following users:
-
-
-### Any user (including those from other institutions)
 ```
+# Password protect directory (Any St Andrews user)
+# --------------------------------------------------------------------------
+# @owner        Leonardo Da Vinci, Print and Design <email@st-andrews.ac.uk>
+# @description  Documents in this directory are for internal distrib. only.
+# @added        2016-08-10
+# @review       Permanent
+
 SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-Require valid-user
-```
-
-
-### Any St Andrews staff member
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-require affiliation ~ ^staff@st-andrews\.ac\.uk$
-```
-
-### Any St Andrews student
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-require affiliation ~ ^student@st-andrews\.ac\.uk$
-```
-
-### Any St Andrews 'member' account (staff/student/honorary)
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-require affiliation ~ ^member@st-andrews\.ac\.uk$
-```
-### Exclude alumni and external contractors
-
-N.B. This version will exclude alumni and external contractors
-Anyone with a surname starting with B (insert surname initial as appropriate)
-
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession 1
-require sn ~ ^B
-```
-
-### Any member of staff from any .ac.uk institution with whom we interoperate
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-require affiliation ~ ^staff@.+\.ac\.uk$
-```
-
-
-### Any member of staff from any institution within whom we interoperate
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-require unscoped-affiliation staff
-```
-
-### Any staff or student from anywhere
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-require unscoped-affiliation staff student
-```
-
-### Any particular first name (e.g. ‘Chris’)
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-Require givenName Chris
-Single user access (i.e. the admin – you)
-```
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-Require user ~ ^user1@st-andrews\.ac\.uk$
-```
-
-(Replace ‘user1’ with the username required.)
-
-
-### Any St Andrews user
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
+ErrorDocument 403 /path/to/error/document/403/
 AuthType shibboleth
 ShibRequestSetting requireSession true
 Require user ~ .+@st-andrews\.ac\.uk
 ```
-
-### Lists of users
-```
-SSLRequireSSL
-ErrorDocument 403 /path/to/403-error-page/
-AuthType shibboleth
-ShibRequestSetting requireSession true
-Require user ~ ^(user1|user2|user3)@st-andrews\.ac\.uk$
-```
-
-#### General notes
-
-* Replace `/path/to/403-error-page/` with the correct path to the error page (omitted here for security reasons).
-* Replace the example usernames there with those required.
-* You are not limited to only three usernames, add as many as you require.
-* A top tip is to add the usernames in alphabetical order, e.g. (dbss|gjms1|pw42|rg40|sde1) to make it easier to find usernames when you next need to update the file.
-
