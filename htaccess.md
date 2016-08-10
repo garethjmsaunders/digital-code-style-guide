@@ -597,3 +597,8 @@ AuthType shibboleth
 ShibRequestSetting requireSession true
 Require user ~ .+@st-andrews\.ac\.uk
 ```
+
+Notice that:
+
+* The file title has been omitted in favour of a simple sub-section – this makes the file shorter and easier to read.
+* The optional `@since` comment has been omitted.
