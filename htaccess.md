@@ -35,7 +35,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
         - [General notes](#general-notes)
 - [9. Examples](#9-examples)
     - [9.1 Server root .htaccess file example](#91-server-root-htaccess-file-example)
-    - [9.2 Password protect .htaccess file example](#92-password-protect-htaccess-file-example)
+    - [9.2 Password-protect .htaccess file example](#92-password-protect-htaccess-file-example)
 
 <!-- /MarkdownTOC -->
 
@@ -212,6 +212,7 @@ Comments in .htaccess files are prepended with a hash (`#`) symbol.
 
 * Comments MUST exist on their own line. If you place a comment on the same line as a directive, Apache httpd will throw a 500 Internal Server Error.
 * Comments SHOULD be written as complete, grammatical sentences with an initial capital and a full-stop at the end.
+* Lines MUST NOT exceed 80 characters in length.
 * You MUST keep comments up-to-date when code changes.
 
 
@@ -237,7 +238,7 @@ The .htaccess file SHOULD begin with a general introductory block that records t
 # @owner       Name, School or unit <email@st-andrews.ac.uk>
 ```
 
-In the case of .htaccess files that only offer password protection, you MAY omit the file title in favour of a sub-section.
+In the case of .htaccess files that only offer password protection, you MAY omit the file title in favour of a sub-section (see example 9.2, below)
 
 
 #### 6.3.2 Section and sub-section titles
@@ -580,10 +581,10 @@ RewriteRule ^(.*)/$ /$1 [L,R=301]
 ```
 
 
-### 9.2 Password protect .htaccess file example
+### 9.2 Password-protect .htaccess file example
 
 ```
-# Password protect directory (Any St Andrews user)
+# Password-protect directory (Any St Andrews user)
 # --------------------------------------------------------------------------
 # @owner        Leonardo Da Vinci, Print and Design <email@st-andrews.ac.uk>
 # @description  Documents in this directory are for internal distrib. only.
