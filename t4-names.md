@@ -14,7 +14,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [2.3 Content types](#23-content-types)
     - [2.3.1 Content names](#231-content-names)
         - [2.3.1 Content type formatters](#231-content-type-formatters)
-        - [2.3.3 Element names](#233-element-names)
+        - [2.3.3 Elements](#233-elements)
         - [2.5.4 List items](#254-list-items)
         - [2.3.2 Character limits](#232-character-limits)
     - [2.4 Navigation objects](#24-navigation-objects)
@@ -69,29 +69,57 @@ TODO: Need to research/test what is capable with programmable layouts
 
 ### 2.3 Content types
 
-Content types should correspond 1 to 1 with the patterns in the Digital Pattern Library
+Content types should correspond 1 to 1 with the patterns in the Digital Pattern Library, except when more are required to build the element.
 
 ### 2.3.1 Content names
 
-Status of the size list MUST be in the name and the background SHOULD be in the name. TODO
+In each content item they MUST have the name followed by a short description of its use 
 
 ```
-Medium - Short title
-Small - Short title
-Hero banner - Grey
+Navbox - Guardbridge energy project
+Staff profile - Principal, Joe Smith
 ```
 
 #### 2.3.1 Content type formatters
 
 Name element field should never be output
 
-#### 2.3.3 Element names
+#### 2.3.3 Elements
+
+Element names need to be straightforward and simple. Description must also be filled out (unless the name alone is sufficent, eg. Section links).
 
 #### 2.5.4 List items
 
+Try to make lists as reusable as you can, and make the list and list items names simple but descriptive. 
+
+eg. To control the sizing of an element you make a list holding various bootstrap sizing classes. Name this `Bootstrap sizing` and elements `Small` with a value of `col-sm-4` and etc.
+
 #### 2.3.2 Character limits
 
+In general we have several levels of character limits.
+
+Table here...
+
 ### 2.4 Navigation objects
+
+Navigation objects will primarily sit in page layouts, but still make them descriptive with their names, as the names now show up in the navigation object tag.
+
+This is the template for related content:
+ - page element - section this is for
+
+e.g.
+```
+footer - scripts
+```
+
+Template for section details:
+ - name of the nav object type - section it refers to / usage
+
+e.g.
+```
+Generate file - file-name.txt
+link - about
+```
 
 ### 2.7 Groups
 
