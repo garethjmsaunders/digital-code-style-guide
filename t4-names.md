@@ -73,7 +73,7 @@ Content types should correspond 1 to 1 with the patterns in the Digital Pattern 
 
 ### 2.3.1 Content names
 
-In each content item they MUST have the name followed by a short description of its use 
+In each content item they MUST have the content type name followed by a short description of its use. That way it's easy to see from the admin menu what type of content we're working with.
 
 ```
 Navbox - Guardbridge energy project
@@ -82,9 +82,11 @@ Staff profile - Principal, Joe Smith
 
 #### 2.3.1 Content type formatters
 
-Name element field should never be output
+Name element field should never be output, as this is named to make things easier on the admin end.
 
-#### 2.3.3 Elements
+TODO: More here?
+
+#### 2.3.3 Content type elements
 
 Element names need to be straightforward and simple. Description must also be filled out (unless the name alone is sufficent, eg. Section links).
 
@@ -102,7 +104,17 @@ Table here...
 
 ### 2.4 Navigation objects
 
-Navigation objects will primarily sit in page layouts, but still make them descriptive with their names, as the names now show up in the navigation object tag.
+Navigation objects will primarily sit in page layouts, but still make them descriptive with their names, as the names now show up in the navigation object tag. We use a BEM-like naming for navigation objects.
+
+BEM, meaning block, element, modifier, is a front-end methodology coined by developers working at Yandex. While BEM is a complete methodology, here we are only concerned with its naming convention. Further, the naming convention here only is BEM-like; the principles are exactly the same, but the actual syntax differs slightly.
+
+BEM splits components' classes into three groups:
+
+* Block: The sole root of the component.
+* Element: A component part of the block.
+* Modifier: A variant or extension of the block.
+
+An example:
 
 This is the template for related content:
  - page element - section this is for
