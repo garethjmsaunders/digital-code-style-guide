@@ -1,7 +1,7 @@
 # TerminalFOUR naming style guide
 
 version 0.5.2
-Last updated: Tuesday 19 July 2016
+Last updated: Monday 22 August 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -12,11 +12,11 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [2.1 Section names](#21-section-names)
     - [2.2 Page layouts](#22-page-layouts)
     - [2.3 Content types](#23-content-types)
-    - [2.3.1 Content names](#231-content-names)
-        - [2.3.1 Content type formatters](#231-content-type-formatters)
-        - [2.3.3 Elements](#233-elements)
+        - [2.3.1 Content names](#231-content-names)
+        - [2.3.2 Content type formatters](#232-content-type-formatters)
+        - [2.3.3 Content type elements](#233-content-type-elements)
         - [2.5.4 List items](#254-list-items)
-        - [2.3.2 Character limits](#232-character-limits)
+        - [2.3.5 Character limits](#235-character-limits)
     - [2.4 Navigation objects](#24-navigation-objects)
     - [2.7 Groups](#27-groups)
     - [2.7 Channel names](#27-channel-names)
@@ -71,7 +71,7 @@ TODO: Need to research/test what is capable with programmable layouts
 
 Content types should correspond 1 to 1 with the patterns in the Digital Pattern Library, except when more are required to build the element.
 
-### 2.3.1 Content names
+#### 2.3.1 Content names
 
 In each content item they MUST have the content type name followed by a short description of its use. That way it's easy to see from the admin menu what type of content we're working with.
 
@@ -80,7 +80,7 @@ Navbox - Guardbridge energy project
 Staff profile - Principal, Joe Smith
 ```
 
-#### 2.3.1 Content type formatters
+#### 2.3.2 Content type formatters
 
 Name element field should never be output, as this is named to make things easier on the admin end.
 
@@ -96,11 +96,16 @@ Try to make lists as reusable as you can, and make the list and list items names
 
 eg. To control the sizing of an element you make a list holding various bootstrap sizing classes. Name this `Bootstrap sizing` and elements `Small` with a value of `col-sm-4` and etc.
 
-#### 2.3.2 Character limits
+#### 2.3.5 Character limits
 
 In general we have several levels of character limits.
 
-Table here...
+*Usage* | *Character limit* 
+--- | --- 
+Title / button text | 80
+Links / small items | 1024-2048
+Plain text | 25,000
+General / Large containers  | 96,000
 
 ### 2.4 Navigation objects
 
@@ -135,13 +140,28 @@ link - about
 
 ### 2.7 Groups
 
+Users are NOT assigned things, rather we put Users in Groups and assign those Groups theings (Sections, Content types, page layouts, naviagtion objects, media library folders, etc). 
+
 ### 2.7 Channel names
+
+We name channels and stuff.
 
 ### 2.8 Media types
 
+Media types should be named following this structure:
+
+File extension/*
+
+e.g.
+```
+css/*
+js/*
+html/*
+```
+
 ### 2.9 Media library
 
-TODO Structure and heirarchy
+The media library should match the structure of the website. 
 
 ### 2.5 File names
 
@@ -161,6 +181,7 @@ my-document-name.pdf
 
 ### 2.10 Metadata
 
+We do metadata.
 
 ## References
 
