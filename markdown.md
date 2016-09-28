@@ -392,7 +392,7 @@ To separate list items (wrapping each list item with a `<p>` tag) add a blank li
 
 ### 2.5 Code blocks
 
-To produce pre-formatted code blocks, add **three backticks** (`` ``` ``) on blank lines above and below your code.
+To produce pre-formatted code blocks, add **three backticks** (` ``` `) on blank lines above and below your code.
 
     ```
     <html lang="en">
