@@ -1,7 +1,7 @@
 # Markdown style guide
 
-Version 1.1.0
-Last updated: Tuesday 19 July 2016
+Version 1.2.0
+Last updated: Wednesday 28 September 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -23,6 +23,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
         - [Formatting lists](#formatting-lists)
     - [2.5 Code blocks](#25-code-blocks)
     - [2.6 Horizontal rules](#26-horizontal-rules)
+    - [2.7 Tables](#27-tables)
 - [3. Span elements](#3-span-elements)
     - [3.1 Links](#31-links)
         - [Inline links](#inline-links)
@@ -391,7 +392,7 @@ To separate list items (wrapping each list item with a `<p>` tag) add a blank li
 
 ### 2.5 Code blocks
 
-To produce pre-formatted code blocks, add **three backticks** (`` ``` ``) on blank lines above and below your code.
+To produce pre-formatted code blocks, add **three backticks** (` ``` `) on blank lines above and below your code.
 
     ```
     <html lang="en">
@@ -415,6 +416,47 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. 
+```
+
+
+### 2.7 Tables
+
+Tables are not a part of the core Markdown specification but they are a part of [GFM](https://help.github.com/articles/organizing-information-with-tables/) (GitHub-flavoured Markdown).
+
+An example Markdown table:
+
+```
+| Media type           | File extensions      | Content layouts     |
+| -------------------- | -------------------- | ------------------- |
+| Adobe PDF            | pdf                  | pdf/*               |
+| Image                | gif,jpg,jpeg,jpe,png | image/*             |
+| Javascript           | js                   | js/*                |
+| Microsoft Word       | doc, docx            | docx/*              |
+| Microsoft PowerPoint | ppt, pptx            | pptx/*              |
+```
+
+which will render like this:
+
+| Media type           | File extensions      | Content layouts     |
+| -------------------- | -------------------- | ------------------- |
+| Adobe PDF            | pdf                  | pdf/*               |
+| Image                | gif,jpg,jpeg,jpe,png | image/*             |
+| Javascript           | js                   | js/*                |
+| Microsoft Word       | doc, docx            | docx/*              |
+| Microsoft PowerPoint | ppt, pptx            | pptx/*              |
+
+* Each row in a table column SHOULD line up. This makes the table easier to read.
+* Outer pipes (`|`) MUST be included. While these are optional, again, they make the table more readable while editing.
+* There MUST be at least 3 dashes (`---`) separating each header cell. Dashes SHOULD extend the full width of the cell.
+* There MUST be a space after the initial pipe and before the next pipe: (`| --- |`) in the header separators.
+
+There may be occasions when you cannot line up all the columns. In this case longer lines MAY simply be written with inline Markdown, such as the second row in the following table. Following the extended cell contents, each pipe is prefixed and suffixed with a space.
+
+```
+| Name         | Value                               | Publish language     |
+| ------------ | ----------------------------------- | -------------------- |
+DC.description | St Andrews is a unique and captivating place, and the University is a key part of its charm. Find out all about the town and University here. | English |
+DC.title       | About St Andrews                    | English              |
 ```
 
 
