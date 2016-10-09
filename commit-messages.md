@@ -1,28 +1,30 @@
 # Commit message style guide
 
-Version 1.2.1
-Last updated: Thursday 6 October 2016
+Version 1.3.0
+Last updated: Sunday 9 October 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC -->
 
 - [1. Introduction](#1-introduction)
-- [2. Commit message](#2-commit-message)
+- [2. Commit messages](#2-commit-messages)
     - [2.1 Subject line](#21-subject-line)
         - [i. Type](#i-type)
         - [ii. Component](#ii-component)
         - [iii. Brief summary](#iii-brief-summary)
     - [2.2 Description \(optional\)](#22-description-optional)
     - [2.3 Reference\(s\) \(optional\)](#23-references-optional)
-- [4. Examples](#4-examples)
+    - [2.4 Commit message examples](#24-commit-message-examples)
+- [3. Tags](#3-tags)
+    - [3.1 Semantic versioning](#31-semantic-versioning)
+        - [Major versions](#major-versions)
+        - [Minor versions](#minor-versions)
+        - [Patch versions](#patch-versions)
+    - [3.2 Pre-releases](#32-pre-releases)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
-
-* TODO: Tag formats
-* TODO: Version numbers
-
 
 
 ---
@@ -31,7 +33,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 <sub>Based on [WordPress][wordpresscommit]</sub>
 
-This guide outlines how messages SHOULD be formatted when committing code to any version control system, such as Git or Subversion (SVN).
+This guide outlines how messages SHOULD be formatted when committing or tagging code in any version control system, such as Git or Subversion (SVN).
 
 Commit messages are an integral part of each project's history, along with the changesets themselves. We write commit messages for multiple audiences: 
 
@@ -46,7 +48,7 @@ Good commit messages serve each of these audiences well. They describe the what 
 
 ---
 
-## 2. Commit message
+## 2. Commit messages
 
 <sub>Based on [BlueJava][bluejavacommit]</sub>
 
@@ -163,16 +165,12 @@ Implements #543
 * If referencing both fixed and related tickets, SHOULD begin with "Fixes" and end each set with a full-stop, e.g. `Fixes #123, #456. See #765.`.
 
 
-
-
----
-
-## 4. Examples
+### 2.4 Commit message examples
 
 ```
-FEAT (Scrollspy) Add Scrollspy into long-form-content module
+FEAT (ScrollSpy) Add ScrollSpy into long-form-content pattern
 
-Scrollspy was previously removed to reduce file size but is
+ScrollSpy was previously removed to reduce file size but is
 now required for a number of projects. This has been added
 back in, including full documentation.
 
@@ -190,9 +188,9 @@ DOCS (Commit messages) Textual clarifications to subject line rules
 ```
 
 ```
-PULL (Sticky-nav) Merge into master
+MERGE (Sticky nav) Merge into master
 
-Sticky-nav feature is completed and tested. Final testing is required before 
+Sticky nav pattern is completed and tested. Final testing is required before 
 merging into master for release v0.5.2
 
 Acceptance criteria
@@ -210,6 +208,95 @@ Fixes GitHub issue #51
 
 ---
 
+## 3. Tags
+
+In most version control systems, such as Git and Subversion, you can tag specific points in history to mark these as significant. Many developers use this to functionality to mark release points (v1.0.0, v1.1.0, v.1.1.1, etc.): stable versions that may be rolled back to if required.
+
+All significant code releases MUST be tagged using a sequential, semantic version number in the format: `vMAJOR.MINOR.PATCH`, for example
+
+```
+v0.9.5
+v1.0.0
+```
+
+* The version number MUST be prefixed with a lowercase `v`.
+* There MUST be three numbers, in accordance with the semantic versioning standard: MAJOR.MINOR.PATCH.
+* Pre-release information MAY be included (see below).
+* There MUST be no other information given in a tag name; additional information MAY be included in a commit message.
+
+
+### 3.1 Semantic versioning
+
+You MUST follow the [semantic versioning][semver] format:
+
+> Given a version number MAJOR.MINOR.PATCH, increment the:
+>
+> MAJOR version when you make incompatible API changes,
+> MINOR version when you add functionality in a backwards-compatible manner, and
+> PATCH version when you make backwards-compatible bug fixes.
+
+
+#### Major versions
+
+Major version X (X.MINOR.PATCH), where MAJOR is greater than zero,MUST be incremented if any backwards-incompatible changes are introduced to the public API.
+
+It MAY include minor and patch level changes. Patch and minor version MUST be reset to 0 when major version is incremented.
+
+
+##### Major version zero
+
+Major version zero (0.MINOR.PATCH) is for initial development. Anything may change at any time. The public API should not be considered stable.
+
+
+##### Major version one
+
+Version 1.0.0 defines the public API. The way in which the version number is incremented after this release is dependent on this public API and how it changes.
+
+
+#### Minor versions
+
+Minor version Y (MAJOR.Y.MINOR), where MAJOR is greater than zero, MUST be incremented if new, backwards-compatible functionality is introduced to the public API.
+
+It MUST be incremented if any public API functionality is marked as deprecated.
+
+It MAY be incremented if substantial new functionality or improvements are introduced within the private code. It MAY include patch level changes. Patch version MUST be reset to 0 when minor version is incremented.
+
+
+#### Patch versions
+
+Patch version Z (MAJOR.MINOR.Z), where MAJOR is greater than zero, MUST be incremented if only backwards-compatible bug fixes are introduced.
+
+A bug fix is defined as an internal change that fixes incorrect behavior.
+
+
+### 3.2 Pre-releases
+
+In accordance with semantic versioning:
+
+> A pre-release version MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. 
+
+For example
+
+```
+v0.9.5-alpha
+v0.9.5-alpha.1
+v0.9.5-rc1
+v0.9.5-rc2
+v0.9.5-rc3
+v0.9.5
+```
+
+* Pre-release identifiers MUST comprise only of ASCII alphanumerics, hyphen and dot `regex([0-9A-Za-z-\.])`.
+* Pre-release identifiers MUST NOT be empty.
+* Numeric identifiers MUST NOT include leading zeroes. (`v0.9.5-rc1` NOT `v0.9.5-rc01`.)
+
+As semantic versioning notes: "Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version."
+
+
+
+
+---
+
 ## References
 
 Inspired by and based heavily on:
@@ -217,8 +304,10 @@ Inspired by and based heavily on:
 * [Bluejava Git commit message format guide][bluejavacommit]
 * [Make WordPress core handbook: Commit messages][wordpresscommit]
 * [AngularJS Git commit message conventions][angularjs]
+* [Semantic versioning][semver]
 
 [bluejavacommit]: https://github.com/bluejava/git-commit-guide "Bluejava Git commit message format guide"
 [wordpresscommit]: https://make.wordpress.org/core/handbook/best-practices/commit-messages/ "Make WordPress Core commit messages"
 [wikipedia-imperative]: https://en.wikipedia.org/wiki/Imperative_mood "The imperative is a grammatical mood that forms commands or requests, including the giving of prohibition or permission, or any other kind of advice or exhortation."
 [angularjs]: https://gist.github.com/stephenparish/9941e89d80e2bc58a153 "Commit Message Conventions by Stephen Parish"
+[semver]: http://semver.org/ "Semantic versioning"
