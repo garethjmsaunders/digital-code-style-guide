@@ -1,6 +1,6 @@
 # Commit message style guide
 
-Version 1.3.0
+Version 1.3.1
 Last updated: Sunday 9 October 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -174,7 +174,7 @@ ScrollSpy was previously removed to reduce file size but is
 now required for a number of projects. This has been added
 back in, including full documentation.
 
-Fixes GitHub issue #15
+Closes #32
 ```
 
 ```
@@ -198,11 +198,12 @@ Acceptance criteria
 * Compile in Grunt without error.
 * Examples work without error.
 
-Fixes GitHub issue #45
-Fixes GitHub issue #47
-Fixes GitHub issue #51
+Closes #45
+Closes #47
+Closes #51
 ```
 
+Note: "By incorporating certain keywords into the text of your Pull Request, you can associate issues with code. When your Pull Request is merged, the related issues are also closed. For example, entering the phrase Closes #32 would close issue number 32 in the repository." For more information read [Closing issues via commit messages](https://help.github.com/articles/closing-issues-via-commit-messages/) on GitHub help.
 
 
 
