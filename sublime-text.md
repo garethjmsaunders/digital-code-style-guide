@@ -10,6 +10,7 @@ Last updated: Tuesday 19 July 2016
 	- [2.1 Batch install packages](#21-batch-install-packages)
 	- [2.2 Package descriptions](#22-package-descriptions)
 - [3. User preferences](#3-user-preferences)
+	- [MarkdownTOC user settings](#markdowntoc-user-settings)
 
 <!-- /MarkdownTOC -->
 
@@ -167,5 +168,23 @@ The following user preferences settings, found at `Preferences > Settings — Us
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"wordwrap": true
+}
+```
+
+
+### MarkdownTOC user settings
+
+```
+{
+  "default_autolink": true,
+  "default_bracket": "round",
+  "default_depth": 4,
+  "id_replacements": {
+    "-": " ",
+    "" : ["!","#","$","&","'","(",")","*","+",",","/",":",";","=","?","@","[","]","`","\"", ".","<",">","{","}","™","®","©"]
+  },
+  "default_autoanchor": false,
+  "default_style": "unordered",
+  "default_indent": "\t"
 }
 ```
