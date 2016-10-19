@@ -1,7 +1,7 @@
 # Commit message style guide
 
-Version 1.3.1
-Last updated: Sunday 9 October 2016
+Version 1.3.2
+Last updated: Wednesday 19 October 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -152,17 +152,23 @@ The longer description is a chance to elaborate on the change you made. **Focus 
 
 ### 2.3 Reference(s) (optional)
 
-The footer of your commit message is where you should reference issues or ticket numbers to which the change pertains. The format of each footer line should be specific and understood by all team members. For example:
+<sub>Based on [GitHub Help][githubhelp]</sub>
+
+The footer of your commit message is where you should reference issues or ticket numbers to which the change pertains. GitHub allows you to automatically close GitHub issues in the same repository by referencing them in commit messages. 
+
+The format of each footer line should be specific and understood by all team members. GitHub recognises a number of [keywords for closing issues](https://help.github.com/articles/closing-issues-via-commit-messages/), i.e. close, closes, closed, fix, fixes, fixed, resolve, resolves, resolved. You MUST use `Closes`.
+
 
 ```
-Closes GitHub issue #123, #456
-Implements #543
+Closes #123
+Closes #456
+Closes Card #286 (Trello)
 ```
 
-* MUST be separated from the description (if present) or subject line by a blank line.
-* Ticket references SHOULD be on their own line. Include (in parentheses) the name of the ticketing system if this clarifies things.
-* Multiple ticket references SHOULD be separated by a comma and space.
-* If referencing both fixed and related tickets, SHOULD begin with "Fixes" and end each set with a full-stop, e.g. `Fixes #123, #456. See #765.`.
+* References MUST be separated from the description (if present) or subject line by a single blank line.
+* References MUST be on their own line: one per line.
+* You MAY include in parentheses the name of the ticketing system if this clarifies things, e.g. `(Trello)`, `(GitHub)`, etc. GitHub issues are regarded as the default, so if all issues are in GitHub then there is no need to include ticketing system references, or you MAY clarify only the issues that are not being tracked in GitHub.
+* Lines MUST NOT end with a full-stop.
 
 
 ### 2.4 Commit message examples
@@ -302,13 +308,15 @@ As semantic versioning notes: "Pre-release versions have a lower precedence than
 
 Inspired by and based heavily on:
 
-* [Bluejava Git commit message format guide][bluejavacommit]
 * [Make WordPress core handbook: Commit messages][wordpresscommit]
+* [Bluejava Git commit message format guide][bluejavacommit]
+* [GitHub Help][githubhelp]
 * [AngularJS Git commit message conventions][angularjs]
 * [Semantic versioning][semver]
 
-[bluejavacommit]: https://github.com/bluejava/git-commit-guide "Bluejava Git commit message format guide"
 [wordpresscommit]: https://make.wordpress.org/core/handbook/best-practices/commit-messages/ "Make WordPress Core commit messages"
+[bluejavacommit]: https://github.com/bluejava/git-commit-guide "Bluejava Git commit message format guide"
+[githubhelp]: https://help.github.com/articles/closing-issues-via-commit-messages/ "Closing issues via commit messages"
 [wikipedia-imperative]: https://en.wikipedia.org/wiki/Imperative_mood "The imperative is a grammatical mood that forms commands or requests, including the giving of prohibition or permission, or any other kind of advice or exhortation."
 [angularjs]: https://gist.github.com/stephenparish/9941e89d80e2bc58a153 "Commit Message Conventions by Stephen Parish"
 [semver]: http://semver.org/ "Semantic versioning"
