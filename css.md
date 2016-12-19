@@ -1,27 +1,54 @@
 ## CSS standards guide
 
-Version 1.0.0
-Last updated: Monday 18 July 2016
+Version 1.0.1
+Last updated: Monday 19 December 2016
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
-<!-- MarkdownTOC depth=3 -->
+<!-- MarkdownTOC depth=4 -->
 
 - [1. Write valid CSS](#1-write-valid-css)
     - [1.1 Vendor prefixes](#11-vendor-prefixes)
 - [2. File format](#2-file-format)
     - [2.1 Use multiple files, concatinate and minify](#21-use-multiple-files-concatinate-and-minify)
     - [2.2 Character encoding](#22-character-encoding)
+        - [@charset "UTF-8";](#charset-utf-8)
+        - [Save as UTF-8 with BOM](#save-as-utf-8-with-bom)
+        - [Further reading](#further-reading)
     - [2.3 Use LF \(Unix\) line endings](#23-use-lf-unix-line-endings)
+        - [Further reading](#further-reading-1)
     - [2.4 Filenames](#24-filenames)
+        - [Meaningful and descriptive](#meaningful-and-descriptive)
+        - [Lowercase, no spaces](#lowercase-no-spaces)
+        - [Use a hyphen \(-\) to separate words](#use-a-hyphen---to-separate-words)
+        - [Underscores \(_\) for Sass files only](#underscores-_-for-sass-files-only)
     - [2.5 Link to external CSS files](#25-link-to-external-css-files)
+        - [Link](#link)
+        - [@import for debug and Sass only](#import-for-debug-and-sass-only)
+        - [Do not use inline CSS](#do-not-use-inline-css)
+        - [Do not use style elements](#do-not-use-style-elements)
 - [3. Formatting and syntax](#3-formatting-and-syntax)
     - [3.1 Anatomy of a ruleset](#31-anatomy-of-a-ruleset)
     - [3.2 Line width \(80 characters\)](#32-line-width-80-characters)
     - [3.3 General formatting](#33-general-formatting)
+        - [Multi-line vs single-line](#multi-line-vs-single-line)
+        - [Indent with four \(4\) spaces, no tabs](#indent-with-four-4-spaces-no-tabs)
+        - [List declarations in alphabetical order](#list-declarations-in-alphabetical-order)
+        - [Alignment](#alignment)
     - [3.4 Meaningful whitespace](#34-meaningful-whitespace)
     - [3.5 Colours](#35-colours)
+        - [Use the approved University of St Andrews palette of colours](#use-the-approved-university-of-st-andrews-palette-of-colours)
+        - [Colour keywords — use only black and white](#colour-keywords-—-use-only-black-and-white)
+        - [Prefer RGB over hex](#prefer-rgb-over-hex)
+        - [Use short hex codes](#use-short-hex-codes)
+        - [Alpha transparency](#alpha-transparency)
     - [3.6 Syntax](#36-syntax)
+        - [Use single quotation marks](#use-single-quotation-marks)
+        - [Font-family](#font-family)
+        - [URLs](#urls)
+        - [Shorthand properties](#shorthand-properties)
+        - [Units](#units)
+        - [Zero](#zero)
 - [4. Comments](#4-comments)
     - [4.1 General guidelines](#41-general-guidelines)
     - [4.2 Preprocessor comments](#42-preprocessor-comments)
@@ -33,20 +60,40 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [4.8 Reverse footnote comments](#48-reverse-footnote-comments)
 - [5. Rule organisation](#5-rule-organisation)
     - [5.1 Categorise your CSS rules](#51-categorise-your-css-rules)
+        - [1. Base](#1-base)
+        - [2. Layout](#2-layout)
+        - [3. Modules](#3-modules)
+        - [4. State](#4-state)
+        - [5. Theme](#5-theme)
 - [6. Naming conventions](#6-naming-conventions)
     - [6.1 Naming](#61-naming)
     - [6.2 Naming UI components](#62-naming-ui-components)
     - [6.3 Accepted characters in class and ID names](#63-accepted-characters-in-class-and-id-names)
+        - [Characters to avoid](#characters-to-avoid)
     - [6.4 Hyphen delimited](#64-hyphen-delimited)
     - [6.5 BEM-like naming](#65-bem-like-naming)
+        - [Further reading](#further-reading-2)
     - [6.6 Naming conventions in HTML](#66-naming-conventions-in-html)
     - [6.7 JavaScript hooks](#67-javascript-hooks)
+        - [Do not use HTML5 `data-*` attributes as JavaScript hooks](#do-not-use-html5-data--attributes-as-javascript-hooks)
 - [7. CSS Selectors](#7-css-selectors)
     - [7.1 General rules](#71-general-rules)
     - [7.2 Selector intent](#72-selector-intent)
     - [7.3 Specificity](#73-specificity)
+        - [Keep specificity low at all times](#keep-specificity-low-at-all-times)
+        - [Do not use !important as a hack](#do-not-use-important-as-a-hack)
+        - [Use !important proactively not reactively](#use-important-proactively-not-reactively)
+        - [Hacking specificity](#hacking-specificity)
     - [7.4 Reusability](#74-reusability)
+        - [Location independence](#location-independence)
+        - [Portability](#portability)
+        - [Object-orientation](#object-orientation)
+        - [The single responsibility principle](#the-single-responsibility-principle)
+        - [Open to extension / closed to modification](#open-to-extension--closed-to-modification)
+        - [The separation of concerns](#the-separation-of-concerns)
+        - [DRY](#dry)
     - [7.5 Selector performance](#75-selector-performance)
+        - [The key selector](#the-key-selector)
     - [7.6 Further reading](#76-further-reading)
 - [Acknowledgements](#acknowledgements)
 
@@ -586,7 +633,9 @@ In these cases use the most appropriate quotation mark to aid clarity without ne
 
 #### Shorthand properties
 
-Use of shorthand properties is generally discouraged as they are harder to read for non-experts; exceptions are noted below. Priority should be given to code readability and scanability.
+Use of shorthand properties is generally discouraged as they are harder to read for non-experts and often unset properties that were never intended to be modified; exceptions are noted below. Priority should be given to code readability and writing code that only does as little as you need and nothing more.
+
+Read [CSS shorthand syntax considered an anti-pattern](http://csswizardry.com/2016/12/css-shorthand-syntax-considered-an-anti-pattern/) by Harry Roberts for more details.
 
 Compare the following for clarity:
 
@@ -619,6 +668,27 @@ div {
     background: rgb(0, 83, 155) url(img/bg.png) no-repeat fixed left bottom;
 }
 ```
+
+Be aware, however, that if you set `.btn {background: red;}`, for example, what you are really saying is:
+
+```
+.btn {
+  background-attachment: initial;
+  background-clip: initial;
+  background-color: red;       // This is the only value you wished to set
+  background-image: initial;
+  background-origin: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-size: initial;
+}
+```
+
+which may inadvertently overrule inherited rules from elsewhere. You would be much better to write: `.btn {background-color: red;}` as this sets only the property you wish to change.
+
+Be aware of this behaviour when using other shorthand properties.
 
 
 ##### Border
@@ -668,6 +738,15 @@ div {
 ```
 
 NEVER use three values as it is not immediately obvious what this means; it is actually `[top], [right/left], [bottom]`.
+
+If you wish to simply centre elements using `margin: X auto;` then use the longhand as this does not affect any top or bottom margins set.
+
+```
+.centred {
+    margin-right: auto;
+    margin-left:  auto;
+}
+```
 
 
 #### Units
