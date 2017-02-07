@@ -1,28 +1,28 @@
 # TerminalFOUR naming style guide
 
-version 0.5.2
-Last updated: Monday 22 August 2016
+version 0.5.3
+Last updated: Tuesday 7 February 2017
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC depth=4 -->
 
 - [1. Introduction](#1-introduction)
-- [2. T4 Assets](#2-t4-assets)
+- [2. T4 assets](#2-t4-assets)
     - [2.1 Section names](#21-section-names)
     - [2.2 Page layouts](#22-page-layouts)
     - [2.3 Content types](#23-content-types)
-        - [2.3.1 Content names](#231-content-names)
-        - [2.3.2 Content type formatters](#232-content-type-formatters)
+        - [2.3.1 Content item names](#231-content-item-names)
+        - [2.3.2 Content type name in content layout](#232-content-type-name-in-content-layout)
         - [2.3.3 Content type elements](#233-content-type-elements)
-        - [2.5.4 List items](#254-list-items)
+        - [2.3.4 List items](#234-list-items)
         - [2.3.5 Character limits](#235-character-limits)
     - [2.4 Navigation objects](#24-navigation-objects)
-    - [2.7 Groups](#27-groups)
-    - [2.7 Channel names](#27-channel-names)
-    - [2.8 Media types](#28-media-types)
-    - [2.9 Media library](#29-media-library)
-    - [2.5 File names](#25-file-names)
+    - [2.5 Groups](#25-groups)
+    - [2.6 Channel names](#26-channel-names)
+    - [2.7 Media types](#27-media-types)
+    - [2.8 Media library](#28-media-library)
+    - [2.9 File names](#29-file-names)
     - [2.10 Metadata](#210-metadata)
 - [References](#references)
 
@@ -31,30 +31,36 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 ## 1. Introduction
 
-TERMINALFOUR is the company based in Dublin, and the software is also called TERMINALFOUR. In this document the software will be refered to as T4 and the company as TERMINALFOUR. 
+TERMINALFOUR is a software company based in Dublin, their primary product, an enterprise content management system is also called TERMINALFOUR. In this document the software will be refered to as T4 and the company as TERMINALFOUR. 
 
 Any new T4 assests MUST use these guidelines for naming.
 
+
+
+
 ---
 
-## 2. T4 Assets
+## 2. T4 assets
 
-TODO: make sure section numbering is correct 
 
 ### 2.1 Section names
 
-TODO: URL naming conventions need to be discussed or we need to know.
+In T4, section names are used to create the page URL unless an output URI is specified. It does this by stripping out all spaces and punctuation and converting the result to lowercase.
 
-In T4 section names become the URL unless the output URI is specified, therefore the output URI MUST be defined. Output URI MUST use hyphens to separate words and all lower case letters.
+So, for example, a section name of "Academic Schools and Departments" will become `academicschoolsanddepartments`.
+
+* Output URIs SHOULD always be defined.
+* Output URIs MUST use hyphens to separate words and all lower case letters.
+* Output URLs SHOULD always be meaningful: avoid obscure abbreviations.
 
 ```
 events
 current-students
 alumni-and-development
+research-and-teaching
 ```
 
-
-For subjects they MUST have the subject first, then followed by speciality or otherwise
+For subjects, output URIs MUST include the subject first, followed by speciality or otherwise
 
 ```
 english
@@ -62,35 +68,72 @@ english-creative-writing
 physics
 physics-pod
 ```
+
+
+
+
 ### 2.2 Page layouts
 
 TODO: Discuss more if we will need more than 1 or 2 page layouts. May remove this section if needed.
 TODO: Need to research/test what is capable with programmable layouts
 
+
+
+
 ### 2.3 Content types
 
-Content types should correspond 1 to 1 with the patterns in the Digital Pattern Library, except when more are required to build the element.
+* The names of content types MUST correspond one-to-one with the names of patterns in the [digital pattern library](https://www.st-andrews.ac.uk/dpl/). 
+* The content type description MUST be meaningful.
+* Deprecated patterns MUST be marked as such.
 
-#### 2.3.1 Content names
+| DPL pattern name | Content type name | Description                 |
+|:---------------- |:----------------- |:--------------------------- |
+| Alert            | Alert             | Feedback message |
+| Footer           | Footer            | Default option for bottom of all pages |
+| Info bite (deprecated) | Info bite (deprecated) | Short snippet of information |
 
-In each content item they MUST have the content type name followed by a short description of its use. That way it's easy to see from the admin menu what type of content we're working with.
+One exception is when more than one content type is required to build the pattern. In this case the content type name SHOULD be prefixed with the pattern name followed by a space-hyphen-space and then the modifier or option.
+
+| DPL pattern name | Content type name | Description                 |
+|:---------------- |:----------------- |:--------------------------- |
+| Navbox           | Navbox            | Feature navigation with optional background image |
+| Navbox           | Navbox - 2 col    | Two columns of navboxes     |
+| Navbox           | Navbox - 3 col    | Three columns of navboxes   |
+
+
+
+#### 2.3.1 Content item names
+
+When using content types, content item names SHOULD include the content type name followed by a short description of its use. This makes it easier for users to understand the structure of the page.
+
+* Separate the content type name from the description by a space-hyphen-space.
 
 ```
 Navbox - Guardbridge energy project
-Staff profile - Principal, Joe Smith
+Staff profile - Professor Sally Mapstone, Principal
 ```
 
-#### 2.3.2 Content type formatters
 
-Name element field should never be output, as this is named to make things easier on the admin end.
+#### 2.3.2 Content type name in content layout
 
-TODO: More here?
+The content type name MUST never be output onto the HTML page. In other words, never use the following T4 tag in a content type layout:
+
+```
+<t4 type="content" name="Name" output="normal" modifiers=""  />
+```
+
+The content type name MUST be used solely as an identifier in the T4 backend.
+
 
 #### 2.3.3 Content type elements
 
+* Content type element names MUST be simple and easy to understand.
+* Content type element descriptions MUST be completed for all elements.
+
 Element names need to be straightforward and simple. Description must also be filled out (unless the name alone is sufficent, eg. Section links).
 
-#### 2.5.4 List items
+
+#### 2.3.4 List items
 
 Try to make lists as reusable as you can, and make the list and list items names simple but descriptive. 
 
@@ -138,15 +181,15 @@ Generate file - file-name.txt
 link - about
 ```
 
-### 2.7 Groups
+### 2.5 Groups
 
 Users are NOT assigned things, rather we put Users in Groups and assign those Groups theings (Sections, Content types, page layouts, naviagtion objects, media library folders, etc). 
 
-### 2.7 Channel names
+### 2.6 Channel names
 
 We name channels and stuff.
 
-### 2.8 Media types
+### 2.7 Media types
 
 Media types should be named following this structure:
 
@@ -159,11 +202,11 @@ js/*
 html/*
 ```
 
-### 2.9 Media library
+### 2.8 Media library
 
 The media library should match the structure of the website. 
 
-### 2.5 File names
+### 2.9 File names
 
 Filenames
 
