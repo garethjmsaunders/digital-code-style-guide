@@ -1,4 +1,4 @@
-# TerminalFOUR naming style guide
+# T4 naming style guide
 
 version 0.5.3
 Last updated: Tuesday 7 February 2017
@@ -9,7 +9,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 - [1. Introduction](#1-introduction)
 - [2. T4 assets](#2-t4-assets)
-    - [2.1 Section names](#21-section-names)
+    - [2.1 Sections](#21-sections)
+        - [2.1.1 Section names](#211-section-names)
+        - [2.1.2 Output URIs](#212-output-uris)
     - [2.2 Page layouts](#22-page-layouts)
     - [2.3 Content types](#23-content-types)
         - [2.3.1 Content item names](#231-content-item-names)
@@ -24,6 +26,8 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [2.8 Media library](#28-media-library)
     - [2.9 File names](#29-file-names)
     - [2.10 Metadata](#210-metadata)
+        - [2.10.1 DC.title](#2101-dctitle)
+        - [2.10.2 DC.description](#2102-dcdescription)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -43,9 +47,15 @@ Any new T4 assests MUST use these guidelines for naming.
 ## 2. T4 assets
 
 
-### 2.1 Section names
+### 2.1 Sections
+
+#### 2.1.1 Section names
 
 In T4, section names are used to create the page URL unless an output URI is specified. It does this by stripping out all spaces and punctuation and converting the result to lowercase.
+
+#### 2.1.2 Output URIs
+
+See http://www.st-andrews.ac.uk/digital-standards/service-manual/links/
 
 So, for example, a section name of "Academic Schools and Departments" will become `academicschoolsanddepartments`.
 
@@ -210,6 +220,8 @@ The media library should match the structure of the website.
 
 Filenames
 
+http://www.st-andrews.ac.uk/digital-standards/service-manual/filenames/
+
 TODO for t4: Regex pattern: ```(([a-z])+-*)*.filename```
 
 Following this convention:
@@ -224,8 +236,30 @@ my-document-name.pdf
 
 ### 2.10 Metadata
 
-We do metadata.
+Metadata MUST be completed for all new sections. 
+
+There are currently only two [Dublin Core metadata](http://dublincore.org/documents/usageguide/) elements used in T4:
+
+* `DC.title`
+* `DC.description`
+
+
+#### 2.10.1 DC.title
+
+Dublin Core defines [DC.title](http://dublincore.org/documents/usageguide/elements.shtml) as "the name given to the resource. Typically, a title will be a name by which the resource is formally known."
+
+* This SHOULD be the page heading, which also SHOULD be the same as the section name.
+
+
+#### 2.10.2 DC.description
+
+Dublin Core defines [DC.description](http://dublincore.org/documents/usageguide/elements.shtml) as "An account of the content of the resource. Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content or a free-text account of the content."
+
+* Full sentences MUST be used.
+* House style MUST be adhered to.
+* Sentences MUST NOT exceed 160 characters.
+
 
 ## References
 
-
+* [Dublin Core metadata](http://dublincore.org/documents/usageguide/elements.shtml)
