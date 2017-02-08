@@ -20,6 +20,8 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [4.5 Character limits](#45-character-limits)
 - [5. Navigation objects](#5-navigation-objects)
 - [6. Groups](#6-groups)
+    - [6.1 Access](#61-access)
+    - [6.2 Group names](#62-group-names)
 - [7. Channel names](#7-channel-names)
     - [8. Media types](#8-media-types)
     - [9. Media library](#9-media-library)
@@ -213,7 +215,33 @@ link - about
 
 ## 6. Groups
 
-Users are NOT assigned things, rather we put Users in Groups and assign those Groups theings (Sections, Content types, page layouts, naviagtion objects, media library folders, etc). 
+### 6.1 Access
+
+Access to content and assets within T4 MUST be assigned on a group basis.
+
+* Users MUST NOT be assigned to individual pages.
+* Users MUST be assigned to groups.
+* Groups must be assigned to sections, content types, page layouts, navigation objects, media library directories, etc.
+
+
+### 6.2 Group names
+
+Ideally, groups SHOULD be named by function (such as Orientation) rather than organisational structure (such as Student Services). Group names:
+
+* MUST begin with a capital letter.
+* MUST use only A-Z, a-z, 0-9 and hyphen.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations if these are well known.
+
+Good examples
+
+```
+External website
+Visiting days
+Alumni and donors
+About - facts and figures
+Service manual - corporate ID
+```
 
 
 
@@ -221,6 +249,8 @@ Users are NOT assigned things, rather we put Users in Groups and assign those Gr
 ---
 
 ## 7. Channel names
+
+Channels are used to assemble content to publish to a website. Channel names:
 
 * MUST be short and descriptive.
 * MUST begin with a capital letter.
