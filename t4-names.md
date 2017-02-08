@@ -1,11 +1,11 @@
 # T4 naming style guide
 
-version 0.6.4
+version 0.6.5
 Last updated: Wednesday 8 February 2017
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
-<!-- MarkdownTOC depth=4 -->
+<!-- MarkdownTOC depth=2 -->
 
 - [1. Introduction](#1-introduction)
 - [2. Sections](#2-sections)
@@ -14,14 +14,13 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 - [3. Page layouts](#3-page-layouts)
 - [4. Content types \(creating\)](#4-content-types-creating)
     - [4.1 Name and description](#41-name-and-description)
-        - [4.1.1 More than one content type per pattern](#411-more-than-one-content-type-per-pattern)
     - [4.2 Elements](#42-elements)
-        - [4.2.1 Element names](#421-element-names)
-        - [4.2.2 Element descriptions](#422-element-descriptions)
     - [4.3 Character limits](#43-character-limits)
     - [4.4 Layout](#44-layout)
 - [5. Content types \(using\)](#5-content-types-using)
 - [6. List items](#6-list-items)
+    - [6.1 Name](#61-name)
+    - [6.2 Value](#62-value)
 - [7. Navigation objects](#7-navigation-objects)
 - [8. Groups](#8-groups)
     - [8.1 Group names](#81-group-names)
@@ -254,9 +253,48 @@ Staff profile - Professor Sally Mapstone, Principal
 
 ## 6. List items
 
-Try to make lists as reusable as you can, and make the list and list items names simple but descriptive. 
+Before creating a new list check to see if an existing list may be used or extended. 
 
-eg. To control the sizing of an element you make a list holding various bootstrap sizing classes. Name this `Bootstrap sizing` and elements `Small` with a value of `col-sm-4` and etc.
+Try to make lists as reusable as you can, and make the list and list items names simple and descriptive.
+
+
+### 6.1 Name
+
+The list item names should be user-centred and descriptive. This is what appears in the list in the content type in T4.
+
+* MUST begin with a capital letter.
+* MUST use only A-Z, a-z, 0-9, spaces, hyphens or parentheses.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations only if these are well known.
+
+
+### 6.2 Value
+
+The value is what is inserted into the HTML code on the page.
+
+* MUST use only a-z, 0-9, or hyphens.
+* MUST NOT end with a full-stop.
+
+Good examples
+
+#### List: Alert
+
+| Name               | Value         |
+|:------------------ |:------------- |
+| Success (green)    | alert-success |
+| Information (blue) | alert-info    |
+| Warning (beige)    | alert-warning |
+| Danger (red)       | alert-danger  |
+
+
+#### List: Bootstrap sizing
+
+| Name   | Value     |
+|:------ |:--------- |
+| Small  | col-sm-4  | 
+| Medium | col-sm-6  |
+| Large  | col-sm-8  |
+| Full   | col-xs-12 |
 
 
 
