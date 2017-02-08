@@ -25,9 +25,9 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 - [8. Groups](#8-groups)
     - [8.1 Group names](#81-group-names)
 - [9. Channel names](#9-channel-names)
-    - [10. Media content types](#10-media-content-types)
-    - [11. Media library](#11-media-library)
-    - [12. Filenames](#12-filenames)
+- [10. Media content types](#10-media-content-types)
+- [11. Media library](#11-media-library)
+- [12. Filenames](#12-filenames)
 - [13. Metadata](#13-metadata)
     - [13.1 DC.title](#131-dctitle)
     - [13.2 DC.description](#132-dcdescription)
@@ -395,7 +395,7 @@ RSS feed
 
 ---
 
-### 10. Media content types
+## 10. Media content types
 
 Media is a special, system-wide content type that determines how media items from the media library appear on a published webpage.
 
@@ -427,7 +427,7 @@ xml/*
 
 ---
 
-### 11. Media library
+## 11. Media library
 
 The media library should match the structure of the website. 
 
@@ -436,7 +436,7 @@ The media library should match the structure of the website.
 
 ---
 
-### 12. Filenames
+## 12. Filenames
 
 Regex pattern: `([a-z0-9\-]+).([a-z0-9]{3,})`
 
