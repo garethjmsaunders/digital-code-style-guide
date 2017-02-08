@@ -1,6 +1,6 @@
 # T4 naming style guide
 
-version 0.6.3
+version 0.6.4
 Last updated: Wednesday 8 February 2017
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
@@ -142,7 +142,7 @@ htaccess--staff-student
 The name of a content type MUST correspond one-to-one with the name of its pattern in the [digital pattern library](https://www.st-andrews.ac.uk/dpl/). 
 
 * Must begin with a capital letter.
-* MUST use only A-Z, a-z, 0-9, or hyphen.
+* MUST use only A-Z, a-z, 0-9, spaces or hyphens.
 * MUST NOT end with a full-stop.
 * MAY use abbreviations only if these are well known.
 * Deprecated patterns MUST be marked as `(deprecated)`.
@@ -150,7 +150,7 @@ The name of a content type MUST correspond one-to-one with the name of its patte
 The description of a content type MUST be added for every content type and be meaningful.
 
 * Must begin with a capital letter.
-* MUST use only A-Z, a-z, 0-9, or hyphen.
+* MUST use only A-Z, a-z, 0-9, spaces or hyphens.
 * MUST NOT end with a full-stop.
 * MAY use abbreviations only if these are well known.
 
@@ -182,7 +182,7 @@ One exception is when more than one content type is required to build the patter
 Content type element names MUST be simple and easy to understand.
 
 * Must begin with a capital letter.
-* MUST use only A-Z, a-z, 0-9, or hyphen.
+* MUST use only A-Z, a-z, 0-9, spaces or hyphens.
 * MUST NOT end with a full-stop.
 * MAY use abbreviations only if these are well known.
 
@@ -192,7 +192,7 @@ Content type element names MUST be simple and easy to understand.
 Descriptions MUST be completed for all elements.
 
 * Must begin with a capital letter.
-* MUST use only A-Z, a-z, 0-9, or hyphen.
+* MUST use only A-Z, a-z, 0-9, spaces or hyphens.
 * MUST end with a full-stop.
 * MAY use abbreviations only if these are well known.
 
@@ -228,12 +228,22 @@ The content type name MUST be used solely as an identifier in the T4 backend.
 
 ## 5. Content types (using)
 
-When using content types, content item names SHOULD include the content type name followed by a short description of its use. This makes it easier for users to understand the structure of the page.
+When using content types, content item names MUST include the content type name followed by a short description of its use. This makes it easier for users to understand the structure of the page.
 
-* Separate the content type name from the description by a space-hyphen-space.
+* Must begin with the content type name.
+* Content type and short description MUST be separated by a space, hyphen and space, thus: `Content type - Description`.
+* Both content type and description MUST begin with a capital letter.
+* MUST use only A-Z, a-z, 0-9, spaces or hyphens.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations only if these are well known.
+
+Good examples
 
 ```
+Code - Facts and figures page
+General - Banner style
 Navbox - Guardbridge energy project
+Page title - Facts and figures
 Staff profile - Professor Sally Mapstone, Principal
 ```
 
@@ -307,7 +317,7 @@ Access to content and assets within T4 MUST be assigned on a group basis.
 Ideally, groups SHOULD be named by function (such as Orientation) rather than organisational structure (such as Student Services). Group names:
 
 * MUST begin with a capital letter.
-* MUST use only A-Z, a-z, 0-9 and hyphen.
+* MUST use only A-Z, a-z, 0-9 spaces and hyphens.
 * MUST NOT end with a full-stop.
 * MAY use abbreviations only if these are well known.
 
