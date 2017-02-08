@@ -8,26 +8,25 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 <!-- MarkdownTOC depth=4 -->
 
 - [1. Introduction](#1-introduction)
-- [2. T4 assets](#2-t4-assets)
-    - [2.1 Sections](#21-sections)
-        - [2.1.1 Section names](#211-section-names)
-        - [2.1.2 Output URIs](#212-output-uris)
-    - [2.2 Page layouts](#22-page-layouts)
-    - [2.3 Content types](#23-content-types)
-        - [2.3.1 Content item names](#231-content-item-names)
-        - [2.3.2 Content type name in content layout](#232-content-type-name-in-content-layout)
-        - [2.3.3 Content type elements](#233-content-type-elements)
-        - [2.3.4 List items](#234-list-items)
-        - [2.3.5 Character limits](#235-character-limits)
-    - [2.4 Navigation objects](#24-navigation-objects)
-    - [2.5 Groups](#25-groups)
-    - [2.6 Channel names](#26-channel-names)
-    - [2.7 Media types](#27-media-types)
-    - [2.8 Media library](#28-media-library)
-    - [2.9 Filenames](#29-filenames)
-    - [2.10 Metadata](#210-metadata)
-        - [2.10.1 DC.title](#2101-dctitle)
-        - [2.10.2 DC.description](#2102-dcdescription)
+- [2. Sections](#2-sections)
+    - [2.1 Section names](#21-section-names)
+    - [2.2 Output URIs](#22-output-uris)
+- [3. Page layouts](#3-page-layouts)
+- [4. Content types](#4-content-types)
+    - [4.1 Content item names](#41-content-item-names)
+    - [4.2 Content type name in content layout](#42-content-type-name-in-content-layout)
+    - [4.3 Content type elements](#43-content-type-elements)
+    - [4.4 List items](#44-list-items)
+    - [4.5 Character limits](#45-character-limits)
+- [5. Navigation objects](#5-navigation-objects)
+- [6. Groups](#6-groups)
+- [7. Channel names](#7-channel-names)
+    - [8. Media types](#8-media-types)
+    - [9. Media library](#9-media-library)
+    - [10. Filenames](#10-filenames)
+    - [11. Metadata](#11-metadata)
+    - [11.1 DC.title](#111-dctitle)
+    - [11.2 DC.description](#112-dcdescription)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -44,16 +43,13 @@ Any new T4 assests MUST use these guidelines for naming.
 
 ---
 
-## 2. T4 assets
+## 2. Sections
 
-
-### 2.1 Sections
-
-#### 2.1.1 Section names
+### 2.1 Section names
 
 In T4, section names are used to create the page URL unless an output URI is specified. It does this by stripping out all spaces and punctuation and converting the result to lowercase.
 
-#### 2.1.2 Output URIs
+### 2.2 Output URIs
 
 See http://www.st-andrews.ac.uk/digital-standards/service-manual/links/
 
@@ -82,7 +78,9 @@ physics-pod
 
 
 
-### 2.2 Page layouts
+---
+
+## 3. Page layouts
 
 TODO: Discuss more if we will need more than 1 or 2 page layouts. May remove this section if needed.
 TODO: Need to research/test what is capable with programmable layouts
@@ -90,7 +88,9 @@ TODO: Need to research/test what is capable with programmable layouts
 
 
 
-### 2.3 Content types
+---
+
+## 4. Content types
 
 * The names of content types MUST correspond one-to-one with the names of patterns in the [digital pattern library](https://www.st-andrews.ac.uk/dpl/). 
 * The content type description MUST be meaningful.
@@ -111,8 +111,7 @@ One exception is when more than one content type is required to build the patter
 | Navbox           | Navbox - 3 col    | Three columns of navboxes   |
 
 
-
-#### 2.3.1 Content item names
+### 4.1 Content item names
 
 When using content types, content item names SHOULD include the content type name followed by a short description of its use. This makes it easier for users to understand the structure of the page.
 
@@ -124,7 +123,7 @@ Staff profile - Professor Sally Mapstone, Principal
 ```
 
 
-#### 2.3.2 Content type name in content layout
+### 4.2 Content type name in content layout
 
 The content type name MUST never be output onto the HTML page. In other words, never use the following T4 tag in a content type layout:
 
@@ -135,7 +134,7 @@ The content type name MUST never be output onto the HTML page. In other words, n
 The content type name MUST be used solely as an identifier in the T4 backend.
 
 
-#### 2.3.3 Content type elements
+### 4.3 Content type elements
 
 * Content type element names MUST be simple and easy to understand.
 * Content type element descriptions MUST be completed for all elements.
@@ -143,13 +142,14 @@ The content type name MUST be used solely as an identifier in the T4 backend.
 Element names need to be straightforward and simple. Description must also be filled out (unless the name alone is sufficent, eg. Section links).
 
 
-#### 2.3.4 List items
+### 4.4 List items
 
 Try to make lists as reusable as you can, and make the list and list items names simple but descriptive. 
 
 eg. To control the sizing of an element you make a list holding various bootstrap sizing classes. Name this `Bootstrap sizing` and elements `Small` with a value of `col-sm-4` and etc.
 
-#### 2.3.5 Character limits
+
+### 4.5 Character limits
 
 In general we have several levels of character limits.
 
@@ -163,7 +163,9 @@ General / Large containers  | 96,000
 
 
 
-### 2.4 Navigation objects
+---
+
+## 5. Navigation objects
 
 Navigation objects are used primarily within page layouts.
 
@@ -174,9 +176,6 @@ section name
 STEVE: T4 style guide for related content navigation objects - the name of the navigation object must refer to the content type and alternate formatter in the name e.g. 'programmable layout - text/footer'.  This saves a lot of detective work.
 
 Also name for navigation objects must be lowercase.
-
-
-
 
  will primarily sit in page layouts, but still make them descriptive with their names, as the names now show up in the navigation object tag. We use a BEM-like naming for navigation objects.
 
@@ -210,21 +209,27 @@ link - about
 
 
 
-### 2.5 Groups
+---
+
+## 6. Groups
 
 Users are NOT assigned things, rather we put Users in Groups and assign those Groups theings (Sections, Content types, page layouts, naviagtion objects, media library folders, etc). 
 
 
 
 
-### 2.6 Channel names
+---
 
-We name channels and stuff.
+## 7. Channel names
+
+A channel serves as a way to assemble and direct content to the website or alternative output. T4 must have access to the stored content on the target web server for it to publish the content. A channel can also contain one or more micro sites. Micro sites can have a different domain or sub-domain to the parent channel or it can be a sub-directory of the main channel if needed.
 
 
 
 
-### 2.7 Media types
+---
+
+### 8. Media types
 
 Media types should be named following this structure:
 
@@ -240,14 +245,18 @@ html/*
 
 
 
-### 2.8 Media library
+---
+
+### 9. Media library
 
 The media library should match the structure of the website. 
 
 
 
 
-### 2.9 Filenames
+---
+
+### 10. Filenames
 
 Regex pattern: `([a-z0-9\-]+).([a-z0-9]{3,})`
 
@@ -282,7 +291,9 @@ The digital communications team reserves the right to change (or request changes
 
 
 
-### 2.10 Metadata
+---
+
+### 11. Metadata
 
 Metadata MUST be completed for all new sections. 
 
@@ -292,14 +303,14 @@ There are currently only two [Dublin Core metadata](http://dublincore.org/docume
 * `DC.description`
 
 
-#### 2.10.1 DC.title
+### 11.1 DC.title
 
 Dublin Core defines [DC.title](http://dublincore.org/documents/usageguide/elements.shtml) as "the name given to the resource. Typically, a title will be a name by which the resource is formally known."
 
 * This SHOULD be the page heading, which also SHOULD be the same as the section name.
 
 
-#### 2.10.2 DC.description
+### 11.2 DC.description
 
 Dublin Core defines [DC.description](http://dublincore.org/documents/usageguide/elements.shtml) as "An account of the content of the resource. Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content or a free-text account of the content."
 
