@@ -12,24 +12,27 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [2.1 Section names](#21-section-names)
     - [2.2 Output URIs](#22-output-uris)
 - [3. Page layouts](#3-page-layouts)
-- [4. Content types](#4-content-types)
-    - [4.1 Content item names](#41-content-item-names)
-    - [4.2 Content type name in content layout](#42-content-type-name-in-content-layout)
-    - [4.3 Content type elements](#43-content-type-elements)
-    - [4.4 List items](#44-list-items)
-    - [4.5 Character limits](#45-character-limits)
-- [5. Navigation objects](#5-navigation-objects)
-- [6. Groups](#6-groups)
-    - [6.1 Access](#61-access)
-    - [6.2 Group names](#62-group-names)
-- [7. Channel names](#7-channel-names)
-    - [8. Media content types](#8-media-content-types)
-    - [9. Media library](#9-media-library)
-    - [10. Filenames](#10-filenames)
-- [11. Metadata](#11-metadata)
-    - [11.1 DC.title](#111-dctitle)
-    - [11.2 DC.description](#112-dcdescription)
-- [References](#references)
+- [4. Content types \(creating\)](#4-content-types-creating)
+    - [4.1 Name and description](#41-name-and-description)
+        - [4.1.1 More than one content type per pattern](#411-more-than-one-content-type-per-pattern)
+    - [4.2 Elements](#42-elements)
+        - [4.2.1 Element names](#421-element-names)
+        - [4.2.2 Element descriptions](#422-element-descriptions)
+    - [4.3 Character limits](#43-character-limits)
+    - [4.4 Layout](#44-layout)
+- [5. Content types \(using\)](#5-content-types-using)
+- [6. List items](#6-list-items)
+- [7. Navigation objects](#7-navigation-objects)
+- [8. Groups](#8-groups)
+    - [8.1 Group names](#81-group-names)
+- [9. Channel names](#9-channel-names)
+    - [10. Media content types](#10-media-content-types)
+    - [11. Media library](#11-media-library)
+    - [12. Filenames](#12-filenames)
+- [13. Metadata](#13-metadata)
+    - [13.1 DC.title](#131-dctitle)
+    - [13.2 DC.description](#132-dcdescription)
+- [14. References](#14-references)
 
 <!-- /MarkdownTOC -->
 
@@ -38,7 +41,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 TERMINALFOUR is a software company based in Dublin, their primary product, an enterprise content management system is also called TERMINALFOUR. In this document the software will be refered to as T4 and the company as TERMINALFOUR. 
 
-Any new T4 assests MUST use these guidelines for naming.
+Any new T4 assets MUST use these guidelines for naming.
 
 
 
@@ -102,7 +105,7 @@ block--modifier
 
 * MUST use only a-z, 0-9, underscore or hyphen.
 * MUST NOT end with a full-stop.
-* MAY use abbreviations if these are well known.
+* MAY use abbreviations only if these are well known.
 * MUST use two underscores (`__`) between block and element.
 * MUST use two hyphens (`--`) between block and modifier, or element and modifier.
 
@@ -132,28 +135,98 @@ htaccess--staff-student
 
 ---
 
-## 4. Content types
+## 4. Content types (creating)
 
-* The names of content types MUST correspond one-to-one with the names of patterns in the [digital pattern library](https://www.st-andrews.ac.uk/dpl/). 
-* The content type description MUST be meaningful.
-* Deprecated patterns MUST be marked as such.
+### 4.1 Name and description
+
+The name of a content type MUST correspond one-to-one with the name of its pattern in the [digital pattern library](https://www.st-andrews.ac.uk/dpl/). 
+
+* Must begin with a capital letter.
+* MUST use only A-Z, a-z, 0-9, or hyphen.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations only if these are well known.
+* Deprecated patterns MUST be marked as `(deprecated)`.
+
+The description of a content type MUST be added for every content type and be meaningful.
+
+* Must begin with a capital letter.
+* MUST use only A-Z, a-z, 0-9, or hyphen.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations only if these are well known.
+
+
+Good examples
 
 | DPL pattern name | Content type name | Description                 |
 |:---------------- |:----------------- |:--------------------------- |
-| Alert            | Alert             | Feedback message |
-| Footer           | Footer            | Default option for bottom of all pages |
+| Alert            | `Alert`           | Feedback message |
+| Footer           | `Footer`          | Default option for bottom of all pages |
 | Info bite (deprecated) | Info bite (deprecated) | Short snippet of information |
+
+
+#### 4.1.1 More than one content type per pattern
 
 One exception is when more than one content type is required to build the pattern. In this case the content type name SHOULD be prefixed with the pattern name followed by a space-hyphen-space and then the modifier or option.
 
-| DPL pattern name | Content type name | Description                 |
-|:---------------- |:----------------- |:--------------------------- |
-| Navbox           | Navbox            | Feature navigation with optional background image |
-| Navbox           | Navbox - 2 col    | Two columns of navboxes     |
-| Navbox           | Navbox - 3 col    | Three columns of navboxes   |
+| DPL pattern name | Content type name     | Description                 |
+|:---------------- |:--------------------- |:--------------------------- |
+| Navbox grid      | `Navbox grid - start` | Navbox grid - START - use this to start the row. |
+| Navbox           | `Navbox`              | Flexible navbox allows different sizes and elements, including picture or solid colour background, text options. |
+| Navbox grid      | `Navbox grid - end`   | Navbox grid - END - use this to end the row. |
 
 
-### 4.1 Content item names
+### 4.2 Elements
+
+#### 4.2.1 Element names
+
+Content type element names MUST be simple and easy to understand.
+
+* Must begin with a capital letter.
+* MUST use only A-Z, a-z, 0-9, or hyphen.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations only if these are well known.
+
+
+#### 4.2.2 Element descriptions
+
+Descriptions MUST be completed for all elements.
+
+* Must begin with a capital letter.
+* MUST use only A-Z, a-z, 0-9, or hyphen.
+* MUST end with a full-stop.
+* MAY use abbreviations only if these are well known.
+
+
+### 4.3 Character limits
+
+In general we have several levels of character limits.
+
+| Usage                       | Character limit |
+|:--------------------------- |:--------------- |
+| Title / button text         | 80              |
+| Links / small items         | 1024 to 2048    |
+| Plain text                  | 25,000          |
+| General / Large containers  | 96,000          |
+
+
+
+### 4.4 Layout
+
+The content type name MUST NOT be output onto the HTML page. In other words, never use the following T4 tag in a content type layout:
+
+```
+// Never use
+<t4 type="content" name="Name" output="normal" modifiers=""  />
+```
+
+The content type name MUST be used solely as an identifier in the T4 backend.
+
+
+
+
+---
+
+## 5. Content types (using)
 
 When using content types, content item names SHOULD include the content type name followed by a short description of its use. This makes it easier for users to understand the structure of the page.
 
@@ -165,49 +238,22 @@ Staff profile - Professor Sally Mapstone, Principal
 ```
 
 
-### 4.2 Content type name in content layout
-
-The content type name MUST never be output onto the HTML page. In other words, never use the following T4 tag in a content type layout:
-
-```
-<t4 type="content" name="Name" output="normal" modifiers=""  />
-```
-
-The content type name MUST be used solely as an identifier in the T4 backend.
 
 
-### 4.3 Content type elements
+---
 
-* Content type element names MUST be simple and easy to understand.
-* Content type element descriptions MUST be completed for all elements.
-
-Element names need to be straightforward and simple. Description must also be filled out (unless the name alone is sufficent, eg. Section links).
-
-
-### 4.4 List items
+## 6. List items
 
 Try to make lists as reusable as you can, and make the list and list items names simple but descriptive. 
 
 eg. To control the sizing of an element you make a list holding various bootstrap sizing classes. Name this `Bootstrap sizing` and elements `Small` with a value of `col-sm-4` and etc.
 
 
-### 4.5 Character limits
-
-In general we have several levels of character limits.
-
-*Usage* | *Character limit* 
---- | --- 
-Title / button text | 80
-Links / small items | 1024-2048
-Plain text | 25,000
-General / Large containers  | 96,000
-
-
 
 
 ---
 
-## 5. Navigation objects
+## 7. Navigation objects
 
 Navigation objects are used primarily within page layouts.
 
@@ -247,9 +293,7 @@ link - about
 
 ---
 
-## 6. Groups
-
-### 6.1 Access
+## 8. Groups
 
 Access to content and assets within T4 MUST be assigned on a group basis.
 
@@ -258,14 +302,14 @@ Access to content and assets within T4 MUST be assigned on a group basis.
 * Groups must be assigned to sections, content types, page layouts, navigation objects, media library directories, etc.
 
 
-### 6.2 Group names
+### 8.1 Group names
 
 Ideally, groups SHOULD be named by function (such as Orientation) rather than organisational structure (such as Student Services). Group names:
 
 * MUST begin with a capital letter.
 * MUST use only A-Z, a-z, 0-9 and hyphen.
 * MUST NOT end with a full-stop.
-* MAY use abbreviations if these are well known.
+* MAY use abbreviations only if these are well known.
 
 Good examples
 
@@ -282,7 +326,7 @@ Service manual - corporate ID
 
 ---
 
-## 7. Channel names
+## 9. Channel names
 
 Channels are used to assemble content to publish to a website. Channel names:
 
@@ -303,7 +347,7 @@ RSS feed
 
 ---
 
-### 8. Media content types
+### 10. Media content types
 
 Media is a special, system-wide content type that determines how media items from the media library appear on a published webpage.
 
@@ -335,7 +379,7 @@ xml/*
 
 ---
 
-### 9. Media library
+### 11. Media library
 
 The media library should match the structure of the website. 
 
@@ -344,7 +388,7 @@ The media library should match the structure of the website.
 
 ---
 
-### 10. Filenames
+### 12. Filenames
 
 Regex pattern: `([a-z0-9\-]+).([a-z0-9]{3,})`
 
@@ -381,7 +425,7 @@ The digital communications team reserves the right to change (or request changes
 
 ---
 
-## 11. Metadata
+## 13. Metadata
 
 Metadata MUST be completed for all new sections. 
 
@@ -391,14 +435,14 @@ There are currently only two [Dublin Core metadata](http://dublincore.org/docume
 * `DC.description`
 
 
-### 11.1 DC.title
+### 13.1 DC.title
 
 Dublin Core defines [DC.title](http://dublincore.org/documents/usageguide/elements.shtml) as "the name given to the resource. Typically, a title will be a name by which the resource is formally known."
 
 * This SHOULD be the page heading, which also SHOULD be the same as the section name.
 
 
-### 11.2 DC.description
+### 13.2 DC.description
 
 Dublin Core defines [DC.description](http://dublincore.org/documents/usageguide/elements.shtml) as "An account of the content of the resource. Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content or a free-text account of the content."
 
@@ -411,6 +455,6 @@ Dublin Core defines [DC.description](http://dublincore.org/documents/usageguide/
 
 ---
 
-## References
+## 14. References
 
 * [Dublin Core metadata](http://dublincore.org/documents/usageguide/elements.shtml)
