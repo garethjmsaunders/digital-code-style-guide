@@ -24,7 +24,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [8. Media types](#8-media-types)
     - [9. Media library](#9-media-library)
     - [10. Filenames](#10-filenames)
-    - [11. Metadata](#11-metadata)
+- [11. Metadata](#11-metadata)
     - [11.1 DC.title](#111-dctitle)
     - [11.2 DC.description](#112-dcdescription)
 - [References](#references)
@@ -222,8 +222,18 @@ Users are NOT assigned things, rather we put Users in Groups and assign those Gr
 
 ## 7. Channel names
 
-A channel serves as a way to assemble and direct content to the website or alternative output. T4 must have access to the stored content on the target web server for it to publish the content. A channel can also contain one or more micro sites. Micro sites can have a different domain or sub-domain to the parent channel or it can be a sub-directory of the main channel if needed.
+* MUST be short and descriptive.
+* MUST begin with a capital letter.
+* MUST NOT include camelCase.
+* MUST NOT end with a full-stop.
 
+Good examples
+```
+External website
+Internal website
+Sandbox
+RSS feed
+```
 
 
 
@@ -293,7 +303,7 @@ The digital communications team reserves the right to change (or request changes
 
 ---
 
-### 11. Metadata
+## 11. Metadata
 
 Metadata MUST be completed for all new sections. 
 
@@ -318,6 +328,10 @@ Dublin Core defines [DC.description](http://dublincore.org/documents/usageguide/
 * House style MUST be adhered to.
 * Sentences MUST NOT exceed 160 characters.
 
+
+
+
+---
 
 ## References
 
