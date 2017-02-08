@@ -23,7 +23,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [6.1 Access](#61-access)
     - [6.2 Group names](#62-group-names)
 - [7. Channel names](#7-channel-names)
-    - [8. Media types](#8-media-types)
+    - [8. Media content types](#8-media-content-types)
     - [9. Media library](#9-media-library)
     - [10. Filenames](#10-filenames)
 - [11. Metadata](#11-metadata)
@@ -84,8 +84,48 @@ physics-pod
 
 ## 3. Page layouts
 
-TODO: Discuss more if we will need more than 1 or 2 page layouts. May remove this section if needed.
-TODO: Need to research/test what is capable with programmable layouts
+Page layouts are used to standardise the appearance of content on your page. Page layout names:
+
+Use a [BEM](http://getbem.com/naming/)-like naming convention which splits components' classes into three groups:
+
+* Block: The root of the component (e.g. external website, school website, etc.).
+* Element: A component part of the block (e.g. homepage, content page, etc.).
+* Modifier: A variant or extension of the block or element.
+
+Page layout names MUST use only one of the following formats:
+
+```
+block__element
+block__element--modifier
+block--modifier
+```
+
+* MUST use only a-z, 0-9, underscore or hyphen.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations if these are well known.
+* MUST use two underscores (`__`) between block and element.
+* MUST use two hyphens (`--`) between block and modifier, or element and modifier.
+
+Good examples
+
+```
+// block__element
+external__home
+
+// block__element--modifier
+external__content--full-width
+external__content--aside
+global__blank--html
+school__home--arts
+school__home--divinity
+school__home--medicine
+school__home--science
+
+// block--modifier
+htaccess--staff-only
+htaccess--staff-student
+
+```
 
 
 
@@ -181,13 +221,7 @@ Also name for navigation objects must be lowercase.
 
  will primarily sit in page layouts, but still make them descriptive with their names, as the names now show up in the navigation object tag. We use a BEM-like naming for navigation objects.
 
-BEM, meaning block, element, modifier, is a front-end methodology coined by developers working at Yandex. While BEM is a complete methodology, here we are only concerned with its naming convention. Further, the naming convention here only is BEM-like; the principles are exactly the same, but the actual syntax differs slightly.
 
-BEM splits components' classes into three groups:
-
-* Block: The sole root of the component.
-* Element: A component part of the block.
-* Modifier: A variant or extension of the block.
 
 An example:
 
@@ -269,7 +303,7 @@ RSS feed
 
 ---
 
-### 8. Media types
+### 8. Media content types
 
 Media is a special, system-wide content type that determines how media items from the media library appear on a published webpage.
 
