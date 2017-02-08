@@ -1,6 +1,6 @@
 # T4 naming style guide
 
-version 0.6.1
+version 0.6.2
 Last updated: Wednesday 8 February 2017
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
