@@ -241,15 +241,29 @@ RSS feed
 
 ### 8. Media types
 
-Media types should be named following this structure:
+Media is a special, system-wide content type that determines how media items from the media library appear on a published webpage.
 
-File extension/*
+Content layouts for media content types MUST follow this pattern:
 
-e.g.
+> file_type/*
+
+
+* The file type MUST be descriptive using either a generic type (image, application, path) or the file extension (e.g. css, docx, pdf).
+* The content layout name MUST be lowercase
+
+Good examples
+
 ```
+application/*
 css/*
+docx/*
+image/*
 js/*
-html/*
+path/*
+pdf/*
+pptx/*
+xslx/*
+xml/*
 ```
 
 
