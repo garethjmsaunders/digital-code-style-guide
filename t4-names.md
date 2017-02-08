@@ -1,7 +1,7 @@
 # T4 naming style guide
 
-version 0.5.3
-Last updated: Tuesday 7 February 2017
+version 0.5.5
+Last updated: Wednesday 8 February 2017
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -160,9 +160,25 @@ Links / small items | 1024-2048
 Plain text | 25,000
 General / Large containers  | 96,000
 
+
+
+
 ### 2.4 Navigation objects
 
-Navigation objects will primarily sit in page layouts, but still make them descriptive with their names, as the names now show up in the navigation object tag. We use a BEM-like naming for navigation objects.
+Navigation objects are used primarily within page layouts.
+
+
+section name
+
+
+STEVE: T4 style guide for related content navigation objects - the name of the navigation object must refer to the content type and alternate formatter in the name e.g. 'programmable layout - text/footer'.  This saves a lot of detective work.
+
+Also name for navigation objects must be lowercase.
+
+
+
+
+ will primarily sit in page layouts, but still make them descriptive with their names, as the names now show up in the navigation object tag. We use a BEM-like naming for navigation objects.
 
 BEM, meaning block, element, modifier, is a front-end methodology coined by developers working at Yandex. While BEM is a complete methodology, here we are only concerned with its naming convention. Further, the naming convention here only is BEM-like; the principles are exactly the same, but the actual syntax differs slightly.
 
