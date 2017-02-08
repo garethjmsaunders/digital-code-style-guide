@@ -24,7 +24,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [2.6 Channel names](#26-channel-names)
     - [2.7 Media types](#27-media-types)
     - [2.8 Media library](#28-media-library)
-    - [2.9 File names](#29-file-names)
+    - [2.9 Filenames](#29-filenames)
     - [2.10 Metadata](#210-metadata)
         - [2.10.1 DC.title](#2101-dctitle)
         - [2.10.2 DC.description](#2102-dcdescription)
@@ -191,13 +191,22 @@ Generate file - file-name.txt
 link - about
 ```
 
+
+
+
 ### 2.5 Groups
 
 Users are NOT assigned things, rather we put Users in Groups and assign those Groups theings (Sections, Content types, page layouts, naviagtion objects, media library folders, etc). 
 
+
+
+
 ### 2.6 Channel names
 
 We name channels and stuff.
+
+
+
 
 ### 2.7 Media types
 
@@ -212,27 +221,50 @@ js/*
 html/*
 ```
 
+
+
+
 ### 2.8 Media library
 
 The media library should match the structure of the website. 
 
-### 2.9 File names
 
-Filenames
 
-http://www.st-andrews.ac.uk/digital-standards/service-manual/filenames/
 
-TODO for t4: Regex pattern: ```(([a-z])+-*)*.filename```
+### 2.9 Filenames
 
-Following this convention:
+Regex pattern: `([a-z0-9\-]+).([a-z0-9]{3,})`
 
-- Files SHOULD be named descriptively using lowercase letters.
-- Words MUST be separated by hyphens.
-- Filenames MUST never end with .inc. If you use an included file use a double suffix: .inc.php.
+The following guidance is taken from the digital standard service manual page on [filenames](https://www.st-andrews.ac.uk/digital-standards/service-manual/filenames/).
+
+Files MUST be named in a consistent way according to the guidelines below. This will ensure they are web safe.
+
+* You MUST use only lowercase letters (`a-z`), numerals (`0-9`), and hyphens (`-`).
+* You MUST NOT use special characters (e.g. `á`, `ê`, `ï`, `õ`, `ù`) or other punctuation marks, including underscores (`_`).
+* You MUST NOT use spaces: instead you MUST use hyphens in place of spaces to delimit words.
+* You MUST NOT include dates or version numbers in filenames.
+* Filenames MUST be short, meaningful and descriptive.
+
+Correct
 ```
-filename.jpg
-my-document-name.pdf
+guidance-notes-for-direct-applicants.pdf
+visiting-day-programme.pdf
+william-and-mary.docx
+ug-prospectus.pdf
 ```
+
+Incorrect
+```
+Guidance notes for direct applicants.pdf
+VDprog.pdf
+william-&-mary-version-2.1.docx
+ug-prospectus-2016-2017.pdf
+```
+
+The digital communications team reserves the right to change (or request changes to) filenames if they do not meet digital best practice.
+
+
+
 
 ### 2.10 Metadata
 
