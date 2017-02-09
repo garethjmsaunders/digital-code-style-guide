@@ -110,7 +110,7 @@ physics-pod
 
 ## 3. Page layouts
 
-Page layouts are used to standardise the appearance of content on your page.
+Page layouts are used to standardise the appearance of content on your page. The number of page layouts SHOULD be kept to an absolute minimum: there may arise occasions where it's necessary to create more. Page layouts SHOULD always be reusable and not a one-off page layout. They MUST be named with sentence case.
 
 Use a [BEM](http://getbem.com/naming/)-like naming convention that splits components' classes into three groups:
 
@@ -190,6 +190,8 @@ Good examples
 
 One exception is when more than one content type is required to build the pattern. In this case the content type name SHOULD be prefixed with the pattern name followed by a space-hyphen-space and then the modifier or option.
 
+For example, in `Navbox grid` because we need to wrap a number of individual Navbox content items with HTML we need to create separate content types to mark the start (`Navbox grid - start`) and end (`Navbox grid - end`) of the navbox grid.
+
 | DPL pattern name | Content type name     | Description                 |
 |:---------------- |:--------------------- |:--------------------------- |
 | Navbox grid      | `Navbox grid - start` | Navbox grid - START - use this to start the row. |
@@ -199,6 +201,8 @@ One exception is when more than one content type is required to build the patter
 
 ### 4.2 Elements
 
+Elements are the input fields that T4 editors see that get turned into the various bits of content in content items.
+
 #### 4.2.1 Element names
 
 Content type element names MUST be simple and easy to understand.
@@ -207,6 +211,8 @@ Content type element names MUST be simple and easy to understand.
 * MUST use only A-Z, a-z, 0-9, spaces or hyphens.
 * MUST NOT end with a full-stop.
 * MAY use abbreviations only if these are well known.
+
+Note that the default 'Name' element is required and cannot be deleted. T4 uses this as a user-friendly filename within the T4 admin interface. This MUST NOT be output onto the HTML page, see 4.4 below.
 
 
 #### 4.2.2 Element descriptions
@@ -581,6 +587,8 @@ Categorized
 
 
 ### 11.1 Category folders
+
+When published, T4 converts all characters to lowercase and replaces spaces with hyphens.
 
 * MUST begin with a capital letter.
 * MUST use sentence case.
