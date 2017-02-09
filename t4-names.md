@@ -22,11 +22,18 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [6.1 Name](#61-name)
     - [6.2 Value](#62-value)
 - [7. Navigation objects](#7-navigation-objects)
+    - [7.1 Breadcrumbs](#71-breadcrumbs)
+    - [7.2 Generate file](#72-generate-file)
+    - [7.3 Link menu](#73-link-menu)
+    - [7.4 Related content](#74-related-content)
+    - [7.5 Section details](#75-section-details)
 - [8. Groups](#8-groups)
     - [8.1 Group names](#81-group-names)
 - [9. Channel names](#9-channel-names)
 - [10. Media content types](#10-media-content-types)
 - [11. Media library](#11-media-library)
+    - [11.1 Category folders](#111-category-folders)
+    - [11.2 Asset subfolders](#112-asset-subfolders)
 - [12. Filenames](#12-filenames)
 - [13. Metadata](#13-metadata)
     - [13.1 DC.title](#131-dctitle)
@@ -52,7 +59,7 @@ Any new T4 assets MUST use these guidelines for naming.
 ### 2.1 Section names
 
 In T4 for the most part a section is equal to a web page. Section names are used in the creation of menu items and often in populating the `<title>` element on a page. Section names:
- 
+
 * MUST be descriptive. 
 * MUST begin with a capital letter. 
 * MUST use only A-Z, a-z, 0-9 and hyphen. 
@@ -74,7 +81,7 @@ Output URIs:
 
 * SHOULD always be defined.
 * MUST be meaningful.
-* MUST use only A-Z, a-z, 0-9 and hyphen. 
+* MUST use only a-z, 0-9 and hyphen. 
 * MUST use hyphens to separate words.
 * MAY use abbreviations only if these are well known.
 
@@ -103,9 +110,9 @@ physics-pod
 
 ## 3. Page layouts
 
-Page layouts are used to standardise the appearance of content on your page. Page layout names:
+Page layouts are used to standardise the appearance of content on your page.
 
-Use a [BEM](http://getbem.com/naming/)-like naming convention which splits components' classes into three groups:
+Use a [BEM](http://getbem.com/naming/)-like naming convention that splits components' classes into three groups:
 
 * Block: The root of the component (e.g. external website, school website, etc.).
 * Element: A component part of the block (e.g. homepage, content page, etc.).
@@ -143,7 +150,6 @@ school__home--science
 // block--modifier
 htaccess--staff-only
 htaccess--staff-student
-
 ```
 
 
@@ -249,7 +255,7 @@ When using content types, content item names MUST include the content type name 
 * Must begin with the content type name.
 * Content type and short description MUST be separated by a space, hyphen and space, thus: `Content type - Description`.
 * Both content type and description MUST begin with a capital letter.
-* MUST use only A-Z, a-z, 0-9, spaces or hyphens.
+* MUST use only A-Z, a-z, 0-9, spaces, commas or hyphens.
 * MUST NOT end with a full-stop.
 * MAY use abbreviations only if these are well known.
 
@@ -289,6 +295,7 @@ The list item names should be user-centred and descriptive. This is what appears
 
 The value is what is inserted into the HTML code on the page.
 
+* SHOULD begin with a capital letter.
 * MUST use only a-z, 0-9, or hyphens.
 * MUST NOT end with a full-stop.
 
@@ -300,7 +307,7 @@ Good examples
 |:------------------ |:------------- |
 | Success (green)    | alert-success |
 | Information (blue) | alert-info    |
-| Warning (beige)    | alert-warning |
+| Warning (yellow)    | alert-warning |
 | Danger (red)       | alert-danger  |
 
 
@@ -320,37 +327,135 @@ Good examples
 
 ## 7. Navigation objects
 
-Navigation objects are used primarily within page layouts.
+Navigation objects are largely used to create navigation structures and pull in content from other parts of a site.
 
+Use a [BEM](http://getbem.com/naming/)-like naming convention that splits components' classes into three groups:
 
-section name
+* Block: The root of the component (e.g. external website, school website, etc.).
+* Element: A component part of the block (e.g. homepage, content page, etc.).
+* Modifier: A variant or extension of the block or element.
 
+Page layout names MUST use only one of the following formats:
 
-STEVE: T4 style guide for related content navigation objects - the name of the navigation object must refer to the content type and alternate formatter in the name e.g. 'programmable layout - text/footer'.  This saves a lot of detective work.
-
-Also name for navigation objects must be lowercase.
-
- will primarily sit in page layouts, but still make them descriptive with their names, as the names now show up in the navigation object tag. We use a BEM-like naming for navigation objects.
-
-
-
-An example:
-
-This is the template for related content:
- - page element - section this is for
-
-e.g.
 ```
-footer - scripts
+block__element
+block__element--modifier
+block--modifier
 ```
 
-Template for section details:
- - name of the nav object type - section it refers to / usage
+* MUST use only a-z, 0-9, underscore or hyphen.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations only if these are well known.
+* MUST use two underscores (`__`) between block and element.
+* MUST use two hyphens (`--`) between block and modifier, or element and modifier.
+* Block MUST always be the name of the navigation object type.
 
-e.g.
+
+### 7.1 Breadcrumbs
+
+* Block MUST be `breadcrumbs`.
+* Element MUST be the channel name.
+* Modifier MUST be the breadcrumb length (with details).
+
 ```
-Generate file - file-name.txt
-link - about
+breadcrumbs__external-website--full-path
+breadcrumbs__external-website--level-1-to-4
+breadcrumbs__external-website--max-length-3
+```
+
+
+### 7.2 Generate file
+
+* Block MUST be `generate-file`.
+* Element MUST be the name of the file to output, e.g. `.htaccess`.
+* Modifier MUST be the name of the alternate formatter used, e.g. `text/htaccess` would be `text-htaccess`.
+
+```
+generate-file__htaccess--text-htaccess
+```
+
+
+### 7.3 Link menu
+
+* Block MUST be `link-menu`.
+* Element MUST be the menu type (`branch-at-level`, `children`, `siblings` or `children-and-siblings`).
+* Modifier (`branch-at-level` only) MUST indicate the depth.
+
+```
+link-menu__branch-at-level--level-3
+link-menu__children
+link-menu__siblings
+```
+
+
+### 7.4 Related content
+
+#### 7.4.1 Child sections
+
+* Block MUST be `rel-content`.
+* Element MUST be `child`.
+* Modifier MUST be the name of the child section.
+
+```
+rel-content__child--aside
+rel-content__child--aside-global
+rel-content__child--footer
+rel-content__child--footer-global
+rel-content__child--hero-banner
+```
+
+
+#### 7.4.2 Specific sections
+
+* Block MUST be `rel-content`.
+* Element MUST be `section`.
+* Modifier MUST be the specific name of the section.
+
+```
+rel-content__section--dpl-version
+rel-content__section--footer-scripts
+rel-content__section--footer-small
+rel-content__section--head
+rel-content__section--header-default
+rel-content__section--header-external-homepage
+rel-content__section--navigation-top-level
+```
+
+
+#### 7.4.3 Alternate content layout
+
+* Block MUST be `rel-content`.
+* Element MUST be `alt-layout`.
+* Modifier MUST be the name of the alternate formatter used, e.g. `text/htaccess` would be `text-htaccess`.
+
+```
+rel-content__alt-layout--text-cta
+rel-content__alt-layout--text-breadcrumbs
+rel-content__alt-layout--text-footer
+rel-content__alt-layout--text-header
+rel-content__alt-layout--text-menu
+rel-content__alt-layout--text-scripts
+```
+
+
+### 7.5 Section details
+
+* Block MUST be `section-details`.
+* Element MUST be the output detail. Options are:
+    - Section ID - `id`
+    - Section name - `name`
+    - Section path - `path`
+    - Link to section - `link`
+* Modifier MUST be the specific name of the section, or in the case of `link` and `name` the level required.
+
+```
+section-details__id--facts-and-figures
+section-details__link--level-2
+section-details__name--level-2
+section-details__path--about
+section-details__path--business-services
+section-details__path--community-facilities
+section-details__path--external-homepage
 ```
 
 
@@ -446,7 +551,70 @@ xml/*
 
 ## 11. Media library
 
-The media library should match the structure of the website. 
+The structure of the media library SHOULD match the structure of the website—this makes it much easier to find assets
+
+Asset subfolders MUST exist beneath each section to store different categories of assets.
+
+For example:
+
+```
+Categorized
+|-- University
+|   |-- About
+|   |   |-- documents
+|   |   |-- images
+|   |-- Digital standards
+|   |   |-- Service manual
+|   |   |   |-- documents
+|   |   |   |-- images
+|   |   |   |-- restricted
+|   |-- About
+|   |   |-- documents
+|   |   |-- images
+|   |   |   |-- 360x240
+|   |   |   |-- graduating-students
+|   |   |   |-- graduation-gallery
+|   |   |   |-- hero-banner
+|   |   |   |-- previous-ceremonies
+|   |   |   |-- tiles
+```
+
+
+### 11.1 Category folders
+
+* MUST begin with a capital letter.
+* MUST use sentence case.
+* MUST use only A-Z, a-z, 0-9 spaces and hyphens.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations only if these are well known.
+
+```
+Categorized
+|-- University
+|   |-- About
+|   |-- Digital standards
+|   |   |-- Service manual
+|   |-- About
+```
+
+
+### 11.2 Asset subfolders
+
+* MUST use only a-z, 0-9 and hyphens.
+* MUST NOT end with a full-stop.
+* MAY use abbreviations only if these are well known.
+
+```
+360x240
+documents
+graduating-students
+graduation-gallery
+hero-banner
+images
+previous-ceremonies
+restricted
+tiles
+```
 
 
 
