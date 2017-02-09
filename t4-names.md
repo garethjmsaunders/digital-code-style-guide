@@ -51,17 +51,34 @@ Any new T4 assets MUST use these guidelines for naming.
 
 ### 2.1 Section names
 
-In T4, section names are used to create the page URL unless an output URI is specified. It does this by stripping out all spaces and punctuation and converting the result to lowercase.
+In T4 for the most part a section is equal to a web page. Section names are used in the creation of menu items and often in populating the `<title>` element on a page. Section names:
+ 
+* MUST be descriptive. 
+* MUST begin with a capital letter. 
+* MUST use only A-Z, a-z, 0-9 and hyphen. 
+* MUST NOT end with a full-stop. 
+* MAY use abbreviations only if these are well known.
+
 
 ### 2.2 Output URIs
 
-See http://www.st-andrews.ac.uk/digital-standards/service-manual/links/
+In T4, the URI of a section is created from the section name (unless an output URI is specified). It does this by stripping out all spaces and punctuation and converting the result to lowercase.
 
 So, for example, a section name of "Academic Schools and Departments" will become `academicschoolsanddepartments`.
 
-* Output URIs SHOULD always be defined.
-* Output URIs MUST use hyphens to separate words and all lower case letters.
-* Output URLs SHOULD always be meaningful: avoid obscure abbreviations.
+To comply with the links policy this should be changed to either `academic-schools-and-departments` or better `schools`
+
+See the service manual [links policy](http://www.st-andrews.ac.uk/digital-standards/service-manual/links/) for more information about creating links.
+
+Output URIs:
+
+* SHOULD always be defined.
+* MUST be meaningful.
+* MUST use only A-Z, a-z, 0-9 and hyphen. 
+* MUST use hyphens to separate words.
+* MAY use abbreviations only if these are well known.
+
+Good examples
 
 ```
 events
