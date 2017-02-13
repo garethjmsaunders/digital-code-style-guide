@@ -58,7 +58,7 @@ Any new T4 assets MUST use these guidelines for naming.
 
 ### 2.1 Section names
 
-In T4 for the most part a section is equal to a web page. Section names are used in the creation of menu items and often in populating the `<title>` element on a page. Section names:
+Section are normally equal to a web page. Section names are used in the creation of menu items and often in populating the `<title>` element on a page. Section names:
 
 * MUST be descriptive. 
 * MUST begin with a capital letter. 
@@ -69,11 +69,9 @@ In T4 for the most part a section is equal to a web page. Section names are used
 
 ### 2.2 Output URIs
 
-In T4, the URI of a section is created from the section name (unless an output URI is specified). It does this by stripping out all spaces and punctuation and converting the result to lowercase.
+In T4, the URI of a section is created from the section name (unless an output URI is specified). It does this by stripping out punctuation, replacing spaces with hyphens and converting the result to lowercase.
 
-So, for example, a section name of "Academic Schools and Departments" will become `academicschoolsanddepartments`.
-
-To comply with the links policy this should be changed to either `academic-schools-and-departments` or better `schools`
+So, for example, a section name of "Academic Schools and Departments" will become `academic-schools-and-departments`. Ideally the URI should be kept short so in this example it would be better to have the URI set to `schools`.
 
 See the service manual [links policy](http://www.st-andrews.ac.uk/digital-standards/service-manual/links/) for more information about creating links.
 
