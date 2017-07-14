@@ -1,11 +1,11 @@
 # .htaccess style and standards guide
 
-Version 0.4.0
-Last updated: Wednesday 10 August 2016
+Version 0.5.0
+Last updated: Friday 14 July 2017
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC depth="3" -->
 
 - [1. About .htaccess](#1-about-htaccess)
 - [2. What we use .htaccess for](#2-what-we-use-htaccess-for)
@@ -29,7 +29,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [Any member of staff from any .ac.uk institution with whom we interoperate](#any-member-of-staff-from-any-acuk-institution-with-whom-we-interoperate)
     - [Any member of staff from any institution within whom we interoperate](#any-member-of-staff-from-any-institution-within-whom-we-interoperate)
     - [Any staff or student from anywhere](#any-staff-or-student-from-anywhere)
-    - [Any particular first name \(e.g. ‘Chris’\)](#any-particular-first-name-eg-‘chris’)
+    - [Any particular first name \(e.g. ‘Chris’\)](#any-particular-first-name-eg-%E2%80%98chris%E2%80%99)
     - [Any St Andrews user](#any-st-andrews-user)
     - [Lists of users](#lists-of-users)
         - [General notes](#general-notes)
@@ -246,10 +246,6 @@ In the case of .htaccess files that offer password-protection only, you MAY omit
 Every new major section and sub-section of a .htaccess file MUST be prefixed with a section title and meta information.
 
 ```
-
-
-
-
 # ==========================================================================
 #  NAME OF MAIN SECTION (IN ALL CAPS)
 # ========================================================================== 
@@ -258,9 +254,12 @@ Every new major section and sub-section of a .htaccess file MUST be prefixed wit
 # Name of sub-section (in sentence case)
 # --------------------------------------------------------------------------
 # @owner        Name, School or unit <email@st-andrews.ac.uk>
-# @description  Reason for creating this 
-# @since        1.2.0
+# @description  Reason for creating this.
+# @see          UniDesk number, e.g. I170714-0045
+# @since        1.2.0   // This is the version number of the file.
 # @added        2016-08-08
+# @author       Name of developer who added this block <email@st-andrews.ac.uk>
+# @version      1.0.0   // This is the version of this block. Start at 1.0.0.
 # @review       2016-11-08
 
 Redirect 301 /path/to/old/url/1 https://www.st-andrews.ac.uk/path/to/new/url/1
@@ -276,24 +275,86 @@ Redirect 301 /path/to/old/url/3 https://www.st-andrews.ac.uk/path/to/new/url/3
 
 Each block MUST contain the following information:
 
+
 **Name of sub-section**
-This should be a meaningful name to describe the block, e.g. School of Economics website redesign.
+This should be a meaningful name to describe the block, e.g. School of Economics website redesign. It must be followed with a line of dashes.
+
+```
+# Name of sub-section (in sentence case)
+# --------------------------------------------------------------------------
+```
+
 
 **@owner**
-The name, and school or unit, and email address of the person who requested the redirects to be created. This allows us to contact them in the future should we have any questions.
+The name, and school or unit, and email address of the person who requested the redirects to be created. This allows us to contact them in the future should we have any questions. Use this format:
+
+```
+# @owner    Gareth J M Saunders <gjms1@st-andrews.ac.uk>
+```
+
 
 **@description**
-General description about the reason why the redirect was created, e.g. Created because an email went out to alumni with an outdated URL.
+General description about the reason why the redirect was created.
 
 It can be helpful if you record here whether this redirect is linked to an email or print campaign.
 
+If the comment overflows to a second or third line, it must be aligned with the start of the first line.
+
+```
+# @description    Created because an email went out to alumni with an outdated
+                  URL.
+```
+
+
+**@see** (optional)
+Where can you find out more information about what is being added? This can be a cross-reference to another part of the .htaccess file, to a UniDesk support call, or to a URI.
+
+When referencing UniDesk support calls, add only the call number, e.g. I170714-0045. If you need to add more than one call number create a comma-separated list, e.g. I170714-0045, I171111-0027.
+
 If you find an answer online (for example, on Stack Overflow, or a blog) then you SHOULD add the link to the description so future developers know what's up.
 
+If you need to reference more than one source you may include more than one @see field.
+
+```
+# @see    I170714-0045
+# @see    https://stackoverflow.com/questions/4398951/force-ssl-https-using-htaccess-and-mod-rewrite
+```
+
+
 **@since** (optional)
-Which version of the .htaccess this was added; the version number can be found in the file title. This can help us track when changes were made.
+Which version of the .htaccess to which this was added; the version number can be found in the file title. This can help us track when changes were made.
+
+```
+# @since    1.2.3
+```
+
 
 **@added**
 The date that these directives were added to the .htaccess file. This MUST be in ISO date format, i.e. `yyyy-mm-dd`.
+
+```
+# @added    2017-07-14
+```
+
+
+**@author**
+It can be very helpful to include information about which developer added this block. This information must be in the same format as the @owner field.
+
+You may include more than one @author field. This is useful if a second developer has made any changes to the original entry. List authors in the order they worked on the code, with earlier authors at the top.
+
+```
+# @author    Aaron Lott <al244@st-andrews.ac.uk>
+# @author    Gareth J M Saunders <gjms1@st-andrews.ac.uk>
+```
+
+
+**@version**
+The current version of the code block (not the file as a whole). This must be in semantic versioning format: major.minor.build. Version numbers for blocks must begin at v1.0.0.
+
+```
+# @version: 1.0.0
+```
+
 
 **@review**
 The date that these directives should be reviewed and potentially removed from the .htaccess file. This MUST be in ISO date format, i.e. `yyyy-mm-dd`.
@@ -304,6 +365,9 @@ Before adding redirects you MUST ask the owner how long they should remain in pl
 
 If this section does not expire then mark it as permanent.
 
+```
+# @review    2017-10-14
+```
 
 
 
