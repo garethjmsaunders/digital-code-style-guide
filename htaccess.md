@@ -313,7 +313,7 @@ When referencing UniDesk support calls, add only the call number, e.g. I170714-0
 
 If you find an answer online (for example, on Stack Overflow, or a blog) then you SHOULD add the link to the description so future developers know what's up.
 
-If you need to reference more than one source you may include more than one @see field.
+If you need to reference more than one source you MAY include more than one @see field.
 
 ```
 # @see    I170714-0045
@@ -338,7 +338,7 @@ The date that these directives were added to the .htaccess file. This MUST be in
 
 
 **@author**
-It can be very helpful to include information about which developer added this block. This information must be in the same format as the @owner field.
+It can be very helpful to include information about which developer added this block. This information MUST be in the same format as the @owner field.
 
 You may include more than one @author field. This is useful if a second developer has made any changes to the original entry. List authors in the order they worked on the code, with earlier authors at the top.
 
@@ -349,7 +349,7 @@ You may include more than one @author field. This is useful if a second develope
 
 
 **@version**
-The current version of the code block (not the file as a whole). This must be in semantic versioning format: major.minor.build. Version numbers for blocks must begin at v1.0.0.
+The current version of the code block (not the file as a whole). This MUST be in semantic versioning format: major.minor.build. Version numbers for blocks MUST begin at v1.0.0.
 
 ```
 # @version: 1.0.0
