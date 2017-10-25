@@ -1,12 +1,13 @@
 # .htaccess style and standards guide
 
-Version 0.5.0
-Last updated: Friday 14 July 2017
+Version 0.6.0
+Last updated: Monday 23 October 2017
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 <!-- MarkdownTOC depth="3" -->
 
+- [Introduction](#introduction)
 - [1. About .htaccess](#1-about-htaccess)
 - [2. What we use .htaccess for](#2-what-we-use-htaccess-for)
 - [4. Version controlled](#4-version-controlled)
@@ -38,6 +39,17 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
     - [9.2 Password-protect .htaccess file example](#92-password-protect-htaccess-file-example)
 
 <!-- /MarkdownTOC -->
+
+
+
+
+---
+
+## Introduction
+
+This style guide concerns itself primarily with .htaccess files for Apache httpd servers. However, many of the guidelines, particularly around comments, may also apply to other server-level configuration files, such as for HAProxy.
+
+This style guide does not go into the details of the various syntaxes used for other server-level configuration files. It concerns itself only with .htaccess file syntax.
 
 
 
