@@ -442,11 +442,11 @@ The enumerator names are usually identifiers that behave as constants in the lan
 In other words, an enum restricts variables to one value from a predefined set of constants. For example,
 
 ```
-var WeekDay = { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY };
+var weekday = { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY };
 ```
 
 * Enums MUST be entirely lowercase
-* Enums SHOULD be named to clearly indicate their function, preferably beginning with a verb.
+* Enums SHOULD be named to clearly indicate their function, preferably beginning with a verb, if appropriate.
 * Multiple words MUST be separated with an underscore.
 
 
