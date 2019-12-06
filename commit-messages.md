@@ -1,7 +1,7 @@
 # Commit message style guide
 
-Version 1.3.2
-Last updated: Wednesday 19 October 2016
+Version 1.4.0
+Last updated: Friday 6 December 2019
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -27,6 +27,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 <!-- /MarkdownTOC -->
 
 
+
 ---
 
 ## 1. Introduction
@@ -35,7 +36,7 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 
 This guide outlines how messages SHOULD be formatted when committing or tagging code in any version control system, such as Git or Subversion (SVN).
 
-Commit messages are an integral part of each project's history, along with the changesets themselves. We write commit messages for multiple audiences: 
+Commit messages are an integral part of a project's history, along with the changesets themselves. We write commit messages for multiple audiences: 
 
 * Colleagues (developers on the same project)
 * Future contributors
@@ -76,20 +77,17 @@ Bulleted lists:
 Closes #123
 ```
 
-Only the top line is required, so a minimal commit message might look like
+Only the subject line is required.
 
-```
-TYPE (Component) Brief summary
-```
 
 
 ### 2.1 Subject line
 
 Generally, the subject line comprises three elements:
 
-* `TYPE`
-* `(Component)`
-* `Brief summary`
+```
+TYPE (Component) Brief summary
+```
 
 The only **exception** is when populating a **new repository**. All that is required is a subject line of `Initial commit`.
 
@@ -98,16 +96,23 @@ The only **exception** is when populating a **new repository**. All that is requ
 
 Every commit subject line MUST start with a TYPE in all CAPS and no spaces or other characters preceding it. The recognised types are:
 
+##### Code and tests
+
 | TYPE   | Description                                                        |
 | ------ | ------------------------------------------------------------------ |
-| BREAK  | A breaking change such as removing a feature.                      |
-| DOCS   | Changes to the documentation (readme, API docs, etc.).             |
+| BREAK  | Breaking change such as removing a feature                         |
 | FEAT   | New feature in production code.                                    |
 | FIX    | Bug fix in production code.                                        |
-| FORMAT | Code formatting, code comment change, etc; (compiled-code neutral).|
-| MAINT  | Updating dev-related maintenance ("non-production code") files.    |
+| FORMAT | Code formatting, comment change, etc; (compiled-code neutral).     |
+| TEST   | Add new or edit existing tests tests.                              |
+
+##### Other
+
+| TYPE   | Description                                                        |
+| ------ | ------------------------------------------------------------------ |
+| DOCS   | Changes to the documentation (readme, API docs, etc.).             |
+| MAINT  | Updates to dev-related maintenance ("non-production code") files.  |
 | MERGE  | Pull request to merge branch into another branch or master.        |
-| TEST   | Adding missing tests or editing tests.                             |
 
 
 #### ii. Component
