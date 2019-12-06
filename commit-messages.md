@@ -98,17 +98,17 @@ Every commit subject line MUST start with a TYPE in all CAPS and no spaces or ot
 
 ##### Code and tests
 
-| TYPE   | Description                                                        |
+| Type   | Description                                                        |
 | ------ | ------------------------------------------------------------------ |
 | BREAK  | Breaking change such as removing a feature                         |
 | FEAT   | New feature in production code.                                    |
 | FIX    | Bug fix in production code.                                        |
 | FORMAT | Code formatting, comment change, etc; (compiled-code neutral).     |
-| TEST   | Add new or edit existing tests tests.                              |
+| TEST   | Add new or edit existing tests.                                    |
 
 ##### Other
 
-| TYPE   | Description                                                        |
+| Type   | Description                                                        |
 | ------ | ------------------------------------------------------------------ |
 | DOCS   | Changes to the documentation (readme, API docs, etc.).             |
 | MAINT  | Updates to dev-related maintenance ("non-production code") files.  |
